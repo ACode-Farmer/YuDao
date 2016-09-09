@@ -23,9 +23,11 @@
 }
 
 #pragma mark - dataSource -
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataSource.count>0 ? _dataSource.count : 0 ;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"headerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -35,7 +37,7 @@
     }
     
     HeaderModel *model = _dataSource[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:model.imageName];
+    //cell.imageView.image = [UIImage imageNamed:model.imageName];
     cell.textLabel.text = model.name;
     
     return cell;

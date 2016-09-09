@@ -8,7 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */; };
-		A0493B1F1D817323006FCD50 /* LocationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0493B1E1D817323006FCD50 /* LocationButton.m */; };
+		A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */; };
+		A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82941D828CA200F9EA6B /* UIImage+ChangeIt.m */; };
+		A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */; };
+		A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F829E1D82909400F9EA6B /* MyMseeageModel.m */; };
+		A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82A31D82A34300F9EA6B /* DiscoverTableViewController.m */; };
+		A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82A61D82A3EE00F9EA6B /* RootViewController.m */; };
+		A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82AB1D82A4B300F9EA6B /* DiscoverModel.m */; };
+		A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82B01D82AA9700F9EA6B /* MyselfModel.m */; };
 		A08247751D7FC4BC00DC58C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247741D7FC4BC00DC58C2 /* main.m */; };
 		A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247771D7FC4BC00DC58C2 /* AppDelegate.m */; };
 		A082477E1D7FC4BC00DC58C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A082477C1D7FC4BC00DC58C2 /* Main.storyboard */; };
@@ -61,8 +68,22 @@
 /* Begin PBXFileReference section */
 		A0493B171D812DC4006FCD50 /* PhoneContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactsTableViewController.h; sourceTree = "<group>"; };
 		A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneContactsTableViewController.m; sourceTree = "<group>"; };
-		A0493B1D1D817323006FCD50 /* LocationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationButton.h; sourceTree = "<group>"; };
-		A0493B1E1D817323006FCD50 /* LocationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationButton.m; sourceTree = "<group>"; };
+		A07F82901D82823E00F9EA6B /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
+		A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
+		A07F82931D828CA200F9EA6B /* UIImage+ChangeIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeIt.h"; sourceTree = "<group>"; };
+		A07F82941D828CA200F9EA6B /* UIImage+ChangeIt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeIt.m"; sourceTree = "<group>"; };
+		A07F829A1D828FD900F9EA6B /* MyMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewController.h; sourceTree = "<group>"; };
+		A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewController.m; sourceTree = "<group>"; };
+		A07F829D1D82909400F9EA6B /* MyMseeageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMseeageModel.h; sourceTree = "<group>"; };
+		A07F829E1D82909400F9EA6B /* MyMseeageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMseeageModel.m; sourceTree = "<group>"; };
+		A07F82A21D82A34300F9EA6B /* DiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewController.h; sourceTree = "<group>"; };
+		A07F82A31D82A34300F9EA6B /* DiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewController.m; sourceTree = "<group>"; };
+		A07F82A51D82A3EE00F9EA6B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		A07F82A61D82A3EE00F9EA6B /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		A07F82AA1D82A4B300F9EA6B /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverModel.h; sourceTree = "<group>"; };
+		A07F82AB1D82A4B300F9EA6B /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverModel.m; sourceTree = "<group>"; };
+		A07F82AF1D82AA9700F9EA6B /* MyselfModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfModel.h; sourceTree = "<group>"; };
+		A07F82B01D82AA9700F9EA6B /* MyselfModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfModel.m; sourceTree = "<group>"; };
 		A08247701D7FC4BC00DC58C2 /* YuDao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuDao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08247741D7FC4BC00DC58C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A08247761D7FC4BC00DC58C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +174,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A07F82961D828EAE00F9EA6B /* MyMessage */ = {
+			isa = PBXGroup;
+			children = (
+				A07F829A1D828FD900F9EA6B /* MyMessageTableViewController.h */,
+				A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */,
+				A07F829D1D82909400F9EA6B /* MyMseeageModel.h */,
+				A07F829E1D82909400F9EA6B /* MyMseeageModel.m */,
+			);
+			name = MyMessage;
+			sourceTree = "<group>";
+		};
+		A07F82A01D82A2ED00F9EA6B /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A07F82AD1D82A83500F9EA6B /* MainInterface */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		A07F82A11D82A2F100F9EA6B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		A07F82A81D82A48400F9EA6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A07F82A21D82A34300F9EA6B /* DiscoverTableViewController.h */,
+				A07F82A31D82A34300F9EA6B /* DiscoverTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A07F82A91D82A49800F9EA6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A07F82AA1D82A4B300F9EA6B /* DiscoverModel.h */,
+				A07F82AB1D82A4B300F9EA6B /* DiscoverModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A07F82AD1D82A83500F9EA6B /* MainInterface */ = {
+			isa = PBXGroup;
+			children = (
+				A07F82A91D82A49800F9EA6B /* Model */,
+				A07F82A81D82A48400F9EA6B /* Controller */,
+			);
+			name = MainInterface;
+			sourceTree = "<group>";
+		};
+		A07F82AE1D82A8A200F9EA6B /* MainInterface */ = {
+			isa = PBXGroup;
+			children = (
+				A07F82AF1D82AA9700F9EA6B /* MyselfModel.h */,
+				A07F82B01D82AA9700F9EA6B /* MyselfModel.m */,
+				A08247DD1D7FF71400DC58C2 /* MyselfController.h */,
+				A08247DE1D7FF71400DC58C2 /* MyselfController.m */,
+				A07F82931D828CA200F9EA6B /* UIImage+ChangeIt.h */,
+				A07F82941D828CA200F9EA6B /* UIImage+ChangeIt.m */,
+			);
+			name = MainInterface;
+			sourceTree = "<group>";
+		};
 		A08247671D7FC4BC00DC58C2 = {
 			isa = PBXGroup;
 			children = (
@@ -173,8 +260,13 @@
 		A08247721D7FC4BC00DC58C2 /* YuDao */ = {
 			isa = PBXGroup;
 			children = (
-				A08247DC1D7FF70B00DC58C2 /* Myself */,
+				A07F82A51D82A3EE00F9EA6B /* RootViewController.h */,
+				A07F82A61D82A3EE00F9EA6B /* RootViewController.m */,
+				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
 				A082478A1D7FC53900DC58C2 /* HomePage */,
+				A07F82A01D82A2ED00F9EA6B /* Discover */,
+				A07F82A11D82A2F100F9EA6B /* Service */,
+				A08247DC1D7FF70B00DC58C2 /* Myself */,
 				A08247EC1D7FFC6700DC58C2 /* Search */,
 			);
 			path = YuDao;
@@ -187,7 +279,6 @@
 				A08247741D7FC4BC00DC58C2 /* main.m */,
 				A08247761D7FC4BC00DC58C2 /* AppDelegate.h */,
 				A08247771D7FC4BC00DC58C2 /* AppDelegate.m */,
-				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
 				A08247E71D7FF80400DC58C2 /* PrefixHeader.pch */,
 				A082477F1D7FC4BC00DC58C2 /* Assets.xcassets */,
 				A08247811D7FC4BC00DC58C2 /* LaunchScreen.storyboard */,
@@ -229,8 +320,8 @@
 				A08247C91D7FF5AA00DC58C2 /* SignInView.m */,
 				A08247F01D80009300DC58C2 /* LocationView.h */,
 				A08247F11D80009300DC58C2 /* LocationView.m */,
-				A0493B1D1D817323006FCD50 /* LocationButton.h */,
-				A0493B1E1D817323006FCD50 /* LocationButton.m */,
+				A07F82901D82823E00F9EA6B /* UIButton+ImageTitleSpacing.h */,
+				A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */,
 				A082479E1D7FF26400DC58C2 /* tableViewCell */,
 			);
 			name = Views;
@@ -314,8 +405,8 @@
 		A08247DC1D7FF70B00DC58C2 /* Myself */ = {
 			isa = PBXGroup;
 			children = (
-				A08247DD1D7FF71400DC58C2 /* MyselfController.h */,
-				A08247DE1D7FF71400DC58C2 /* MyselfController.m */,
+				A07F82AE1D82A8A200F9EA6B /* MainInterface */,
+				A07F82961D828EAE00F9EA6B /* MyMessage */,
 				A08247F61D80146400DC58C2 /* Contacts */,
 				A08247E61D7FF72B00DC58C2 /* MyInformatioin */,
 			);
@@ -479,21 +570,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0493B1F1D817323006FCD50 /* LocationButton.m in Sources */,
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */,
 				A08247A71D7FF30100DC58C2 /* DrivingDataCell.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
+				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
 				A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
 				A08247FC1D80148D00DC58C2 /* ContactsModel.m in Sources */,
+				A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */,
+				A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */,
+				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
+				A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */,
 				A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */,
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
 				A08247C11D7FF48400DC58C2 /* ListModel.m in Sources */,
+				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
+				A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
 				A08247A21D7FF2DE00DC58C2 /* LocationCell.m in Sources */,
 				A08247BE1D7FF47300DC58C2 /* ListTypeModel.m in Sources */,
@@ -504,6 +601,7 @@
 				A08247971D7FC96E00DC58C2 /* TableNode.m in Sources */,
 				A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */,
 				A082479D1D7FEA3500DC58C2 /* MenuModel.m in Sources */,
+				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,

@@ -7,14 +7,10 @@
 //
 
 #import "MyselfController.h"
-
+#import "MyselfModel.h"
 @interface MyselfController ()
 
 @property (nonatomic, strong) NSArray *datasource;
-
-@property (nonatomic, strong) NSArray *firstSectionData;
-@property (nonatomic, strong) NSArray *secondSectionData;
-@property (nonatomic, strong) NSArray *thridSectionData;
 
 @property (nonatomic, strong) UIView *headerView;
 
@@ -25,17 +21,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我";
-    self.firstSectionData = @[@"我的资料",@"我的车库"];
-    self.secondSectionData = @[@"我的消息",@"通讯录",@"我的群组",@"喜欢的人"];
-    self.thridSectionData = @[@"我的二维码",@"设置"];
+   
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.showsVerticalScrollIndicator = false;
-    self.tableView.rowHeight = 40.0f;
+    self.tableView.rowHeight = 60.f;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (NSArray *)datasource{
+    if (!_datasource) {
+        MyselfModel *model1 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"我的资料"];
+        MyselfModel *model2 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"我的消息"];
+        MyselfModel *model3 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"我的车库"];
+        MyselfModel *model4 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"通讯录"];
+        MyselfModel *model5 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"喜欢的人"];
+        MyselfModel *model6 = [MyselfModel modelWithIamgeName:@"targetIcon" name:@"我的二维码"];
+        _datasource = @[model1,model2,model3,model4,model5,model6];
+    }
+    return _datasource;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,26 +91,10 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 3;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return _firstSectionData.count;
-            break;
-        case 1:
-            return _secondSectionData.count;
-            break;
-        case 2:
-            return _thridSectionData.count;
-            break;
-        default:
-            break;
-    }
-    return 0;
+
+    return self.datasource? self.datasource.count : 0;
 }
 
 
@@ -111,20 +107,10 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.separatorInset = UIEdgeInsetsZero;
     }
-    switch (indexPath.section) {
-        case 0:
-            cell.textLabel.text = _firstSectionData[indexPath.row];
-            break;
-        case 1:
-            cell.textLabel.text = _secondSectionData[indexPath.row];
-            break;
-        case 2:
-            cell.textLabel.text = _thridSectionData[indexPath.row];
-            break;
-        default:
-            break;
-    }
-    cell.imageView.image = [UIImage imageNamed:@"targetIcon"];
+    MyselfModel *model = self.datasource[indexPath.row];
+    cell.textLabel.text = model.name;
+    cell.imageView.image = [UIImage imageNamed:model.imageName];
+    
     return cell;
 }
 
@@ -133,23 +119,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
+    switch (indexPath.row) {
         case 0:
-        {
-            if (indexPath.row == 0) {
-                 [self performSegueWithIdentifier:@"MyInformation" sender:nil];
-            }
+            [self performSegueWithIdentifier:@"MyInformation" sender:nil];
             break;
-        }
         case 1:
-        {
-            if (indexPath.row == 0) {
-                
-            }else if (indexPath.row == 1){
-                [self performSegueWithIdentifier:@"Contacts" sender:nil];
-            }
+            [self performSegueWithIdentifier:@"MyMessage" sender:nil];
             break;
-        }
+        case 2:
+            
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"Contacts" sender:nil];
+            break;
+        case 4:
+            
+            break;
+        case 5:
+            
+            break;
         default:
             break;
     }

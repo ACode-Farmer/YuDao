@@ -31,6 +31,11 @@
     _dataSource = [ContactsModel LetterSortArray:_dataSource];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 /**
  *  判断能否访问用户通讯录,调用此方法获得数据源
  */

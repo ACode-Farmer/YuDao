@@ -11,6 +11,7 @@
 #import "HeaderModel.h"
 #import "ContactsModel.h"
 
+#import "UIImage+ChangeIt.h"
 
 @interface ContactsTableViewController ()<HeaderTableViewDelegate>
 @property(nonatomic,strong)NSMutableArray *indexArray;
@@ -54,13 +55,20 @@
     NSMutableArray *tempArray = [NSMutableArray array];
     for (NSString *name in stringsToSort) {
         ContactsModel *model = [[ContactsModel alloc] init];
+        model.imageName = @"icon1.jpg";
         model.name = name;
         [tempArray addObject:model];
     }
     self.indexArray = [ContactsModel IndexArray:tempArray];
     self.letterResultArr = [ContactsModel LetterSortArray:tempArray];
-    self.tableView.tableHeaderView = self.headerView;
     
+    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.rowHeight = 45;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 #pragma mark - lazy load
@@ -111,10 +119,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.imageView.layer.cornerRadius = 5.0f;
+        cell.imageView.layer.masksToBounds = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
+    UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(60, 60, 40, 40)];
+    cell.imageView.image = image;
     return cell;
 }
 
@@ -160,10 +172,10 @@
     return lab;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 40.0f;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 40.0f;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

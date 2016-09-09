@@ -46,7 +46,7 @@
 - (LocationView *)locationView{
     if (!_locationView) {
         _locationView = [[LocationView alloc] initWithFrame:CGRectMake(0, 64, screen_width, 40)];
-        _locationView.backgroundColor = [UIColor orangeColor];
+        _locationView.backgroundColor = [UIColor lightGrayColor];
     }
     return _locationView;
 }

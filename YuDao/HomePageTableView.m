@@ -26,7 +26,7 @@ NSString *const menuCellIdentifier = @"MenuCell";
         self.rowHeight = 50.0f;
         _dataSource = dataSource;
         _showData = [self getShowDataFrom:_dataSource];
-        
+        self.tableFooterView = [UITableViewHeaderFooterView new];
     }
     return self;
 }
