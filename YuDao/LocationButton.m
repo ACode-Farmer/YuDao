@@ -20,7 +20,7 @@
     //    在UIButton中有三个对EdgeInsets的设置：ContentEdgeInsets、titleEdgeInsets、imageEdgeInsets
     [button setImage:[UIImage imageNamed:@"icon1.jpg"] forState:UIControlStateNormal];//给button添加image
     button.imageEdgeInsets = UIEdgeInsetsMake(5,13,21,button.titleLabel.bounds.size.width);//设置image在button上的位置（上top，左left，下bottom，右right）这里可以写负值，对上写－5，那么image就象上移动5个像素
-    
+    //test
     [button setTitle:@"首页" forState:UIControlStateNormal];//设置button的title
     //
     button.titleLabel.font = [UIFont systemFontOfSize:16];//title字体大小

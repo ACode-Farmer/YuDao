@@ -1,28 +1,23 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "46F02A382164E29D9CA726B6AF62350D68CDD124",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9E07D11F93FB2C73CE7FF8405C9CA834F5359368",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "97AC3696FAE00EF619C29D1A956EAC5024DCCD87" : 0,
-    "46F02A382164E29D9CA726B6AF62350D68CDD124" : 0,
-    "561C4D7681BB71C6B3C4EB04E767D0F78AE3D528" : 0
+    "9E07D11F93FB2C73CE7FF8405C9CA834F5359368" : 0,
+    "561C4D7681BB71C6B3C4EB04E767D0F78AE3D528" : 0,
+    "97AC3696FAE00EF619C29D1A956EAC5024DCCD87" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D1076DB-7F6B-4D0B-A17E-B2E063DB4E3E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "97AC3696FAE00EF619C29D1A956EAC5024DCCD87" : "",
-    "46F02A382164E29D9CA726B6AF62350D68CDD124" : "YuDao\/",
-    "561C4D7681BB71C6B3C4EB04E767D0F78AE3D528" : ".."
+    "9E07D11F93FB2C73CE7FF8405C9CA834F5359368" : "YuDao\/",
+    "561C4D7681BB71C6B3C4EB04E767D0F78AE3D528" : "..",
+    "97AC3696FAE00EF619C29D1A956EAC5024DCCD87" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "YuDao",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "YuDao.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ACode-Farmer\/YuDao.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "46F02A382164E29D9CA726B6AF62350D68CDD124"
-    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ACode-Farmer\/YuDao.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
@@ -32,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ACode-Farmer\/YuDao.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "97AC3696FAE00EF619C29D1A956EAC5024DCCD87"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ACode-Farmer\/YuDao.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9E07D11F93FB2C73CE7FF8405C9CA834F5359368"
     }
   ]
 }
