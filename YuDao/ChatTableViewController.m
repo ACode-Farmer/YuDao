@@ -1,27 +1,29 @@
 //
-//  MyMessageTableViewController.m
+//  ChatTableViewController.m
 //  YuDao
 //
-//  Created by 汪杰 on 16/9/9.
+//  Created by 汪杰 on 16/9/11.
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "MyMessageTableViewController.h"
-#import "MyMseeageModel.h"
-#import "UIImage+ChangeIt.h"
-@interface MyMessageTableViewController ()
+#import "ChatTableViewController.h"
+#import "ChatCell.h"
+#import "ChatModel.h"
+
+
+@interface ChatTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
-
 @end
 
-@implementation MyMessageTableViewController
+@implementation ChatTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.rowHeight = 45.0f;
-    
+    self.title = @"聊天";
+    self.tableView.showsVerticalScrollIndicator = NO;
+    [self.tableView registerClass:[ChatCell class] forCellReuseIdentifier:@"ChatCell"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,23 +31,20 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
+#pragma mark lazy load
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
-        MyMseeageModel *model = [MyMseeageModel modelWith:@"message" name:@"系统通知" lastMessage:@"想要邂逅你的她/他，速来尝试发现里的逛一逛..." time:@"下午4:00"];
-        [_dataSource addObject:model];
-        for (NSInteger i = 0; i<10; i++) {
-            MyMseeageModel *model = [MyMseeageModel modelWith:@"icon1.jpg" name:@"小明" lastMessage:@"好多美女，速来xxxx酒吧，在那个xxxx路上" time:@"下午4:00"];
+        for (int i = 0; i < 5; i++) {
+            ChatModel *model = [ChatModel modelWithImage:@"icon1.jpg" content:@"默默默默默默默默默默默默默默默默默默默默默默默默默默默默" time:@"7:01" type:0];
+            [_dataSource addObject:model];
+        }
+        for (int i = 0; i < 5; i++) {
+            ChatModel *model = [ChatModel modelWithImage:@"icon2.jpg" content:@"我默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默" time:@"8:01" type:1];
             [_dataSource addObject:model];
         }
     }
     return _dataSource;
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,46 +54,24 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ChatModel *model = self.dataSource[indexPath.row];
+    return model.rowHeight;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.dataSource ? self.dataSource.count : 0 ;
+    
+    return self.dataSource? self.dataSource.count : 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"MyMessageCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        cell.imageView.layer.cornerRadius = 5.0f;
-        cell.imageView.layer.masksToBounds = YES;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    MyMseeageModel *model = self.dataSource[indexPath.row];
-    UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(40, 40, 40, 40)];
-    cell.imageView.image = image;
-    cell.textLabel.text = model.name;
-    cell.detailTextLabel.text = model.lastMessage;
-    if (indexPath.row == 0) {
-        
-    }else{
-        cell.accessoryView = ({
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-            label.font = [UIFont systemFontOfSize:10];
-            label.textAlignment = NSTextAlignmentRight;
-            label.text = model.time;
-            label;
-        });
-    }
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     
+    ChatModel *model = self.dataSource[indexPath.row];
+    [cell updateCellWithModel:model];
     return cell;
 }
 
-
-#pragma mark delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"Chat" sender:nil];
-}
 
 /*
 // Override to support conditional editing of the table view.

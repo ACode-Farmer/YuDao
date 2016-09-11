@@ -43,6 +43,7 @@
             <objects>
                 <tableViewController id="F9b-h0-nBY" customClass="DiscoverTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mU1-V8-vwE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
@@ -65,6 +66,7 @@
                         <viewControllerLayoutGuide type="bottom" id="mMD-d9-vM3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gHv-Pj-uEu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -123,6 +125,7 @@
             <objects>
                 <tableViewController id="rMQ-5N-gcl" customClass="MyMessageTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N9R-8I-moZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -130,10 +133,30 @@
                             <outlet property="delegate" destination="rMQ-5N-gcl" id="bLt-bs-l6M"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="hEV-Rq-f5S" kind="show" identifier="Chat" id="HID-wr-AjP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zi1-bo-bcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2902.5" y="1600.5"/>
+        </scene>
+        <!--Chat Table View Controller-->
+        <scene sceneID="e3k-Ey-cSR">
+            <objects>
+                <tableViewController id="hEV-Rq-f5S" customClass="ChatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PJf-iE-5Xg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hEV-Rq-f5S" id="3Di-IO-3Y8"/>
+                            <outlet property="delegate" destination="hEV-Rq-f5S" id="hDl-k7-lww"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AO-fS-FEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3637.5" y="1600.5"/>
         </scene>
         <!--Contacts Table View Controller-->
         <scene sceneID="ONJ-zQ-AbI">

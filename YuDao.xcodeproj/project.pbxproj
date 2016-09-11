@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */; };
+		A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FB1D858A0B00F488BE /* ChatTableViewController.m */; };
+		A05887001D858A8900F488BE /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FF1D858A8900F488BE /* ChatModel.m */; };
+		A05887031D858B6C00F488BE /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05887021D858B6C00F488BE /* ChatCell.m */; };
 		A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */; };
 		A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82941D828CA200F9EA6B /* UIImage+ChangeIt.m */; };
 		A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */; };
@@ -68,6 +71,12 @@
 /* Begin PBXFileReference section */
 		A0493B171D812DC4006FCD50 /* PhoneContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactsTableViewController.h; sourceTree = "<group>"; };
 		A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneContactsTableViewController.m; sourceTree = "<group>"; };
+		A05886FA1D858A0B00F488BE /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
+		A05886FB1D858A0B00F488BE /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
+		A05886FE1D858A8900F488BE /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
+		A05886FF1D858A8900F488BE /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
+		A05887011D858B6C00F488BE /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		A05887021D858B6C00F488BE /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		A07F82901D82823E00F9EA6B /* UIButton+ImageTitleSpacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpacing.h"; sourceTree = "<group>"; };
 		A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpacing.m"; sourceTree = "<group>"; };
 		A07F82931D828CA200F9EA6B /* UIImage+ChangeIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeIt.h"; sourceTree = "<group>"; };
@@ -174,6 +183,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05886FD1D858A6900F488BE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A05886FA1D858A0B00F488BE /* ChatTableViewController.h */,
+				A05886FB1D858A0B00F488BE /* ChatTableViewController.m */,
+				A05887011D858B6C00F488BE /* ChatCell.h */,
+				A05887021D858B6C00F488BE /* ChatCell.m */,
+				A05886FE1D858A8900F488BE /* ChatModel.h */,
+				A05886FF1D858A8900F488BE /* ChatModel.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		A07F82961D828EAE00F9EA6B /* MyMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +203,7 @@
 				A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */,
 				A07F829D1D82909400F9EA6B /* MyMseeageModel.h */,
 				A07F829E1D82909400F9EA6B /* MyMseeageModel.m */,
+				A05886FD1D858A6900F488BE /* Chat */,
 			);
 			name = MyMessage;
 			sourceTree = "<group>";
@@ -573,6 +596,8 @@
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */,
+				A05887001D858A8900F488BE /* ChatModel.m in Sources */,
+				A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */,
 				A08247A71D7FF30100DC58C2 /* DrivingDataCell.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
@@ -581,6 +606,7 @@
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
 				A08247FC1D80148D00DC58C2 /* ContactsModel.m in Sources */,
 				A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */,
+				A05887031D858B6C00F488BE /* ChatCell.m in Sources */,
 				A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */,
 				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
