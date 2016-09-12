@@ -19,6 +19,7 @@
     model.imageName = imageName;
     model.content = content;
     model.time = time;
+    model.type = type;
     
     [model updateFrame];
     

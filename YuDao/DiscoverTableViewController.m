@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverTableViewController.h"
+#import "DynamicTableViewController.h"
 #import "DiscoverModel.h"
 
 @interface DiscoverTableViewController ()
@@ -78,6 +79,25 @@
 #pragma mark Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.0001f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:
+            
+            break;
+        case 1:
+            if (indexPath.row == 2) {
+                [self.navigationController pushViewController:[DynamicTableViewController new] animated:YES];
+            }
+            break;
+        case 2:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 /*

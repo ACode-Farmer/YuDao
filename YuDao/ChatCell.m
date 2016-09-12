@@ -45,7 +45,7 @@
 
 - (void)updateCellWithModel:(ChatModel *)model{
     self.timeLabel.text = model.time;
-    [self.imageView setFrame:model.imageFrame];
+    [self.headImageView setFrame:model.imageFrame];
     [self.messageBtn setFrame:model.messageFrame];
     [self.messageBtn setTitle:model.content forState:0];
     
@@ -53,9 +53,9 @@
     //UIImage *messageImage = nil;
     //UIImage *messageHlighlightedImage = nil;
     if (model.type == 0) {
-        headImage = [UIImage imageNamed:model.imageName];
+        headImage = [UIImage imageNamed:@"icon1.jpg"];
     }else{
-        headImage = [UIImage imageNamed:model.imageName];
+        headImage = [UIImage imageNamed:@"pbg.jpg"];
     }
     
     self.headImageView.image = headImage;
