@@ -117,6 +117,10 @@
 		A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247FF1D8014BE00DC58C2 /* ContactsTableViewController.m */; };
 		A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248051D8018E100DC58C2 /* HeaderTableView.m */; };
 		A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248081D8019BF00DC58C2 /* HeaderModel.m */; };
+		A09C5AF71D87914500DEBA2E /* RankingListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5AF61D87914500DEBA2E /* RankingListTableViewController.m */; };
+		A09C5AFA1D87917400DEBA2E /* RankingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5AF91D87917400DEBA2E /* RankingListModel.m */; };
+		A09C5AFD1D8796C900DEBA2E /* RankingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5AFC1D8796C900DEBA2E /* RankingListCell.m */; };
+		A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5B041D88066100DEBA2E /* MenuCell.m */; };
 		B3CB804518D50AE351B451DF /* libPods-YuDao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B41562B8238B5C8CF23BE35 /* libPods-YuDao.a */; };
 /* End PBXBuildFile section */
 
@@ -315,6 +319,14 @@
 		A08248051D8018E100DC58C2 /* HeaderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableView.m; sourceTree = "<group>"; };
 		A08248071D8019BF00DC58C2 /* HeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderModel.h; sourceTree = "<group>"; };
 		A08248081D8019BF00DC58C2 /* HeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderModel.m; sourceTree = "<group>"; };
+		A09C5AF51D87914500DEBA2E /* RankingListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListTableViewController.h; sourceTree = "<group>"; };
+		A09C5AF61D87914500DEBA2E /* RankingListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListTableViewController.m; sourceTree = "<group>"; };
+		A09C5AF81D87917400DEBA2E /* RankingListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListModel.h; sourceTree = "<group>"; };
+		A09C5AF91D87917400DEBA2E /* RankingListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListModel.m; sourceTree = "<group>"; };
+		A09C5AFB1D8796C900DEBA2E /* RankingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListCell.h; sourceTree = "<group>"; };
+		A09C5AFC1D8796C900DEBA2E /* RankingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListCell.m; sourceTree = "<group>"; };
+		A09C5B031D88066100DEBA2E /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		A09C5B041D88066100DEBA2E /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		C4D2BF99764BDF8833496D44 /* Pods-YuDao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuDao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YuDao/Pods-YuDao.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -539,6 +551,7 @@
 		A07F82A01D82A2ED00F9EA6B /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				A09C5AF41D87912600DEBA2E /* 排行榜 */,
 				A07F82AD1D82A83500F9EA6B /* MainInterface */,
 				A01A33CC1D868EB800852D16 /* 逛一逛 */,
 			);
@@ -703,6 +716,8 @@
 		A082479E1D7FF26400DC58C2 /* tableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				A09C5B031D88066100DEBA2E /* MenuCell.h */,
+				A09C5B041D88066100DEBA2E /* MenuCell.m */,
 				A082479F1D7FF2DE00DC58C2 /* LocationCell.h */,
 				A08247A01D7FF2DE00DC58C2 /* LocationCell.m */,
 				A08247A11D7FF2DE00DC58C2 /* LocationCell.xib */,
@@ -850,6 +865,19 @@
 				A08248081D8019BF00DC58C2 /* HeaderModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A09C5AF41D87912600DEBA2E /* 排行榜 */ = {
+			isa = PBXGroup;
+			children = (
+				A09C5AF51D87914500DEBA2E /* RankingListTableViewController.h */,
+				A09C5AF61D87914500DEBA2E /* RankingListTableViewController.m */,
+				A09C5AF81D87917400DEBA2E /* RankingListModel.h */,
+				A09C5AF91D87917400DEBA2E /* RankingListModel.m */,
+				A09C5AFB1D8796C900DEBA2E /* RankingListCell.h */,
+				A09C5AFC1D8796C900DEBA2E /* RankingListCell.m */,
+			);
+			name = "排行榜";
 			sourceTree = "<group>";
 		};
 		E33F62B85920FD7E841038FF /* Frameworks */ = {
@@ -1018,6 +1046,8 @@
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
+				A09C5AFD1D8796C900DEBA2E /* RankingListCell.m in Sources */,
+				A09C5AFA1D87917400DEBA2E /* RankingListModel.m in Sources */,
 				A01A34351D8699FD00852D16 /* NSData+ImageContentType.m in Sources */,
 				A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */,
 				A05887001D858A8900F488BE /* ChatModel.m in Sources */,
@@ -1050,6 +1080,7 @@
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
 				A08247C11D7FF48400DC58C2 /* ListModel.m in Sources */,
+				A09C5AF71D87914500DEBA2E /* RankingListTableViewController.m in Sources */,
 				A01A34431D8699FD00852D16 /* UIView+WebCacheOperation.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
 				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
@@ -1083,6 +1114,7 @@
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,
+				A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */,
 				A01A34381D8699FD00852D16 /* SDWebImageDecoder.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,

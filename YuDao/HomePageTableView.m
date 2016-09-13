@@ -16,6 +16,7 @@ NSString *const menuCellIdentifier = @"MenuCell";
 {
     NSArray *_dataSource;
     NSMutableArray *_showData;
+    NSMutableArray *_menuCellArray;
 }
 
 
@@ -26,7 +27,15 @@ NSString *const menuCellIdentifier = @"MenuCell";
         self.rowHeight = 50.0f;
         _dataSource = dataSource;
         _showData = [self getShowDataFrom:_dataSource];
+        _menuCellArray = [NSMutableArray arrayWithCapacity:4];
         self.tableFooterView = [UITableViewHeaderFooterView new];
+        
+        if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+            [self setSeparatorInset:UIEdgeInsetsZero];
+        }
+        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+            [self setLayoutMargins:UIEdgeInsetsZero];
+        }
     }
     return self;
 }
@@ -60,25 +69,50 @@ NSString *const menuCellIdentifier = @"MenuCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:menuCellIdentifier];
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = RGBCOLOR(8, 169, 195);
+        
+        UIButton *arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        arrowBtn.frame = CGRectMake(0, 0, 30, 30);
+        [arrowBtn setImage:[UIImage imageNamed:@"friendIcon"] forState:0];
+        [arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:UIControlStateSelected];
+        cell.accessoryView = arrowBtn;
+        
+        if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+            cell.preservesSuperviewLayoutMargins = NO;
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:UIEdgeInsetsZero];
+        }
     }
     TableNode *currentNode = _showData[indexPath.row];
     if (currentNode.depth.integerValue == 0) {
         if (currentNode.nodeId.integerValue != 0) {
+            if (currentNode.nodeId.integerValue == 1) {
+                UIButton *arrowBtn = (UIButton *)cell.accessoryView;
+                arrowBtn.selected = !arrowBtn.selected;
+            }
             MenuModel *model = currentNode.nodeData;
-            cell.imageView.image = [UIImage imageNamed:model.iconName];
             cell.textLabel.text = model.menuLable;
-            UIImage *image = [self clipImageWithImage:[UIImage imageNamed:model.arrow] inRect:CGRectMake(50, 50, 40, 40)];
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            cell.accessoryView = imageView;
+            tableView.separatorColor = [UIColor whiteColor];
+            
+            //保存所有菜单单元格
+            for (UITableViewCell *menuCell in _menuCellArray) {
+                if (![cell isEqual:menuCell]) {
+                    [_menuCellArray addObject:cell];
+                }
+            }
         }
     }else{
+        cell.accessoryView = nil;
         cell.textLabel.text = @"123";
     }
     
     return cell;
 }
+
+
+
 /**
  *  剪切图片
  *
@@ -100,9 +134,8 @@ NSString *const menuCellIdentifier = @"MenuCell";
 
 #pragma mark delegate - 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    UITableView *table = [tableView viewWithTag:101];
-    //    table.frame = CGRectMake(table.frame.origin.x, table.frame.origin.y, table.frame.size.width, 0);
-    //    [table removeFromSuperview];
+    
+    
     TableNode *clickedNode = _showData[indexPath.row];
     int depth = [clickedNode.depth intValue];
     int nodeId = [clickedNode.nodeId intValue];
@@ -116,6 +149,18 @@ NSString *const menuCellIdentifier = @"MenuCell";
         return;
     }
     else {
+        //修改箭头
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UIButton *arrowBtn = (UIButton *)cell.accessoryView;
+        arrowBtn.selected = !arrowBtn.selected;
+        for (UITableViewCell *menuCell in _menuCellArray) {
+            if (![cell isEqual:menuCell]) {
+                UIButton *btn = (UIButton *)menuCell.accessoryView;
+                btn.selected = NO;
+            }
+        }
+#warning 箭头有问题
+        
         NSUInteger start = indexPath.row + 1;
         NSUInteger end = start;
         BOOL expand = NO;

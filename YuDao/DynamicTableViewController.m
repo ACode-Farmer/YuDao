@@ -32,6 +32,7 @@ static CGFloat textFieldH = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"逛一逛";
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }

@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.locationView];
     // Do any additional setup after loading the view.

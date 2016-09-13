@@ -8,6 +8,7 @@
 
 #import "DiscoverTableViewController.h"
 #import "DynamicTableViewController.h"
+#import "RankingListTableViewController.h"
 #import "DiscoverModel.h"
 
 @interface DiscoverTableViewController ()
@@ -84,7 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:
-            
+                [self.navigationController pushViewController:[RankingListTableViewController new] animated:YES];
             break;
         case 1:
             if (indexPath.row == 2) {
