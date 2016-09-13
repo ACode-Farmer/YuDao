@@ -22,7 +22,7 @@
 		<key>depth</key>
 		<integer>1</integer>
 		<key>expand</key>
-		<true/>
+		<false/>
 		<key>dataIndex</key>
 		<integer>0</integer>
 	</dict>
@@ -34,7 +34,7 @@
 		<key>depth</key>
 		<integer>1</integer>
 		<key>expand</key>
-		<true/>
+		<false/>
 		<key>dataIndex</key>
 		<integer>1</integer>
 	</dict>
@@ -46,7 +46,7 @@
 		<key>depth</key>
 		<integer>1</integer>
 		<key>expand</key>
-		<true/>
+		<false/>
 		<key>dataIndex</key>
 		<integer>2</integer>
 	</dict>
@@ -58,7 +58,7 @@
 		<key>depth</key>
 		<integer>1</integer>
 		<key>expand</key>
-		<true/>
+		<false/>
 		<key>dataIndex</key>
 		<integer>3</integer>
 	</dict>

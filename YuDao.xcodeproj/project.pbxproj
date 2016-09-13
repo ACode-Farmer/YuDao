@@ -80,8 +80,6 @@
 		A08247971D7FC96E00DC58C2 /* TableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247961D7FC96E00DC58C2 /* TableNode.m */; };
 		A08247991D7FDEC400DC58C2 /* TableNodeDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A08247981D7FDEC400DC58C2 /* TableNodeDataSource.plist */; };
 		A082479D1D7FEA3500DC58C2 /* MenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A082479C1D7FEA3500DC58C2 /* MenuModel.m */; };
-		A08247A21D7FF2DE00DC58C2 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247A01D7FF2DE00DC58C2 /* LocationCell.m */; };
-		A08247A31D7FF2DE00DC58C2 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08247A11D7FF2DE00DC58C2 /* LocationCell.xib */; };
 		A08247A71D7FF30100DC58C2 /* DrivingDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247A51D7FF30100DC58C2 /* DrivingDataCell.m */; };
 		A08247A81D7FF30100DC58C2 /* DrivingDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A08247A61D7FF30100DC58C2 /* DrivingDataCell.xib */; };
 		A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247AA1D7FF32200DC58C2 /* ListTypeCell.m */; };
@@ -259,9 +257,6 @@
 		A08247981D7FDEC400DC58C2 /* TableNodeDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TableNodeDataSource.plist; sourceTree = "<group>"; };
 		A082479B1D7FEA3500DC58C2 /* MenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuModel.h; sourceTree = "<group>"; };
 		A082479C1D7FEA3500DC58C2 /* MenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuModel.m; sourceTree = "<group>"; };
-		A082479F1D7FF2DE00DC58C2 /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
-		A08247A01D7FF2DE00DC58C2 /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
-		A08247A11D7FF2DE00DC58C2 /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		A08247A41D7FF30100DC58C2 /* DrivingDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrivingDataCell.h; sourceTree = "<group>"; };
 		A08247A51D7FF30100DC58C2 /* DrivingDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrivingDataCell.m; sourceTree = "<group>"; };
 		A08247A61D7FF30100DC58C2 /* DrivingDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrivingDataCell.xib; sourceTree = "<group>"; };
@@ -718,9 +713,6 @@
 			children = (
 				A09C5B031D88066100DEBA2E /* MenuCell.h */,
 				A09C5B041D88066100DEBA2E /* MenuCell.m */,
-				A082479F1D7FF2DE00DC58C2 /* LocationCell.h */,
-				A08247A01D7FF2DE00DC58C2 /* LocationCell.m */,
-				A08247A11D7FF2DE00DC58C2 /* LocationCell.xib */,
 				A08247A41D7FF30100DC58C2 /* DrivingDataCell.h */,
 				A08247A51D7FF30100DC58C2 /* DrivingDataCell.m */,
 				A08247A61D7FF30100DC58C2 /* DrivingDataCell.xib */,
@@ -952,7 +944,6 @@
 				A08247D91D7FF6A300DC58C2 /* sora_5.png in Resources */,
 				A01A345F1D86A91500852D16 /* test4.jpg in Resources */,
 				A01A345D1D86A91500852D16 /* test2.jpg in Resources */,
-				A08247A31D7FF2DE00DC58C2 /* LocationCell.xib in Resources */,
 				A08247DB1D7FF6A300DC58C2 /* sora_7.png in Resources */,
 				A08247D51D7FF6A300DC58C2 /* sora_1.png in Resources */,
 				A08247B71D7FF35D00DC58C2 /* TaskCell.xib in Resources */,
@@ -1094,7 +1085,6 @@
 				A01A34371D8699FD00852D16 /* SDWebImageCompat.m in Sources */,
 				A01A33F71D86941500852D16 /* NSAttributedString+MLLabel.m in Sources */,
 				A01A34101D8699DE00852D16 /* SDPhotoBrowser.m in Sources */,
-				A08247A21D7FF2DE00DC58C2 /* LocationCell.m in Sources */,
 				A08247BE1D7FF47300DC58C2 /* ListTypeModel.m in Sources */,
 				A08247E51D7FF71D00DC58C2 /* MyInformationModel.m in Sources */,
 				A01A34411D8699FD00852D16 /* UIImageView+HighlightedWebCache.m in Sources */,

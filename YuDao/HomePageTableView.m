@@ -7,6 +7,7 @@
 //
 
 #import "HomePageTableView.h"
+#import "MenuCell.h"
 #import "TableNode.h"
 #import "MenuModel.h"
 
@@ -26,10 +27,12 @@ NSString *const menuCellIdentifier = @"MenuCell";
         self.delegate = self;
         self.rowHeight = 50.0f;
         _dataSource = dataSource;
-        _showData = [self getShowDataFrom:_dataSource];
         _menuCellArray = [NSMutableArray arrayWithCapacity:4];
-        self.tableFooterView = [UITableViewHeaderFooterView new];
         
+        _showData = [self getShowDataFrom:_dataSource];
+        [self registerClass:[MenuCell class] forCellReuseIdentifier:menuCellIdentifier];
+        self.tableFooterView = [UITableViewHeaderFooterView new];
+        self.separatorColor = [UIColor whiteColor];
         if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
             [self setSeparatorInset:UIEdgeInsetsZero];
         }
@@ -42,7 +45,7 @@ NSString *const menuCellIdentifier = @"MenuCell";
 
 - (NSMutableArray *)getShowDataFrom:(NSArray *)datasource{
     
-    NSMutableArray *showData = [NSMutableArray array];
+    NSMutableArray *showData = [NSMutableArray arrayWithCapacity:10];
     for (int i = 0; i < datasource.count; i++) {
         TableNode *node = datasource[i];
         if (node.expand) {
@@ -66,42 +69,16 @@ NSString *const menuCellIdentifier = @"MenuCell";
     return _showData.count > 0 ? _showData.count: 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:menuCellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = RGBCOLOR(8, 169, 195);
-        
-        UIButton *arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        arrowBtn.frame = CGRectMake(0, 0, 30, 30);
-        [arrowBtn setImage:[UIImage imageNamed:@"friendIcon"] forState:0];
-        [arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:UIControlStateSelected];
-        cell.accessoryView = arrowBtn;
-        
-        if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-            cell.preservesSuperviewLayoutMargins = NO;
-        }
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:UIEdgeInsetsZero];
-        }
-    }
+    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+    
     TableNode *currentNode = _showData[indexPath.row];
     if (currentNode.depth.integerValue == 0) {
         if (currentNode.nodeId.integerValue != 0) {
-            if (currentNode.nodeId.integerValue == 1) {
-                UIButton *arrowBtn = (UIButton *)cell.accessoryView;
-                arrowBtn.selected = !arrowBtn.selected;
+            if (_menuCellArray.count <= 4) {
+                [_menuCellArray addObject:cell];
             }
             MenuModel *model = currentNode.nodeData;
             cell.textLabel.text = model.menuLable;
-            tableView.separatorColor = [UIColor whiteColor];
-            
-            //保存所有菜单单元格
-            for (UITableViewCell *menuCell in _menuCellArray) {
-                if (![cell isEqual:menuCell]) {
-                    [_menuCellArray addObject:cell];
-                }
-            }
         }
     }else{
         cell.accessoryView = nil;
@@ -150,16 +127,14 @@ NSString *const menuCellIdentifier = @"MenuCell";
     }
     else {
         //修改箭头
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        UIButton *arrowBtn = (UIButton *)cell.accessoryView;
-        arrowBtn.selected = !arrowBtn.selected;
-        for (UITableViewCell *menuCell in _menuCellArray) {
-            if (![cell isEqual:menuCell]) {
-                UIButton *btn = (UIButton *)menuCell.accessoryView;
-                btn.selected = NO;
+        MenuCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        for (NSInteger i = 0; i < _menuCellArray.count; i++) {
+            MenuCell *otherCell = _menuCellArray[i];
+            if (otherCell.arrowBtn.selected && ![cell isEqual:otherCell]) {
+                otherCell.arrowBtn.selected = !otherCell.arrowBtn.selected;
             }
         }
-#warning 箭头有问题
+        cell.arrowBtn.selected = !cell.arrowBtn.selected;
         
         NSUInteger start = indexPath.row + 1;
         NSUInteger end = start;

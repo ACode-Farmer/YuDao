@@ -12,19 +12,27 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = RGBCOLOR(8, 169, 195);
+        if ([self respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+            self.preservesSuperviewLayoutMargins = NO;
+        }
+        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+            [self setLayoutMargins:UIEdgeInsetsZero];
+        }
         [self setupSubViews];
     }
     return self;
 }
 
 - (void)setupSubViews{
-    UIButton *arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    arrowBtn.frame = CGRectMake(0, 0, 30, 30);
-    [arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:0];
-    [arrowBtn setImage:[UIImage imageNamed:@"friendIcon"] forState:UIControlStateSelected];
+    _arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _arrowBtn.frame = CGRectMake(0, 0, 30, 30);
+    [_arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:0];
+    [_arrowBtn setImage:[UIImage imageNamed:@"friendIcon"] forState:UIControlStateSelected];
     
     
-    self.accessoryView = arrowBtn;
+    self.accessoryView = _arrowBtn;
 }
 
 - (void)arrowBtnActioin:(UIButton *)sender{

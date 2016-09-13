@@ -10,4 +10,6 @@
 
 @interface MenuCell : UITableViewCell
 
+@property (nonatomic, strong) UIButton *arrowBtn;
+
 @end
