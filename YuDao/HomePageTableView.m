@@ -8,16 +8,24 @@
 
 #import "HomePageTableView.h"
 #import "MenuCell.h"
+#import "DrivingDataCell.h"
+#import "ListTypeCell.h"
+#import "ListCell.h"
+
 #import "TableNode.h"
 #import "MenuModel.h"
-
+#import <SDAutoLayout/UIView+SDAutoLayout.h>
 NSString *const menuCellIdentifier = @"MenuCell";
+NSString *const DrivingDataCellIdentifier = @"DrivingDataCell";
+NSString *const ListTypeCellIdentifier = @"ListTypeCell";
+NSString *const ListCellIdentifier = @"ListCell";
 
 @implementation HomePageTableView
 {
     NSArray *_dataSource;
     NSMutableArray *_showData;
     NSMutableArray *_menuCellArray;
+    ListTypeCell *_listTypeCell;
 }
 
 
@@ -25,12 +33,15 @@ NSString *const menuCellIdentifier = @"MenuCell";
     if (self = [super initWithFrame:frame]) {
         self.dataSource = self;
         self.delegate = self;
-        self.rowHeight = 50.0f;
         _dataSource = dataSource;
         _menuCellArray = [NSMutableArray arrayWithCapacity:4];
         
         _showData = [self getShowDataFrom:_dataSource];
         [self registerClass:[MenuCell class] forCellReuseIdentifier:menuCellIdentifier];
+        [self registerClass:[DrivingDataCell class] forCellReuseIdentifier:DrivingDataCellIdentifier];
+        [self registerClass:[ListTypeCell class] forCellReuseIdentifier:ListTypeCellIdentifier];
+        [self registerClass:[ListCell class] forCellReuseIdentifier:ListCellIdentifier];
+        
         self.tableFooterView = [UITableViewHeaderFooterView new];
         self.separatorColor = [UIColor whiteColor];
         if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -77,12 +88,21 @@ NSString *const menuCellIdentifier = @"MenuCell";
             if (_menuCellArray.count <= 4) {
                 [_menuCellArray addObject:cell];
             }
-            MenuModel *model = currentNode.nodeData;
-            cell.textLabel.text = model.menuLable;
+            cell.model = currentNode.nodeData;
         }
     }else{
-        cell.accessoryView = nil;
-        cell.textLabel.text = @"123";
+        if (currentNode.parentId.integerValue == 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:DrivingDataCellIdentifier];
+            cell.model = currentNode.nodeData;
+        }
+        else if (currentNode.parentId.integerValue == 6) {
+            if (currentNode.nodeId.integerValue == 7) {
+                cell = [tableView dequeueReusableCellWithIdentifier:ListTypeCellIdentifier];
+                _listTypeCell = (ListTypeCell *)cell;
+            }else{
+                cell = [tableView dequeueReusableCellWithIdentifier:ListCellIdentifier];
+            }
+        }
     }
     
     return cell;
@@ -111,7 +131,12 @@ NSString *const menuCellIdentifier = @"MenuCell";
 
 #pragma mark delegate - 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    UITableView *table = [tableView viewWithTag:1001];
+    if (table) {
+        table.height = 0;
+        [table removeFromSuperview];
+        _listTypeCell.arrowBtn.selected = NO;
+    }
     
     TableNode *clickedNode = _showData[indexPath.row];
     int depth = [clickedNode.depth intValue];
@@ -164,9 +189,9 @@ NSString *const menuCellIdentifier = @"MenuCell";
         
         //插入或删除本节点的子节点
         if (expand) {
-            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationTop];
+            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
         }else{
-            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationTop];
+            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
         }
         
         //获得其它打开的节点
@@ -197,6 +222,25 @@ NSString *const menuCellIdentifier = @"MenuCell";
     }
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TableNode *currentNode = _showData[indexPath.row];
+    if (currentNode.depth.integerValue == 0) {
+        return 50.0f;
+    }else{
+        if (currentNode.parentId.integerValue == 1) {
+            return 80.0f;
+        }else if (currentNode.parentId.integerValue == 6) {
+            if (currentNode.nodeId.integerValue == 7) {
+                return 50.0f;
+            }else{
+                return 300.0f;
+            }
+        }
+
+    }
+    return 50.0f;
+}
 
 /**
  *  删除改父节点下的所有子节点

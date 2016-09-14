@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ListTypeCell;
+@protocol ListTypeCellDelegate <NSObject>
+
+- (void)buttonsAction:(ListTypeCell *)cell button:(UIButton *)sender;
+
+@end
 
 @interface ListTypeCell : UITableViewCell
+
+@property (nonatomic, weak) id<ListTypeCellDelegate> delegate;
+
+@property (nonatomic, strong) UIButton *arrowBtn;
 
 @end

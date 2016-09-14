@@ -7,12 +7,16 @@
 //
 
 #import "ListCell.h"
+#import "ListScrollView.h"
 
 @implementation ListCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        ListScrollView *scrollView = [[ListScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 300)];
+        [self.contentView addSubview:scrollView];
+    }
+    return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

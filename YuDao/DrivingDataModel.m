@@ -10,4 +10,14 @@
 
 @implementation DrivingDataModel
 
++(instancetype)modelWith:(NSString *)title imageName:(NSString *)imageName firstData:(NSString *)firstData secondData:(NSString *)secondData{
+    DrivingDataModel *model = [self new];
+    model.title = title;
+    model.imageName = imageName;
+    model.firstData = firstData;
+    model.secondData = secondData;
+    
+    return model;
+}
+
 @end

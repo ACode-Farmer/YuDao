@@ -14,13 +14,15 @@
 
 #import "TableNode.h"
 #import "MenuModel.h"
+#import "DrivingDataModel.h"
+#import "ListTypeCell.h"
 
+#import <SDAutoLayout/UIView+SDAutoLayout.h>
 
-
-@interface HomePageController ()<homeTableViewDelegate>
+@interface HomePageController ()<homeTableViewDelegate,ListTypeCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) LocationView *locationView;
-@property (nonatomic, strong) HomePageTableView *tableView;
+@property (nonatomic, strong) HomePageTableView *homeTableView;
 @property (nonatomic, strong) SignInView *signView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -30,13 +32,16 @@
 @property (nonatomic, strong) NSArray *targetData;
 @property (nonatomic, strong) NSArray *friendsData;
 
+@property (nonatomic, strong) UITableView *relationTableView;
+@property (nonatomic, strong) NSArray *relationTableDataSource;
+
 @end
 
 @implementation HomePageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
+    self.navigationController.navigationBar.backgroundColor = RGBCOLOR(8, 169, 195);
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.locationView];
     // Do any additional setup after loading the view.
@@ -53,11 +58,18 @@
 }
 
 - (HomePageTableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[HomePageTableView alloc] initWithFrame:CGRectMake(0, 40, screen_width, screen_height) withDataSource:self.dataSource];
-        _tableView.homeTableViewDelegate = self;
+    if (!_homeTableView) {
+        _homeTableView = [[HomePageTableView alloc] initWithFrame:CGRectMake(0, 40, screen_width, screen_height) withDataSource:self.dataSource];
+        _homeTableView.homeTableViewDelegate = self;
     }
-    return _tableView;
+    return _homeTableView;
+}
+
+- (NSArray *)relationTableDataSource{
+    if (!_relationTableDataSource) {
+        _relationTableDataSource = @[@"不限",@"附近",@"仅男生",@"仅女生",@"仅好友"];
+    }
+    return _relationTableDataSource;
 }
 
 - (NSMutableArray *)dataSource{
@@ -76,7 +88,7 @@
                 
             }
             else if (node.parentId.integerValue == 1){
-                [node setDataWithArray:nil];
+                [node setDataWithArray:self.drivingData];
             }
             else if (node.parentId.integerValue == 6){
                 [node setDataWithArray:nil];
@@ -103,6 +115,19 @@
     }
     return _menuData;
 }
+
+- (NSArray *)drivingData{
+    if (!_drivingData) {
+        DrivingDataModel *model1 = [DrivingDataModel modelWith:@"上海天气" imageName:@"" firstData:@"" secondData:@""];
+        DrivingDataModel *model2 = [DrivingDataModel modelWith:@"油耗" imageName:@"" firstData:@"" secondData:@""];
+        DrivingDataModel *model3 = [DrivingDataModel modelWith:@"里程" imageName:@"" firstData:@"" secondData:@""];
+        DrivingDataModel *model4 = [DrivingDataModel modelWith:@"时速" imageName:@"" firstData:@"" secondData:@""];
+        
+        _drivingData = @[model1,model2,model3,model4];
+    }
+    return _drivingData;
+}
+
 
 - (SignInView *)signView{
     if (!_signView) {
@@ -134,6 +159,52 @@
 - (void)clickCell :(TableNode *)node rect :(CGRect)rect{
     NSLog(@"ok...");
 }
+
+#pragma mark ListTypeCellDelegate -
+- (void)buttonsAction:(ListTypeCell *)cell button:(UIButton *)sender{
+    CGRect frame = [_homeTableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    CGRect relationTableViewFrame = CGRectMake(screen_width - 100, frame.origin.y, 100, 0);
+    if (!_relationTableView) {
+        _relationTableView = [[UITableView alloc] initWithFrame:relationTableViewFrame style:UITableViewStylePlain];
+        _relationTableView.backgroundColor = [UIColor orangeColor];
+        _relationTableView.scrollEnabled = NO;
+        _relationTableView.rowHeight = 30.0f;
+        _relationTableView.tag = 1001;
+        _relationTableView.dataSource = self;
+        _relationTableView.delegate = self;
+    }
+    if (sender.selected) {
+        [_homeTableView addSubview:_relationTableView];
+        [_homeTableView bringSubviewToFront:_relationTableView];
+        [UIView animateWithDuration:0.5f animations:^{
+            _relationTableView.height = 150.f;
+        }];
+    }else{
+        [UIView animateWithDuration:0.5f animations:^{
+            _relationTableView.height = 0;
+        } completion:^(BOOL finished) {
+            [_relationTableView removeFromSuperview];
+        }];
+    }
+}
+
+#pragma tableView dataSource -
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.relationTableDataSource? self.relationTableDataSource.count : 0;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    static NSString *sortCellIdentifier = @"sortCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sortCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sortCellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    cell.textLabel.text = self.relationTableDataSource[indexPath.row];
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

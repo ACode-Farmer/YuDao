@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DrivingDataModel;
 
 @interface DrivingDataCell : UITableViewCell
+
+@property (nonatomic, strong) DrivingDataModel *model;
 
 @end

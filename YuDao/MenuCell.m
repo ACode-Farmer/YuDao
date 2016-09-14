@@ -7,13 +7,14 @@
 //
 
 #import "MenuCell.h"
-
+#import "MenuModel.h"
+#import <SDAutoLayout/UIView+SDAutoLayout.h>
 @implementation MenuCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = RGBCOLOR(8, 169, 195);
+        self.contentView.backgroundColor = RGBCOLOR(8, 169, 195);
         if ([self respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
             self.preservesSuperviewLayoutMargins = NO;
         }
@@ -27,17 +28,29 @@
 
 - (void)setupSubViews{
     _arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _arrowBtn.frame = CGRectMake(0, 0, 30, 30);
     [_arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:0];
-    [_arrowBtn setImage:[UIImage imageNamed:@"friendIcon"] forState:UIControlStateSelected];
+    [_arrowBtn setImage:[UIImage imageNamed:@"topArrow"] forState:UIControlStateSelected];
+    
+    UIView *contentView = self.contentView;
+    [contentView addSubview:_arrowBtn];
+    _arrowBtn.sd_layout
+    .centerYEqualToView(contentView)
+    .rightSpaceToView(contentView,10)
+    .widthIs(27)
+    .heightIs(27);
     
     
-    self.accessoryView = _arrowBtn;
 }
 
 - (void)arrowBtnActioin:(UIButton *)sender{
     sender.selected = !sender.selected;
 }
+
+- (void)setModel:(MenuModel *)model{
+    _model = model;
+    self.textLabel.text = model.menuLable;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

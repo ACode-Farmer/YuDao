@@ -10,4 +10,11 @@
 
 @interface DrivingDataModel : NSObject
 
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, copy) NSString *firstData;
+@property (nonatomic, copy) NSString *secondData;
+
++ (instancetype)modelWith:(NSString *)title imageName:(NSString *)imageName firstData:(NSString *)firstData secondData:(NSString *)secondData;
+
 @end
