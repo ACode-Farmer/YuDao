@@ -22,8 +22,10 @@
         self.backgroundColor = [UIColor whiteColor];
         self.directionalLockEnabled = YES;
         self.pagingEnabled = YES;
-        //self.showsHorizontalScrollIndicator = NO;
-        //self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
+        
+        [self setupSubviews];
     }
     return self;
 }
@@ -37,20 +39,16 @@
     _view3.backgroundColor = [UIColor blackColor];
     _view4 = [UIView new];
     _view4.backgroundColor = [UIColor whiteColor];
-    _view1.frame = CGRectMake(0, 0, screen_width, 300);
-    _view2.frame = CGRectMake(screen_width, 0, screen_width, 300);
-    _view3.frame = CGRectMake(2*screen_width, 0, screen_width, 300);
-    _view4.frame = CGRectMake(3*screen_width, 0, screen_width, 300);
     
-    //NSArray *subviews = @[_view1,_view2,_view3,_view4];
-    [self addSubview:_view2];
-//    CGRect frame = self.frame;
-//    for (NSInteger i = 0; i < subviews.count; i++) {
-//        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, 300);
-//        UIView *view = subviews[i];
-//        view.frame = subFrame;
-//        [self addSubview:view];
-//    }
+    NSArray *subviews = @[_view1,_view2,_view3,_view4];
+    [self sd_addSubviews:subviews];
+    //CGRect frame = self.frame;
+    for (NSInteger i = 0; i < subviews.count; i++) {
+        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, self.frame.size.height);
+        UIView *view = subviews[i];
+        view.frame = subFrame;
+        [self addSubview:view];
+    }
 }
 
 /*

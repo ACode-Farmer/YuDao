@@ -100,30 +100,6 @@
 	</dict>
 	<dict>
 		<key>parentId</key>
-		<integer>6</integer>
-		<key>nodeId</key>
-		<integer>9</integer>
-		<key>depth</key>
-		<integer>1</integer>
-		<key>expand</key>
-		<false/>
-		<key>dataIndex</key>
-		<integer>2</integer>
-	</dict>
-	<dict>
-		<key>parentId</key>
-		<integer>6</integer>
-		<key>nodeId</key>
-		<integer>10</integer>
-		<key>depth</key>
-		<integer>1</integer>
-		<key>expand</key>
-		<false/>
-		<key>dataIndex</key>
-		<integer>3</integer>
-	</dict>
-	<dict>
-		<key>parentId</key>
 		<integer>-1</integer>
 		<key>nodeId</key>
 		<integer>11</integer>

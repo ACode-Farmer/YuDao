@@ -189,9 +189,9 @@ NSString *const ListCellIdentifier = @"ListCell";
         
         //插入或删除本节点的子节点
         if (expand) {
-            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
+            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
         }else{
-            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationNone];
+            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         
         //获得其它打开的节点
