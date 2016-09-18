@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListScrollView : UIScrollView
+@interface ListScrollView : UIScrollView<UICollectionViewDataSource,UICollectionViewDelegate>
 
 - (instancetype)initWithFrame:(CGRect)frame;
 

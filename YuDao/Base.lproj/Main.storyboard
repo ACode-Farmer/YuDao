@@ -90,7 +90,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="r7D-Sl-auA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="byq-HD-4mA"/>
+                        <barButtonItem key="rightBarButtonItem" title="设置" id="byq-HD-4mA">
+                            <connections>
+                                <segue destination="EcF-OV-Lbd" kind="show" id="gTf-VA-dBm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="gtt-Qq-GnG" kind="show" identifier="MyInformation" id="USg-b5-kx1"/>
@@ -101,6 +105,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEu-oc-qo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2091" y="1141.5"/>
+        </scene>
+        <!--Setup Table View Controller-->
+        <scene sceneID="4mk-FH-Kpj">
+            <objects>
+                <tableViewController id="EcF-OV-Lbd" customClass="SetupTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1Gy-y2-wtw">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="EcF-OV-Lbd" id="XAU-ff-FlD"/>
+                            <outlet property="delegate" destination="EcF-OV-Lbd" id="ZhX-6T-2uF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cl7-m8-oug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2902.5" y="202.5"/>
         </scene>
         <!--My Information Controller-->
         <scene sceneID="xk3-Xm-Xmk">
@@ -115,6 +136,8 @@
                             <outlet property="delegate" destination="gtt-Qq-GnG" id="LHX-ni-7K8"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8SA-DV-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

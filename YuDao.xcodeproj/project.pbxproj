@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A013A66B1D8E6F5D00A9080A /* ListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A6691D8E6F5D00A9080A /* ListCollectionViewCell.m */; };
+		A013A66C1D8E6F5D00A9080A /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A013A66A1D8E6F5D00A9080A /* ListCollectionViewCell.xib */; };
+		A013A6701D8E80C600A9080A /* SetupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A66F1D8E80C600A9080A /* SetupTableViewController.m */; };
+		A013A6731D8E912000A9080A /* FirstTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A6721D8E912000A9080A /* FirstTableViewController.m */; };
+		A013A6761D8E968100A9080A /* SetupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A6751D8E968100A9080A /* SetupModel.m */; };
+		A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A6781D8EA16300A9080A /* PersonalHeadController.m */; };
 		A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A33CA1D867BBC00852D16 /* DynamicTableViewController.m */; };
 		A01A33CF1D868EDC00852D16 /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A33CE1D868EDC00852D16 /* DynamicCell.m */; };
 		A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A33D11D868EFA00852D16 /* DynamicCellModel.m */; };
@@ -125,6 +131,17 @@
 /* Begin PBXFileReference section */
 		4B41562B8238B5C8CF23BE35 /* libPods-YuDao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YuDao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuDao.release.xcconfig"; path = "Pods/Target Support Files/Pods-YuDao/Pods-YuDao.release.xcconfig"; sourceTree = "<group>"; };
+		A013A6681D8E6F5D00A9080A /* ListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCollectionViewCell.h; sourceTree = "<group>"; };
+		A013A6691D8E6F5D00A9080A /* ListCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCollectionViewCell.m; sourceTree = "<group>"; };
+		A013A66A1D8E6F5D00A9080A /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
+		A013A66E1D8E80C600A9080A /* SetupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupTableViewController.h; sourceTree = "<group>"; };
+		A013A66F1D8E80C600A9080A /* SetupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupTableViewController.m; sourceTree = "<group>"; };
+		A013A6711D8E912000A9080A /* FirstTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewController.h; sourceTree = "<group>"; };
+		A013A6721D8E912000A9080A /* FirstTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewController.m; sourceTree = "<group>"; };
+		A013A6741D8E968100A9080A /* SetupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupModel.h; sourceTree = "<group>"; };
+		A013A6751D8E968100A9080A /* SetupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupModel.m; sourceTree = "<group>"; };
+		A013A6771D8EA16300A9080A /* PersonalHeadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalHeadController.h; sourceTree = "<group>"; };
+		A013A6781D8EA16300A9080A /* PersonalHeadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalHeadController.m; sourceTree = "<group>"; };
 		A01A33C91D867BBC00852D16 /* DynamicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewController.h; sourceTree = "<group>"; };
 		A01A33CA1D867BBC00852D16 /* DynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewController.m; sourceTree = "<group>"; };
 		A01A33CD1D868EDC00852D16 /* DynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCell.h; sourceTree = "<group>"; };
@@ -345,6 +362,19 @@
 				5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A013A66D1D8E80AD00A9080A /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				A013A66E1D8E80C600A9080A /* SetupTableViewController.h */,
+				A013A66F1D8E80C600A9080A /* SetupTableViewController.m */,
+				A013A6711D8E912000A9080A /* FirstTableViewController.h */,
+				A013A6721D8E912000A9080A /* FirstTableViewController.m */,
+				A013A6741D8E968100A9080A /* SetupModel.h */,
+				A013A6751D8E968100A9080A /* SetupModel.m */,
+			);
+			name = Setup;
 			sourceTree = "<group>";
 		};
 		A01A33CC1D868EB800852D16 /* 逛一逛 */ = {
@@ -687,6 +717,9 @@
 				A07F82911D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m */,
 				A07841391D89435B00D015D3 /* ListScrollView.h */,
 				A078413A1D89435B00D015D3 /* ListScrollView.m */,
+				A013A6681D8E6F5D00A9080A /* ListCollectionViewCell.h */,
+				A013A6691D8E6F5D00A9080A /* ListCollectionViewCell.m */,
+				A013A66A1D8E6F5D00A9080A /* ListCollectionViewCell.xib */,
 				A082479E1D7FF26400DC58C2 /* tableViewCell */,
 			);
 			name = Views;
@@ -783,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				A07F82AE1D82A8A200F9EA6B /* MainInterface */,
+				A013A66D1D8E80AD00A9080A /* Setup */,
 				A07F82961D828EAE00F9EA6B /* MyMessage */,
 				A08247F61D80146400DC58C2 /* Contacts */,
 				A08247E61D7FF72B00DC58C2 /* MyInformatioin */,
@@ -797,6 +831,8 @@
 				A08247E11D7FF71D00DC58C2 /* MyInformationController.m */,
 				A08247E21D7FF71D00DC58C2 /* MyInformationModel.h */,
 				A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */,
+				A013A6771D8EA16300A9080A /* PersonalHeadController.h */,
+				A013A6781D8EA16300A9080A /* PersonalHeadController.m */,
 			);
 			name = MyInformatioin;
 			sourceTree = "<group>";
@@ -950,6 +986,7 @@
 				A08247D51D7FF6A300DC58C2 /* sora_1.png in Resources */,
 				A08247B71D7FF35D00DC58C2 /* TaskCell.xib in Resources */,
 				A08247D71D7FF6A300DC58C2 /* sora_3.png in Resources */,
+				A013A66C1D8E6F5D00A9080A /* ListCollectionViewCell.xib in Resources */,
 				A08247D61D7FF6A300DC58C2 /* sora_2.png in Resources */,
 				A01A345C1D86A91500852D16 /* test1.jpg in Resources */,
 				A08247EB1D7FF97600DC58C2 /* pbg.jpg in Resources */,
@@ -1067,6 +1104,7 @@
 				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
 				A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */,
+				A013A66B1D8E6F5D00A9080A /* ListCollectionViewCell.m in Sources */,
 				A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
@@ -1076,7 +1114,9 @@
 				A09C5AF71D87914500DEBA2E /* RankingListTableViewController.m in Sources */,
 				A01A34431D8699FD00852D16 /* UIView+WebCacheOperation.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
+				A013A6761D8E968100A9080A /* SetupModel.m in Sources */,
 				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
+				A013A6731D8E912000A9080A /* FirstTableViewController.m in Sources */,
 				A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */,
 				A01A33FD1D86941500852D16 /* NSString+MLExpression.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
@@ -1096,7 +1136,9 @@
 				A08247F21D80009300DC58C2 /* LocationView.m in Sources */,
 				A08247971D7FC96E00DC58C2 /* TableNode.m in Sources */,
 				A01A33FF1D86941500852D16 /* MLLabel.m in Sources */,
+				A013A6701D8E80C600A9080A /* SetupTableViewController.m in Sources */,
 				A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */,
+				A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */,
 				A082479D1D7FEA3500DC58C2 /* MenuModel.m in Sources */,
 				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,

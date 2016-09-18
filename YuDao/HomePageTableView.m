@@ -19,6 +19,7 @@ NSString *const menuCellIdentifier = @"MenuCell";
 NSString *const DrivingDataCellIdentifier = @"DrivingDataCell";
 NSString *const ListTypeCellIdentifier = @"ListTypeCell";
 NSString *const ListCellIdentifier = @"ListCell";
+NSString *const NormalCellIdentifier = @"NormalCell";
 
 @implementation HomePageTableView
 {
@@ -41,8 +42,9 @@ NSString *const ListCellIdentifier = @"ListCell";
         [self registerClass:[DrivingDataCell class] forCellReuseIdentifier:DrivingDataCellIdentifier];
         [self registerClass:[ListTypeCell class] forCellReuseIdentifier:ListTypeCellIdentifier];
         [self registerClass:[ListCell class] forCellReuseIdentifier:ListCellIdentifier];
+        [self registerClass:[UITableViewCell class] forCellReuseIdentifier:NormalCellIdentifier];
         
-        self.tableFooterView = [UITableViewHeaderFooterView new];
+        self.tableFooterView = [UIView new];
         self.separatorColor = [UIColor whiteColor];
         if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
             [self setSeparatorInset:UIEdgeInsetsZero];
@@ -85,11 +87,12 @@ NSString *const ListCellIdentifier = @"ListCell";
     TableNode *currentNode = _showData[indexPath.row];
     if (currentNode.depth.integerValue == 0) {
         if (currentNode.nodeId.integerValue != 0) {
-            if (_menuCellArray.count <= 4) {
+            cell.model = currentNode.nodeData;
+            if (![_menuCellArray containsObject:cell]) {
                 [_menuCellArray addObject:cell];
             }
-            cell.model = currentNode.nodeData;
         }
+        
     }else{
         if (currentNode.parentId.integerValue == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:DrivingDataCellIdentifier];
@@ -102,6 +105,18 @@ NSString *const ListCellIdentifier = @"ListCell";
             }else{
                 cell = [tableView dequeueReusableCellWithIdentifier:ListCellIdentifier];
             }
+        }
+        else if (currentNode.parentId.integerValue == 11){
+            if (currentNode.nodeId.integerValue == 12) {
+                cell = [tableView dequeueReusableCellWithIdentifier:NormalCellIdentifier];
+                cell.textLabel.text = @"注册新用户";
+            }else{
+                cell = [tableView dequeueReusableCellWithIdentifier:NormalCellIdentifier];
+                cell.textLabel.text = @"注册新用户";
+            }
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:NormalCellIdentifier];
+            cell.textLabel.text = @"好友动态";
         }
     }
     
@@ -189,9 +204,9 @@ NSString *const ListCellIdentifier = @"ListCell";
         
         //插入或删除本节点的子节点
         if (expand) {
-            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationFade];
         }else{
-            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationFade];
         }
         
         //获得其它打开的节点
@@ -234,7 +249,7 @@ NSString *const ListCellIdentifier = @"ListCell";
             if (currentNode.nodeId.integerValue == 7) {
                 return 50.0f;
             }else{
-                return 300.0f;
+                return 270.0f;
             }
         }
 

@@ -7,6 +7,8 @@
 //
 
 #import "MyInformationController.h"
+#import "PersonalHeadController.h"
+
 #import "MyInformationModel.h"
 #import "UIImage+ChangeIt.h"
 
@@ -69,6 +71,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = 0;
     }
     if (indexPath.row == 0) {
         UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:@"icon1.jpg"] inRect:CGRectMake(60, 60, 60, 60)];
@@ -115,6 +118,18 @@
     [view addSubview:label];
     
     return view;
+}
+
+#pragma mark - delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            [self.navigationController pushViewController:[PersonalHeadController new] animated:YES];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 /*
