@@ -8,6 +8,9 @@
 
 #import "MyInformationController.h"
 #import "PersonalHeadController.h"
+#import "RealOrNickNameController.h"
+#import "AgeOrPlaceController.h"
+#import "InterestController.h"
 
 #import "MyInformationModel.h"
 #import "UIImage+ChangeIt.h"
@@ -124,9 +127,49 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
+        {
             [self.navigationController pushViewController:[PersonalHeadController new] animated:YES];
-            break;
-            
+            break;}
+        case 1:
+        {
+            RealOrNickNameController *vc =  [RealOrNickNameController new];
+            vc.isReal = NO;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 2:
+        {
+            RealOrNickNameController *vc =  [RealOrNickNameController new];
+            vc.isReal = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 3:
+        {
+            AgeOrPlaceController *vc = [AgeOrPlaceController new];
+            vc.vcType = ControllerTypeAge;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 4:
+        {
+            AgeOrPlaceController *vc = [AgeOrPlaceController new];
+            vc.vcType = ControllerTypeGender;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 5:
+        {
+            AgeOrPlaceController *vc = [AgeOrPlaceController new];
+            vc.vcType = ControllerTypeEmotion;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 6:
+        {
+            AgeOrPlaceController *vc = [AgeOrPlaceController new];
+            vc.vcType = ControllerTypePlace;
+            [self.navigationController pushViewController:vc animated:YES];
+            break;}
+        case 7:
+        {
+            [self.navigationController pushViewController:[InterestController new] animated:YES];
+            break;}
         default:
             break;
     }

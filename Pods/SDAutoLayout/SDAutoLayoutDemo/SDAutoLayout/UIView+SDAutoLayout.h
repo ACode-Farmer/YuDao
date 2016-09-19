@@ -117,6 +117,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /* 设置最大宽度和高度、最小宽度和高度 */
 
+
 /** 最大宽度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight maxWidthIs;
 /** 最大高度值，参数为“(CGFloat)”  */
@@ -369,30 +370,6 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 - (void)setupAutoSizeWithHorizontalPadding:(CGFloat)hPadding buttonHeight:(CGFloat)buttonHeight;
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

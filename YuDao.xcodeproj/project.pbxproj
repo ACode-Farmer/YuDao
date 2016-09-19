@@ -65,6 +65,17 @@
 		A01A34621D86A91500852D16 /* test7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34551D86A91500852D16 /* test7.jpg */; };
 		A01A34641D86AA6C00852D16 /* test8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34631D86AA6C00852D16 /* test8.jpg */; };
 		A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */; };
+		A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB811D8F7A2500F8817E /* RealOrNickNameController.m */; };
+		A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB8B1D8FB5EC00F8817E /* AgeOrPlaceController.m */; };
+		A057AB8F1D8FB66800F8817E /* APModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB8E1D8FB66800F8817E /* APModel.m */; };
+		A057AB921D8FB7F300F8817E /* APCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB911D8FB7F300F8817E /* APCell.m */; };
+		A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB951D8FC30E00F8817E /* IQActionSheetPickerView.m */; };
+		A057AB9D1D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB971D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m */; };
+		A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB991D8FC30E00F8817E /* IQActionSheetToolbar.m */; };
+		A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB9B1D8FC30E00F8817E /* IQActionSheetViewController.m */; };
+		A057ABA31D8FCF6400F8817E /* InterestController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057ABA21D8FCF6400F8817E /* InterestController.m */; };
+		A057ABAC1D8FE3B300F8817E /* InterestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A057ABAB1D8FE3B300F8817E /* InterestView.m */; };
+		A057ABAF1D8FEA2900F8817E /* UIView+Extnesion.m in Sources */ = {isa = PBXBuildFile; fileRef = A057ABAE1D8FEA2900F8817E /* UIView+Extnesion.m */; };
 		A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FB1D858A0B00F488BE /* ChatTableViewController.m */; };
 		A05887001D858A8900F488BE /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FF1D858A8900F488BE /* ChatModel.m */; };
 		A05887031D858B6C00F488BE /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05887021D858B6C00F488BE /* ChatCell.m */; };
@@ -235,6 +246,28 @@
 		A01A34631D86AA6C00852D16 /* test8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test8.jpg; sourceTree = "<group>"; };
 		A0493B171D812DC4006FCD50 /* PhoneContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactsTableViewController.h; sourceTree = "<group>"; };
 		A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneContactsTableViewController.m; sourceTree = "<group>"; };
+		A057AB801D8F7A2500F8817E /* RealOrNickNameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealOrNickNameController.h; sourceTree = "<group>"; };
+		A057AB811D8F7A2500F8817E /* RealOrNickNameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealOrNickNameController.m; sourceTree = "<group>"; };
+		A057AB8A1D8FB5EC00F8817E /* AgeOrPlaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgeOrPlaceController.h; sourceTree = "<group>"; };
+		A057AB8B1D8FB5EC00F8817E /* AgeOrPlaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgeOrPlaceController.m; sourceTree = "<group>"; };
+		A057AB8D1D8FB66800F8817E /* APModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModel.h; sourceTree = "<group>"; };
+		A057AB8E1D8FB66800F8817E /* APModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APModel.m; sourceTree = "<group>"; };
+		A057AB901D8FB7F300F8817E /* APCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APCell.h; sourceTree = "<group>"; };
+		A057AB911D8FB7F300F8817E /* APCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APCell.m; sourceTree = "<group>"; };
+		A057AB941D8FC30E00F8817E /* IQActionSheetPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetPickerView.h; sourceTree = "<group>"; };
+		A057AB951D8FC30E00F8817E /* IQActionSheetPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetPickerView.m; sourceTree = "<group>"; };
+		A057AB961D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
+		A057AB971D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetTitleBarButtonItem.m; sourceTree = "<group>"; };
+		A057AB981D8FC30E00F8817E /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		A057AB991D8FC30E00F8817E /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
+		A057AB9A1D8FC30E00F8817E /* IQActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetViewController.h; sourceTree = "<group>"; };
+		A057AB9B1D8FC30E00F8817E /* IQActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetViewController.m; sourceTree = "<group>"; };
+		A057ABA11D8FCF6400F8817E /* InterestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestController.h; sourceTree = "<group>"; };
+		A057ABA21D8FCF6400F8817E /* InterestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestController.m; sourceTree = "<group>"; };
+		A057ABAA1D8FE3B300F8817E /* InterestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestView.h; sourceTree = "<group>"; };
+		A057ABAB1D8FE3B300F8817E /* InterestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestView.m; sourceTree = "<group>"; };
+		A057ABAD1D8FEA2900F8817E /* UIView+Extnesion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extnesion.h"; sourceTree = "<group>"; };
+		A057ABAE1D8FEA2900F8817E /* UIView+Extnesion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extnesion.m"; sourceTree = "<group>"; };
 		A05886FA1D858A0B00F488BE /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
 		A05886FB1D858A0B00F488BE /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
 		A05886FE1D858A8900F488BE /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
@@ -549,6 +582,77 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		A057AB861D8FB52900F8817E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A08247E21D7FF71D00DC58C2 /* MyInformationModel.h */,
+				A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */,
+				A08247E01D7FF71D00DC58C2 /* MyInformationController.h */,
+				A08247E11D7FF71D00DC58C2 /* MyInformationController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		A057AB871D8FB53F00F8817E /* 个人头像 */ = {
+			isa = PBXGroup;
+			children = (
+				A013A6771D8EA16300A9080A /* PersonalHeadController.h */,
+				A013A6781D8EA16300A9080A /* PersonalHeadController.m */,
+			);
+			name = "个人头像";
+			sourceTree = "<group>";
+		};
+		A057AB881D8FB57000F8817E /* 真名和昵称 */ = {
+			isa = PBXGroup;
+			children = (
+				A057AB801D8F7A2500F8817E /* RealOrNickNameController.h */,
+				A057AB811D8F7A2500F8817E /* RealOrNickNameController.m */,
+			);
+			name = "真名和昵称";
+			sourceTree = "<group>";
+		};
+		A057AB891D8FB59800F8817E /* 年龄\地区\性别\情感状态 */ = {
+			isa = PBXGroup;
+			children = (
+				A057AB8A1D8FB5EC00F8817E /* AgeOrPlaceController.h */,
+				A057AB8B1D8FB5EC00F8817E /* AgeOrPlaceController.m */,
+				A057AB8D1D8FB66800F8817E /* APModel.h */,
+				A057AB8E1D8FB66800F8817E /* APModel.m */,
+				A057AB901D8FB7F300F8817E /* APCell.h */,
+				A057AB911D8FB7F300F8817E /* APCell.m */,
+				A057AB931D8FC30E00F8817E /* IQActionSheetPickerView */,
+			);
+			name = "年龄\\地区\\性别\\情感状态";
+			sourceTree = "<group>";
+		};
+		A057AB931D8FC30E00F8817E /* IQActionSheetPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				A057AB941D8FC30E00F8817E /* IQActionSheetPickerView.h */,
+				A057AB951D8FC30E00F8817E /* IQActionSheetPickerView.m */,
+				A057AB961D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.h */,
+				A057AB971D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m */,
+				A057AB981D8FC30E00F8817E /* IQActionSheetToolbar.h */,
+				A057AB991D8FC30E00F8817E /* IQActionSheetToolbar.m */,
+				A057AB9A1D8FC30E00F8817E /* IQActionSheetViewController.h */,
+				A057AB9B1D8FC30E00F8817E /* IQActionSheetViewController.m */,
+			);
+			path = IQActionSheetPickerView;
+			sourceTree = "<group>";
+		};
+		A057ABA01D8FCF0A00F8817E /* 兴趣 */ = {
+			isa = PBXGroup;
+			children = (
+				A057ABA11D8FCF6400F8817E /* InterestController.h */,
+				A057ABA21D8FCF6400F8817E /* InterestController.m */,
+				A057ABAA1D8FE3B300F8817E /* InterestView.h */,
+				A057ABAB1D8FE3B300F8817E /* InterestView.m */,
+				A057ABAD1D8FEA2900F8817E /* UIView+Extnesion.h */,
+				A057ABAE1D8FEA2900F8817E /* UIView+Extnesion.m */,
+			);
+			name = "兴趣";
+			sourceTree = "<group>";
+		};
 		A05886FD1D858A6900F488BE /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,12 +931,11 @@
 		A08247E61D7FF72B00DC58C2 /* MyInformatioin */ = {
 			isa = PBXGroup;
 			children = (
-				A08247E01D7FF71D00DC58C2 /* MyInformationController.h */,
-				A08247E11D7FF71D00DC58C2 /* MyInformationController.m */,
-				A08247E21D7FF71D00DC58C2 /* MyInformationModel.h */,
-				A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */,
-				A013A6771D8EA16300A9080A /* PersonalHeadController.h */,
-				A013A6781D8EA16300A9080A /* PersonalHeadController.m */,
+				A057AB861D8FB52900F8817E /* Main */,
+				A057AB881D8FB57000F8817E /* 真名和昵称 */,
+				A057AB871D8FB53F00F8817E /* 个人头像 */,
+				A057AB891D8FB59800F8817E /* 年龄\地区\性别\情感状态 */,
+				A057ABA01D8FCF0A00F8817E /* 兴趣 */,
 			);
 			name = MyInformatioin;
 			sourceTree = "<group>";
@@ -1108,9 +1211,14 @@
 				A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
+				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
 				A08247C11D7FF48400DC58C2 /* ListModel.m in Sources */,
+				A057AB9D1D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m in Sources */,
+				A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */,
+				A057ABA31D8FCF6400F8817E /* InterestController.m in Sources */,
+				A057ABAF1D8FEA2900F8817E /* UIView+Extnesion.m in Sources */,
 				A09C5AF71D87914500DEBA2E /* RankingListTableViewController.m in Sources */,
 				A01A34431D8699FD00852D16 /* UIView+WebCacheOperation.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
@@ -1118,6 +1226,7 @@
 				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
 				A013A6731D8E912000A9080A /* FirstTableViewController.m in Sources */,
 				A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */,
+				A057AB921D8FB7F300F8817E /* APCell.m in Sources */,
 				A01A33FD1D86941500852D16 /* NSString+MLExpression.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
@@ -1129,6 +1238,7 @@
 				A01A34101D8699DE00852D16 /* SDPhotoBrowser.m in Sources */,
 				A08247BE1D7FF47300DC58C2 /* ListTypeModel.m in Sources */,
 				A08247E51D7FF71D00DC58C2 /* MyInformationModel.m in Sources */,
+				A057AB8F1D8FB66800F8817E /* APModel.m in Sources */,
 				A01A34411D8699FD00852D16 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
@@ -1144,11 +1254,15 @@
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A01A34341D8699FD00852D16 /* MKAnnotationView+WebCache.m in Sources */,
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
+				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
+				A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */,
+				A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */,
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,
 				A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */,
+				A057ABAC1D8FE3B300F8817E /* InterestView.m in Sources */,
 				A01A34381D8699FD00852D16 /* SDWebImageDecoder.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,
