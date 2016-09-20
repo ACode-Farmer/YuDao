@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListCell : UITableViewCell
+@protocol ListCelldelegate <NSObject>
 
+@required
+- (void)changeListTypeCellBtn:(NSInteger )page;
+
+@end
+
+@interface ListCell : UITableViewCell<UIScrollViewDelegate>
+
+@property (nonatomic, weak) id<ListCelldelegate> delegate;
 
 @end

@@ -10,7 +10,7 @@
 #import "MenuCell.h"
 #import "DrivingDataCell.h"
 #import "ListTypeCell.h"
-#import "ListCell.h"
+
 
 #import "TableNode.h"
 #import "MenuModel.h"
@@ -104,6 +104,8 @@ NSString *const NormalCellIdentifier = @"NormalCell";
                 _listTypeCell = (ListTypeCell *)cell;
             }else{
                 cell = [tableView dequeueReusableCellWithIdentifier:ListCellIdentifier];
+                ListCell *listcell = (ListCell *)cell;
+                listcell.delegate = self;
             }
         }
         else if (currentNode.parentId.integerValue == 11){
@@ -123,6 +125,22 @@ NSString *const NormalCellIdentifier = @"NormalCell";
     return cell;
 }
 
+
+- (void)changeListTypeCellBtn:(NSInteger )page{
+    NSLog(@"tag = %ld",page);
+    NSArray *tags = @[@0,@1,@2,@3];
+   ListTypeCell  *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    for (NSNumber *tag in tags) {
+        if (tag.integerValue == page) {
+            UIButton *btn = [cell viewWithTag:tag.integerValue];
+            btn.selected = YES;
+        }else{
+            UIButton *btn = [cell viewWithTag:tag.integerValue];
+            btn.selected = NO;
+        }
+    }
+   
+}
 
 
 /**
@@ -249,7 +267,7 @@ NSString *const NormalCellIdentifier = @"NormalCell";
             if (currentNode.nodeId.integerValue == 7) {
                 return 50.0f;
             }else{
-                return 270.0f;
+                return screen_width+10;
             }
         }
 

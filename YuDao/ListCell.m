@@ -16,12 +16,22 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         ListScrollView *scrollView = [[ListScrollView alloc] initWithFrame:CGRectZero];
         [self.contentView addSubview:scrollView];
+        scrollView.delegate = self;
         
         scrollView.sd_layout
         .spaceToSuperView(UIEdgeInsetsZero);
         
     }
     return self;
+}
+
+#pragma mark scroll view delegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSInteger page = scrollView.contentOffset.x/screen_width;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changeListTypeCellBtn:)]) {
+        [self.delegate changeListTypeCellBtn:page];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

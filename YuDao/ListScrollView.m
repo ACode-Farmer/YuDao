@@ -21,7 +21,7 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
 }
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.contentSize = CGSizeMake(4*screen_width, 300);
+        self.contentSize = CGSizeMake(4*screen_width, screen_width);
         self.backgroundColor = [UIColor whiteColor];
         self.directionalLockEnabled = YES;
         self.pagingEnabled = YES;
@@ -36,14 +36,9 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
 - (void)setupSubviews{
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    //layout.itemSize = CGSizeMake(100, 100);
-    layout.minimumLineSpacing = 5.0f;//行间距
-    layout.minimumInteritemSpacing = 5.0f;//item间距(最小值)
-    layout.sectionInset = UIEdgeInsetsMake(5, 50, 0, 50);//设置section的边距
     
     for (NSInteger i = 0; i < 4; i++) {
-        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, 270);
+        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, screen_width);
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:subFrame collectionViewLayout:layout];
         collectionView.scrollEnabled = NO;
         collectionView.tag = 100+i;
@@ -58,18 +53,30 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
 
 #pragma collectionView DataSource -
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 9;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ListCollectionViewCellIdentifier forIndexPath:indexPath];
     [cell.layer setCornerRadius:5.0f];
-    
+    cell.backgroundColor = [UIColor orangeColor];
     return cell;
+}
+
+#pragma collectionView delegate -
+//cell的最小行间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    
+    return 0;
+}
+//cell的最小列间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+   
+    return 0;
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake((screen_width-15)/3,(screen_width-15)/3);
@@ -77,6 +84,9 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld %ld",indexPath.section,indexPath.row);
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(5, 5, 0, 5);
 }
 
 /*
