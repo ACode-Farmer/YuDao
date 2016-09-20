@@ -37,13 +37,13 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.itemSize = CGSizeMake(100, 100);
-    layout.minimumLineSpacing = 10.0f;//行间距
-    layout.minimumInteritemSpacing = 10.0f;//item间距(最小值)
+    //layout.itemSize = CGSizeMake(100, 100);
+    layout.minimumLineSpacing = 5.0f;//行间距
+    layout.minimumInteritemSpacing = 5.0f;//item间距(最小值)
     layout.sectionInset = UIEdgeInsetsMake(5, 50, 0, 50);//设置section的边距
     
     for (NSInteger i = 0; i < 4; i++) {
-        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, self.frame.size.height);
+        CGRect subFrame = CGRectMake(i * screen_width, 0, screen_width, 270);
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:subFrame collectionViewLayout:layout];
         collectionView.scrollEnabled = NO;
         collectionView.tag = 100+i;
@@ -72,8 +72,7 @@ NSString *const ListCollectionViewCellIdentifier = @"ListCollectionViewCell";
     return cell;
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeMake(80,80);
-    return size;
+    return CGSizeMake((screen_width-15)/3,(screen_width-15)/3);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

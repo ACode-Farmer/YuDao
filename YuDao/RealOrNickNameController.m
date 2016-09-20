@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.textF.text = @"此处后期使用单例子";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     self.textF.sd_layout
     .topSpaceToView(self.view,74)
     .leftSpaceToView(self.view,5)
@@ -39,13 +41,27 @@
     else{
         self.title = @"昵称";
     }
+    self.textF.text = [defaults stringForKey:self.title];
+    [self.textF becomeFirstResponder];
     
     
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction:)];
+    rightItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+}
+
+- (void)rightItemAction:(id)sender{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.textF.text forKey:self.title];
+    [defaults synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UITextField *)textF{
     if (!_textF) {
         _textF = [UITextField new];
+        _textF.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textF.layer.borderWidth = 1.0f;
         _textF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _textF.layer.cornerRadius = 5.0f;
@@ -62,6 +78,22 @@
         _label.text = @"*真实姓名不显示在个人资料中，请放心填写";
     }
     return _label;
+}
+
+#pragma textField delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (string.length > 0) {
+        string = [textField.text stringByAppendingString:string];
+    }else{
+        string = [textField.text substringWithRange:NSMakeRange(0, textField.text.length-1)];
+    }
+    NSLog(@"string - %@",string);
+    if (![string isEqualToString:@"此处后期使用单例"]) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }else{
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,6 +7,8 @@
 //
 
 #import "AgeOrPlaceController.h"
+#import "ProvinceController.h"
+
 #import "IQActionSheetPickerView.h"
 #import "APCell.h"
 #import "APModel.h"
@@ -31,6 +33,7 @@ static NSString *const APCellIdentifier = @"APCell";
         switch (self.vcType) {
             case ControllerTypeAge:
             {
+                self.title = @"年龄";
                 APModel *model1 = [APModel modelWithTitle:@"年龄" subTitle:@"18" cellType:CellTypeArrow];
                 APModel *model2 = [APModel modelWithTitle:@"星座" subTitle:@"天枰座" cellType:CellTypeSubTitle];
                 APModel *model3 = [APModel modelWithTitle:@"公开年龄" subTitle:nil cellType:CellTypeSwitch];
@@ -38,18 +41,21 @@ static NSString *const APCellIdentifier = @"APCell";
                 break;}
             case ControllerTypePlace:
             {
+                self.title = @"常出没地点";
                 APModel *model1 = [APModel modelWithTitle:@"国家" subTitle:@"中国" cellType:CellTypeArrow];
                 APModel *model2 = [APModel modelWithTitle:@"地区" subTitle:@"上海 闵行" cellType:CellTypeArrow];
                 _dataSource = @[model1,model2];
                 break;}
             case ControllerTypeGender:
             {
+                self.title = @"性别";
                 APModel *model1 = [APModel modelWithTitle:@"男" subTitle:nil cellType:CellTypeSubTitle];
                 APModel *model2 = [APModel modelWithTitle:@"女" subTitle:nil cellType:CellTypeCheckmark];
                 _dataSource = @[model1,model2];
                 break;}
             case ControllerTypeEmotion:
             {
+                self.title = @"情感状态";
                 APModel *model1 = [APModel modelWithTitle:@"单身" subTitle:nil cellType:CellTypeCheckmark];
                 APModel *model2 = [APModel modelWithTitle:@"热恋中" subTitle:nil cellType:CellTypeSubTitle];
                 APModel *model3 = [APModel modelWithTitle:@"已婚" subTitle:nil cellType:CellTypeSubTitle];
@@ -98,7 +104,11 @@ static NSString *const APCellIdentifier = @"APCell";
             break;}
         case ControllerTypePlace:
         {
-            
+            if (indexPath.row == 0) {
+                
+            }else{
+                [self.navigationController pushViewController:[ProvinceController new] animated:YES];
+            }
             break;}
         case ControllerTypeGender:
         {

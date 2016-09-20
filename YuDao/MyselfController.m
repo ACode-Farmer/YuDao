@@ -7,7 +7,11 @@
 //
 
 #import "MyselfController.h"
+#import "ChangeImageController.h"
+
 #import "MyselfModel.h"
+#import <SDAutoLayout/UIView+SDAutoLayout.h>
+#import "UIButton+ImageTitleSpacing.h"
 @interface MyselfController ()
 
 @property (nonatomic, strong) NSArray *datasource;
@@ -59,34 +63,83 @@
     if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 160)];
         [_headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pbg.jpg"]]];
-        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon1.jpg"]];
-        userImage.frame = CGRectMake(20, 80, 60, 60);
-        userImage.layer.cornerRadius = 30;
-        userImage.layer.masksToBounds = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_headerView addGestureRecognizer:tap];
         
-        UIImageView *genderImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"woman"]];
-        genderImage.frame = CGRectMake(100, 110, 30, 30);
+        UIButton *userImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [userImageBtn setImage:[UIImage imageNamed:@"icon1.jpg"] forState:0];
+        [userImageBtn setImage:[UIImage imageNamed:@"icon1.jpg"] forState:1];
+        userImageBtn.frame = CGRectMake(screen_width/2 - 30, 20, 60, 60);
+        userImageBtn.layer.cornerRadius = 30;
+        userImageBtn.layer.masksToBounds = YES;
+        [userImageBtn addTarget:self action:@selector(userImageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIImageView *genderImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Like"]];
         genderImage.layer.cornerRadius = 15;
         genderImage.layer.masksToBounds = YES;
         
-        UILabel *vipLabel = [[UILabel alloc] init];
-        vipLabel.frame = CGRectMake(screen_width-100, 110, 100, 30);
-        vipLabel.text = @"认证等级 V5";
-        vipLabel.backgroundColor = [UIColor orangeColor];
-        vipLabel.textColor = [UIColor whiteColor];
+        UIButton *vipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [vipBtn setTitle:@"认证等级 V5" forState:0];
+        [vipBtn setTitleColor:[UIColor whiteColor] forState:0];
+        vipBtn.backgroundColor = [UIColor orangeColor];
+        [vipBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
+        vipBtn.enabled = NO;
         
-        UILabel *likeLabel = [[UILabel alloc] init];
-        likeLabel.frame = CGRectMake(screen_width-100, 70, 100, 30);
-        likeLabel.text = @"6666喜欢";
-        likeLabel.backgroundColor = [UIColor blueColor];
-        likeLabel.textColor = [UIColor whiteColor];
+        UIButton *likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [likeBtn setTitle:@"666喜欢" forState:0];
+        [likeBtn setTitleColor:[UIColor whiteColor] forState:0];
+        likeBtn.backgroundColor = [UIColor orangeColor];
+        [likeBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
+        likeBtn.enabled = NO;
         
-        NSArray *headerSubViews = @[userImage,genderImage,likeLabel,vipLabel];
+        NSArray *headerSubViews = @[userImageBtn,genderImage,likeBtn,vipBtn];
         [headerSubViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [_headerView addSubview:obj];
         }];
+        genderImage.sd_layout
+        .leftSpaceToView(userImageBtn,2)
+        .bottomEqualToView(userImageBtn)
+        .widthIs(30)
+        .heightEqualToWidth();
+        
+        vipBtn.sd_layout
+        .rightSpaceToView(userImageBtn,0)
+        .topSpaceToView(userImageBtn,30)
+        .widthIs(150)
+        .heightIs(30);
+        
+        likeBtn.sd_layout
+        .leftSpaceToView(userImageBtn,0)
+        .topEqualToView(vipBtn)
+        .widthIs(150)
+        .heightIs(30);
+        
+        [vipBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
+        [likeBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
     }
     return _headerView;
+}
+
+- (void)tapAction:(id)sender{
+    [self userImageBtnAction:nil];
+}
+- (void)userImageBtnAction:(UIButton *)sender{
+    NSString *title = nil;
+    if (sender) {
+        title = @"更换头像";
+    }else{
+        title = @"更换封面背景";
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *one = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        ChangeImageController *changeVC = [ChangeImageController new];
+        changeVC.optionalTitle = title;
+        [self.navigationController pushViewController:changeVC animated:YES];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:one];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source

@@ -8,13 +8,18 @@
 
 #import "ListCell.h"
 #import "ListScrollView.h"
+#import <SDAutoLayout/UIView+SDAutoLayout.h>
 
 @implementation ListCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        ListScrollView *scrollView = [[ListScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 270)];
+        ListScrollView *scrollView = [[ListScrollView alloc] initWithFrame:CGRectZero];
         [self.contentView addSubview:scrollView];
+        
+        scrollView.sd_layout
+        .spaceToSuperView(UIEdgeInsetsZero);
+        
     }
     return self;
 }

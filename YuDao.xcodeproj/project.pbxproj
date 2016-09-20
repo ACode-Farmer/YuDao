@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A00CE67A1D90E23F00496A6F /* MCommonModel.m */; };
 		A013A66B1D8E6F5D00A9080A /* ListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A6691D8E6F5D00A9080A /* ListCollectionViewCell.m */; };
 		A013A66C1D8E6F5D00A9080A /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A013A66A1D8E6F5D00A9080A /* ListCollectionViewCell.xib */; };
 		A013A6701D8E80C600A9080A /* SetupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A013A66F1D8E80C600A9080A /* SetupTableViewController.m */; };
@@ -64,6 +65,11 @@
 		A01A34611D86A91500852D16 /* test6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34541D86A91500852D16 /* test6.jpg */; };
 		A01A34621D86A91500852D16 /* test7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34551D86A91500852D16 /* test7.jpg */; };
 		A01A34641D86AA6C00852D16 /* test8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34631D86AA6C00852D16 /* test8.jpg */; };
+		A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC631D9100A100D8D12F /* ProvinceController.m */; };
+		A037BC661D9100D200D8D12F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = A037BC651D9100D200D8D12F /* area.plist */; };
+		A037BC691D91039400D8D12F /* CityController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC681D91039400D8D12F /* CityController.m */; };
+		A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC6B1D9105EC00D8D12F /* DistrictController.m */; };
+		A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC6F1D91238B00D8D12F /* ChangeImageController.m */; };
 		A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */; };
 		A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB811D8F7A2500F8817E /* RealOrNickNameController.m */; };
 		A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A057AB8B1D8FB5EC00F8817E /* AgeOrPlaceController.m */; };
@@ -121,7 +127,6 @@
 		A08247DB1D7FF6A300DC58C2 /* sora_7.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247D31D7FF6A300DC58C2 /* sora_7.png */; };
 		A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247DE1D7FF71400DC58C2 /* MyselfController.m */; };
 		A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247E11D7FF71D00DC58C2 /* MyInformationController.m */; };
-		A08247E51D7FF71D00DC58C2 /* MyInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */; };
 		A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A08247E81D7FF97600DC58C2 /* icon1.jpg */; };
 		A08247EB1D7FF97600DC58C2 /* pbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A08247E91D7FF97600DC58C2 /* pbg.jpg */; };
 		A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247EE1D7FFC7800DC58C2 /* SearchController.m */; };
@@ -142,6 +147,8 @@
 /* Begin PBXFileReference section */
 		4B41562B8238B5C8CF23BE35 /* libPods-YuDao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YuDao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuDao.release.xcconfig"; path = "Pods/Target Support Files/Pods-YuDao/Pods-YuDao.release.xcconfig"; sourceTree = "<group>"; };
+		A00CE6791D90E23F00496A6F /* MCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCommonModel.h; sourceTree = "<group>"; };
+		A00CE67A1D90E23F00496A6F /* MCommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCommonModel.m; sourceTree = "<group>"; };
 		A013A6681D8E6F5D00A9080A /* ListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCollectionViewCell.h; sourceTree = "<group>"; };
 		A013A6691D8E6F5D00A9080A /* ListCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCollectionViewCell.m; sourceTree = "<group>"; };
 		A013A66A1D8E6F5D00A9080A /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -244,6 +251,15 @@
 		A01A34541D86A91500852D16 /* test6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test6.jpg; sourceTree = "<group>"; };
 		A01A34551D86A91500852D16 /* test7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test7.jpg; sourceTree = "<group>"; };
 		A01A34631D86AA6C00852D16 /* test8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test8.jpg; sourceTree = "<group>"; };
+		A037BC621D9100A100D8D12F /* ProvinceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceController.h; sourceTree = "<group>"; };
+		A037BC631D9100A100D8D12F /* ProvinceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceController.m; sourceTree = "<group>"; };
+		A037BC651D9100D200D8D12F /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		A037BC671D91039400D8D12F /* CityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityController.h; sourceTree = "<group>"; };
+		A037BC681D91039400D8D12F /* CityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityController.m; sourceTree = "<group>"; };
+		A037BC6A1D9105EC00D8D12F /* DistrictController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictController.h; sourceTree = "<group>"; };
+		A037BC6B1D9105EC00D8D12F /* DistrictController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictController.m; sourceTree = "<group>"; };
+		A037BC6E1D91238B00D8D12F /* ChangeImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeImageController.h; sourceTree = "<group>"; };
+		A037BC6F1D91238B00D8D12F /* ChangeImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeImageController.m; sourceTree = "<group>"; };
 		A0493B171D812DC4006FCD50 /* PhoneContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactsTableViewController.h; sourceTree = "<group>"; };
 		A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneContactsTableViewController.m; sourceTree = "<group>"; };
 		A057AB801D8F7A2500F8817E /* RealOrNickNameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealOrNickNameController.h; sourceTree = "<group>"; };
@@ -344,8 +360,6 @@
 		A08247DE1D7FF71400DC58C2 /* MyselfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfController.m; sourceTree = "<group>"; };
 		A08247E01D7FF71D00DC58C2 /* MyInformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
 		A08247E11D7FF71D00DC58C2 /* MyInformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInformationController.m; sourceTree = "<group>"; };
-		A08247E21D7FF71D00DC58C2 /* MyInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInformationModel.h; sourceTree = "<group>"; };
-		A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInformationModel.m; sourceTree = "<group>"; };
 		A08247E71D7FF80400DC58C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A08247E81D7FF97600DC58C2 /* icon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpg; sourceTree = "<group>"; };
 		A08247E91D7FF97600DC58C2 /* pbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pbg.jpg; sourceTree = "<group>"; };
@@ -395,6 +409,15 @@
 				5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A00CE6781D90E1DE00496A6F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A00CE6791D90E23F00496A6F /* MCommonModel.h */,
+				A00CE67A1D90E23F00496A6F /* MCommonModel.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		A013A66D1D8E80AD00A9080A /* Setup */ = {
@@ -582,11 +605,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		A037BC6D1D91236A00D8D12F /* 修改背景图片或头像 */ = {
+			isa = PBXGroup;
+			children = (
+				A037BC6E1D91238B00D8D12F /* ChangeImageController.h */,
+				A037BC6F1D91238B00D8D12F /* ChangeImageController.m */,
+			);
+			name = "修改背景图片或头像";
+			sourceTree = "<group>";
+		};
 		A057AB861D8FB52900F8817E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A08247E21D7FF71D00DC58C2 /* MyInformationModel.h */,
-				A08247E31D7FF71D00DC58C2 /* MyInformationModel.m */,
 				A08247E01D7FF71D00DC58C2 /* MyInformationController.h */,
 				A08247E11D7FF71D00DC58C2 /* MyInformationController.m */,
 			);
@@ -616,6 +646,12 @@
 			children = (
 				A057AB8A1D8FB5EC00F8817E /* AgeOrPlaceController.h */,
 				A057AB8B1D8FB5EC00F8817E /* AgeOrPlaceController.m */,
+				A037BC621D9100A100D8D12F /* ProvinceController.h */,
+				A037BC631D9100A100D8D12F /* ProvinceController.m */,
+				A037BC671D91039400D8D12F /* CityController.h */,
+				A037BC681D91039400D8D12F /* CityController.m */,
+				A037BC6A1D9105EC00D8D12F /* DistrictController.h */,
+				A037BC6B1D9105EC00D8D12F /* DistrictController.m */,
 				A057AB8D1D8FB66800F8817E /* APModel.h */,
 				A057AB8E1D8FB66800F8817E /* APModel.m */,
 				A057AB901D8FB7F300F8817E /* APCell.h */,
@@ -678,21 +714,21 @@
 			name = MyMessage;
 			sourceTree = "<group>";
 		};
-		A07F82A01D82A2ED00F9EA6B /* Discover */ = {
+		A07F82A01D82A2ED00F9EA6B /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
 				A09C5AF41D87912600DEBA2E /* 排行榜 */,
 				A07F82AD1D82A83500F9EA6B /* MainInterface */,
 				A01A33CC1D868EB800852D16 /* 逛一逛 */,
 			);
-			name = Discover;
+			name = "发现";
 			sourceTree = "<group>";
 		};
-		A07F82A11D82A2F100F9EA6B /* Service */ = {
+		A07F82A11D82A2F100F9EA6B /* 服务 */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Service;
+			name = "服务";
 			sourceTree = "<group>";
 		};
 		A07F82A81D82A48400F9EA6B /* Controller */ = {
@@ -760,10 +796,10 @@
 				A07F82A51D82A3EE00F9EA6B /* RootViewController.h */,
 				A07F82A61D82A3EE00F9EA6B /* RootViewController.m */,
 				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
-				A082478A1D7FC53900DC58C2 /* HomePage */,
-				A07F82A01D82A2ED00F9EA6B /* Discover */,
-				A07F82A11D82A2F100F9EA6B /* Service */,
-				A08247DC1D7FF70B00DC58C2 /* Myself */,
+				A082478A1D7FC53900DC58C2 /* 首页 */,
+				A07F82A01D82A2ED00F9EA6B /* 发现 */,
+				A07F82A11D82A2F100F9EA6B /* 服务 */,
+				A08247DC1D7FF70B00DC58C2 /* 我 */,
 				A08247EC1D7FFC6700DC58C2 /* Search */,
 			);
 			path = YuDao;
@@ -781,19 +817,20 @@
 				A08247811D7FC4BC00DC58C2 /* LaunchScreen.storyboard */,
 				A08247841D7FC4BC00DC58C2 /* Info.plist */,
 				A08247981D7FDEC400DC58C2 /* TableNodeDataSource.plist */,
+				A037BC651D9100D200D8D12F /* area.plist */,
 			);
 			name = "Supporting Files";
 			path = YuDao;
 			sourceTree = "<group>";
 		};
-		A082478A1D7FC53900DC58C2 /* HomePage */ = {
+		A082478A1D7FC53900DC58C2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
 				A082478B1D7FC55500DC58C2 /* Models */,
 				A082478C1D7FC56000DC58C2 /* Views */,
 				A082478E1D7FC57400DC58C2 /* Controllers */,
 			);
-			name = HomePage;
+			name = "首页";
 			sourceTree = "<group>";
 		};
 		A082478B1D7FC55500DC58C2 /* Models */ = {
@@ -916,21 +953,23 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		A08247DC1D7FF70B00DC58C2 /* Myself */ = {
+		A08247DC1D7FF70B00DC58C2 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
+				A037BC6D1D91236A00D8D12F /* 修改背景图片或头像 */,
 				A07F82AE1D82A8A200F9EA6B /* MainInterface */,
 				A013A66D1D8E80AD00A9080A /* Setup */,
 				A07F82961D828EAE00F9EA6B /* MyMessage */,
 				A08247F61D80146400DC58C2 /* Contacts */,
 				A08247E61D7FF72B00DC58C2 /* MyInformatioin */,
 			);
-			name = Myself;
+			name = "我";
 			sourceTree = "<group>";
 		};
 		A08247E61D7FF72B00DC58C2 /* MyInformatioin */ = {
 			isa = PBXGroup;
 			children = (
+				A00CE6781D90E1DE00496A6F /* Common */,
 				A057AB861D8FB52900F8817E /* Main */,
 				A057AB881D8FB57000F8817E /* 真名和昵称 */,
 				A057AB871D8FB53F00F8817E /* 个人头像 */,
@@ -1055,6 +1094,7 @@
 				TargetAttributes = {
 					A082476F1D7FC4BC00DC58C2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8VNHAPTP32;
 					};
 				};
 			};
@@ -1100,6 +1140,7 @@
 				A01A34571D86A91500852D16 /* head1.jpg in Resources */,
 				A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */,
 				A08247DA1D7FF6A300DC58C2 /* sora_6.png in Resources */,
+				A037BC661D9100D200D8D12F /* area.plist in Resources */,
 				A01A34591D86A91500852D16 /* head3.jpg in Resources */,
 				A08247991D7FDEC400DC58C2 /* TableNodeDataSource.plist in Resources */,
 				A01A34621D86A91500852D16 /* test7.jpg in Resources */,
@@ -1198,6 +1239,7 @@
 				A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */,
 				A01A34401D8699FD00852D16 /* UIImage+WebP.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
+				A037BC691D91039400D8D12F /* CityController.m in Sources */,
 				A01A34111D8699DE00852D16 /* SDWaitingView.m in Sources */,
 				A01A33FA1D86941500852D16 /* MLExpressionManager.m in Sources */,
 				A08247FC1D80148D00DC58C2 /* ContactsModel.m in Sources */,
@@ -1211,6 +1253,7 @@
 				A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
+				A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */,
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
@@ -1230,6 +1273,7 @@
 				A01A33FD1D86941500852D16 /* NSString+MLExpression.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
+				A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */,
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
 				A01A343D1D8699FD00852D16 /* UIButton+WebCache.m in Sources */,
@@ -1237,7 +1281,6 @@
 				A01A33F71D86941500852D16 /* NSAttributedString+MLLabel.m in Sources */,
 				A01A34101D8699DE00852D16 /* SDPhotoBrowser.m in Sources */,
 				A08247BE1D7FF47300DC58C2 /* ListTypeModel.m in Sources */,
-				A08247E51D7FF71D00DC58C2 /* MyInformationModel.m in Sources */,
 				A057AB8F1D8FB66800F8817E /* APModel.m in Sources */,
 				A01A34411D8699FD00852D16 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
@@ -1255,6 +1298,7 @@
 				A01A34341D8699FD00852D16 /* MKAnnotationView+WebCache.m in Sources */,
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
+				A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
 				A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */,
 				A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */,
@@ -1264,6 +1308,7 @@
 				A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */,
 				A057ABAC1D8FE3B300F8817E /* InterestView.m in Sources */,
 				A01A34381D8699FD00852D16 /* SDWebImageDecoder.m in Sources */,
+				A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,
 				A01A343E1D8699FD00852D16 /* UIImage+GIF.m in Sources */,
@@ -1382,6 +1427,8 @@
 			baseConfigurationReference = C4D2BF99764BDF8833496D44 /* Pods-YuDao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				INFOPLIST_FILE = YuDao/Info.plist;
@@ -1389,6 +1436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ve-link.YuDao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1397,6 +1445,8 @@
 			baseConfigurationReference = 5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				INFOPLIST_FILE = YuDao/Info.plist;
@@ -1404,6 +1454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ve-link.YuDao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

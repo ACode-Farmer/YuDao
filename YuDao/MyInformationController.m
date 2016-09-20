@@ -12,15 +12,12 @@
 #import "AgeOrPlaceController.h"
 #import "InterestController.h"
 
-#import "MyInformationModel.h"
+#import "MCommonModel.h"
 #import "UIImage+ChangeIt.h"
 
 @interface MyInformationController ()
 
-@property (nonatomic ,strong) NSArray *titles;
-@property (nonatomic, strong) MyInformationModel *myself;
-
-@property (nonatomic, strong) NSArray *myInformation;
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
@@ -30,22 +27,28 @@
     [super viewDidLoad];
     self.title = @"我的资料";
     self.tableView.estimatedRowHeight = 45.0f;
-    self.titles = @[@"头像",@"呢称",@"真实姓名",@"年龄",@"性别",@"情感状态",@"常出没地点",@"兴趣"];
-    NSDictionary *dic = @{@"headImage":@"icon1.jpg",@"nickName":@"呵呵",@"realName":@"哈哈哈",@"age":@"18",@"gender":@"女",@"emotion":@"单身",@"place":@"普陀",@"interesting":@"美食、旅游"};
-    _myself = [MyInformationModel modelWithDictionary:dic];
-    
-    _myInformation = @[@"呵呵",@"哈哈哈",@"18",@"女",@"单身",@"普陀",@"美食、旅游"];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.titles = @[@"头像",@"呢称",@"真实姓名",@"年龄",@"性别",@"情感状态",@"常出没地点",@"兴趣"];
+   
+}
+
+- (void)reloadDataSource{
+    MCommonModel *model0 = [MCommonModel singleModelWithTitle:@"头像"];
+    MCommonModel *model1 = [MCommonModel singleModelWithTitle:@"昵称"];
+    MCommonModel *model2 = [MCommonModel singleModelWithTitle:@"真实姓名"];
+    MCommonModel *model3 = [MCommonModel singleModelWithTitle:@"年龄"];
+    MCommonModel *model4 = [MCommonModel singleModelWithTitle:@"性别"];
+    MCommonModel *model5 = [MCommonModel singleModelWithTitle:@"情感状态"];
+    MCommonModel *model6 = [MCommonModel singleModelWithTitle:@"常出没地点"];
+    MCommonModel *model7 = [MCommonModel singleModelWithTitle:@"我的兴趣"];
+    _dataSource = @[model0,model1,model2,model3,model4,model5,model6,model7];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
+    [self reloadDataSource];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,13 +58,9 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.titles.count;
+    return self.dataSource? self.dataSource.count : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -76,6 +75,8 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = 0;
     }
+    
+    MCommonModel *model = self.dataSource[indexPath.row];
     if (indexPath.row == 0) {
         UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:@"icon1.jpg"] inRect:CGRectMake(60, 60, 60, 60)];
         UIImageView *userImage = [[UIImageView alloc] initWithImage:image];
@@ -83,9 +84,9 @@
         userImage.layer.masksToBounds = YES;
         cell.accessoryView = userImage;
     }else{
-        cell.detailTextLabel.text = _myInformation[indexPath.row-1];
+        cell.detailTextLabel.text = model.subTitle;
     }
-    cell.textLabel.text = self.titles[indexPath.row];
+    cell.textLabel.text = model.title;
     return cell;
 }
 

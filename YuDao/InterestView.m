@@ -29,10 +29,10 @@
         btn.tag = i;
         btn.titleLabel.font = [UIFont systemFontOfSize:13];
         [btn setTitle:items[i] forState:0];
-        btn.backgroundColor = [[UIColor greenColor]colorWithAlphaComponent:0.15f];
+        btn.backgroundColor = [UIColor whiteColor];
         btn.userInteractionEnabled = YES;
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [btn setTitleColor:[UIColor whiteColor] forState:0];
+        [btn setTitleColor:[UIColor blackColor] forState:0];
         [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -40,6 +40,8 @@
         btn.width = strsize.width +     margin;
         btn.height = strsize.height+ margin;
         btn.layer.cornerRadius = btn.height/2;
+        btn.layer.borderWidth = 1.f;
+        btn.layer.borderColor = [UIColor blackColor].CGColor;
         btn.clipsToBounds = YES;
         if (i == 0) {
             btn.x = margin;
@@ -62,7 +64,6 @@
         }
     }
 }
-
 - (void)btnAction:(UIButton *)sender{
     sender.selected = !sender.selected;
 }
