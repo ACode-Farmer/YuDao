@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactsTableViewController : UITableViewController
+@interface ContactsTableViewController : CommonController
 
 
 @end

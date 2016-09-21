@@ -30,6 +30,7 @@
     _arrowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_arrowBtn setImage:[UIImage imageNamed:@"bottomArrow"] forState:0];
     [_arrowBtn setImage:[UIImage imageNamed:@"topArrow"] forState:UIControlStateSelected];
+    [_arrowBtn addTarget:self action:@selector(arrowBtnActioin:) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *contentView = self.contentView;
     [contentView addSubview:_arrowBtn];
@@ -43,7 +44,9 @@
 }
 
 - (void)arrowBtnActioin:(UIButton *)sender{
-    sender.selected = !sender.selected;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sameDidselectedCellAction:btn:)]) {
+        [self.delegate sameDidselectedCellAction:self btn:sender];
+    }
 }
 
 - (void)setModel:(MenuModel *)model{

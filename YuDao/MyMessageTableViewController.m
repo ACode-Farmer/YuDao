@@ -76,12 +76,6 @@
         cell.imageView.layer.cornerRadius = 5.0f;
         cell.imageView.layer.masksToBounds = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-            cell.preservesSuperviewLayoutMargins = NO;
-        }
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:UIEdgeInsetsZero];
-        }
     }
     MyMseeageModel *model = self.dataSource[indexPath.row];
     UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(40, 40, 40, 40)];

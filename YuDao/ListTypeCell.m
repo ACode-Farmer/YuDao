@@ -42,7 +42,7 @@
     [subviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *)obj;
-            button.tag = idx;
+            button.tag = idx+100;
             [button setTitleColor:[UIColor blackColor] forState:0];
             [button setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
             [button addTarget:self action:@selector(typeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -90,19 +90,25 @@
 }
 
 - (void)typeButtonAction:(UIButton *)sender{
-    if ([_lastBtn isEqual:sender]) {
-        return;
-    }else{
-        _lastBtn.selected = !_lastBtn.selected;
+    NSArray *tags = @[@100,@101,@102,@103];
+    for (NSNumber *tag in tags) {
+        if (tag.integerValue == sender.tag) {
+            UIButton *btn = [self viewWithTag:tag.integerValue];
+            btn.selected = YES;
+        }else{
+            UIButton *btn = [self viewWithTag:tag.integerValue];
+            btn.selected = NO;
+        }
     }
-    sender.selected = !sender.selected;
-    _lastBtn = sender;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(typeBtnAction:button:)]) {
+        [self.delegate typeBtnAction:self button:sender];
+    }
 }
 
 - (void)arrowBtnAction:(UIButton *)sender{
     sender.selected = !sender.selected;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(buttonsAction:button:)]) {
-        [self.delegate buttonsAction:self button:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(arrowBtnAction:button:)]) {
+        [self.delegate arrowBtnAction:self button:sender];
     }
 }
 
@@ -124,6 +130,7 @@
     }
     
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

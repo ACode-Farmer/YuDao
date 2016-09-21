@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyselfController : UITableViewController
+@interface MyselfController : CommonController
 
 @end

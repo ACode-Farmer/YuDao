@@ -7,6 +7,8 @@
 //
 
 #import "ContactsTableViewController.h"
+#import "GroupController.h"
+
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
 #import "ContactsModel.h"
@@ -91,7 +93,11 @@
 
 #pragma mark -  HeaderTableViewDelegate -
 - (void)clickHeaderTableViewCell:(HeaderModel *)model{
-    [self performSegueWithIdentifier:@"PhoneContacts" sender:nil];
+    if ([model.name isEqualToString:@"群聊"]) {
+        [self.navigationController pushViewController:[GroupController new] animated:YES];
+    }else{
+        [self performSegueWithIdentifier:@"PhoneContacts" sender:nil];
+    }
 }
 #pragma mark - UITableViewDataSource
 

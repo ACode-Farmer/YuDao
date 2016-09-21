@@ -15,8 +15,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         ListScrollView *scrollView = [[ListScrollView alloc] initWithFrame:CGRectZero];
-        [self.contentView addSubview:scrollView];
         scrollView.delegate = self;
+        scrollView.tag = 101;
+        [self.contentView addSubview:scrollView];
+        
         
         scrollView.sd_layout
         .spaceToSuperView(UIEdgeInsetsZero);

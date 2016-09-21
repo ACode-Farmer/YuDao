@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ListCell.h"
+#import "MenuCell.h"
 
 @class TableNode;
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface HomePageTableView : UITableView<UITableViewDataSource,UITableViewDelegate,ListCelldelegate>
+@interface HomePageTableView : UITableView<UITableViewDataSource,UITableViewDelegate,ListCelldelegate,MenuCellDelegate>
 
 @property (nonatomic ,weak) id<homeTableViewDelegate> homeTableViewDelegate;
 

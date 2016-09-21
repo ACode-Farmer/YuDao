@@ -161,7 +161,7 @@
 }
 
 #pragma mark ListTypeCellDelegate -
-- (void)buttonsAction:(ListTypeCell *)cell button:(UIButton *)sender{
+- (void)arrowBtnAction:(ListTypeCell *)cell button:(UIButton *)sender{
     CGRect frame = [_homeTableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
     CGRect relationTableViewFrame = CGRectMake(screen_width - 100, frame.origin.y, 100, 0);
     if (!_relationTableView) {
@@ -186,6 +186,14 @@
             [_relationTableView removeFromSuperview];
         }];
     }
+}
+
+- (void)typeBtnAction:(ListTypeCell *)cell button:(UIButton *)sender{
+    ListCell *lCell = [self.homeTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    UIScrollView *scrView = [lCell viewWithTag:101];
+    CGPoint offset = scrView.contentOffset;
+    offset.x = (sender.tag-100) *screen_width;
+    [scrView setContentOffset:offset animated:YES];
 }
 
 #pragma tableView dataSource -

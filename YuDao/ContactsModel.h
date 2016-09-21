@@ -16,9 +16,10 @@
 @property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, copy) NSString *phoneNumber;
 
-
 //1.已经是好友了  2.已注册但不是好友  3.未注册(邀请注册)
 @property (nonatomic, assign) NSInteger *type;
+
++ (instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName;
 
 //-----  返回tableview右方indexArray
 +(NSMutableArray*)IndexArray:(NSArray*)stringArr;

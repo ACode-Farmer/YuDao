@@ -8,6 +8,8 @@
 
 #import "SetupTableViewController.h"
 #import "FirstTableViewController.h"
+#import "AdviseController.h"
+#import "AboutUsController.h"
 
 @interface SetupTableViewController ()
 
@@ -95,16 +97,43 @@
         }
         case 1:
         {
-            
+            switch (indexPath.row) {
+                case 0:
+                    [self.navigationController pushViewController:[AdviseController new] animated:YES];
+                    break;
+                case 1:
+                    [self.navigationController pushViewController:[AboutUsController new] animated:YES];
+                    break;
+                case 2:
+                {
+                    UIAlertController *alert = [UIAlertController  alertControllerWithTitle:@"遇道" message:@"发现新的版本1.11，是否立即更新？" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                    [alert addAction:cancel];
+                    [alert addAction:ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                    break;}
+                case 3:
+                    
+                    break;
+                default:
+                    break;
+            }
             break;
         }
         case 2:
         {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确认退出登录?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *changeUser = [UIAlertAction actionWithTitle:@"切换帐号" style:0 handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
             UIAlertAction *sinOut = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:changeUser];
             [alert addAction:sinOut];
             [alert addAction:cancel];
             [self presentViewController:alert animated:YES completion:nil];

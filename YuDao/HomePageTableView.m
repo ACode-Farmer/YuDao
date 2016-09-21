@@ -7,10 +7,8 @@
 //
 
 #import "HomePageTableView.h"
-#import "MenuCell.h"
 #import "DrivingDataCell.h"
 #import "ListTypeCell.h"
-
 
 #import "TableNode.h"
 #import "MenuModel.h"
@@ -82,10 +80,12 @@ NSString *const NormalCellIdentifier = @"NormalCell";
     return _showData.count > 0 ? _showData.count: 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+    MenuCell *cell = nil;
     
     TableNode *currentNode = _showData[indexPath.row];
     if (currentNode.depth.integerValue == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier];
+        cell.delegate = self;
         if (currentNode.nodeId.integerValue != 0) {
             cell.model = currentNode.nodeData;
             if (![_menuCellArray containsObject:cell]) {
@@ -127,9 +127,9 @@ NSString *const NormalCellIdentifier = @"NormalCell";
 
 
 - (void)changeListTypeCellBtn:(NSInteger )page{
-    NSLog(@"tag = %ld",page);
-    NSArray *tags = @[@0,@1,@2,@3];
-   ListTypeCell  *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    page += 100;
+    NSArray *tags = @[@100,@101,@102,@103];
+    ListTypeCell  *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     for (NSNumber *tag in tags) {
         if (tag.integerValue == page) {
             UIButton *btn = [cell viewWithTag:tag.integerValue];
@@ -139,7 +139,6 @@ NSString *const NormalCellIdentifier = @"NormalCell";
             btn.selected = NO;
         }
     }
-   
 }
 
 
@@ -255,6 +254,12 @@ NSString *const NormalCellIdentifier = @"NormalCell";
     }
 }
 
+#pragma mark MenuCellDelegate -
+- (void)sameDidselectedCellAction:(MenuCell *)cell btn:(UIButton *)sender{
+    NSLog(@"123");
+    NSIndexPath *index = [self indexPathForCell:cell];
+    [self tableView:self didSelectRowAtIndexPath:index];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TableNode *currentNode = _showData[indexPath.row];

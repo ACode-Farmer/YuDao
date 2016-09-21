@@ -10,6 +10,14 @@
 
 @implementation ContactsModel
 
++(instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName{
+    ContactsModel *model = [self new];
+    model.name = name;
+    model.imageName = imageName;
+    
+    return model;
+}
+
 #pragma mark - 返回tableview右方 indexArray
 +(NSMutableArray*)IndexArray:(NSArray*)stringArr
 {

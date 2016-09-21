@@ -10,7 +10,9 @@
 @class ListTypeCell;
 @protocol ListTypeCellDelegate <NSObject>
 
-- (void)buttonsAction:(ListTypeCell *)cell button:(UIButton *)sender;
+- (void)arrowBtnAction:(ListTypeCell *)cell button:(UIButton *)sender;
+
+- (void)typeBtnAction:(ListTypeCell *)cell button:(UIButton *)sender;
 
 @end
 
