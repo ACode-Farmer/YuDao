@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateGroupController">
+            <connections>
+                <outlet property="groupImage" destination="o8X-GN-hBM" id="Wus-Eg-9ki"/>
+                <outlet property="groupNameTF" destination="pVV-UY-uTH" id="f1R-VB-db4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为群组起个闪亮的名字和头像" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBX-47-8ph">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="xbc-4u-bY8">
+                            <variation key="widthClass=compact" constant="70"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="xbc-4u-bY8"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="xbc-4u-bY8"/>
+                        </mask>
+                    </variation>
+                </label>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="o8X-GN-hBM">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="241" id="wVK-DO-DZk">
+                            <variation key="widthClass=compact" constant="200"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="150" id="y0u-iQ-c5o">
+                            <variation key="widthClass=compact" constant="200"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="wVK-DO-DZk"/>
+                            <exclude reference="y0u-iQ-c5o"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="wVK-DO-DZk"/>
+                            <include reference="y0u-iQ-c5o"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="群名称支持2-10个字符" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pVV-UY-uTH">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-HX-NMg">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="IyC-6M-D3r"/>
+                    </constraints>
+                    <state key="normal" title="阅读群组使用条款说明"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IyC-6M-D3r"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="IyC-6M-D3r"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="explainBtn:" destination="-1" eventType="touchUpInside" id="n3C-XW-rVj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="20v-HX-NMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="0PQ-7V-doK">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="20v-HX-NMg" secondAttribute="trailing" constant="8" id="0oG-58-txF">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="20v-HX-NMg" secondAttribute="bottom" constant="21" id="62l-Wg-h8B">
+                    <variation key="widthClass=compact" constant="20"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="EBX-47-8ph" secondAttribute="trailing" constant="8" id="7m2-aB-KpJ">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="o8X-GN-hBM" firstAttribute="top" secondItem="EBX-47-8ph" secondAttribute="bottom" constant="8" id="88a-X4-Jde">
+                    <variation key="widthClass=compact" constant="5"/>
+                </constraint>
+                <constraint firstItem="EBX-47-8ph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="X6c-Zf-OQi">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="pVV-UY-uTH" firstAttribute="top" secondItem="o8X-GN-hBM" secondAttribute="bottom" constant="43" id="Ylu-Jh-YWp">
+                    <variation key="widthClass=compact" constant="40"/>
+                </constraint>
+                <constraint firstItem="pVV-UY-uTH" firstAttribute="trailing" secondItem="o8X-GN-hBM" secondAttribute="trailing" id="ZcE-eU-mDG"/>
+                <constraint firstItem="EBX-47-8ph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="kdu-f3-LUd">
+                    <variation key="widthClass=compact" constant="64"/>
+                </constraint>
+                <constraint firstItem="pVV-UY-uTH" firstAttribute="leading" secondItem="o8X-GN-hBM" secondAttribute="leading" id="nZe-Wj-9dC"/>
+                <constraint firstItem="o8X-GN-hBM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="x6U-3Q-VZd"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="EBX-47-8ph"/>
+                    <exclude reference="o8X-GN-hBM"/>
+                    <exclude reference="pVV-UY-uTH"/>
+                    <exclude reference="20v-HX-NMg"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="7m2-aB-KpJ"/>
+                    <exclude reference="X6c-Zf-OQi"/>
+                    <exclude reference="kdu-f3-LUd"/>
+                    <exclude reference="88a-X4-Jde"/>
+                    <exclude reference="x6U-3Q-VZd"/>
+                    <exclude reference="Ylu-Jh-YWp"/>
+                    <exclude reference="ZcE-eU-mDG"/>
+                    <exclude reference="nZe-Wj-9dC"/>
+                    <exclude reference="0PQ-7V-doK"/>
+                    <exclude reference="0oG-58-txF"/>
+                    <exclude reference="62l-Wg-h8B"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="EBX-47-8ph"/>
+                    <include reference="o8X-GN-hBM"/>
+                    <include reference="pVV-UY-uTH"/>
+                    <include reference="20v-HX-NMg"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="7m2-aB-KpJ"/>
+                    <include reference="X6c-Zf-OQi"/>
+                    <include reference="kdu-f3-LUd"/>
+                    <include reference="88a-X4-Jde"/>
+                    <include reference="x6U-3Q-VZd"/>
+                    <include reference="Ylu-Jh-YWp"/>
+                    <include reference="ZcE-eU-mDG"/>
+                    <include reference="nZe-Wj-9dC"/>
+                    <include reference="0PQ-7V-doK"/>
+                    <include reference="0oG-58-txF"/>
+                    <include reference="62l-Wg-h8B"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="Icon-60" width="60" height="60"/>
+    </resources>
+</document>

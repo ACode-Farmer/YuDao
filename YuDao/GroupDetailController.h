@@ -8,6 +8,17 @@
 
 #import "CommonController.h"
 
-@interface GroupDetailController : CommonController
+typedef NS_ENUM(NSUInteger, ControllerType) {
+    ControllerTypeMine,
+    ControllerTypeNew,
+    ControllerTypeOld,
+};
+
+@interface GroupDetailController : UIViewController
+
+@property (nonatomic, assign) ControllerType type;
+
+@property (nonatomic, copy) NSString *groupName;
+@property (nonatomic, copy) NSString *groupID;
 
 @end

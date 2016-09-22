@@ -12,4 +12,6 @@
 
 - (void)addItems:(NSArray *)items;
 
+- (void)addItemsToCell:(NSArray *)items;
+
 @end

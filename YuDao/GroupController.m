@@ -9,7 +9,7 @@
 #import "GroupController.h"
 #import "GroupDetailController.h"
 #import "PersonalController.h"
-
+#import "CreateGroupController.h"
 #import "ContactsModel.h"
 #import "UIImage+ChangeIt.h"
 
@@ -27,9 +27,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"群组";
     
     self.indexArray = [ContactsModel IndexArray:self.dataSource];
     self.dataSource = [ContactsModel LetterSortArray:self.dataSource];
+    
+    self.navigationItem.rightBarButtonItem = ({
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"新建" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
+        rightItem;
+    });
+    
+}
+
+- (void)rightItemAction{
+    [self.navigationController pushViewController:[CreateGroupController  new] animated:YES];
 }
 
 - (NSMutableArray *)dataSource{
@@ -96,7 +107,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController pushViewController:[PersonalController new] animated:YES];
+    GroupDetailController *gdVC = [GroupDetailController new];
+    gdVC.type = ControllerTypeOld;
+    [self.navigationController pushViewController:gdVC animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index

@@ -65,6 +65,11 @@
 		A01A34611D86A91500852D16 /* test6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34541D86A91500852D16 /* test6.jpg */; };
 		A01A34621D86A91500852D16 /* test7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34551D86A91500852D16 /* test7.jpg */; };
 		A01A34641D86AA6C00852D16 /* test8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34631D86AA6C00852D16 /* test8.jpg */; };
+		A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E01D938F46006D38A4 /* MembersListController.m */; };
+		A034C9E61D93BFAD006D38A4 /* AWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */; };
+		A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E81D93C44D006D38A4 /* CreateGroupController.m */; };
+		A034C9EB1D93C44D006D38A4 /* CreateGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */; };
+		A034C9EE1D93CA36006D38A4 /* PlaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9ED1D93CA36006D38A4 /* PlaceController.m */; };
 		A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC631D9100A100D8D12F /* ProvinceController.m */; };
 		A037BC661D9100D200D8D12F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = A037BC651D9100D200D8D12F /* area.plist */; };
 		A037BC691D91039400D8D12F /* CityController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BC681D91039400D8D12F /* CityController.m */; };
@@ -259,6 +264,15 @@
 		A01A34541D86A91500852D16 /* test6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test6.jpg; sourceTree = "<group>"; };
 		A01A34551D86A91500852D16 /* test7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test7.jpg; sourceTree = "<group>"; };
 		A01A34631D86AA6C00852D16 /* test8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test8.jpg; sourceTree = "<group>"; };
+		A034C9DF1D938F46006D38A4 /* MembersListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersListController.h; sourceTree = "<group>"; };
+		A034C9E01D938F46006D38A4 /* MembersListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersListController.m; sourceTree = "<group>"; };
+		A034C9E41D93BFAD006D38A4 /* AWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWActionSheet.h; sourceTree = "<group>"; };
+		A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWActionSheet.m; sourceTree = "<group>"; };
+		A034C9E71D93C44D006D38A4 /* CreateGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupController.h; sourceTree = "<group>"; };
+		A034C9E81D93C44D006D38A4 /* CreateGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroupController.m; sourceTree = "<group>"; };
+		A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateGroupController.xib; sourceTree = "<group>"; };
+		A034C9EC1D93CA36006D38A4 /* PlaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceController.h; sourceTree = "<group>"; };
+		A034C9ED1D93CA36006D38A4 /* PlaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceController.m; sourceTree = "<group>"; };
 		A037BC621D9100A100D8D12F /* ProvinceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceController.h; sourceTree = "<group>"; };
 		A037BC631D9100A100D8D12F /* ProvinceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceController.m; sourceTree = "<group>"; };
 		A037BC651D9100D200D8D12F /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
@@ -1055,8 +1069,15 @@
 				A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */,
 				A06A9D1F1D928AA900DFAFC2 /* GroupController.h */,
 				A06A9D201D928AA900DFAFC2 /* GroupController.m */,
+				A034C9E71D93C44D006D38A4 /* CreateGroupController.h */,
+				A034C9E81D93C44D006D38A4 /* CreateGroupController.m */,
+				A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */,
+				A034C9EC1D93CA36006D38A4 /* PlaceController.h */,
+				A034C9ED1D93CA36006D38A4 /* PlaceController.m */,
 				A06A9D221D92902600DFAFC2 /* GroupDetailController.h */,
 				A06A9D231D92902600DFAFC2 /* GroupDetailController.m */,
+				A034C9DF1D938F46006D38A4 /* MembersListController.h */,
+				A034C9E01D938F46006D38A4 /* MembersListController.m */,
 				A06A9D251D929A6C00DFAFC2 /* PersonalController.h */,
 				A06A9D261D929A6C00DFAFC2 /* PersonalController.m */,
 			);
@@ -1068,6 +1089,8 @@
 			children = (
 				A08248041D8018E100DC58C2 /* HeaderTableView.h */,
 				A08248051D8018E100DC58C2 /* HeaderTableView.m */,
+				A034C9E41D93BFAD006D38A4 /* AWActionSheet.h */,
+				A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */,
 			);
 			name = VIews;
 			sourceTree = "<group>";
@@ -1169,6 +1192,7 @@
 				A08247D91D7FF6A300DC58C2 /* sora_5.png in Resources */,
 				A01A345F1D86A91500852D16 /* test4.jpg in Resources */,
 				A01A345D1D86A91500852D16 /* test2.jpg in Resources */,
+				A034C9EB1D93C44D006D38A4 /* CreateGroupController.xib in Resources */,
 				A08247DB1D7FF6A300DC58C2 /* sora_7.png in Resources */,
 				A08247D51D7FF6A300DC58C2 /* sora_1.png in Resources */,
 				A08247B71D7FF35D00DC58C2 /* TaskCell.xib in Resources */,
@@ -1266,6 +1290,7 @@
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
+				A034C9EE1D93CA36006D38A4 /* PlaceController.m in Sources */,
 				A09C5AFD1D8796C900DEBA2E /* RankingListCell.m in Sources */,
 				A09C5AFA1D87917400DEBA2E /* RankingListModel.m in Sources */,
 				A01A34351D8699FD00852D16 /* NSData+ImageContentType.m in Sources */,
@@ -1281,8 +1306,10 @@
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
 				A01A33D61D86917500852D16 /* OperationMenuView.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
+				A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
 				A01A33CF1D868EDC00852D16 /* DynamicCell.m in Sources */,
+				A034C9E61D93BFAD006D38A4 /* AWActionSheet.m in Sources */,
 				A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */,
 				A01A34401D8699FD00852D16 /* UIImage+WebP.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
@@ -1306,6 +1333,7 @@
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
 				A08247C11D7FF48400DC58C2 /* ListModel.m in Sources */,
 				A057AB9D1D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m in Sources */,
+				A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */,
 				A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */,
 				A057ABA31D8FCF6400F8817E /* InterestController.m in Sources */,
 				A057ABAF1D8FEA2900F8817E /* UIView+Extnesion.m in Sources */,

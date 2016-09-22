@@ -169,7 +169,9 @@
             break;}
         case 7:
         {
-            [self.navigationController pushViewController:[InterestController new] animated:YES];
+            InterestController *inVC = [InterestController new];
+            inVC.optionalTitle = @"个人兴趣";
+            [self.navigationController pushViewController:inVC animated:YES];
             break;}
         default:
             break;

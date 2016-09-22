@@ -10,4 +10,6 @@
 
 @interface InterestController : UIViewController
 
+@property (nonatomic, copy) NSString *optionalTitle;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "InterestController.h"
+#import "GroupDetailController.h"
 #import "InterestView.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
 @interface InterestController ()
@@ -23,8 +24,15 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"个人兴趣";
+    self.title = self.optionalTitle;
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    if (![self.optionalTitle isEqualToString:@"个人兴趣"]) {
+        self.navigationItem.rightBarButtonItem = ({
+            UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction)];
+            rightItem;
+        });
+    }
     
     _inView1 = [InterestView new];
     _inView2 = [InterestView new];
@@ -43,14 +51,14 @@
     
     _inView2.sd_layout
     .topSpaceToView(_inView1,10)
-    .leftSpaceToView(self.scrView,0)
-    .rightSpaceToView(self.scrView,0)
+    .leftEqualToView(_inView1)
+    .rightEqualToView(_inView1)
     ;
     
     _inView3.sd_layout
     .topSpaceToView(_inView2,10)
-    .leftSpaceToView(self.scrView,0)
-    .rightSpaceToView(self.scrView,0)
+    .leftEqualToView(_inView2)
+    .rightEqualToView(_inView2)
     ;
     
     [_inView1 addItems:@[@"腾讯",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
@@ -70,6 +78,10 @@
         .spaceToSuperView(UIEdgeInsetsZero);
     }
     return _scrView;
+}
+
+- (void)rightBarButtonItemAction{
+    [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

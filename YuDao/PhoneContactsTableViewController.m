@@ -134,11 +134,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryView = ({
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(0, 0, 100, 40);
+            [button setTitle:@"邀请加入" forState:0];
+            button.titleLabel.textAlignment = NSTextAlignmentRight;
+            [button setTitleColor:[UIColor orangeColor] forState:0];
+            [button addTarget:self action:@selector(friendOperation:) forControlEvents:UIControlEventTouchUpInside];
+            
+            button;
+        });
     }
     ContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
     return cell;
+}
+
+- (void)friendOperation:(UIButton *)sender{
+    NSLog(@"邀请加入或添加好友!");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
