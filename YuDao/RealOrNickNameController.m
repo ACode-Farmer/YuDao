@@ -42,7 +42,7 @@
         self.title = @"昵称";
     }
     self.textF.text = [defaults stringForKey:self.title];
-    [self.textF becomeFirstResponder];
+    
     
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction:)];
@@ -50,6 +50,12 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.textF becomeFirstResponder];
+}
+
 
 - (void)rightItemAction:(id)sender{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -8,6 +8,7 @@
 
 #import "MyselfController.h"
 #import "ChangeImageController.h"
+#import "LikedPeopleController.h"
 
 #import "MyselfModel.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
@@ -186,7 +187,7 @@
             [self performSegueWithIdentifier:@"Contacts" sender:nil];
             break;
         case 4:
-            
+            [self.navigationController pushViewController:[LikedPeopleController new] animated:YES];
             break;
         case 5:
             

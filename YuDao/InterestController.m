@@ -27,9 +27,14 @@
     self.title = self.optionalTitle;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    if (![self.optionalTitle isEqualToString:@"个人兴趣"]) {
+    if ([self.optionalTitle isEqualToString:@"个人兴趣"]) {
         self.navigationItem.rightBarButtonItem = ({
-            UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction)];
+            UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+            rightItem;
+        });
+    }else{
+        self.navigationItem.rightBarButtonItem = ({
+            UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
             rightItem;
         });
     }
@@ -80,8 +85,13 @@
     return _scrView;
 }
 
-- (void)rightBarButtonItemAction{
-    [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    if ([sender.title isEqualToString:@"完成"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

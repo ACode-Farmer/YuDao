@@ -10,7 +10,7 @@
 #import "ChangeImageController.h"
 #import "PlaceController.h"
 
-@interface CreateGroupController ()
+@interface CreateGroupController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *groupImage;
 @property (weak, nonatomic) IBOutlet UITextField *groupNameTF;
 
@@ -33,11 +33,40 @@
         rightItem;
     });
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardDidShow:(NSNotification *)noti{
+    CGFloat margin = 0;
+    CGRect keyboardRect = [[noti.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]CGRectValue];
+    double duration = [[noti.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    if ((keyboardRect.size.height + CGRectGetMaxY(self.groupNameTF.frame)) > screen_height) {
+        margin = CGRectGetMaxY(self.groupNameTF.frame) - (screen_height - keyboardRect.size.height);
+    }
+    CGRect frame = self.view.frame;
+    frame.origin.y -= margin;
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = frame;
+    }];
+}
+
+- (void)keyboardDidHidden:(NSNotification *)noti{
+    CGRect frame = self.view.frame;
+    if (frame.origin.y < 0) {
+        frame.origin.y = 0;
+        double duration = [[noti.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        [UIView animateWithDuration:duration animations:^{
+            self.view.frame = frame;
+        }];
+    }
 }
 
 #pragma mark - tap action
 - (void)viewTapAction:(id)sender{
     [self.groupNameTF resignFirstResponder];
+    
 }
 
 - (void)imageTapAction:(id)sender{
@@ -52,12 +81,22 @@
     [self.navigationController pushViewController:[PlaceController  new] animated:YES];
 }
 
+#pragma mark - textField delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.groupNameTF resignFirstResponder];
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)explainBtn:(id)sender {
     
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

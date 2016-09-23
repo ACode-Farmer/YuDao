@@ -65,6 +65,12 @@
 		A01A34611D86A91500852D16 /* test6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34541D86A91500852D16 /* test6.jpg */; };
 		A01A34621D86A91500852D16 /* test7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34551D86A91500852D16 /* test7.jpg */; };
 		A01A34641D86AA6C00852D16 /* test8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A01A34631D86AA6C00852D16 /* test8.jpg */; };
+		A023EE151D94CE2C00581EB1 /* KeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE141D94CE2C00581EB1 /* KeyBoard.m */; };
+		A023EE1A1D94F6D200581EB1 /* LikedPeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE181D94F6D200581EB1 /* LikedPeopleController.m */; };
+		A023EE201D9506D900581EB1 /* ContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE1F1D9506D900581EB1 /* ContainerController.m */; };
+		A023EE231D950A0C00581EB1 /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */; };
+		A023EE261D951B6000581EB1 /* LikedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE251D951B6000581EB1 /* LikedListController.m */; };
+		A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE291D9522DB00581EB1 /* LIkedListCell.m */; };
 		A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E01D938F46006D38A4 /* MembersListController.m */; };
 		A034C9E61D93BFAD006D38A4 /* AWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */; };
 		A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E81D93C44D006D38A4 /* CreateGroupController.m */; };
@@ -264,6 +270,18 @@
 		A01A34541D86A91500852D16 /* test6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test6.jpg; sourceTree = "<group>"; };
 		A01A34551D86A91500852D16 /* test7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test7.jpg; sourceTree = "<group>"; };
 		A01A34631D86AA6C00852D16 /* test8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test8.jpg; sourceTree = "<group>"; };
+		A023EE131D94CE2C00581EB1 /* KeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoard.h; sourceTree = "<group>"; };
+		A023EE141D94CE2C00581EB1 /* KeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoard.m; sourceTree = "<group>"; };
+		A023EE171D94F6D200581EB1 /* LikedPeopleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikedPeopleController.h; sourceTree = "<group>"; };
+		A023EE181D94F6D200581EB1 /* LikedPeopleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikedPeopleController.m; sourceTree = "<group>"; };
+		A023EE1E1D9506D900581EB1 /* ContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerController.h; sourceTree = "<group>"; };
+		A023EE1F1D9506D900581EB1 /* ContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerController.m; sourceTree = "<group>"; };
+		A023EE211D950A0C00581EB1 /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
+		A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
+		A023EE241D951B6000581EB1 /* LikedListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikedListController.h; sourceTree = "<group>"; };
+		A023EE251D951B6000581EB1 /* LikedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikedListController.m; sourceTree = "<group>"; };
+		A023EE281D9522DB00581EB1 /* LIkedListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIkedListCell.h; sourceTree = "<group>"; };
+		A023EE291D9522DB00581EB1 /* LIkedListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIkedListCell.m; sourceTree = "<group>"; };
 		A034C9DF1D938F46006D38A4 /* MembersListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersListController.h; sourceTree = "<group>"; };
 		A034C9E01D938F46006D38A4 /* MembersListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersListController.m; sourceTree = "<group>"; };
 		A034C9E41D93BFAD006D38A4 /* AWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWActionSheet.h; sourceTree = "<group>"; };
@@ -647,6 +665,49 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		A023EE161D94F69100581EB1 /* 喜欢的人 */ = {
+			isa = PBXGroup;
+			children = (
+				A023EE171D94F6D200581EB1 /* LikedPeopleController.h */,
+				A023EE181D94F6D200581EB1 /* LikedPeopleController.m */,
+				A023EE241D951B6000581EB1 /* LikedListController.h */,
+				A023EE251D951B6000581EB1 /* LikedListController.m */,
+				A023EE271D9522B800581EB1 /* Cells */,
+			);
+			name = "喜欢的人";
+			sourceTree = "<group>";
+		};
+		A023EE1C1D95069F00581EB1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A06A9D1C1D92805000DFAFC2 /* CommonController.h */,
+				A06A9D1D1D92805000DFAFC2 /* CommonController.m */,
+				A023EE1E1D9506D900581EB1 /* ContainerController.h */,
+				A023EE1F1D9506D900581EB1 /* ContainerController.m */,
+				A023EE211D950A0C00581EB1 /* YSLScrollMenuView.h */,
+				A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A023EE1D1D9506AC00581EB1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A023EE131D94CE2C00581EB1 /* KeyBoard.h */,
+				A023EE141D94CE2C00581EB1 /* KeyBoard.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A023EE271D9522B800581EB1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A023EE281D9522DB00581EB1 /* LIkedListCell.h */,
+				A023EE291D9522DB00581EB1 /* LIkedListCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		A037BC6D1D91236A00D8D12F /* 修改背景图片或头像 */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,8 +808,8 @@
 		A06A9D1B1D92802D00DFAFC2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A06A9D1C1D92805000DFAFC2 /* CommonController.h */,
-				A06A9D1D1D92805000DFAFC2 /* CommonController.m */,
+				A023EE1D1D9506AC00581EB1 /* Models */,
+				A023EE1C1D95069F00581EB1 /* Controllers */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -844,10 +905,10 @@
 		A08247721D7FC4BC00DC58C2 /* YuDao */ = {
 			isa = PBXGroup;
 			children = (
-				A06A9D1B1D92802D00DFAFC2 /* Common */,
 				A07F82A51D82A3EE00F9EA6B /* RootViewController.h */,
 				A07F82A61D82A3EE00F9EA6B /* RootViewController.m */,
 				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
+				A06A9D1B1D92802D00DFAFC2 /* Common */,
 				A082478A1D7FC53900DC58C2 /* 首页 */,
 				A07F82A01D82A2ED00F9EA6B /* 发现 */,
 				A07F82A11D82A2F100F9EA6B /* 服务 */,
@@ -1008,8 +1069,9 @@
 		A08247DC1D7FF70B00DC58C2 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
-				A037BC6D1D91236A00D8D12F /* 修改背景图片或头像 */,
 				A07F82AE1D82A8A200F9EA6B /* MainInterface */,
+				A023EE161D94F69100581EB1 /* 喜欢的人 */,
+				A037BC6D1D91236A00D8D12F /* 修改背景图片或头像 */,
 				A013A66D1D8E80AD00A9080A /* Setup */,
 				A07F82961D828EAE00F9EA6B /* MyMessage */,
 				A08247F61D80146400DC58C2 /* Contacts */,
@@ -1286,6 +1348,7 @@
 				A01A34481D869DF400852D16 /* TableHeaderView.m in Sources */,
 				A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */,
 				A01A343A1D8699FD00852D16 /* SDWebImageDownloaderOperation.m in Sources */,
+				A023EE261D951B6000581EB1 /* LikedListController.m in Sources */,
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
@@ -1321,12 +1384,14 @@
 				A05887031D858B6C00F488BE /* ChatCell.m in Sources */,
 				A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */,
 				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
+				A023EE201D9506D900581EB1 /* ContainerController.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
 				A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */,
 				A013A66B1D8E6F5D00A9080A /* ListCollectionViewCell.m in Sources */,
 				A08247AC1D7FF32200DC58C2 /* ListTypeCell.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
+				A023EE151D94CE2C00581EB1 /* KeyBoard.m in Sources */,
 				A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */,
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
@@ -1351,6 +1416,7 @@
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
 				A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */,
+				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
 				A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */,
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
@@ -1362,6 +1428,7 @@
 				A08247BE1D7FF47300DC58C2 /* ListTypeModel.m in Sources */,
 				A057AB8F1D8FB66800F8817E /* APModel.m in Sources */,
 				A01A34411D8699FD00852D16 /* UIImageView+HighlightedWebCache.m in Sources */,
+				A023EE231D950A0C00581EB1 /* YSLScrollMenuView.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
 				A01A33FC1D86941500852D16 /* NSAttributedString+MLExpression.m in Sources */,
@@ -1382,6 +1449,7 @@
 				A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */,
 				A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */,
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
+				A023EE1A1D94F6D200581EB1 /* LikedPeopleController.m in Sources */,
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,
 				A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */,
