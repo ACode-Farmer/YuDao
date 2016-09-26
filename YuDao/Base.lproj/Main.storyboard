@@ -10,7 +10,7 @@
         <!--首页-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomePageController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,15 +21,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="R4p-wt-sdE">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="sb4-Ul-n4v">
-                            <connections>
-                                <action selector="SignInAction:" destination="BYZ-38-t0r" id="whp-QV-E3U"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="sb4-Ul-n4v"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="pkH-M4-oIt">
                             <connections>
-                                <action selector="SearchAction:" destination="BYZ-38-t0r" id="Qhz-8i-NeY"/>
-                                <segue destination="MgL-qv-reu" kind="show" identifier="Search" id="6aH-Pg-yvp"/>
+                                <segue destination="MgL-qv-reu" kind="show" id="KQZ-5B-vbD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

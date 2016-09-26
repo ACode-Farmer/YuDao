@@ -41,7 +41,8 @@ static const CGFloat ScrollMenuViewHeight = 40;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *viewCover = [UIView new];
+    UIImageView *viewCover = [UIImageView new];
+    viewCover.frame = self.view.frame;
     [self.view addSubview:viewCover];
     
     _contentScrollView = [UIScrollView new];
