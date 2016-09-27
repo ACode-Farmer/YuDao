@@ -11,11 +11,18 @@
 #import "MainCommonViewController.h"
 #import "ListViewController.h"
 #import "CornerButton.h"
+#import "TaskViewController.h"
+#import "DynamicViewController.h"
 
 @interface MainViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) CornerButton *topBtn;
+
+@property (nonatomic, strong) DrivingViewController *drVC;
+@property (nonatomic, strong) ListViewController *mcVC;
+@property (nonatomic, strong) TaskViewController *tkVC;
+@property (nonatomic, strong) DynamicViewController *dyVC;
 
 @end
 
@@ -25,20 +32,36 @@
     [super viewDidLoad];
     UIView *coverView = [UIView new];
     [self.view addSubview:coverView];
-    DrivingViewController *drVC = [DrivingViewController new];
+    _drVC = [DrivingViewController new];
     CGRect drframe = CGRectMake(0, 0, screen_width, 0.8 * (screen_height-64-48));
-    drVC.view.frame = drframe;
-    [self.contentView addSubview:drVC.view];
-    [self addChildViewController:drVC];
-    [drVC didMoveToParentViewController:self];
+    _drVC.view.frame = drframe;
+    [self.contentView addSubview:_drVC.view];
+    [self addChildViewController:_drVC];
+    [_drVC didMoveToParentViewController:self];
     
-    ListViewController *mcVC = [ListViewController new];
-    mcVC.mainTitle = @"排行榜";
-    CGRect mcframe = CGRectMake(0, CGRectGetMaxY(drframe)+5, screen_width, screen_height);
-    mcVC.view.frame = mcframe;
-    [self.contentView addSubview:mcVC.view];
-    [self addChildViewController:mcVC];
-    [mcVC didMoveToParentViewController:self];
+    _mcVC = [ListViewController new];
+    CGRect mcframe = CGRectMake(0, CGRectGetMaxY(drframe)+5, screen_width, 0.36*(screen_height-64-48)+screen_width);
+    _mcVC.view.frame = mcframe;
+    [self.contentView addSubview:_mcVC.view];
+    [self addChildViewController:_mcVC];
+    [_mcVC didMoveToParentViewController:self];
+    
+    _tkVC = [TaskViewController new];
+    CGRect tkframe = CGRectMake(0, CGRectGetMaxY(mcframe)+5, screen_width, 0.36*(screen_height-64-48)+0.6*screen_height);
+    _tkVC.view.frame = tkframe;
+    [self.contentView addSubview:_tkVC.view];
+    [self addChildViewController:_tkVC];
+    [_tkVC didMoveToParentViewController:self];
+    
+    _dyVC = [DynamicViewController new];
+    
+    CGRect dyframe = CGRectMake(0, CGRectGetMaxY(tkframe)+5, screen_width, 2.4*screen_height+5);
+    _dyVC.view.frame = dyframe;
+    [self.contentView addSubview:_dyVC.view];
+    [self addChildViewController:_dyVC];
+    [_dyVC didMoveToParentViewController:self];
+    
+    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:10];
 }
 
 #pragma mark lazy load -
@@ -61,7 +84,7 @@
 - (UIScrollView *)contentView{
     if (!_contentView) {
         _contentView = [UIScrollView new];
-        _contentView.contentSize = CGSizeMake(screen_width, 4*screen_height);
+        _contentView.contentSize = CGSizeMake(screen_width, 6*screen_height);
         _contentView.backgroundColor = [UIColor lightGrayColor];
         _contentView.delegate = self;
         [self.view addSubview:_contentView];
@@ -70,6 +93,7 @@
         .leftSpaceToView(self.view,0)
         .widthIs(screen_width)
         .heightIs(screen_height-48);
+        
     }
     return _contentView;
 }
@@ -88,8 +112,24 @@
     }else{
         self.topBtn.hidden = YES;
     }
+    NSArray *controllers = @[_drVC,_mcVC,_tkVC];
+    for (UIViewController *vc in controllers) {
+        if (scrollView.contentOffset.y > CGRectGetMaxY(vc.view.frame)) {
+            //[vc viewDidDisappear:YES];
+        }
+    }
+    
 }
-
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

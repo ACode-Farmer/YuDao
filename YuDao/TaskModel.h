@@ -10,4 +10,11 @@
 
 @interface TaskModel : NSObject
 
+@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *reward;
+@property (nonatomic, copy) NSString *target;
+@property (nonatomic, assign) BOOL isComplete;
+
++ (instancetype)modelWithTime:(NSString *)time reward:(NSString *)reward target:(NSString *)target isComplete:(BOOL)isComplete;
+
 @end

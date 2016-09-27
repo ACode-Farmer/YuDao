@@ -126,17 +126,17 @@
                     <exclude reference="20v-HX-NMg"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="7m2-aB-KpJ"/>
-                    <exclude reference="X6c-Zf-OQi"/>
-                    <exclude reference="kdu-f3-LUd"/>
-                    <exclude reference="88a-X4-Jde"/>
-                    <exclude reference="x6U-3Q-VZd"/>
                     <exclude reference="Ylu-Jh-YWp"/>
                     <exclude reference="ZcE-eU-mDG"/>
                     <exclude reference="nZe-Wj-9dC"/>
                     <exclude reference="0PQ-7V-doK"/>
                     <exclude reference="0oG-58-txF"/>
                     <exclude reference="62l-Wg-h8B"/>
+                    <exclude reference="7m2-aB-KpJ"/>
+                    <exclude reference="X6c-Zf-OQi"/>
+                    <exclude reference="kdu-f3-LUd"/>
+                    <exclude reference="88a-X4-Jde"/>
+                    <exclude reference="x6U-3Q-VZd"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -147,17 +147,17 @@
                     <include reference="20v-HX-NMg"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="7m2-aB-KpJ"/>
-                    <include reference="X6c-Zf-OQi"/>
-                    <include reference="kdu-f3-LUd"/>
-                    <include reference="88a-X4-Jde"/>
-                    <include reference="x6U-3Q-VZd"/>
                     <include reference="Ylu-Jh-YWp"/>
                     <include reference="ZcE-eU-mDG"/>
                     <include reference="nZe-Wj-9dC"/>
                     <include reference="0PQ-7V-doK"/>
                     <include reference="0oG-58-txF"/>
                     <include reference="62l-Wg-h8B"/>
+                    <include reference="7m2-aB-KpJ"/>
+                    <include reference="X6c-Zf-OQi"/>
+                    <include reference="kdu-f3-LUd"/>
+                    <include reference="88a-X4-Jde"/>
+                    <include reference="x6U-3Q-VZd"/>
                 </mask>
             </variation>
         </view>

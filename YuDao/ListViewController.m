@@ -9,10 +9,11 @@
 #import "ListViewController.h"
 #import "ListCollectionViewCell.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
+#import "XRWaterfallLayout.h"
 
 NSString *const CellIdentifier = @"ListCollectionViewCell";
 
-@interface ListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,XRWaterfallLayoutDelegate>
 
 @property (nonatomic, strong) UIImageView *headerView;
 @property (nonatomic, strong) UICollectionView *collView;
@@ -22,6 +23,7 @@ NSString *const CellIdentifier = @"ListCollectionViewCell";
 @implementation ListViewController
 
 - (void)viewDidLoad{
+    self.mainTitle = @"排行榜";
     UILabel *titleLabel = [self.titleView viewWithTag:1001];
     titleLabel.text = self.mainTitle;
     self.collView.backgroundColor = [UIColor whiteColor];
@@ -29,27 +31,7 @@ NSString *const CellIdentifier = @"ListCollectionViewCell";
 }
 
 #pragma lazy load
-- (UICollectionView *)collView{
-    if (!_collView) {
-        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-        _collView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-        _collView.scrollEnabled = NO;
-        _collView.backgroundColor = [UIColor whiteColor];
-        _collView.dataSource = self;
-        _collView.delegate = self;
-        
-        [_collView registerNib:[UINib nibWithNibName:@"ListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
-        [self.view addSubview:_collView];
-        
-        _collView.sd_layout
-        .topSpaceToView(self.headerView,0)
-        .leftSpaceToView(self.view,0)
-        .rightSpaceToView(self.view,0)
-        .heightIs(screen_height);
-    }
-    return _collView;
-}
-
+//头视图(top one)
 - (UIImageView *)headerView{
     if (!_headerView) {
         _headerView = [UIImageView new];
@@ -60,7 +42,7 @@ NSString *const CellIdentifier = @"ListCollectionViewCell";
         .topSpaceToView(self.titleView,0)
         .leftEqualToView(self.titleView)
         .rightEqualToView(self.titleView)
-        .heightIs(0.2*screen_height);
+        .heightIs(0.18*(screen_height-64-48));
         
         UIImageView *headImage = [UIImageView new];
         headImage.image = [UIImage imageNamed:@"head0.jpg"];
@@ -127,13 +109,48 @@ NSString *const CellIdentifier = @"ListCollectionViewCell";
     return _headerView;
 }
 
-#pragma collectionView DataSource -
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 3;
+//集合视图(top two ～ top ten)
+- (UICollectionView *)collView{
+    if (!_collView) {
+        //创建瀑布流布局
+        XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:3];
+        //设置各属性的值
+        //    waterfall.rowSpacing = 10;
+        //    waterfall.columnSpacing = 10;
+        //    waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        //或者一次性设置
+        [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(0, 10, 10, 10)];
+        
+        //设置代理，实现代理方法
+        waterfall.delegate = self;
+        
+        _collView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:waterfall];
+        _collView.scrollEnabled = NO;
+        _collView.backgroundColor = [UIColor blueColor];
+        _collView.dataSource = self;
+        _collView.delegate = self;
+        
+        [_collView registerNib:[UINib nibWithNibName:@"ListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:CellIdentifier];
+        [self.view addSubview:_collView];
+        
+        _collView.sd_layout
+        .topSpaceToView(self.headerView,0)
+        .leftSpaceToView(self.view,0)
+        .rightSpaceToView(self.view,0)
+        .heightEqualToWidth();
+    }
+    return _collView;
 }
 
+#pragma mark XRWaterfallLayoutDelegate -
+- (CGFloat)waterfallLayout:(XRWaterfallLayout *)waterfallLayout itemHeightForWidth:(CGFloat)itemWidth atIndexPath:(NSIndexPath *)indexPath {
+    return itemWidth;
+}
+
+#pragma collectionView DataSource -
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 3;
+    return 9;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -144,25 +161,33 @@ NSString *const CellIdentifier = @"ListCollectionViewCell";
 }
 
 #pragma collectionView delegate -
-//cell的最小行间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 0;
-}
-//cell的最小列间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 0;
-}
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake((screen_width-15)/3,(screen_width-15)/3);
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld %ld",indexPath.section,indexPath.row);
+    NSLog(@"%ld %ld",(long)indexPath.section,(long)indexPath.row);
 }
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(5, 5, 0, 5);
+
+////cell的最小行间距
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//    
+//    return 0;
+//}
+////cell的最小列间距
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+//    
+//    return 10;
+//}
+//-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return CGSizeMake(screen_width/5,screen_width/5);
+//}
+//
+
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    return UIEdgeInsetsMake(10, 30, 10, 30);
+//}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    NSLog(@"class = %@",NSStringFromClass([self class]));
 }
 
 @end

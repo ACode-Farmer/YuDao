@@ -10,4 +10,13 @@
 
 @implementation TaskModel
 
++(instancetype)modelWithTime:(NSString *)time reward:(NSString *)reward target:(NSString *)target isComplete:(BOOL)isComplete{
+    TaskModel *model = [self new];
+    model.time = time;
+    model.reward = reward;
+    model.target = target;
+    model.isComplete = isComplete;
+    return model;
+}
+
 @end

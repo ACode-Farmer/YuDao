@@ -53,7 +53,7 @@
     .rightSpaceToView(self.view,0)
     .heightRatioToView(self.view,1);
     
-    _dataview = [[DataView alloc] init];
+    _dataview = [DataView new];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDataView:)];
     [_dataview addGestureRecognizer:tap];
     [_backgroundView addSubview:_dataview];
@@ -219,6 +219,11 @@
             }
         }
     }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    NSLog(@"class = %@",NSStringFromClass([self class]));
 }
 
 - (void)didReceiveMemoryWarning {

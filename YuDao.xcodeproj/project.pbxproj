@@ -96,6 +96,12 @@
 		A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FB1D858A0B00F488BE /* ChatTableViewController.m */; };
 		A05887001D858A8900F488BE /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A05886FF1D858A8900F488BE /* ChatModel.m */; };
 		A05887031D858B6C00F488BE /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05887021D858B6C00F488BE /* ChatCell.m */; };
+		A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73DE1D9A111D00E5E3A2 /* TaskViewController.m */; };
+		A05D73E21D9A24F000E5E3A2 /* TaskContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73E11D9A24F000E5E3A2 /* TaskContentView.m */; };
+		A05D73E61D9A5EC400E5E3A2 /* DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73E51D9A5EC400E5E3A2 /* DynamicViewController.m */; };
+		A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73E81D9A5F7B00E5E3A2 /* XRWaterfallLayout.m */; };
+		A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */; };
+		A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */; };
 		A067C69D1D98EB95000E4146 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* MainViewController.m */; };
 		A067C6A11D98ECC6000E4146 /* DrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* DrivingViewController.m */; };
 		A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6A41D98ED6E000E4146 /* DrivingModel.m */; };
@@ -339,6 +345,17 @@
 		A05886FF1D858A8900F488BE /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		A05887011D858B6C00F488BE /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		A05887021D858B6C00F488BE /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		A05D73DD1D9A111D00E5E3A2 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		A05D73DE1D9A111D00E5E3A2 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		A05D73E01D9A24F000E5E3A2 /* TaskContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskContentView.h; sourceTree = "<group>"; };
+		A05D73E11D9A24F000E5E3A2 /* TaskContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskContentView.m; sourceTree = "<group>"; };
+		A05D73E41D9A5EC400E5E3A2 /* DynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicViewController.h; sourceTree = "<group>"; };
+		A05D73E51D9A5EC400E5E3A2 /* DynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicViewController.m; sourceTree = "<group>"; };
+		A05D73E71D9A5F7B00E5E3A2 /* XRWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRWaterfallLayout.h; sourceTree = "<group>"; };
+		A05D73E81D9A5F7B00E5E3A2 /* XRWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRWaterfallLayout.m; sourceTree = "<group>"; };
+		A05D73EB1D9A605E00E5E3A2 /* XRCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCollectionViewCell.h; sourceTree = "<group>"; };
+		A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRCollectionViewCell.m; sourceTree = "<group>"; };
+		A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRCollectionViewCell.xib; sourceTree = "<group>"; };
 		A067C69B1D98EB95000E4146 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A067C69C1D98EB95000E4146 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A067C69E1D98ECC6000E4146 /* DrivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrivingViewController.h; sourceTree = "<group>"; };
@@ -830,6 +847,50 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
+		A05D73DB1D9A065000E5E3A2 /* 排行榜 */ = {
+			isa = PBXGroup;
+			children = (
+				A067C6B21D992A0D000E4146 /* ListViewController.h */,
+				A067C6B31D992A0D000E4146 /* ListViewController.m */,
+			);
+			name = "排行榜";
+			sourceTree = "<group>";
+		};
+		A05D73DC1D9A10C100E5E3A2 /* 任务  */ = {
+			isa = PBXGroup;
+			children = (
+				A05D73DD1D9A111D00E5E3A2 /* TaskViewController.h */,
+				A05D73DE1D9A111D00E5E3A2 /* TaskViewController.m */,
+				A05D73E01D9A24F000E5E3A2 /* TaskContentView.h */,
+				A05D73E11D9A24F000E5E3A2 /* TaskContentView.m */,
+				A08247C21D7FF49900DC58C2 /* TaskModel.h */,
+				A08247C31D7FF49900DC58C2 /* TaskModel.m */,
+			);
+			name = "任务 ";
+			sourceTree = "<group>";
+		};
+		A05D73E31D9A5E8500E5E3A2 /* 动态 */ = {
+			isa = PBXGroup;
+			children = (
+				A05D73E41D9A5EC400E5E3A2 /* DynamicViewController.h */,
+				A05D73E51D9A5EC400E5E3A2 /* DynamicViewController.m */,
+				A05D73EA1D9A605000E5E3A2 /* Views */,
+			);
+			name = "动态";
+			sourceTree = "<group>";
+		};
+		A05D73EA1D9A605000E5E3A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A05D73EB1D9A605E00E5E3A2 /* XRCollectionViewCell.h */,
+				A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */,
+				A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */,
+				A05D73E71D9A5F7B00E5E3A2 /* XRWaterfallLayout.h */,
+				A05D73E81D9A5F7B00E5E3A2 /* XRWaterfallLayout.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A067C6A91D98F819000E4146 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,6 +1045,9 @@
 				A067C6AF1D991F31000E4146 /* MainCommonViewController.h */,
 				A067C6B01D991F31000E4146 /* MainCommonViewController.m */,
 				A0A96C1C1D98BCCC00E17E6D /* 行车信息 */,
+				A05D73DB1D9A065000E5E3A2 /* 排行榜 */,
+				A05D73DC1D9A10C100E5E3A2 /* 任务  */,
+				A05D73E31D9A5E8500E5E3A2 /* 动态 */,
 				A082478B1D7FC55500DC58C2 /* Models */,
 				A082478C1D7FC56000DC58C2 /* Views */,
 				A082478E1D7FC57400DC58C2 /* Controllers */,
@@ -1068,8 +1132,6 @@
 				A08247BD1D7FF47300DC58C2 /* ListTypeModel.m */,
 				A08247BF1D7FF48400DC58C2 /* ListModel.h */,
 				A08247C01D7FF48400DC58C2 /* ListModel.m */,
-				A08247C21D7FF49900DC58C2 /* TaskModel.h */,
-				A08247C31D7FF49900DC58C2 /* TaskModel.m */,
 				A08247C51D7FF4C800DC58C2 /* FriendModel.h */,
 				A08247C61D7FF4C800DC58C2 /* FriendModel.m */,
 			);
@@ -1229,8 +1291,6 @@
 			children = (
 				A067C69E1D98ECC6000E4146 /* DrivingViewController.h */,
 				A067C69F1D98ECC6000E4146 /* DrivingViewController.m */,
-				A067C6B21D992A0D000E4146 /* ListViewController.h */,
-				A067C6B31D992A0D000E4146 /* ListViewController.m */,
 				A067C6A31D98ED6E000E4146 /* DrivingModel.h */,
 				A067C6A41D98ED6E000E4146 /* DrivingModel.m */,
 				A067C6A91D98F819000E4146 /* Views */,
@@ -1325,6 +1385,7 @@
 				A08247B21D7FF33C00DC58C2 /* ListCell.xib in Resources */,
 				A01A34581D86A91500852D16 /* head2.jpg in Resources */,
 				A01A34611D86A91500852D16 /* test6.jpg in Resources */,
+				A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */,
 				A01A34571D86A91500852D16 /* head1.jpg in Resources */,
 				A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */,
 				A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */,
@@ -1406,10 +1467,12 @@
 			files = (
 				A01A34481D869DF400852D16 /* TableHeaderView.m in Sources */,
 				A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */,
+				A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */,
 				A01A343A1D8699FD00852D16 /* SDWebImageDownloaderOperation.m in Sources */,
 				A023EE261D951B6000581EB1 /* LikedListController.m in Sources */,
 				A067C69D1D98EB95000E4146 /* MainViewController.m in Sources */,
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
+				A05D73E61D9A5EC400E5E3A2 /* DynamicViewController.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
@@ -1497,6 +1560,7 @@
 				A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
+				A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */,
 				A01A33FC1D86941500852D16 /* NSAttributedString+MLExpression.m in Sources */,
 				A08247F21D80009300DC58C2 /* LocationView.m in Sources */,
 				A08247971D7FC96E00DC58C2 /* TableNode.m in Sources */,
@@ -1505,6 +1569,7 @@
 				A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */,
 				A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */,
 				A082479D1D7FEA3500DC58C2 /* MenuModel.m in Sources */,
+				A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */,
 				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A01A34341D8699FD00852D16 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1512,6 +1577,7 @@
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
 				A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
+				A05D73E21D9A24F000E5E3A2 /* TaskContentView.m in Sources */,
 				A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */,
 				A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */,
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
