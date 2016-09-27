@@ -35,9 +35,12 @@
     //    waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     //或者一次性设置
     [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
-    
-    //设置代理，实现代理方法
-    waterfall.delegate = self;
+    __weak DynamicViewController *weakSelf = self;
+    [waterfall setItemHeightBlock:^CGFloat(CGFloat itemWidth, NSIndexPath * indexPath) {
+        UIImage *image = [UIImage imageNamed:weakSelf.dataSource[indexPath.row]];
+        CGSize size = [image size];
+        return size.height / size.width * itemWidth;
+    }];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), screen_width, 3*screen_height) collectionViewLayout:waterfall];
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -46,7 +49,6 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
-    
     
 }
 
@@ -64,14 +66,6 @@
         }
     }
     return _dataSource;
-}
-
-#pragma mark XRWaterfallLayoutDelegate -
-- (CGFloat)waterfallLayout:(XRWaterfallLayout *)waterfallLayout itemHeightForWidth:(CGFloat)itemWidth atIndexPath:(NSIndexPath *)indexPath {
-    //根据图片的原始尺寸，及显示宽度，等比例缩放来计算显示高度
-    UIImage *image = [UIImage imageNamed:self.dataSource[indexPath.row]];
-    CGSize size = [image size];
-    return size.height / size.width * itemWidth;
 }
 
 #pragma mark collectionView dataSource

@@ -891,6 +891,24 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		A05D73F01D9A836C00E5E3A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A067C6A31D98ED6E000E4146 /* DrivingModel.h */,
+				A067C6A41D98ED6E000E4146 /* DrivingModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A05D73F11D9A837A00E5E3A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A067C69E1D98ECC6000E4146 /* DrivingViewController.h */,
+				A067C69F1D98ECC6000E4146 /* DrivingViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		A067C6A91D98F819000E4146 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1289,10 +1307,8 @@
 		A0A96C1C1D98BCCC00E17E6D /* 行车信息 */ = {
 			isa = PBXGroup;
 			children = (
-				A067C69E1D98ECC6000E4146 /* DrivingViewController.h */,
-				A067C69F1D98ECC6000E4146 /* DrivingViewController.m */,
-				A067C6A31D98ED6E000E4146 /* DrivingModel.h */,
-				A067C6A41D98ED6E000E4146 /* DrivingModel.m */,
+				A05D73F11D9A837A00E5E3A2 /* Controller */,
+				A05D73F01D9A836C00E5E3A2 /* Model */,
 				A067C6A91D98F819000E4146 /* Views */,
 			);
 			name = "行车信息";

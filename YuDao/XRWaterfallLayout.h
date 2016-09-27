@@ -50,7 +50,7 @@
 @property (nonatomic, weak) id<XRWaterfallLayoutDelegate> delegate;
 
 //计算item高度的block，将item的高度与indexPath传递给外界
-@property (nonatomic, strong) CGFloat(^itemHeightBlock)(CGFloat itemHeight,NSIndexPath *indexPath);
+@property (nonatomic, strong) CGFloat(^itemHeightBlock)(CGFloat itemWidth,NSIndexPath *indexPath);
 
 
 #pragma mark- 构造方法
