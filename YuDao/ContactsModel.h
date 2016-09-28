@@ -1,9 +1,9 @@
 //
-//  ChineseString.h
-//  https://github.com/c6357/YUChineseSorting
+//  ContactsModel.h
+//  YuDao
 //
-//  Created by BruceYu on 15/4/19.
-//  Copyright (c) 2015年 BruceYu. All rights reserved.
+//  Created by 汪杰 on 16/9/28.
+//  Copyright © 2016年 汪杰. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,7 +17,9 @@
 @property (nonatomic, copy) NSString *phoneNumber;
 
 //1.已经是好友了  2.已注册但不是好友  3.未注册(邀请注册)
-@property (nonatomic, assign) NSInteger *type;
+@property (nonatomic, assign) NSInteger type;
+
++ (instancetype)modelWith:(NSString *)name;
 
 + (instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName;
 

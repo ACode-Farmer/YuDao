@@ -165,7 +165,7 @@
 - (void)timerHandler:(NSTimer *)sender
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:.3 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             self.sectionTitleView.alpha = 0;
         } completion:^(BOOL finished) {
             self.sectionTitleView.hidden = YES;
@@ -176,7 +176,7 @@
 }
 
 -(void)showSectionTitle:(NSString*)title{
-    [self.sectionTitleView setText:title];
+    self.sectionTitleView.text = title;
     self.sectionTitleView.hidden = NO;
     self.sectionTitleView.alpha = 1;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerHandler:) userInfo:nil repeats:NO];

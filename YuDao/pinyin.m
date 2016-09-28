@@ -1,11 +1,10 @@
-/*
- *  pinyin.c
- *  Chinese Pinyin First Letter
- *
- *  Created by George on 4/21/10.
- *  Copyright 2010 RED/SAFI. All rights reserved.
- *
- */
+//
+//  pinyin.m
+//  YuDao
+//
+//  Created by 汪杰 on 16/9/28.
+//  Copyright © 2016年 汪杰. All rights reserved.
+//
 
 #define HANZI_START 19968
 #define HANZI_COUNT 20902

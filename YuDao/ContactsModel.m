@@ -1,14 +1,20 @@
 //
-//  ChineseString.m
-//  https://github.com/c6357/YUChineseSorting
+//  ContactsModel.m
+//  YuDao
 //
-//  Created by BruceYu on 15/4/19.
-//  Copyright (c) 2015年 BruceYu. All rights reserved.
+//  Created by 汪杰 on 16/9/28.
+//  Copyright © 2016年 汪杰. All rights reserved.
 //
 
 #import "ContactsModel.h"
 
 @implementation ContactsModel
+
++ (instancetype)modelWith:(NSString *)name{
+    ContactsModel *model = [self new];
+    model.name = name;
+    return model;
+}
 
 +(instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName{
     ContactsModel *model = [self new];

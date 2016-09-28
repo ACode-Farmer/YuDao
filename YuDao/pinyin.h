@@ -1,11 +1,10 @@
-/*
- *  pinyin.h
- *  Chinese Pinyin First Letter
- *
- *  Created by George on 4/21/10.
- *  Copyright 2010 RED/SAFI. All rights reserved.
- *
- */
+//
+//  pinyin.h
+//  YuDao
+//
+//  Created by 汪杰 on 16/9/28.
+//  Copyright © 2016年 汪杰. All rights reserved.
+//
 
 /*
  * // Example

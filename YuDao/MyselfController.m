@@ -9,6 +9,7 @@
 #import "MyselfController.h"
 #import "ChangeImageController.h"
 #import "LikedPeopleController.h"
+#import "GarageViewController.h"
 
 #import "MyselfModel.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
@@ -181,7 +182,7 @@
             [self performSegueWithIdentifier:@"MyMessage" sender:nil];
             break;
         case 2:
-            
+            [self.navigationController pushViewController:[GarageViewController new] animated:YES];
             break;
         case 3:
             [self performSegueWithIdentifier:@"Contacts" sender:nil];

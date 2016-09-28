@@ -7,9 +7,10 @@
 //
 
 #import "SetupTableViewController.h"
-#import "FirstTableViewController.h"
+#import "UniversalViewController.h"
 #import "AdviseController.h"
 #import "AboutUsController.h"
+#import "ProtocolViewController.h"
 
 @interface SetupTableViewController ()
 
@@ -90,11 +91,9 @@
     switch (indexPath.section) {
         case 0:
         {
-            FirstTableViewController *vc = [FirstTableViewController new];
-            vc.row = indexPath.row;
+            UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.section][indexPath.row]];
             [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
+            break;}
         case 1:
         {
             switch (indexPath.row) {
@@ -116,7 +115,7 @@
                     [self presentViewController:alert animated:YES completion:nil];
                     break;}
                 case 3:
-                    
+                    [self.navigationController pushViewController:[ProtocolViewController new] animated:YES];
                     break;
                 default:
                     break;
@@ -137,6 +136,7 @@
             [alert addAction:sinOut];
             [alert addAction:cancel];
             [self presentViewController:alert animated:YES completion:nil];
+            
             break;
         }
         default:

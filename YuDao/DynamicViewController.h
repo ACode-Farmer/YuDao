@@ -9,5 +9,5 @@
 #import "MainCommonViewController.h"
 
 @interface DynamicViewController : MainCommonViewController
-- (void)collectionContentHeight;
+
 @end

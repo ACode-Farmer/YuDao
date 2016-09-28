@@ -29,7 +29,7 @@
                             <constraint firstAttribute="height" constant="21" id="iS7-ex-jBj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -49,12 +49,6 @@
                 <constraint firstItem="dlf-8m-WAO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z9b-JJ-sGY"/>
             </constraints>
             <size key="customSize" width="87" height="138"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                    <integer key="value" value="50"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-            </userDefinedRuntimeAttributes>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="ChT-XK-wkS"/>

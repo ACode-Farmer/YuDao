@@ -84,12 +84,12 @@
                     <exclude reference="kr3-tb-MVu"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="0il-a9-May"/>
-                    <exclude reference="J2W-Vw-618"/>
-                    <exclude reference="Pbf-c1-94M"/>
                     <exclude reference="0WZ-fi-gbQ"/>
                     <exclude reference="PEo-2z-dFV"/>
                     <exclude reference="oJf-JX-fbu"/>
+                    <exclude reference="0il-a9-May"/>
+                    <exclude reference="J2W-Vw-618"/>
+                    <exclude reference="Pbf-c1-94M"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -98,12 +98,12 @@
                     <include reference="kr3-tb-MVu"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="0il-a9-May"/>
-                    <include reference="J2W-Vw-618"/>
-                    <include reference="Pbf-c1-94M"/>
                     <include reference="0WZ-fi-gbQ"/>
                     <include reference="PEo-2z-dFV"/>
                     <include reference="oJf-JX-fbu"/>
+                    <include reference="0il-a9-May"/>
+                    <include reference="J2W-Vw-618"/>
+                    <include reference="Pbf-c1-94M"/>
                 </mask>
             </variation>
         </view>

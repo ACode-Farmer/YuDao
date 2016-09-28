@@ -6,31 +6,43 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "FirstTableViewController.h"
+#import "UniversalViewController.h"
 #import "SetupModel.h"
 
-@interface FirstTableViewController ()
+@interface UniversalViewController ()
 
 @property (nonatomic, strong) NSArray *dataSource;
-
+@property (nonatomic, assign) ControllerType type;
 @end
 
-@implementation FirstTableViewController
+@implementation UniversalViewController
+
+- (id)init{
+    if (self = [super init]) {
+        self.type = ControllerTypeOne;
+        self.title = @"通用设置";
+    }
+    return self;
+}
+
+- (id)initWithControllerType:(ControllerType )type title:(NSString *)title{
+    if (self = [super init]) {
+        self.type = type;
+        self.title = title;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+//根据控制器类型取得相应的数据源
 - (NSArray *)dataSource{
     if (!_dataSource) {
-        switch (self.row) {
-            case 0:
+        switch (self.type) {
+            case ControllerTypeOne:
             {
                 SetupModel *model1 = [SetupModel modelWithTitle:@"系统活动" subTitle:nil];
                 SetupModel *model2 = [SetupModel modelWithTitle:@"好友聊天" subTitle:nil];
@@ -38,7 +50,7 @@
                 _dataSource = @[model1,model2,model3];
                 break;
             }
-            case 1:
+            case ControllerTypeTwo:
             {
                 SetupModel *model1 = [SetupModel modelWithTitle:@"通过搜索找到我" subTitle:@"关闭后其它用户将无法通过搜索找到你"];
                 SetupModel *model2 = [SetupModel modelWithTitle:@"屏蔽手机联系人" subTitle:@"屏蔽你的手机联系人好友"];
@@ -49,7 +61,7 @@
                 _dataSource = @[model1,model2,model3,model4,model5,model6];
                 break;
             }
-            case 2:
+            case ControllerTypeThree:
             {
                 SetupModel *model1 = [SetupModel modelWithTitle:@"路况分析" subTitle:@"通过车辆行驶路线分析路况"];
                 SetupModel *model2 = [SetupModel modelWithTitle:@"检测我的爱车" subTitle:@"定期检测车辆保障行驶安全"];
