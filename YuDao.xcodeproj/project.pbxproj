@@ -102,6 +102,7 @@
 		A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73E81D9A5F7B00E5E3A2 /* XRWaterfallLayout.m */; };
 		A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */; };
 		A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */; };
+		A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067110C1D9CB034003EDA94 /* IDCardViewController.m */; };
 		A067C69D1D98EB95000E4146 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* MainViewController.m */; };
 		A067C6A11D98ECC6000E4146 /* DrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* DrivingViewController.m */; };
 		A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6A41D98ED6E000E4146 /* DrivingModel.m */; };
@@ -361,6 +362,8 @@
 		A05D73EB1D9A605E00E5E3A2 /* XRCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCollectionViewCell.h; sourceTree = "<group>"; };
 		A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRCollectionViewCell.m; sourceTree = "<group>"; };
 		A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRCollectionViewCell.xib; sourceTree = "<group>"; };
+		A067110B1D9CB034003EDA94 /* IDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardViewController.h; sourceTree = "<group>"; };
+		A067110C1D9CB034003EDA94 /* IDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardViewController.m; sourceTree = "<group>"; };
 		A067C69B1D98EB95000E4146 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A067C69C1D98EB95000E4146 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A067C69E1D98ECC6000E4146 /* DrivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrivingViewController.h; sourceTree = "<group>"; };
@@ -913,6 +916,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		A067110A1D9CB014003EDA94 /* 个人认证 */ = {
+			isa = PBXGroup;
+			children = (
+				A067110B1D9CB034003EDA94 /* IDCardViewController.h */,
+				A067110C1D9CB034003EDA94 /* IDCardViewController.m */,
+			);
+			name = "个人认证";
+			sourceTree = "<group>";
+		};
 		A067C6A91D98F819000E4146 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1271,6 +1283,7 @@
 				A057AB871D8FB53F00F8817E /* 个人头像 */,
 				A057AB891D8FB59800F8817E /* 年龄\地区\性别\情感状态 */,
 				A057ABA01D8FCF0A00F8817E /* 兴趣 */,
+				A067110A1D9CB014003EDA94 /* 个人认证 */,
 			);
 			name = "我的资料";
 			sourceTree = "<group>";
@@ -1659,6 +1672,7 @@
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
 				A023EE1A1D94F6D200581EB1 /* LikedPeopleController.m in Sources */,
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
+				A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,
 				A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */,
 				A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */,

@@ -11,6 +11,7 @@
 #import "RealOrNickNameController.h"
 #import "AgeOrPlaceController.h"
 #import "InterestController.h"
+#import "IDCardViewController.h"
 
 #import "MCommonModel.h"
 #import "UIImage+ChangeIt.h"
@@ -114,6 +115,7 @@
     btn.frame = CGRectMake(20, 10, screen_width-40, 40);
     btn.layer.cornerRadius = 5.0f;
     btn.layer.masksToBounds = true;
+    [btn addTarget:self action:@selector(footBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
     
     UILabel *label = [[UILabel alloc] init];
@@ -122,6 +124,10 @@
     [view addSubview:label];
     
     return view;
+}
+
+- (void)footBtnAction:(UIButton *)sender{
+    [self.navigationController pushViewController:[IDCardViewController new] animated:YES];
 }
 
 #pragma mark - delegate

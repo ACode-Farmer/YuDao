@@ -93,6 +93,15 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
             [_datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
             _datePicker.frame = _pickerView.frame;
             [_datePicker setDatePickerMode:UIDatePickerModeDate];
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDate *currentDate = [NSDate date];
+            NSDateComponents *comps = [[NSDateComponents alloc] init];
+            [comps setYear:0];//设置最大时间为：当前时间推后十年
+            NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+            [comps setYear:-100];//设置最小时间为：当前时间前推十年
+            NSDate *minDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+            [_datePicker setMaximumDate:maxDate];
+            [_datePicker setMinimumDate:minDate];
             [self addSubview:_datePicker];
         }
         
@@ -282,7 +291,6 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
         case IQActionSheetPickerStyleTimePicker:
         {
             [self setDate:_datePicker.date];
-            
             [self setSelectedTitles:@[_datePicker.date]];
             
             if ([self.delegate respondsToSelector:@selector(actionSheetPickerView:didSelectDate:)])
@@ -327,7 +335,7 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
 {
     _maximumDate = maximumDate;
     
-    _datePicker.maximumDate = maximumDate;
+    _datePicker.maximumDate = _maximumDate;
 }
 
 #pragma mark - IQActionSheetPickerStyleTextPicker
@@ -366,7 +374,7 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
             else
             {
                 NSArray *items = _titlesForComponents[component];
-                
+
                 if ([items count] > selectedRow)
                 {
                     id selectTitle = items[selectedRow];

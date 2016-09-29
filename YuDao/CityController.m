@@ -96,6 +96,10 @@
                 [self.navigationController popToViewController:rootVC animated:YES];
             }
         }
+        NSString *place = [self.title stringByAppendingString:self.dataSource[indexPath.row]];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:place forKey:@"常出没地点"];
+        [defaults synchronize];
     }else{
         DistrictController *disVC = [DistrictController new];
         disVC.provinceTitle = self.provinceTitle;

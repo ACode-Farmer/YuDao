@@ -43,7 +43,7 @@
         [_addCarView addSubview:label];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(label.frame)+5, screen_width - 10, _addCarView.bounds.size.height - label.bounds.size.height-10)];
-        imageView.layer.cornerRadius = 30;
+        imageView.layer.cornerRadius = 15;
         imageView.layer.borderWidth = 1.f;
         imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         imageView.layer.masksToBounds = YES;

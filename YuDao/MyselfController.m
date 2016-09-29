@@ -82,15 +82,13 @@
         
         UIButton *vipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [vipBtn setTitle:@"认证等级 V5" forState:0];
-        [vipBtn setTitleColor:[UIColor whiteColor] forState:0];
-        vipBtn.backgroundColor = [UIColor orangeColor];
+        [vipBtn setTitleColor:[UIColor orangeColor] forState:0];
         [vipBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
         vipBtn.enabled = NO;
         
         UIButton *likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [likeBtn setTitle:@"666喜欢" forState:0];
-        [likeBtn setTitleColor:[UIColor whiteColor] forState:0];
-        likeBtn.backgroundColor = [UIColor orangeColor];
+        [likeBtn setTitleColor:[UIColor orangeColor] forState:0];
         [likeBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
         likeBtn.enabled = NO;
         

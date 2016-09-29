@@ -26,14 +26,17 @@
     [super viewDidLoad];
     
     [self loadPerson];
-    
     _indexArray = [ContactsModel IndexArray:_dataSource];
     _dataSource = [ContactsModel LetterSortArray:_dataSource];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self performSelector:@selector(loadPerson) withObject:nil afterDelay:2];
 }
 
 /**
@@ -42,19 +45,16 @@
 - (void)loadPerson
 {
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
-    
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
         ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error){
             
-            CFErrorRef *error1 = NULL;
-            ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error1);
+            ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
             [self copyAddressBook:addressBook];
         });
     }
     else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
         
-        CFErrorRef *error = NULL;
-        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
         [self copyAddressBook:addressBook];
     }
     else {
