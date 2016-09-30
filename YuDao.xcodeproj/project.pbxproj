@@ -120,6 +120,9 @@
 		A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D201D928AA900DFAFC2 /* GroupController.m */; };
 		A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D231D92902600DFAFC2 /* GroupDetailController.m */; };
 		A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D261D929A6C00DFAFC2 /* PersonalController.m */; };
+		A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */; };
+		A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */; };
+		A06F084A1D9E634100D4E829 /* QRCode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A06F08491D9E634100D4E829 /* QRCode.jpg */; };
 		A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A078413A1D89435B00D015D3 /* ListScrollView.m */; };
 		A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */; };
 		A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */; };
@@ -394,6 +397,10 @@
 		A06A9D231D92902600DFAFC2 /* GroupDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailController.m; sourceTree = "<group>"; };
 		A06A9D251D929A6C00DFAFC2 /* PersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalController.h; sourceTree = "<group>"; };
 		A06A9D261D929A6C00DFAFC2 /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
+		A06F08441D9E629A00D4E829 /* MyQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQRCodeViewController.h; sourceTree = "<group>"; };
+		A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQRCodeViewController.m; sourceTree = "<group>"; };
+		A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyQRCodeViewController.xib; sourceTree = "<group>"; };
+		A06F08491D9E634100D4E829 /* QRCode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = QRCode.jpg; sourceTree = "<group>"; };
 		A07841391D89435B00D015D3 /* ListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListScrollView.h; sourceTree = "<group>"; };
 		A078413A1D89435B00D015D3 /* ListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListScrollView.m; sourceTree = "<group>"; };
 		A07B8C331D9BAEFB0040DD8B /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
@@ -949,6 +956,16 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		A06F08431D9E626500D4E829 /* 我的二维码 */ = {
+			isa = PBXGroup;
+			children = (
+				A06F08441D9E629A00D4E829 /* MyQRCodeViewController.h */,
+				A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */,
+				A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */,
+			);
+			name = "我的二维码";
+			sourceTree = "<group>";
+		};
 		A07B8C311D9BAAB60040DD8B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1228,6 +1245,7 @@
 		A08247CB1D7FF67000DC58C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A06F08491D9E634100D4E829 /* QRCode.jpg */,
 				A067C6B51D992C01000E4146 /* 回到顶部.png */,
 				A067C6AD1D991CEE000E4146 /* 010.jpg */,
 				A01A34491D86A91500852D16 /* head0.jpg */,
@@ -1283,6 +1301,7 @@
 				A057AB871D8FB53F00F8817E /* 个人头像 */,
 				A057AB891D8FB59800F8817E /* 年龄\地区\性别\情感状态 */,
 				A057ABA01D8FCF0A00F8817E /* 兴趣 */,
+				A06F08431D9E626500D4E829 /* 我的二维码 */,
 				A067110A1D9CB014003EDA94 /* 个人认证 */,
 			);
 			name = "我的资料";
@@ -1478,11 +1497,13 @@
 				A037BC661D9100D200D8D12F /* area.plist in Resources */,
 				A01A34591D86A91500852D16 /* head3.jpg in Resources */,
 				A08247991D7FDEC400DC58C2 /* TableNodeDataSource.plist in Resources */,
+				A06F084A1D9E634100D4E829 /* QRCode.jpg in Resources */,
 				A06A9D151D9263F200DFAFC2 /* AdviseController.xib in Resources */,
 				A01A34621D86A91500852D16 /* test7.jpg in Resources */,
 				A01A345E1D86A91500852D16 /* test3.jpg in Resources */,
 				A08247D41D7FF6A300DC58C2 /* sora_0.png in Resources */,
 				A01A345B1D86A91500852D16 /* test0.jpg in Resources */,
+				A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */,
 				A01A34011D86941500852D16 /* LICENSE in Resources */,
 				A08247D81D7FF6A300DC58C2 /* sora_4.png in Resources */,
 				A08247831D7FC4BC00DC58C2 /* LaunchScreen.storyboard in Resources */,
@@ -1634,6 +1655,7 @@
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,
 				A067C6B11D991F31000E4146 /* MainCommonViewController.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
+				A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */,
 				A067C6B41D992A0D000E4146 /* ListViewController.m in Sources */,
 				A01A343D1D8699FD00852D16 /* UIButton+WebCache.m in Sources */,
 				A01A34371D8699FD00852D16 /* SDWebImageCompat.m in Sources */,

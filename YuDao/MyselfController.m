@@ -10,6 +10,7 @@
 #import "ChangeImageController.h"
 #import "LikedPeopleController.h"
 #import "GarageViewController.h"
+#import "MyQRCodeViewController.h"
 
 #import "MyselfModel.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
@@ -189,7 +190,7 @@
             [self.navigationController pushViewController:[LikedPeopleController new] animated:YES];
             break;
         case 5:
-            
+            [self.navigationController pushViewController:[MyQRCodeViewController new] animated:YES];
             break;
         default:
             break;
