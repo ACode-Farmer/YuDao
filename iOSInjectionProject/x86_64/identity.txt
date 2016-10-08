@@ -1,0 +1,2 @@
+/Users/wangjie/Library/Developer/Xcode/DerivedData/YuDao-fbcbdvwcsfyurfgozgjnrnptgcvo/Build/Products/Debug-iphonesimulator/YuDao.app
+iPhone Developer

@@ -6,14 +6,14 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "DrivingViewController.h"
+#import "YDDrivingViewController.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
 #import "CornerButton.h"
 #import "DataView.h"
 #import "DrivingModel.h"
 #import "LocationView.h"
 
-@interface DrivingViewController ()
+@interface YDDrivingViewController ()
 
 @property (nonatomic, strong) UIButton *titleBtn;
 
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation DrivingViewController
+@implementation YDDrivingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

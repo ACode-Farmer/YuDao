@@ -103,13 +103,13 @@
 		A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */; };
 		A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */; };
 		A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067110C1D9CB034003EDA94 /* IDCardViewController.m */; };
-		A067C69D1D98EB95000E4146 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* MainViewController.m */; };
-		A067C6A11D98ECC6000E4146 /* DrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* DrivingViewController.m */; };
+		A067C69D1D98EB95000E4146 /* YDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* YDMainViewController.m */; };
+		A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */; };
 		A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6A41D98ED6E000E4146 /* DrivingModel.m */; };
 		A067C6A81D98F21B000E4146 /* CornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6A71D98F21B000E4146 /* CornerButton.m */; };
 		A067C6AC1D98F83C000E4146 /* DataView.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6AB1D98F83C000E4146 /* DataView.m */; };
 		A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A067C6AD1D991CEE000E4146 /* 010.jpg */; };
-		A067C6B11D991F31000E4146 /* MainCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6B01D991F31000E4146 /* MainCommonViewController.m */; };
+		A067C6B11D991F31000E4146 /* YDMainCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6B01D991F31000E4146 /* YDMainCommonViewController.m */; };
 		A067C6B41D992A0D000E4146 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6B31D992A0D000E4146 /* ListViewController.m */; };
 		A067C6B61D992C01000E4146 /* 回到顶部.png in Resources */ = {isa = PBXBuildFile; fileRef = A067C6B51D992C01000E4146 /* 回到顶部.png */; };
 		A06A9D141D9263F200DFAFC2 /* AdviseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D121D9263F200DFAFC2 /* AdviseController.m */; };
@@ -184,6 +184,7 @@
 		A09C5AFA1D87917400DEBA2E /* RankingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5AF91D87917400DEBA2E /* RankingListModel.m */; };
 		A09C5AFD1D8796C900DEBA2E /* RankingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5AFC1D8796C900DEBA2E /* RankingListCell.m */; };
 		A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C5B041D88066100DEBA2E /* MenuCell.m */; };
+		A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C08CFA1DA901C60031977B /* YDMainTitleView.m */; };
 		B3CB804518D50AE351B451DF /* libPods-YuDao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B41562B8238B5C8CF23BE35 /* libPods-YuDao.a */; };
 /* End PBXBuildFile section */
 
@@ -367,10 +368,10 @@
 		A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRCollectionViewCell.xib; sourceTree = "<group>"; };
 		A067110B1D9CB034003EDA94 /* IDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardViewController.h; sourceTree = "<group>"; };
 		A067110C1D9CB034003EDA94 /* IDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardViewController.m; sourceTree = "<group>"; };
-		A067C69B1D98EB95000E4146 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		A067C69C1D98EB95000E4146 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		A067C69E1D98ECC6000E4146 /* DrivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrivingViewController.h; sourceTree = "<group>"; };
-		A067C69F1D98ECC6000E4146 /* DrivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrivingViewController.m; sourceTree = "<group>"; };
+		A067C69B1D98EB95000E4146 /* YDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainViewController.h; sourceTree = "<group>"; };
+		A067C69C1D98EB95000E4146 /* YDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMainViewController.m; sourceTree = "<group>"; };
+		A067C69E1D98ECC6000E4146 /* YDDrivingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDrivingViewController.h; sourceTree = "<group>"; };
+		A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDrivingViewController.m; sourceTree = "<group>"; };
 		A067C6A31D98ED6E000E4146 /* DrivingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrivingModel.h; sourceTree = "<group>"; };
 		A067C6A41D98ED6E000E4146 /* DrivingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrivingModel.m; sourceTree = "<group>"; };
 		A067C6A61D98F21B000E4146 /* CornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerButton.h; sourceTree = "<group>"; };
@@ -378,8 +379,8 @@
 		A067C6AA1D98F83C000E4146 /* DataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataView.h; sourceTree = "<group>"; };
 		A067C6AB1D98F83C000E4146 /* DataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataView.m; sourceTree = "<group>"; };
 		A067C6AD1D991CEE000E4146 /* 010.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 010.jpg; sourceTree = "<group>"; };
-		A067C6AF1D991F31000E4146 /* MainCommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCommonViewController.h; sourceTree = "<group>"; };
-		A067C6B01D991F31000E4146 /* MainCommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCommonViewController.m; sourceTree = "<group>"; };
+		A067C6AF1D991F31000E4146 /* YDMainCommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainCommonViewController.h; sourceTree = "<group>"; };
+		A067C6B01D991F31000E4146 /* YDMainCommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMainCommonViewController.m; sourceTree = "<group>"; };
 		A067C6B21D992A0D000E4146 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		A067C6B31D992A0D000E4146 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		A067C6B51D992C01000E4146 /* 回到顶部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "回到顶部.png"; sourceTree = "<group>"; };
@@ -507,6 +508,9 @@
 		A09C5AFC1D8796C900DEBA2E /* RankingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListCell.m; sourceTree = "<group>"; };
 		A09C5B031D88066100DEBA2E /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		A09C5B041D88066100DEBA2E /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		A0C08CF81DA8F95A0031977B /* YDMainViewConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDMainViewConfigure.h; sourceTree = "<group>"; };
+		A0C08CF91DA901C60031977B /* YDMainTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainTitleView.h; sourceTree = "<group>"; };
+		A0C08CFA1DA901C60031977B /* YDMainTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMainTitleView.m; sourceTree = "<group>"; };
 		C4D2BF99764BDF8833496D44 /* Pods-YuDao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuDao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YuDao/Pods-YuDao.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -917,8 +921,8 @@
 		A05D73F11D9A837A00E5E3A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A067C69E1D98ECC6000E4146 /* DrivingViewController.h */,
-				A067C69F1D98ECC6000E4146 /* DrivingViewController.m */,
+				A067C69E1D98ECC6000E4146 /* YDDrivingViewController.h */,
+				A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1144,10 +1148,13 @@
 		A082478A1D7FC53900DC58C2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				A067C69B1D98EB95000E4146 /* MainViewController.h */,
-				A067C69C1D98EB95000E4146 /* MainViewController.m */,
-				A067C6AF1D991F31000E4146 /* MainCommonViewController.h */,
-				A067C6B01D991F31000E4146 /* MainCommonViewController.m */,
+				A067C69B1D98EB95000E4146 /* YDMainViewController.h */,
+				A067C69C1D98EB95000E4146 /* YDMainViewController.m */,
+				A067C6AF1D991F31000E4146 /* YDMainCommonViewController.h */,
+				A067C6B01D991F31000E4146 /* YDMainCommonViewController.m */,
+				A0C08CF81DA8F95A0031977B /* YDMainViewConfigure.h */,
+				A0C08CF91DA901C60031977B /* YDMainTitleView.h */,
+				A0C08CFA1DA901C60031977B /* YDMainTitleView.m */,
 				A0A96C1C1D98BCCC00E17E6D /* 行车信息 */,
 				A05D73DB1D9A065000E5E3A2 /* 排行榜 */,
 				A05D73DC1D9A10C100E5E3A2 /* 任务  */,
@@ -1577,7 +1584,7 @@
 				A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */,
 				A01A343A1D8699FD00852D16 /* SDWebImageDownloaderOperation.m in Sources */,
 				A023EE261D951B6000581EB1 /* LikedListController.m in Sources */,
-				A067C69D1D98EB95000E4146 /* MainViewController.m in Sources */,
+				A067C69D1D98EB95000E4146 /* YDMainViewController.m in Sources */,
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A05D73E61D9A5EC400E5E3A2 /* DynamicViewController.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
@@ -1594,7 +1601,7 @@
 				A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */,
 				A08247A71D7FF30100DC58C2 /* DrivingDataCell.m in Sources */,
 				A06A9D141D9263F200DFAFC2 /* AdviseController.m in Sources */,
-				A067C6A11D98ECC6000E4146 /* DrivingViewController.m in Sources */,
+				A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */,
 				A01A34421D8699FD00852D16 /* UIImageView+WebCache.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
@@ -1653,7 +1660,8 @@
 				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
 				A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */,
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,
-				A067C6B11D991F31000E4146 /* MainCommonViewController.m in Sources */,
+				A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */,
+				A067C6B11D991F31000E4146 /* YDMainCommonViewController.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
 				A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */,
 				A067C6B41D992A0D000E4146 /* ListViewController.m in Sources */,
@@ -1761,6 +1769,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1823,6 +1832,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = YuDao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

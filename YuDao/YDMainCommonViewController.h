@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainCommonViewController : UIViewController
+
+
+@interface YDMainCommonViewController : UIViewController
 
 @property (nonatomic, strong) NSString *mainTitle;
 @property (nonatomic, strong) UIView *titleView;

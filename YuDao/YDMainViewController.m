@@ -6,33 +6,33 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "DrivingViewController.h"
-#import "MainCommonViewController.h"
+#import "YDMainViewController.h"
+#import "YDDrivingViewController.h"
+#import "YDMainCommonViewController.h"
 #import "ListViewController.h"
 #import "CornerButton.h"
 #import "TaskViewController.h"
 #import "DynamicViewController.h"
 
-@interface MainViewController ()<UIScrollViewDelegate>
+@interface YDMainViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) CornerButton *topBtn;
 
-@property (nonatomic, strong) DrivingViewController *drVC;
+@property (nonatomic, strong) YDDrivingViewController *drVC;
 @property (nonatomic, strong) ListViewController *mcVC;
 @property (nonatomic, strong) TaskViewController *tkVC;
 @property (nonatomic, strong) DynamicViewController *dyVC;
 
 @end
 
-@implementation MainViewController
+@implementation YDMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIView *coverView = [UIView new];
     [self.view addSubview:coverView];
-    _drVC = [DrivingViewController new];
+    _drVC = [YDDrivingViewController new];
     CGRect drframe = CGRectMake(0, 0, screen_width, 0.8 * (screen_height-64-48));
     _drVC.view.frame = drframe;
     [self.contentView addSubview:_drVC.view];

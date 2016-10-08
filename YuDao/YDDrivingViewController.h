@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrivingViewController : UIViewController
+@interface YDDrivingViewController : UIViewController
 
 @end

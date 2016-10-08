@@ -6,8 +6,8 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "MainCommonViewController.h"
+#import "YDMainCommonViewController.h"
 
-@interface ListViewController : MainCommonViewController
+@interface ListViewController : YDMainCommonViewController
 
 @end

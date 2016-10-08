@@ -6,16 +6,14 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "MainCommonViewController.h"
+#import "YDMainCommonViewController.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
-
-@interface MainCommonViewController ()
-
-
+#import "YDMainViewConfigure.h"
+@interface YDMainCommonViewController ()
 
 @end
 
-@implementation MainCommonViewController
+@implementation YDMainCommonViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,8 +27,7 @@
         _titleView = [UIView new];
         _titleView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:_titleView];
-        
-        _titleView.frame = CGRectMake(0, 0, screen_width, 0.18*(screen_height-64-48));
+        _titleView.frame = CGRectMake(0, 0, screen_width, titleViewHeight);
 //        _titleView.sd_layout
 //        .topSpaceToView(self.view,0)
 //        .leftSpaceToView(self.view,0)
@@ -39,7 +36,7 @@
         
         UILabel *label = [UILabel new];
         label.tag = 1001;
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor orangeColor];
         UIView *leftLineView = [UIView new];
         leftLineView.backgroundColor = [UIColor blackColor];
         UIView *rightLineView = [UIView new];
