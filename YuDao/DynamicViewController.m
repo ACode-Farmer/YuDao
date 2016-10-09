@@ -7,13 +7,14 @@
 //
 
 #import "DynamicViewController.h"
+#import "YDMainTitleView.h"
 #import "XRWaterfallLayout.h"
 #import "XRCollectionViewCell.h"
 
-@interface DynamicViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,XRWaterfallLayoutDelegate>
+@interface DynamicViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-
+@property (nonatomic, strong) YDMainTitleView *titleView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
@@ -22,18 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.mainTitle = @"动态";
-    //标题
-    UILabel *titleLabel = [self.titleView viewWithTag:1001];
-    titleLabel.text = self.mainTitle;
-    
+    [self.view addSubview:self.titleView];
     //创建瀑布流布局
     XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
     //设置各属性的值
-    //    waterfall.rowSpacing = 10;
-    //    waterfall.columnSpacing = 10;
-    //    waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    //或者一次性设置
+    //waterfall.rowSpacing = 10;
+    //waterfall.columnSpacing = 10;
+    //waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    //一次性设置
     [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     __weak DynamicViewController *weakSelf = self;
     [waterfall setItemHeightBlock:^CGFloat(CGFloat itemWidth, NSIndexPath * indexPath) {
@@ -94,6 +91,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (YDMainTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [YDMainTitleView new];
+        [_titleView setTitle:@"动态" leftBtnImage:@"AppIcon" rightBtnImage:@"AppIcon"];
+    }
+    return _titleView;
 }
 
 /*

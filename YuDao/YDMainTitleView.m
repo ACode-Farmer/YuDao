@@ -13,12 +13,22 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        
+        self.backgroundColor = [UIColor whiteColor];
+        [self setupSubviews];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
+        [self setupSubviews];
     }
     return self;
 }
 
 - (void)setupSubviews{
+    [self superview].backgroundColor = [UIColor whiteColor];
     NSArray *subViews = @[self.leftBtn,self.titleLabel,self.rightBtn];
     [self sd_addSubviews:subViews];
     
@@ -41,6 +51,13 @@
     .widthRatioToView(self,0.5);
 }
 
+- (void)setTitle:(NSString *)title leftBtnImage:(NSString *)leftImageName rightBtnImage:(NSString *)rightImageName{
+    _titleLabel.text = title;
+    
+    [_leftBtn setImage:[UIImage imageNamed:leftImageName] forState:0];
+    [_rightBtn setImage:[UIImage imageNamed:rightImageName] forState:0];
+}
+
 - (UIButton *)leftBtn{
     if (!_leftBtn) {
         _leftBtn = [UIButton new];
@@ -54,6 +71,7 @@
         _titleLabel = [UILabel new];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:18];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
@@ -61,7 +79,7 @@
 - (UIButton *)rightBtn{
     if (!_rightBtn) {
         _rightBtn = [UIButton new];
-        _rightBtn = [UIColor clearColor];
+        _rightBtn.backgroundColor = [UIColor clearColor];
     }
     return _rightBtn;
 }

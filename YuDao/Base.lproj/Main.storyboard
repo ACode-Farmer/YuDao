@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--首页-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="YDMainViewController" sceneMemberID="viewController">
@@ -20,9 +20,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="R4p-wt-sdE">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="sb4-Ul-n4v"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="pkH-M4-oIt">
+                    <navigationItem key="navigationItem" id="R4p-wt-sdE">
+                        <barButtonItem key="leftBarButtonItem" image="二维码" id="sb4-Ul-n4v"/>
+                        <barButtonItem key="rightBarButtonItem" image="搜索" id="pkH-M4-oIt">
                             <connections>
                                 <segue destination="MgL-qv-reu" kind="show" id="KQZ-5B-vbD"/>
                             </connections>
@@ -522,7 +522,7 @@
         <scene sceneID="PHP-Cl-lPo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZWQ-bn-oTd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="发现" id="x5l-l4-FHt"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="AlbumLike" id="x5l-l4-FHt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5p6-Ds-Hag">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -557,4 +557,9 @@
             <point key="canvasLocation" x="1362" y="373.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AlbumLike" width="20" height="20"/>
+        <image name="二维码" width="19" height="20"/>
+        <image name="搜索" width="20" height="20"/>
+    </resources>
 </document>

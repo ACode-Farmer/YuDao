@@ -8,11 +8,11 @@
 
 #import "YDMainViewController.h"
 #import "YDDrivingViewController.h"
-#import "YDMainCommonViewController.h"
-#import "ListViewController.h"
+#import "YDListViewController.h"
 #import "CornerButton.h"
 #import "TaskViewController.h"
 #import "DynamicViewController.h"
+#import "YDMainViewConfigure.h"
 
 @interface YDMainViewController ()<UIScrollViewDelegate>
 
@@ -20,7 +20,7 @@
 @property (nonatomic, strong) CornerButton *topBtn;
 
 @property (nonatomic, strong) YDDrivingViewController *drVC;
-@property (nonatomic, strong) ListViewController *mcVC;
+@property (nonatomic, strong) YDListViewController *mcVC;
 @property (nonatomic, strong) TaskViewController *tkVC;
 @property (nonatomic, strong) DynamicViewController *dyVC;
 
@@ -30,17 +30,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIView *coverView = [UIView new];
-    [self.view addSubview:coverView];
+    self.navigationItem.titleView = ({
+        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_width/2, 40)];
+        titleLable.text = @"奔驰AMG－C63";
+        titleLable.textAlignment = NSTextAlignmentCenter;
+        titleLable.textColor = [UIColor blackColor];
+        titleLable.font = [UIFont systemFontOfSize:14];
+        UIView *coverView = [UIView new];
+        [self.view addSubview:coverView];
+        titleLable;
+    });
+    
     _drVC = [YDDrivingViewController new];
-    CGRect drframe = CGRectMake(0, 0, screen_width, 0.8 * (screen_height-64-48));
+    CGRect drframe = CGRectMake(0, 0, screen_width, kDrivingViewHeight);
     _drVC.view.frame = drframe;
     [self.contentView addSubview:_drVC.view];
     [self addChildViewController:_drVC];
     [_drVC didMoveToParentViewController:self];
     
-    _mcVC = [ListViewController new];
-    CGRect mcframe = CGRectMake(0, CGRectGetMaxY(drframe)+5, screen_width, 0.36*(screen_height-64-48)+screen_width);
+    _mcVC = [YDListViewController new];
+    CGRect mcframe = CGRectMake(0, CGRectGetMaxY(drframe)+kMainViewMargin, screen_width, 0.36*(screen_height-64-48)+screen_width);
     _mcVC.view.frame = mcframe;
     [self.contentView addSubview:_mcVC.view];
     [self addChildViewController:_mcVC];
@@ -54,7 +63,6 @@
     [_tkVC didMoveToParentViewController:self];
     
     _dyVC = [DynamicViewController new];
-    
     CGRect dyframe = CGRectMake(0, CGRectGetMaxY(tkframe)+5, screen_width, 2.4*screen_height+5);
     _dyVC.view.frame = dyframe;
     [self.contentView addSubview:_dyVC.view];

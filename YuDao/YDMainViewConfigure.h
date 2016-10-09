@@ -6,10 +6,17 @@
 //
 //
 
+//四个主要界面的间隔
+#define kMainViewMargin 8 * widthHeight_ratio
 
-#define titleViewHeight 0.18 * (screen_height-112)
+//行车信息的视图高度
+#define kTitleViewHeight      48 * widthHeight_ratio
+#define kBackgroundViewHeight 302 * widthHeight_ratio
+#define kDataTypeViewHeight 76 * widthHeight_ratio
+#define kDrivingViewHeight 426 * widthHeight_ratio
 
-#define iconWidthHeight 20 * widthHeight_ratio
+
+
 
 typedef enum {
     SDWaitingViewModeLoopDiagram, // 环形

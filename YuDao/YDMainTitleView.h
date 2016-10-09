@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#define titleViewHeight 0.18 * (screen_height-112)
-
-#define iconWidthHeight 20 * widthHeight_ratio
+#define iconWidthHeight 30 * widthHeight_ratio
 
 @interface YDMainTitleView : UIView
 
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *leftBtn;
+
+- (void)setTitle:(NSString *)title leftBtnImage:(NSString *)leftImageName rightBtnImage:(NSString *)rightImageName;
 
 @end

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDMainCommonViewController.h"
 
-@interface DynamicViewController : YDMainCommonViewController
+
+@interface DynamicViewController : UIViewController
 
 @end

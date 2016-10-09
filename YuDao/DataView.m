@@ -18,10 +18,6 @@
 }
 - (instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = [UIColor whiteColor];
-        self.sd_cornerRadiusFromWidthRatio = @0.5;
-        self.layer.borderWidth = 0.5;
-        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
         [self setupSubviews];
     }
@@ -30,9 +26,11 @@
 
 - (void)setupSubviews{
     _titleLabel = [UILabel new];
+    _titleLabel.font = [UIFont systemFontOfSize:20];
     _dataLabel = [UILabel new];
+    _dataLabel.font = [UIFont systemFontOfSize:25];
     _subTitleLabel = [UILabel new];
-    
+    _subTitleLabel.font = [UIFont systemFontOfSize:20];
     NSArray *subviews = @[_titleLabel,_dataLabel,_subTitleLabel];
     for (UILabel *label in subviews) {
         label.backgroundColor = [UIColor clearColor];
@@ -45,19 +43,19 @@
     .centerXEqualToView(self)
     .centerYEqualToView(self)
     .heightRatioToView(self,0.3)
-    .widthRatioToView(self,0.7);
+    .widthRatioToView(self,0.9);
     
     _titleLabel.sd_layout
     .centerXEqualToView(self)
     .bottomSpaceToView(_dataLabel,3)
     .heightRatioToView(self,0.2)
-    .widthRatioToView(self,0.5);
+    .widthRatioToView(self,0.9);
     
     _subTitleLabel.sd_layout
     .centerXEqualToView(self)
     .topSpaceToView(_dataLabel,3)
     .heightRatioToView(self,0.2)
-    .widthRatioToView(self,0.5);
+    .widthRatioToView(self,0.9);
     
 }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDMainCommonViewController.h"
-
-@interface TaskViewController : YDMainCommonViewController
+@interface TaskViewController : UIViewController
 
 @end

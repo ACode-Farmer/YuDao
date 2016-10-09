@@ -8,6 +8,7 @@
 
 #import "TaskViewController.h"
 #import "TaskContentView.h"
+#import "YDMainTitleView.h"
 #import "TaskModel.h"
 
 @interface TaskViewController ()
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) UIImageView *headerView;
 
 @property (nonatomic, strong) TaskContentView *contentView;
+@property (nonatomic, strong) YDMainTitleView *titleView;
 
 @end
 
@@ -22,16 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.mainTitle = @"任务";
-    //标题
-    UILabel *titleLabel = [self.titleView viewWithTag:1001];
-    titleLabel.text = self.mainTitle;
+    [self.view addSubview:self.titleView];
     
     //头视图标题
     UILabel *headerLabel = [self.headerView viewWithTag:1001];
     headerLabel.text = @"快速注册，加入遇道之旅";
-    
-   
     
     TaskModel *textModel = [TaskModel modelWithTime:@"1天内" reward:@"1000积分" target:@"注册成为“遇道”用户，可使用遇道的社交功能，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流" isComplete:YES];
     self.contentView.model = textModel;
@@ -92,12 +89,19 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    NSLog(@"class = %@",NSStringFromClass([self class]));
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+}
+
+- (YDMainTitleView *)titleView{
+    if (!_titleView) {
+        _titleView = [YDMainTitleView new];
+        [_titleView setTitle:@"任务" leftBtnImage:@"AppIcon" rightBtnImage:@"AppIcon"];
+    }
+    return _titleView;
 }
 
 /*
