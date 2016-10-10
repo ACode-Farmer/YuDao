@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 @class TaskModel;
 
+@protocol TaskContentViewDelegate <NSObject>
+
+- (void)taskContentViewGoCompliteTask:(NSString *)taskName;
+
+@end
+
 @interface TaskContentView : UIView
+
+@property (nonatomic, weak) id<TaskContentViewDelegate> taskContentViewDelegate;
 
 @property (nonatomic, strong) TaskModel *model;
 

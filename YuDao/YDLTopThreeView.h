@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class ListViewModel;
 
-@interface YDLTopThreeVIew : UIView
+@interface YDLTopThreeView : UIView
 
 @property (nonatomic, strong) NSArray<ListViewModel *> *dataSource;
 

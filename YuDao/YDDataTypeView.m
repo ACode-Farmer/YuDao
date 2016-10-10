@@ -21,9 +21,6 @@
     if (self = [super init]) {
         
         _titleArray = [titleArray copy];
-        for (NSString *s in _titleArray) {
-            NSLog(@"s =- %@",s);
-        }
         [self addButtons];
     }
     return self;

@@ -13,6 +13,7 @@
 
 @implementation TaskContentView
 {
+    UILabel  *_titleLabel;
     UILabel  *_timeLabel;
     UILabel  *_rewardLabel;
     UILabel  *_targetLebel;
@@ -27,41 +28,57 @@
 }
 
 - (void)setupSubviews{
+    _titleLabel = [UILabel new];
+    _titleLabel.text = @"任务一：时速排行榜";
     _timeLabel = [UILabel new];
-    _timeLabel.text = @"时效:";
+    _timeLabel.text = @"任务时效:";
     _rewardLabel = [UILabel new];
-    _rewardLabel.text = @"奖励:";
+    _rewardLabel.text = @"任务奖励:";
     _targetLebel = [UILabel new];
-    _targetLebel.text = @"目标:";
+    _targetLebel.text = @"任务目标:";
     _goBtn = [CornerButton circularButtonWithTitle:@"GO" backgroundColor:[UIColor orangeColor]];
-    NSArray *subviews = @[_timeLabel,_rewardLabel,_targetLebel,_goBtn];
+    NSArray *subviews = @[_titleLabel,_timeLabel,_rewardLabel,_targetLebel,_goBtn];
     [self sd_addSubviews:subviews];
     
-    _timeLabel.sd_layout
+    _titleLabel.sd_layout
     .topSpaceToView(self,10)
     .leftSpaceToView(self,10)
-    .rightSpaceToView(self,10)
+    .widthRatioToView(self,0.7)
+    .heightIs(21);
+    
+    _timeLabel.sd_layout
+    .topSpaceToView(_titleLabel,5)
+    .leftEqualToView(_titleLabel)
+    .rightEqualToView(_titleLabel)
     .heightIs(21);
     
     _rewardLabel.sd_layout
     .topSpaceToView(_timeLabel,5)
-    .leftEqualToView(_timeLabel)
-    .rightEqualToView(_timeLabel)
+    .leftEqualToView(_titleLabel)
+    .rightEqualToView(_titleLabel)
     .heightIs(21);
     
     _targetLebel.sd_layout
     .topSpaceToView(_rewardLabel,5)
-    .leftEqualToView(_timeLabel)
-    .rightEqualToView(_timeLabel)
+    .leftEqualToView(_titleLabel)
+    .rightEqualToView(_titleLabel)
     .autoHeightRatio(0);
     _targetLebel.isAttributedContent = YES;
     
     _goBtn.sd_layout
-    .rightSpaceToView(self,30)
-    .bottomSpaceToView(self,30)
-    .heightRatioToView(self,0.3)
+    .rightSpaceToView(self,16)
+    .bottomEqualToView(_targetLebel)
+    .heightIs(76*widthHeight_ratio)
     .widthEqualToHeight();
+    [_goBtn addTarget:self action:@selector(goBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self setupAutoHeightWithBottomView:_targetLebel bottomMargin:25*widthHeight_ratio];
+}
+
+- (void)goBtnAction:(UIButton *)sender{
+    if (self.taskContentViewDelegate && [self.taskContentViewDelegate respondsToSelector:@selector(taskContentViewGoCompliteTask:)]) {
+        [self.taskContentViewDelegate taskContentViewGoCompliteTask:_titleLabel.text];
+    }
 }
 
 - (void)setModel:(TaskModel *)model{

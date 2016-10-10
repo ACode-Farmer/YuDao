@@ -18,4 +18,6 @@
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, assign) BOOL isAttention;
 
++ (instancetype)modelWithPlacing:(NSString *)placing imageName:(NSString *)imageName name:(NSString *)name grade:(NSString *)grade sign:(NSString *)sign type:(NSString *)type isAttention:(BOOL)isAttention;
+
 @end

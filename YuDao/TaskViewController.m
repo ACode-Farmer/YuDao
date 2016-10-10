@@ -10,8 +10,11 @@
 #import "TaskContentView.h"
 #import "YDMainTitleView.h"
 #import "TaskModel.h"
+#import "YDMainViewConfigure.h"
 
-@interface TaskViewController ()
+#define kTaskHeaderImageViewHeight 112 * widthHeight_ratio
+
+@interface TaskViewController ()<TaskContentViewDelegate>
 
 @property (nonatomic, strong) UIImageView *headerView;
 
@@ -26,12 +29,19 @@
     [super viewDidLoad];
     [self.view addSubview:self.titleView];
     
-    //头视图标题
-    UILabel *headerLabel = [self.headerView viewWithTag:1001];
-    headerLabel.text = @"快速注册，加入遇道之旅";
-    
     TaskModel *textModel = [TaskModel modelWithTime:@"1天内" reward:@"1000积分" target:@"注册成为“遇道”用户，可使用遇道的社交功能，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流" isComplete:YES];
     self.contentView.model = textModel;
+    
+    [self.view setupAutoHeightWithBottomView:self.contentView bottomMargin:0];
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
     
 }
 
@@ -39,36 +49,15 @@
 - (UIImageView *)headerView{
     if (!_headerView) {
         _headerView = [UIImageView new];
-        _headerView.image = [UIImage imageNamed:@"test0.jpg"];
+        _headerView.backgroundColor = [UIColor whiteColor];
+        _headerView.image = [UIImage imageNamed:@"task_header_speed"];
         [self.view addSubview:_headerView];
         
         _headerView.sd_layout
         .topSpaceToView(self.titleView,0)
         .leftEqualToView(self.titleView)
         .rightEqualToView(self.titleView)
-        .heightIs(0.18*(screen_height-64-48));
-        
-        UILabel *headerLabel = [UILabel new];
-        headerLabel.textAlignment = NSTextAlignmentCenter;
-        headerLabel.textColor = [UIColor blackColor];
-        headerLabel.tag = 1001;
-        
-        UIView *backView = [UIView new];
-        backView.backgroundColor = [UIColor whiteColor];
-        backView.alpha = 0.5;
-        [_headerView sd_addSubviews:@[backView,headerLabel]];
-        
-        backView.sd_layout
-        .centerYEqualToView(_headerView)
-        .leftEqualToView(_headerView)
-        .rightEqualToView(_headerView)
-        .heightRatioToView(_headerView,0.3);
-        
-        headerLabel.sd_layout
-        .topEqualToView(backView)
-        .leftEqualToView(backView)
-        .rightEqualToView(backView)
-        .heightRatioToView(_headerView,0.3);
+        .heightIs(kTaskHeaderImageViewHeight);
     }
     return _headerView;
 }
@@ -81,27 +70,24 @@
         _contentView.sd_layout
         .topSpaceToView(self.headerView,0)
         .leftEqualToView(self.headerView)
-        .rightEqualToView(self.headerView)
-        .heightIs(0.6*screen_height);
+        .rightEqualToView(self.headerView);
     }
     return _contentView;
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
 
 - (YDMainTitleView *)titleView{
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
-        [_titleView setTitle:@"任务" leftBtnImage:@"AppIcon" rightBtnImage:@"AppIcon"];
+        _titleView.frame = CGRectMake(0, 0, screen_width, kTitleViewHeight);
+        [_titleView setTitle:@"任务" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
     }
     return _titleView;
+}
+
+#pragma - mark TaskContentViewDelegate
+- (void)taskContentViewGoCompliteTask:(NSString *)taskName{
+    NSLog(@"taskName = %@",taskName);
 }
 
 /*

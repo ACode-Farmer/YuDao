@@ -20,7 +20,7 @@
 @property (nonatomic, strong) CornerButton *topBtn;
 
 @property (nonatomic, strong) YDDrivingViewController *drVC;
-@property (nonatomic, strong) YDListViewController *mcVC;
+@property (nonatomic, strong) YDListViewController *liVC;
 @property (nonatomic, strong) TaskViewController *tkVC;
 @property (nonatomic, strong) DynamicViewController *dyVC;
 
@@ -48,28 +48,35 @@
     [self addChildViewController:_drVC];
     [_drVC didMoveToParentViewController:self];
     
-    _mcVC = [YDListViewController new];
-    CGRect mcframe = CGRectMake(0, CGRectGetMaxY(drframe)+kMainViewMargin, screen_width, 0.36*(screen_height-64-48)+screen_width);
-    _mcVC.view.frame = mcframe;
-    [self.contentView addSubview:_mcVC.view];
-    [self addChildViewController:_mcVC];
-    [_mcVC didMoveToParentViewController:self];
+    _liVC = [YDListViewController new];
+    [self.contentView addSubview:_liVC.view];
+    [self addChildViewController:_liVC];
+    [_liVC didMoveToParentViewController:self];
+    _liVC.view.sd_layout
+    .topSpaceToView(_drVC.view,kMainViewMargin)
+    .centerXEqualToView(_contentView)
+    .widthIs(screen_width);
     
     _tkVC = [TaskViewController new];
-    CGRect tkframe = CGRectMake(0, CGRectGetMaxY(mcframe)+5, screen_width, 0.36*(screen_height-64-48)+0.6*screen_height);
-    _tkVC.view.frame = tkframe;
     [self.contentView addSubview:_tkVC.view];
     [self addChildViewController:_tkVC];
     [_tkVC didMoveToParentViewController:self];
+    _tkVC.view.sd_layout
+    .topSpaceToView(_liVC.view,kMainViewMargin)
+    .centerXEqualToView(_contentView)
+    .widthIs(screen_width);
     
     _dyVC = [DynamicViewController new];
-    CGRect dyframe = CGRectMake(0, CGRectGetMaxY(tkframe)+5, screen_width, 2.4*screen_height+5);
-    _dyVC.view.frame = dyframe;
     [self.contentView addSubview:_dyVC.view];
     [self addChildViewController:_dyVC];
     [_dyVC didMoveToParentViewController:self];
+    _dyVC.view.sd_layout
+    .topSpaceToView(_tkVC.view,kMainViewMargin)
+    .centerXEqualToView(_contentView)
+    .widthIs(screen_width)
+    .heightIs(2.4*screen_height+5);
     
-    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:10];
+    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
 }
 
 #pragma mark lazy load -
@@ -120,7 +127,7 @@
     }else{
         self.topBtn.hidden = YES;
     }
-    NSArray *controllers = @[_drVC,_mcVC,_tkVC];
+    NSArray *controllers = @[_drVC,_liVC,_tkVC];
     for (UIViewController *vc in controllers) {
         if (scrollView.contentOffset.y > CGRectGetMaxY(vc.view.frame)) {
             //[vc viewDidDisappear:YES];

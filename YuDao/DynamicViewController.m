@@ -10,6 +10,10 @@
 #import "YDMainTitleView.h"
 #import "XRWaterfallLayout.h"
 #import "XRCollectionViewCell.h"
+#import "YDMainViewConfigure.h"
+#import "YDDynamicCell.h"
+
+static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
 
 @interface DynamicViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -24,45 +28,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.titleView];
-    //创建瀑布流布局
-    XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
-    //设置各属性的值
-    //waterfall.rowSpacing = 10;
-    //waterfall.columnSpacing = 10;
-    //waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    //一次性设置
-    [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
-    __weak DynamicViewController *weakSelf = self;
-    [waterfall setItemHeightBlock:^CGFloat(CGFloat itemWidth, NSIndexPath * indexPath) {
-        UIImage *image = [UIImage imageNamed:weakSelf.dataSource[indexPath.row]];
-        CGSize size = [image size];
-        return size.height / size.width * itemWidth;
-    }];
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), screen_width, 3*screen_height) collectionViewLayout:waterfall];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.scrollEnabled = NO;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"XRCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
     
 }
 
-#pragma mark lazy load -
-- (NSMutableArray *)dataSource{
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        for (NSInteger i = 0; i<5; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"head%ld.jpg",(long)i];
-            [_dataSource addObject:imageName];
-        }
-        for (NSInteger i = 0; i<9; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"test%ld.jpg",(long)i];
-            [_dataSource addObject:imageName];
-        }
-    }
-    return _dataSource;
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark collectionView dataSource
@@ -71,9 +49,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    XRCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:self.dataSource[indexPath.row]];
-    cell.label.text = self.dataSource[indexPath.row];
+    YDDynamicCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:YDDynamicCellIdentifier forIndexPath:indexPath];
+//    cell.imageView.image = [UIImage imageNamed:self.dataSource[indexPath.row]];
+//    cell.label.text = self.dataSource[indexPath.row];
     
     return cell;
 }
@@ -88,17 +66,53 @@
     NSLog(@"height = %f",CGRectGetMaxY(cell.frame));
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+#pragma mark lazy load -
 - (YDMainTitleView *)titleView{
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
-        [_titleView setTitle:@"动态" leftBtnImage:@"AppIcon" rightBtnImage:@"AppIcon"];
+        _titleView.frame = CGRectMake(0, 0, screen_width, kTitleViewHeight);
+        [_titleView setTitle:@"动态" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
     }
     return _titleView;
+}
+
+- (UICollectionView *)collectionView{
+    if (!_collectionView) {
+        //创建瀑布流布局
+        XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
+        //一次性设置
+        [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+        __weak DynamicViewController *weakSelf = self;
+        [waterfall setItemHeightBlock:^CGFloat(CGFloat itemWidth, NSIndexPath * indexPath) {
+            UIImage *image = [UIImage imageNamed:weakSelf.dataSource[indexPath.row]];
+            CGSize size = [image size];
+            return size.height / size.width * itemWidth;
+        }];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), screen_width, 3*screen_height) collectionViewLayout:waterfall];
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.scrollEnabled = NO;
+        [_collectionView registerNib:[UINib nibWithNibName:@"XRCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        [_collectionView registerClass:[YDDynamicCell class] forCellWithReuseIdentifier:YDDynamicCellIdentifier];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+    }
+    return _collectionView;
+}
+
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        for (NSInteger i = 0; i<5; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"head%ld.jpg",(long)i];
+            [_dataSource addObject:imageName];
+        }
+        for (NSInteger i = 0; i<9; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"test%ld.jpg",(long)i];
+            [_dataSource addObject:imageName];
+        }
+    }
+    return _dataSource;
 }
 
 /*

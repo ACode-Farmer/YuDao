@@ -28,7 +28,8 @@
     _titleLabel = [UILabel new];
     _titleLabel.font = [UIFont systemFontOfSize:20];
     _dataLabel = [UILabel new];
-    _dataLabel.font = [UIFont systemFontOfSize:25];
+    //_dataLabel.font = [UIFont systemFontOfSize:25];
+    _dataLabel.adjustsFontSizeToFitWidth = YES;
     _subTitleLabel = [UILabel new];
     _subTitleLabel.font = [UIFont systemFontOfSize:20];
     NSArray *subviews = @[_titleLabel,_dataLabel,_subTitleLabel];
