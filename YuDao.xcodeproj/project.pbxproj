@@ -131,6 +131,9 @@
 		A0743E581DAB641D00545125 /* YDListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E571DAB641D00545125 /* YDListTableView.m */; };
 		A0743E5C1DAB7E1F00545125 /* YDDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E5B1DAB7E1F00545125 /* YDDynamicCell.m */; };
 		A0743E601DABA63F00545125 /* YDDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E5F1DABA63F00545125 /* YDDModel.m */; };
+		A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4001DACC58E00F6821D /* YDLoginViewController.m */; };
+		A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4061DACDA9700F6821D /* YDSpotView.m */; };
+		A074B40A1DACF48B00F6821D /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A074B4091DACF48B00F6821D /* timg.jpeg */; };
 		A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A078413A1D89435B00D015D3 /* ListScrollView.m */; };
 		A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */; };
 		A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */; };
@@ -425,6 +428,11 @@
 		A0743E5B1DAB7E1F00545125 /* YDDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDynamicCell.m; sourceTree = "<group>"; };
 		A0743E5E1DABA63F00545125 /* YDDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDModel.h; sourceTree = "<group>"; };
 		A0743E5F1DABA63F00545125 /* YDDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDModel.m; sourceTree = "<group>"; };
+		A074B3FF1DACC58E00F6821D /* YDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDLoginViewController.h; sourceTree = "<group>"; };
+		A074B4001DACC58E00F6821D /* YDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDLoginViewController.m; sourceTree = "<group>"; };
+		A074B4051DACDA9700F6821D /* YDSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSpotView.h; sourceTree = "<group>"; };
+		A074B4061DACDA9700F6821D /* YDSpotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSpotView.m; sourceTree = "<group>"; };
+		A074B4091DACF48B00F6821D /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
 		A07841391D89435B00D015D3 /* ListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListScrollView.h; sourceTree = "<group>"; };
 		A078413A1D89435B00D015D3 /* ListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListScrollView.m; sourceTree = "<group>"; };
 		A07B8C331D9BAEFB0040DD8B /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
@@ -1051,6 +1059,17 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		A074B4081DACDE4F00F6821D /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				A074B3FF1DACC58E00F6821D /* YDLoginViewController.h */,
+				A074B4001DACC58E00F6821D /* YDLoginViewController.m */,
+				A074B4051DACDA9700F6821D /* YDSpotView.h */,
+				A074B4061DACDA9700F6821D /* YDSpotView.m */,
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
 		A07B8C311D9BAAB60040DD8B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1198,6 +1217,7 @@
 				A07F82A51D82A3EE00F9EA6B /* RootViewController.h */,
 				A07F82A61D82A3EE00F9EA6B /* RootViewController.m */,
 				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
+				A074B4081DACDE4F00F6821D /* 登录 */,
 				A06A9D1B1D92802D00DFAFC2 /* Common */,
 				A082478A1D7FC53900DC58C2 /* 首页 */,
 				A07F82A01D82A2ED00F9EA6B /* 发现 */,
@@ -1330,6 +1350,7 @@
 		A08247CB1D7FF67000DC58C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A074B4091DACF48B00F6821D /* timg.jpeg */,
 				A06F08491D9E634100D4E829 /* QRCode.jpg */,
 				A067C6B51D992C01000E4146 /* 回到顶部.png */,
 				A067C6AD1D991CEE000E4146 /* 010.jpg */,
@@ -1590,6 +1611,7 @@
 				A08247D41D7FF6A300DC58C2 /* sora_0.png in Resources */,
 				A01A345B1D86A91500852D16 /* test0.jpg in Resources */,
 				A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */,
+				A074B40A1DACF48B00F6821D /* timg.jpeg in Resources */,
 				A01A34011D86941500852D16 /* LICENSE in Resources */,
 				A08247D81D7FF6A300DC58C2 /* sora_4.png in Resources */,
 				A08247831D7FC4BC00DC58C2 /* LaunchScreen.storyboard in Resources */,
@@ -1684,6 +1706,7 @@
 				A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */,
 				A01A34421D8699FD00852D16 /* UIImageView+WebCache.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
+				A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */,
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
 				A01A33D61D86917500852D16 /* OperationMenuView.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
@@ -1741,6 +1764,7 @@
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
 				A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */,
+				A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */,
 				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
 				A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */,
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,

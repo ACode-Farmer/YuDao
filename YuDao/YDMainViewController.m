@@ -73,8 +73,7 @@
     _dyVC.view.sd_layout
     .topSpaceToView(_tkVC.view,kMainViewMargin)
     .centerXEqualToView(_contentView)
-    .widthIs(screen_width)
-    .heightIs(2.4*screen_height+5);
+    .widthIs(screen_width);
     
     [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
 }
@@ -102,6 +101,7 @@
         _contentView.contentSize = CGSizeMake(screen_width, 6*screen_height);
         _contentView.backgroundColor = [UIColor lightGrayColor];
         _contentView.delegate = self;
+        _contentView.showsVerticalScrollIndicator = NO;
         [self.view addSubview:_contentView];
         _contentView.sd_layout
         .topSpaceToView(self.view,64)
@@ -122,17 +122,11 @@
 
 #pragma mark contentView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y > 0.55*screen_height) {
-        self.topBtn.hidden = NO;
-    }else{
-        self.topBtn.hidden = YES;
-    }
-    NSArray *controllers = @[_drVC,_liVC,_tkVC];
-    for (UIViewController *vc in controllers) {
-        if (scrollView.contentOffset.y > CGRectGetMaxY(vc.view.frame)) {
-            //[vc viewDidDisappear:YES];
-        }
-    }
+//    if (scrollView.contentOffset.y > 0.55*screen_height) {
+//        self.topBtn.hidden = NO;
+//    }else{
+//        self.topBtn.hidden = YES;
+//    }
     
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

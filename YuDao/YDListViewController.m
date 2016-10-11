@@ -62,9 +62,9 @@
 - (NSMutableArray *)topThreeDataArray{
     if (!_topThreeDataArray) {
         _topThreeDataArray = [NSMutableArray arrayWithCapacity:3];
-        ListViewModel *model1 = [ListViewModel modelWithPlacing:@"2" imageName:@"head1.jpg" name:@"Hight起来" grade:@"5" sign:@"白羊" type:@"自驾" isAttention:NO];
-        ListViewModel *model2 = [ListViewModel modelWithPlacing:@"1" imageName:@"head1.jpg" name:@"Hight起来" grade:@"5" sign:@"白羊" type:@"自驾" isAttention:YES];
-        ListViewModel *model3 = [ListViewModel modelWithPlacing:@"3" imageName:@"head1.jpg" name:@"Hight起来" grade:@"5" sign:@"白羊" type:@"自驾" isAttention:NO];
+        ListViewModel *model1 = [ListViewModel modelWithPlacing:@"2" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:NO];
+        ListViewModel *model2 = [ListViewModel modelWithPlacing:@"1" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:YES];
+        ListViewModel *model3 = [ListViewModel modelWithPlacing:@"3" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:NO];
         [_topThreeDataArray addObject:model1];
         [_topThreeDataArray addObject:model2];
         [_topThreeDataArray addObject:model3];

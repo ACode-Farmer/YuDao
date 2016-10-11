@@ -46,7 +46,8 @@
     .leftSpaceToView(self.placingLabel,kHeaderImageViewLeftMargin)
     .widthIs(kHeaderImageViewWidth)
     .heightIs(kHeaderImageViewHeight);
-    self.headerImageView.sd_cornerRadiusFromWidthRatio = @0.5;
+    self.headerImageView.layer.cornerRadius = kHeaderImageViewWidth/2;
+    self.headerImageView.layer.masksToBounds = YES;
     
     self.nameLabel.sd_layout
     .centerYEqualToView(view)
@@ -60,7 +61,11 @@
     .widthIs(kAttentionBtnWidth)
     .heightIs(kAttentionBtnHeight);
     self.attentionBtn.sd_cornerRadius = @5;
-    [self.attentionBtn setBackgroundImage:[UIImage imageNamed:@"attentionBtnImage"] forState:0];
+    self.attentionBtn.backgroundColor = [UIColor yellowColor];
+    self.attentionBtn.layer.masksToBounds = YES;
+    self.attentionBtn.layer.borderWidth = 1.0f;
+    self.attentionBtn.layer.borderColor = [UIColor blackColor].CGColor;
+    
     [self.attentionBtn setTitleColor:[UIColor blackColor] forState:0];
     [self.attentionBtn addTarget:self action:@selector(attentionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 }

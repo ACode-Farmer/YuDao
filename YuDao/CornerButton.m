@@ -12,6 +12,19 @@
 
 @implementation CornerButton
 
++ (instancetype)circularButtonWithTitle:(NSString *)title backgroundColor:(UIColor *)color cornerRadius:(CGFloat) cornerRadius{
+    CornerButton *btn = [self buttonWithType:0];
+    
+    [btn setTitle:title forState:0];
+    [btn setTitleColor:[UIColor blackColor] forState:0];
+    [btn setTitleColor:[UIColor blackColor] forState:1];
+    [btn setBackgroundColor:color];
+    btn.layer.cornerRadius = cornerRadius;
+    btn.layer.masksToBounds = YES;
+    
+    return btn;
+}
+
 + (instancetype)circularButtonWithTitle:(NSString *)title backgroundColor:(UIColor *)color{
     CornerButton *btn = [self buttonWithType:0];
     
@@ -33,6 +46,20 @@
     [btn setBackgroundColor:[UIColor whiteColor]];
     btn.sd_cornerRadiusFromWidthRatio = @0.5;
     btn.layer.masksToBounds = YES;
+    
+    return btn;
+}
+
++ (instancetype)circularButtonWithImageName:(NSString *)imageName borderWidth:(CGFloat )borderWidth{
+    CornerButton *btn = [self buttonWithType:0];
+    
+    [btn setImage:[UIImage imageNamed:imageName] forState:0];
+    [btn setImage:[UIImage imageNamed:imageName] forState:1];
+    [btn setBackgroundColor:[UIColor whiteColor]];
+    btn.sd_cornerRadiusFromWidthRatio = @0.5;
+    btn.layer.masksToBounds = YES;
+    btn.layer.borderColor = [UIColor blackColor].CGColor;
+    btn.layer.borderWidth = borderWidth;
     
     return btn;
 }

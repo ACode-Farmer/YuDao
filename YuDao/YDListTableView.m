@@ -39,6 +39,8 @@ static NSString *const YDListCellIdentifier = @"YDListCell";
     
     YDListCell *cell = [tableView dequeueReusableCellWithIdentifier:YDListCellIdentifier];
     cell.model = _dataSource[indexPath.row];
+    [cell useCellFrameCacheWithIndexPath:indexPath tableView:tableView];
+    //cell.layer.shouldRasterize = YES;
     return cell;
 }
 

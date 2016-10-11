@@ -83,40 +83,46 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:model.imageName]];
     [view addSubview:imageView];
     
-    
     UILabel *nameLabel = [UILabel new];
     nameLabel.text = model.name;
     nameLabel.textAlignment = NSTextAlignmentCenter;
     [view addSubview:nameLabel];
     
-    UIButton *gradeBtn = [UIButton new];
-    [gradeBtn setTitle:model.grade forState:0];
+    UILabel *gradeLabel = [UILabel new];
+    gradeLabel.text = model.grade;
     
-    UIButton *signBtn = [UIButton new];
-    signBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
-    [signBtn setTitle:model.sign forState:0];
+    UILabel *signLabel = [UILabel new];
+    signLabel.text = model.sign;
     
-    UIButton *typeBtn = [UIButton new];
-    [typeBtn setTitle:model.type forState:0];
+    UILabel *typeLabel = [UILabel new];
+    typeLabel.text = model.type;
     
     UIButton *attentionBtn = [UIButton new];
+    [attentionBtn setTitleColor:[UIColor blackColor] forState:0];
+    attentionBtn.backgroundColor = [UIColor yellowColor];
+    [attentionBtn.layer setCornerRadius:5];
+    attentionBtn.layer.masksToBounds = YES;
+    attentionBtn.layer.borderWidth = 1.0f;
+    attentionBtn.layer.borderColor = [UIColor blackColor].CGColor;
     [attentionBtn addTarget:self action:@selector(attentionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     if (model.isAttention) {
         [attentionBtn setTitle:@"已关注" forState:0];
     }else{
         [attentionBtn setTitle:@"关注" forState:0];
     }
+    [view addSubview:attentionBtn];
     
-    NSArray *btns = @[gradeBtn,signBtn,typeBtn,attentionBtn];
+    NSArray *btns = @[gradeLabel,signLabel,typeLabel];
     [btns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIButton *btn = (UIButton *)obj;
-        [btn setTitleColor:[UIColor blackColor] forState:0];
-        btn.backgroundColor = [UIColor yellowColor];
-        [btn.layer setCornerRadius:5];
-        btn.layer.masksToBounds = YES;
-        btn.layer.borderWidth = 1.0f;
-        btn.layer.borderColor = [UIColor blackColor].CGColor;
-        [view addSubview:btn];
+        UILabel *label = (UILabel *)obj;
+        label.backgroundColor = [UIColor yellowColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:14];
+        [label.layer setCornerRadius:5];
+        label.layer.masksToBounds = YES;
+        label.layer.borderWidth = 1.0f;
+        label.layer.borderColor = [UIColor blackColor].CGColor;
+        [view addSubview:label];
     }];
     
     imageView.sd_layout
@@ -131,29 +137,30 @@
     .heightIs(21)
     .widthRatioToView(view,0.8);
     
-    signBtn.sd_layout
+    signLabel.sd_layout
     .centerXEqualToView(view)
     .topSpaceToView(nameLabel,6*widthHeight_ratio)
     .widthIs(kSmallBtnWidth)
     .heightIs(kSmallBtnHeight);
     
-    gradeBtn.sd_layout
-    .topEqualToView(signBtn)
-    .rightSpaceToView(signBtn,4*widthHeight_ratio)
+    gradeLabel.sd_layout
+    .topEqualToView(signLabel)
+    .rightSpaceToView(signLabel,4*widthHeight_ratio)
     .widthIs(kSmallBtnWidth)
     .heightIs(kSmallBtnHeight);
     
-    typeBtn.sd_layout
-    .topEqualToView(signBtn)
-    .leftSpaceToView(signBtn,4*widthHeight_ratio)
+    typeLabel.sd_layout
+    .topEqualToView(signLabel)
+    .leftSpaceToView(signLabel,4*widthHeight_ratio)
     .widthIs(kSmallBtnWidth)
     .heightIs(kSmallBtnHeight);
     
     attentionBtn.sd_layout
     .centerXEqualToView(view)
-    .topSpaceToView(signBtn,6*widthHeight_ratio)
+    .topSpaceToView(signLabel,6*widthHeight_ratio)
     .widthRatioToView(view,0.8)
     .heightIs(kAttentionBtnHeight);
+    
     
     return view;
 }

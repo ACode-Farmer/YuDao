@@ -13,14 +13,19 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.sd_cornerRadius = @5;
-        
+        self.layer.cornerRadius = 5;
+        self.layer.masksToBounds = YES;
+        self.backgroundColor = [UIColor whiteColor];
         _imageView = [UIImageView new];
         _numberLabel = [UILabel new];
+        _numberLabel.backgroundColor = [UIColor whiteColor];
+        _numberLabel.alpha = 0.5;
+        _numberLabel.textAlignment = NSTextAlignmentCenter;
+        
         _timeLabel = [UILabel new];
+        _timeLabel.textAlignment = NSTextAlignmentRight;
+        
         _nameLabel = [UILabel new];
-        _nameLabel.backgroundColor = [UIColor whiteColor];
-        _nameLabel.alpha = 0.5;
         _contentLabel = [UILabel new];
         _placeImageView = [UIImageView new];
         _placeLabel = [UILabel new];
@@ -38,31 +43,32 @@
     .topSpaceToView(self,0)
     .leftSpaceToView(self,0)
     .rightSpaceToView(self,0)
-    .autoHeightRatio(0);
+    .bottomSpaceToView(self,100);
+    _imageView.sd_cornerRadius = @5;
     
     _numberLabel.sd_layout
     .leftSpaceToView(_imageView,12*widthHeight_ratio)
     .bottomSpaceToView(_imageView,8*widthHeight_ratio)
-    .widthIs(50*widthHeight_ratio)
     .heightIs(20*widthHeight_ratio);
+    [_numberLabel setSingleLineAutoResizeWithMaxWidth:200];
     _numberLabel.sd_cornerRadius = @5;
     
     _timeLabel.sd_layout
     .leftSpaceToView(_numberLabel,52*widthHeight_ratio)
-    .bottomEqualToView(_numberLabel)
+    .centerYEqualToView(_numberLabel)
     .heightIs(20*widthHeight_ratio)
-    .rightSpaceToView(_imageView,0);
+    .rightSpaceToView(_imageView,12*widthHeight_ratio);
     
     _nameLabel.sd_layout
     .topSpaceToView(_imageView,8*widthHeight_ratio)
-    .leftSpaceToView(_imageView,10)
-    .widthRatioToView(_imageView,0.7)
+    .leftSpaceToView(self,10)
+    .widthRatioToView(self,0.7)
     .heightIs(21);
     
     _contentLabel.sd_layout
-    .topSpaceToView(_imageView,8*widthHeight_ratio)
+    .topSpaceToView(_nameLabel,8*widthHeight_ratio)
     .leftEqualToView(_nameLabel)
-    .rightSpaceToView(_imageView,0.8)
+    .rightSpaceToView(self,0.8)
     .heightIs(21);
     
     _placeImageView.sd_layout
@@ -74,8 +80,9 @@
     _placeLabel.sd_layout
     .centerYEqualToView(_placeImageView)
     .leftSpaceToView(_placeImageView,5)
-    .rightSpaceToView(_imageView,5)
+    .rightEqualToView(_contentLabel)
     .heightIs(21);
+    
 }
 
 - (void)setModel:(YDDModel *)model{

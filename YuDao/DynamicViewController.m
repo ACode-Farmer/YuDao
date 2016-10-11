@@ -12,6 +12,7 @@
 #import "XRCollectionViewCell.h"
 #import "YDMainViewConfigure.h"
 #import "YDDynamicCell.h"
+#import "YDDModel.h"
 
 static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
 
@@ -27,10 +28,12 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.view addSubview:self.titleView];
     
     [self.view addSubview:self.collectionView];
-    
+ 
+    [self.view setupAutoHeightWithBottomView:self.collectionView bottomMargin:5];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -52,7 +55,8 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
     YDDynamicCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:YDDynamicCellIdentifier forIndexPath:indexPath];
 //    cell.imageView.image = [UIImage imageNamed:self.dataSource[indexPath.row]];
 //    cell.label.text = self.dataSource[indexPath.row];
-    
+    YDDModel *model = self.dataSource[indexPath.row];
+    cell.model = model;
     return cell;
 }
 
@@ -85,12 +89,13 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
         [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
         __weak DynamicViewController *weakSelf = self;
         [waterfall setItemHeightBlock:^CGFloat(CGFloat itemWidth, NSIndexPath * indexPath) {
-            UIImage *image = [UIImage imageNamed:weakSelf.dataSource[indexPath.row]];
+            YDDModel *model = weakSelf.dataSource[indexPath.row];
+            UIImage *image = [UIImage imageNamed:model.imageName];
             CGSize size = [image size];
-            return size.height / size.width * itemWidth;
+            return size.height / size.width * itemWidth+100;
         }];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), screen_width, 3*screen_height) collectionViewLayout:waterfall];
-        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.backgroundColor = [UIColor lightGrayColor];
         _collectionView.scrollEnabled = NO;
         [_collectionView registerNib:[UINib nibWithNibName:@"XRCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
         [_collectionView registerClass:[YDDynamicCell class] forCellWithReuseIdentifier:YDDynamicCellIdentifier];
@@ -104,12 +109,12 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
         for (NSInteger i = 0; i<5; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"head%ld.jpg",(long)i];
-            [_dataSource addObject:imageName];
+            YDDModel *model = [YDDModel modelWithImageName:[NSString stringWithFormat:@"head%ld.jpg",(long)i] number:@"999看过" time:@"刚刚" name:@"互相伤害" content:@"万事开头难,中间难,结尾更难" placeImageName:@"locationIcon" place:@"金沙江路"];
+            [_dataSource addObject:model];
         }
-        for (NSInteger i = 0; i<9; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"test%ld.jpg",(long)i];
-            [_dataSource addObject:imageName];
+        for (NSInteger i = 0; i<8; i++) {
+            YDDModel *model = [YDDModel modelWithImageName:[NSString stringWithFormat:@"test%ld.jpg",(long)i] number:@"999看过" time:@"刚刚" name:@"互相伤害" content:@"万事开头难,中间难,结尾更难" placeImageName:@"locationIcon" place:@"金沙江路"];
+            [_dataSource addObject:model];
         }
     }
     return _dataSource;
