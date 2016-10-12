@@ -12,8 +12,8 @@
 #define kPlacingLabelWidthHeight    25 * widthHeight_ratio
 #define kPlacingLabelLeftMargin     16 * widthHeight_ratio
 
-#define kHeaderImageViewWidth       50 * widthHeight_ratio
-#define kHeaderImageViewHeight      44 * widthHeight_ratio
+#define kHeaderImageViewWidth       45 * widthHeight_ratio
+#define kHeaderImageViewHeight      45 * widthHeight_ratio
 #define kHeaderImageViewLeftMargin   8 * widthHeight_ratio
 #define kHeaderImageViewRightMargin 25 * widthHeight_ratio
 
@@ -46,8 +46,17 @@
     .leftSpaceToView(self.placingLabel,kHeaderImageViewLeftMargin)
     .widthIs(kHeaderImageViewWidth)
     .heightIs(kHeaderImageViewHeight);
-    self.headerImageView.layer.cornerRadius = kHeaderImageViewWidth/2;
-    self.headerImageView.layer.masksToBounds = YES;
+    self.headerImageView.sd_cornerRadiusFromWidthRatio  = @0.5;
+    
+    UIImageView *vipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vip"]];
+    [view addSubview:vipImageView];
+    
+    vipImageView.sd_layout
+    .bottomEqualToView(self.headerImageView)
+    .leftSpaceToView(self.headerImageView,-10)
+    .widthIs(20)
+    .heightEqualToWidth();
+    vipImageView.sd_cornerRadiusFromWidthRatio = @0.5;
     
     self.nameLabel.sd_layout
     .centerYEqualToView(view)

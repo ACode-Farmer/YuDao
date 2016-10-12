@@ -12,7 +12,7 @@
 #import "YDListTableView.h"
 #import "YDMainViewConfigure.h"
 #import "ListViewModel.h"
-#import "RankingListTableViewController.h"
+
 
 @interface YDListViewController ()<YDListTableViewDelegate>
 
@@ -49,7 +49,10 @@
 
 #pragma - mark Actions
 - (void)allListBtnAction:(UIButton *)sender{
-    [self.navigationController pushViewController:[RankingListTableViewController new] animated:YES];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(listViewControllerWith:)]) {
+        [self.delegate listViewControllerWith:sender.titleLabel.text];
+    }
 }
 
 #pragma - mark Custom Delegate
@@ -62,8 +65,8 @@
 - (NSMutableArray *)topThreeDataArray{
     if (!_topThreeDataArray) {
         _topThreeDataArray = [NSMutableArray arrayWithCapacity:3];
-        ListViewModel *model1 = [ListViewModel modelWithPlacing:@"2" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:NO];
-        ListViewModel *model2 = [ListViewModel modelWithPlacing:@"1" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:YES];
+        ListViewModel *model1 = [ListViewModel modelWithPlacing:@"2" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV7" sign:@"白羊" type:@"自驾" isAttention:NO];
+        ListViewModel *model2 = [ListViewModel modelWithPlacing:@"1" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV9" sign:@"白羊" type:@"自驾" isAttention:YES];
         ListViewModel *model3 = [ListViewModel modelWithPlacing:@"3" imageName:@"head1.jpg" name:@"Hight起来" grade:@"LV5" sign:@"白羊" type:@"自驾" isAttention:NO];
         [_topThreeDataArray addObject:model1];
         [_topThreeDataArray addObject:model2];
@@ -97,7 +100,7 @@
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
         _titleView.frame = CGRectMake(0, 0, screen_width, kTitleViewHeight);
-        [_titleView setTitle:@"排行榜" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
+        [_titleView setTitle:@"排行榜" leftBtnImage:@"list_star" rightBtnImage:@"more"];
     }
     return _titleView;
 }

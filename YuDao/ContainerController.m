@@ -113,7 +113,7 @@ static const CGFloat ScrollMenuViewHeight = 40;
     }
 }
 
-#pragma mark - ScrollerVie Delegate
+#pragma mark - ScrollerViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat oldPointX = self.currentIndex * scrollView.frame.size.width;

@@ -18,8 +18,8 @@
 
 
 //小视图宽高
-#define kImageViewWidth      78 * widthHeight_ratio
-#define kImageViewHeight     90 * widthHeight_ratio
+#define kImageViewWidth      65 * widthHeight_ratio
+#define kImageViewHeight     65 * widthHeight_ratio
 #define kSmallBtnWidth       32 * widthHeight_ratio
 #define kSmallBtnHeight      22 * widthHeight_ratio
 #define kAttentionBtnWidth   98 * widthHeight_ratio
@@ -82,6 +82,16 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:model.imageName]];
     [view addSubview:imageView];
+    UIImageView *smallImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vip"]];
+    [view addSubview:smallImageView];
+    UIImageView *placingImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"list_placing"]];
+    [view addSubview:placingImageView];
+    UILabel *placingLabel = [UILabel new];
+    placingLabel.text = model.placing;
+    placingLabel.textAlignment = NSTextAlignmentCenter;
+    placingLabel.font = [UIFont systemFontOfSize:14];
+    placingLabel.frame = CGRectMake(0, 0, 30, 30);
+    [placingImageView addSubview:placingLabel];
     
     UILabel *nameLabel = [UILabel new];
     nameLabel.text = model.name;
@@ -127,9 +137,22 @@
     
     imageView.sd_layout
     .centerXEqualToView(view)
-    .topSpaceToView(view,2)
+    .topSpaceToView(view,16)
     .heightIs(kImageViewWidth)
     .widthIs(kImageViewHeight);
+    imageView.sd_cornerRadiusFromWidthRatio = @0.5;
+    
+    placingImageView.sd_layout
+    .leftEqualToView(imageView)
+    .bottomSpaceToView(imageView,-15)
+    .widthIs(30)
+    .heightEqualToWidth();
+    
+    smallImageView.sd_layout
+    .bottomEqualToView(imageView)
+    .leftSpaceToView(imageView,-12)
+    .widthIs(24)
+    .heightEqualToWidth();
     
     nameLabel.sd_layout
     .centerXEqualToView(view)

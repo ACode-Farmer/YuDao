@@ -76,7 +76,7 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
         _titleView.frame = CGRectMake(0, 0, screen_width, kTitleViewHeight);
-        [_titleView setTitle:@"动态" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
+        [_titleView setTitle:@"动态" leftBtnImage:@"dynomic_leaf" rightBtnImage:@"more"];
     }
     return _titleView;
 }

@@ -19,4 +19,7 @@
 //关注按钮
 @property (nonatomic, strong) UIButton *attentionBtn;
 
+//数据（在排行榜中会使用到)
+@property (nonatomic, strong) UILabel *dataLabel;
+
 @end

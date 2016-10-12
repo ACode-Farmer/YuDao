@@ -81,7 +81,7 @@
 - (YDMainTitleView *)titleView{
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
-        [_titleView setTitle:@"行车信息" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
+        [_titleView setTitle:@"行车信息" leftBtnImage:@"driving_car" rightBtnImage:@"more"];
         [self.view addSubview:_titleView];
         
         _titleView.sd_layout

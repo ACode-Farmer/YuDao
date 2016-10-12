@@ -32,6 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"登录";
+    
+    //添加隐藏键盘的轻触手势
+    [self.view addTapGestureToTextField:self.accountsTF];
+    [self.view addTapGestureToTextField:self.passwordTF];
+    
     NSArray *subviews = @[self.accountsLabel,self.passwordLabel,self.accountsTF,self.passwordTF,self.dyPasswordBtn,self.noAccountsView,self.noDyPasswordView,self.thirdLoginLabel,self.thirdLoginView,self.companyLabel,self.webLabel];
     [subviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIView *view = (UIView *)obj;
@@ -63,7 +68,8 @@
 }
 
 - (void)loginBtnAction:(UIButton *)sender{
-    NSLog(@"title = %@",sender.titleLabel.text);
+    [self.accountsTF resignFirstResponder];
+    [self.passwordTF resignFirstResponder];
 }
 
 #pragma mark - Custom Delegate

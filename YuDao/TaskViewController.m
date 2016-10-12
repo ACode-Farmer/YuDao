@@ -80,7 +80,7 @@
     if (!_titleView) {
         _titleView = [YDMainTitleView new];
         _titleView.frame = CGRectMake(0, 0, screen_width, kTitleViewHeight);
-        [_titleView setTitle:@"任务" leftBtnImage:@"Icon-60" rightBtnImage:@"Icon-60"];
+        [_titleView setTitle:@"任务" leftBtnImage:@"target_pen" rightBtnImage:@"more"];
     }
     return _titleView;
 }

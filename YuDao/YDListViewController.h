@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YDListViewControllerDelegate <NSObject>
+
+- (void)listViewControllerWith:(NSString *)title;
+
+@end
+
 @interface YDListViewController : UIViewController
+
+@property (nonatomic, weak) id<YDListViewControllerDelegate> delegate;
 
 @end

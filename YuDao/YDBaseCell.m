@@ -20,8 +20,9 @@
         self.headerImageView = [UIImageView new];
         self.nameLabel = [UILabel new];
         self.attentionBtn = [UIButton new];
+        self.dataLabel = [UILabel new];
         
-        [self.contentView sd_addSubviews:@[self.placingLabel,self.headerImageView,self.nameLabel,self.attentionBtn]];
+        [self.contentView sd_addSubviews:@[self.placingLabel,self.headerImageView,self.nameLabel,self.attentionBtn,self.dataLabel]];
         
     }
     return self;

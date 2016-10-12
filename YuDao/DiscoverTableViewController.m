@@ -8,7 +8,7 @@
 
 #import "DiscoverTableViewController.h"
 #import "DynamicTableViewController.h"
-#import "RankingListTableViewController.h"
+//#import "RankingListTableViewController.h"
 #import "DiscoverModel.h"
 
 @interface DiscoverTableViewController ()
@@ -82,24 +82,24 @@
     return 0.0001f;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
-        case 0:
-                [self.navigationController pushViewController:[RankingListTableViewController new] animated:YES];
-            break;
-        case 1:
-            if (indexPath.row == 2) {
-                [self.navigationController pushViewController:[DynamicTableViewController new] animated:YES];
-            }
-            break;
-        case 2:
-            
-            break;
-            
-        default:
-            break;
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    switch (indexPath.section) {
+//        case 0:
+//                [self.navigationController pushViewController:[RankingListTableViewController new] animated:YES];
+//            break;
+//        case 1:
+//            if (indexPath.row == 2) {
+//                [self.navigationController pushViewController:[DynamicTableViewController new] animated:YES];
+//            }
+//            break;
+//        case 2:
+//            
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//}
 
 /*
 // Override to support conditional editing of the table view.

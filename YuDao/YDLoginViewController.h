@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDViewController.h"
 
 #define kAcountsPasswordWidth  38 * widthHeight_ratio
 #define kAcountsPasswordHeight 18 * widthHeight_ratio
 
-@interface YDLoginViewController : UIViewController
+@interface YDLoginViewController : YDViewController
 
 @end

@@ -13,8 +13,9 @@
 #import "TaskViewController.h"
 #import "DynamicViewController.h"
 #import "YDMainViewConfigure.h"
+#import "YDRankingViewController.h"
 
-@interface YDMainViewController ()<UIScrollViewDelegate>
+@interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate>
 
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) CornerButton *topBtn;
@@ -41,44 +42,83 @@
         titleLable;
     });
     
-    _drVC = [YDDrivingViewController new];
+    NSArray *controllers = @[self.drVC,self.liVC,self.tkVC,self.dyVC];
+    [controllers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIViewController *vc = (UIViewController *)obj;
+        [self.contentView addSubview:vc.view];
+        [self addChildViewController:vc];
+        [vc didMoveToParentViewController:self];
+    }];
+    [self layoutFourMainViews];
+    
+    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+
+#pragma private Methods - 
+- (void)layoutFourMainViews{
     CGRect drframe = CGRectMake(0, 0, screen_width, kDrivingViewHeight);
     _drVC.view.frame = drframe;
-    [self.contentView addSubview:_drVC.view];
-    [self addChildViewController:_drVC];
-    [_drVC didMoveToParentViewController:self];
     
-    _liVC = [YDListViewController new];
-    [self.contentView addSubview:_liVC.view];
-    [self addChildViewController:_liVC];
-    [_liVC didMoveToParentViewController:self];
     _liVC.view.sd_layout
     .topSpaceToView(_drVC.view,kMainViewMargin)
     .centerXEqualToView(_contentView)
     .widthIs(screen_width);
     
-    _tkVC = [TaskViewController new];
-    [self.contentView addSubview:_tkVC.view];
-    [self addChildViewController:_tkVC];
-    [_tkVC didMoveToParentViewController:self];
     _tkVC.view.sd_layout
     .topSpaceToView(_liVC.view,kMainViewMargin)
     .centerXEqualToView(_contentView)
     .widthIs(screen_width);
     
-    _dyVC = [DynamicViewController new];
-    [self.contentView addSubview:_dyVC.view];
-    [self addChildViewController:_dyVC];
-    [_dyVC didMoveToParentViewController:self];
     _dyVC.view.sd_layout
     .topSpaceToView(_tkVC.view,kMainViewMargin)
     .centerXEqualToView(_contentView)
     .widthIs(screen_width);
-    
-    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
 }
 
-#pragma mark lazy load -
+#pragma mark Custom Delegate - 
+- (void)listViewControllerWith:(NSString *)title{
+    
+    [self setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:[YDRankingViewController new] animated:YES];
+    [self setHidesBottomBarWhenPushed:NO];
+}
+
+#pragma mark Getters -
+
+- (YDDrivingViewController *)drVC{
+    if (!_drVC) {
+        _drVC = [YDDrivingViewController new];
+    }
+    return _drVC;
+}
+
+- (YDListViewController *)liVC{
+    if (!_liVC) {
+        _liVC = [YDListViewController new];
+        _liVC.delegate = self;
+    }
+    return _liVC;
+}
+
+- (TaskViewController *)tkVC{
+    if (!_tkVC) {
+        _tkVC = [TaskViewController new];
+    }
+    return _tkVC;
+}
+
+- (DynamicViewController *)dyVC{
+    if (!_dyVC) {
+        _dyVC = [DynamicViewController new];
+    }
+    return _dyVC;
+}
+
 - (CornerButton *)topBtn{
     if (!_topBtn) {
         _topBtn = [CornerButton circularButtonWithImageName:@"回到顶部.png"];
@@ -139,19 +179,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

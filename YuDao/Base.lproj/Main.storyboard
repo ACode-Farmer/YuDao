@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="YDLoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="YDMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -220,7 +220,7 @@
         <!--首页-->
         <scene sceneID="PKg-hi-y5c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RHf-Ij-nWm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RHf-Ij-nWm" customClass="YDNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="TD2-iK-aiz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PaC-u9-crh">
