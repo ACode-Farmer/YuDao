@@ -25,7 +25,7 @@ NSString *const likedListCellID = @"LIkedListCell";
         view;
     });
     
-    self.tableView.rowHeight = 60.f;
+    self.tableView.rowHeight = 78*widthHeight_ratio;
     [self.tableView registerClass:[LIkedListCell class] forCellReuseIdentifier:likedListCellID];
     // Do any additional setup after loading the view.
 }

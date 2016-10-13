@@ -74,6 +74,17 @@
     
 }
 
+#pragma mark - Events
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    if ([sender.title isEqualToString:@"完成"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
+    }
+    
+}
+
+#pragma mark - Getters
 - (UIScrollView *)scrView{
     if (!_scrView) {
         _scrView = [UIScrollView new];
@@ -85,28 +96,5 @@
     return _scrView;
 }
 
-- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
-    if ([sender.title isEqualToString:@"完成"]) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
-    }
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

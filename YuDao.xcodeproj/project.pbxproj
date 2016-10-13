@@ -106,6 +106,10 @@
 		A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73E81D9A5F7B00E5E3A2 /* XRWaterfallLayout.m */; };
 		A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */; };
 		A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */; };
+		A06227201DAF5804006ADC50 /* TabBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A062271F1DAF5804006ADC50 /* TabBar.xcassets */; };
+		A06227231DAF8034006ADC50 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227221DAF8034006ADC50 /* CaptureViewController.m */; };
+		A06227261DAF9158006ADC50 /* UIImage+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227251DAF9158006ADC50 /* UIImage+YuDao.m */; };
+		A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227281DAF971A006ADC50 /* UIImageView+YuDao.m */; };
 		A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067110C1D9CB034003EDA94 /* IDCardViewController.m */; };
 		A067C69D1D98EB95000E4146 /* YDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* YDMainViewController.m */; };
 		A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */; };
@@ -132,7 +136,6 @@
 		A0743E601DABA63F00545125 /* YDDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E5F1DABA63F00545125 /* YDDModel.m */; };
 		A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4001DACC58E00F6821D /* YDLoginViewController.m */; };
 		A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4061DACDA9700F6821D /* YDSpotView.m */; };
-		A074B40A1DACF48B00F6821D /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A074B4091DACF48B00F6821D /* timg.jpeg */; };
 		A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A078413A1D89435B00D015D3 /* ListScrollView.m */; };
 		A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */; };
 		A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */; };
@@ -399,6 +402,13 @@
 		A05D73EB1D9A605E00E5E3A2 /* XRCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCollectionViewCell.h; sourceTree = "<group>"; };
 		A05D73EC1D9A605E00E5E3A2 /* XRCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRCollectionViewCell.m; sourceTree = "<group>"; };
 		A05D73ED1D9A605E00E5E3A2 /* XRCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XRCollectionViewCell.xib; sourceTree = "<group>"; };
+		A062271F1DAF5804006ADC50 /* TabBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBar.xcassets; sourceTree = "<group>"; };
+		A06227211DAF8034006ADC50 /* CaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
+		A06227221DAF8034006ADC50 /* CaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
+		A06227241DAF9158006ADC50 /* UIImage+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YuDao.h"; sourceTree = "<group>"; };
+		A06227251DAF9158006ADC50 /* UIImage+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YuDao.m"; sourceTree = "<group>"; };
+		A06227271DAF971A006ADC50 /* UIImageView+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YuDao.h"; sourceTree = "<group>"; };
+		A06227281DAF971A006ADC50 /* UIImageView+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YuDao.m"; sourceTree = "<group>"; };
 		A067110B1D9CB034003EDA94 /* IDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardViewController.h; sourceTree = "<group>"; };
 		A067110C1D9CB034003EDA94 /* IDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardViewController.m; sourceTree = "<group>"; };
 		A067C69B1D98EB95000E4146 /* YDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainViewController.h; sourceTree = "<group>"; };
@@ -445,7 +455,6 @@
 		A074B4001DACC58E00F6821D /* YDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDLoginViewController.m; sourceTree = "<group>"; };
 		A074B4051DACDA9700F6821D /* YDSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSpotView.h; sourceTree = "<group>"; };
 		A074B4061DACDA9700F6821D /* YDSpotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSpotView.m; sourceTree = "<group>"; };
-		A074B4091DACF48B00F6821D /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
 		A07841391D89435B00D015D3 /* ListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListScrollView.h; sourceTree = "<group>"; };
 		A078413A1D89435B00D015D3 /* ListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListScrollView.m; sourceTree = "<group>"; };
 		A07B8C331D9BAEFB0040DD8B /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
@@ -1074,6 +1083,8 @@
 				A06F08441D9E629A00D4E829 /* MyQRCodeViewController.h */,
 				A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */,
 				A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */,
+				A06227211DAF8034006ADC50 /* CaptureViewController.h */,
+				A06227221DAF8034006ADC50 /* CaptureViewController.m */,
 			);
 			name = "我的二维码";
 			sourceTree = "<group>";
@@ -1208,10 +1219,10 @@
 		A07F82AE1D82A8A200F9EA6B /* 我--根界面 */ = {
 			isa = PBXGroup;
 			children = (
-				A07F82AF1D82AA9700F9EA6B /* MyselfModel.h */,
-				A07F82B01D82AA9700F9EA6B /* MyselfModel.m */,
 				A08247DD1D7FF71400DC58C2 /* MyselfController.h */,
 				A08247DE1D7FF71400DC58C2 /* MyselfController.m */,
+				A07F82AF1D82AA9700F9EA6B /* MyselfModel.h */,
+				A07F82B01D82AA9700F9EA6B /* MyselfModel.m */,
 				A07F82931D828CA200F9EA6B /* UIImage+ChangeIt.h */,
 				A07F82941D828CA200F9EA6B /* UIImage+ChangeIt.m */,
 			);
@@ -1372,7 +1383,6 @@
 		A08247CB1D7FF67000DC58C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A074B4091DACF48B00F6821D /* timg.jpeg */,
 				A06F08491D9E634100D4E829 /* QRCode.jpg */,
 				A067C6B51D992C01000E4146 /* 回到顶部.png */,
 				A067C6AD1D991CEE000E4146 /* 010.jpg */,
@@ -1607,6 +1617,10 @@
 				A093B8F71DADCFCC009D568A /* UIColor+YuDao.m */,
 				A093B8F91DADD040009D568A /* UIFont+YuDao.h */,
 				A093B8FA1DADD040009D568A /* UIFont+YuDao.m */,
+				A06227241DAF9158006ADC50 /* UIImage+YuDao.h */,
+				A06227251DAF9158006ADC50 /* UIImage+YuDao.m */,
+				A06227271DAF971A006ADC50 /* UIImageView+YuDao.h */,
+				A06227281DAF971A006ADC50 /* UIImageView+YuDao.m */,
 			);
 			name = UIUtilities;
 			sourceTree = "<group>";
@@ -1632,6 +1646,7 @@
 				A093B9181DADD7ED009D568A /* Launch.xcassets */,
 				A093B91A1DADD7FA009D568A /* Mine.xcassets */,
 				A093B91C1DADD819009D568A /* ShouYe.xcassets */,
+				A062271F1DAF5804006ADC50 /* TabBar.xcassets */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1808,6 +1823,7 @@
 				A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */,
 				A05CD1211DA9F5E7008E01D1 /* 行车数据背景图.png in Resources */,
 				A01A34571D86A91500852D16 /* head1.jpg in Resources */,
+				A06227201DAF5804006ADC50 /* TabBar.xcassets in Resources */,
 				A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */,
 				A093B91D1DADD819009D568A /* ShouYe.xcassets in Resources */,
 				A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */,
@@ -1823,7 +1839,6 @@
 				A08247D41D7FF6A300DC58C2 /* sora_0.png in Resources */,
 				A01A345B1D86A91500852D16 /* test0.jpg in Resources */,
 				A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */,
-				A074B40A1DACF48B00F6821D /* timg.jpeg in Resources */,
 				A01A34011D86941500852D16 /* LICENSE in Resources */,
 				A08247D81D7FF6A300DC58C2 /* sora_4.png in Resources */,
 				A08247831D7FC4BC00DC58C2 /* LaunchScreen.storyboard in Resources */,
@@ -1954,6 +1969,7 @@
 				A08247B61D7FF35D00DC58C2 /* TaskCell.m in Sources */,
 				A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */,
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
+				A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
 				A08247B11D7FF33C00DC58C2 /* ListCell.m in Sources */,
 				A08247C11D7FF48400DC58C2 /* ListModel.m in Sources */,
@@ -2035,6 +2051,7 @@
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
 				A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */,
 				A093B93E1DAE2FDA009D568A /* YDOrdinaryTableViewController.m in Sources */,
+				A06227261DAF9158006ADC50 /* UIImage+YuDao.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,
 				A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */,
 				A09C5B051D88066100DEBA2E /* MenuCell.m in Sources */,
@@ -2044,6 +2061,7 @@
 				A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
 				A093B9081DADD477009D568A /* YDViewController.m in Sources */,
+				A06227231DAF8034006ADC50 /* CaptureViewController.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,
 				A01A343E1D8699FD00852D16 /* UIImage+GIF.m in Sources */,
 				A08247BB1D7FF44400DC58C2 /* DrivingDataModel.m in Sources */,

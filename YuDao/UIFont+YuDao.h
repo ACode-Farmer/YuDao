@@ -13,6 +13,15 @@
 #pragma mark - Common
 + (UIFont *)fontNavBarTitle;
 
+#pragma mark - ShouYe
+
++ (UIFont *)font_12;
++ (UIFont *)font_13;
++ (UIFont *)font_14;
++ (UIFont *)font_15;
++ (UIFont *)font_16;
++ (UIFont *)font_17;
+
 #pragma mark - Conversation
 + (UIFont *)fontConversationUsername;
 + (UIFont *)fontConversationDetail;

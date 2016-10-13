@@ -20,10 +20,16 @@
 }
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _headImageView = [UIImageView new];
         _nameLabel = [UILabel new];
+        _nameLabel.font = [UIFont font_16];
+        
         _gradeLebel = [UILabel new];
         _gradeLebel.textColor = [UIColor orangeColor];
+        _gradeLebel.font = [UIFont font_12];
+        
         _talkBtn = [UIButton new];
         [_talkBtn setImage:[UIImage imageNamed:@"talk"] forState:0];
         _addBtn = [UIButton new];
@@ -31,7 +37,7 @@
         [self.contentView sd_addSubviews:@[_headImageView,_nameLabel,_gradeLebel,_talkBtn,_addBtn]];
         
         _headImageView.image = [UIImage imageNamed:@"head0.jpg"];
-        _nameLabel.text = @"这些全是喜欢我的";
+        _nameLabel.text = @"都是我的";
         _gradeLebel.text = @"V5";
         
         [self setupSubviewsLayout];
@@ -42,15 +48,15 @@
 - (void)setupSubviewsLayout{
     UIView *view = self.contentView;
     _headImageView.sd_layout
-    .topSpaceToView(view,2)
-    .leftSpaceToView(view,5)
-    .bottomSpaceToView(view,2)
+    .topSpaceToView(view,5)
+    .leftSpaceToView(view,10)
+    .bottomSpaceToView(view,5)
     .widthEqualToHeight();
-    _headImageView.sd_cornerRadius = @10;
+    _headImageView.sd_cornerRadiusFromWidthRatio = @0.5;
     
     _nameLabel.sd_layout
     .topEqualToView(_headImageView)
-    .leftSpaceToView(_headImageView,5)
+    .leftSpaceToView(_headImageView,10)
     .bottomEqualToView(_headImageView);
     [_nameLabel setSingleLineAutoResizeWithMaxWidth:200];
     

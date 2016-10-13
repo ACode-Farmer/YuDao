@@ -70,7 +70,7 @@
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.textColor = [UIColor blackColor];
-        _titleLabel.font = [UIFont systemFontOfSize:18];
+        _titleLabel.font = [UIFont font_17];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;

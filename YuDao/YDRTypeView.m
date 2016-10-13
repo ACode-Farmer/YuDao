@@ -33,6 +33,7 @@
         [button setTitle:obj forState:0];
         [button setTitleColor:[UIColor blackColor] forState:0];
         [button setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+        [button.titleLabel setFont:[UIFont font_15]];
         button.tag = 1000+idx;
         button.frame = CGRectMake(idx * 47*widthHeight_ratio, 0, 47*widthHeight_ratio, self.bounds.size.height);
         [button addTarget:self action:@selector(typeButtonActon:) forControlEvents:UIControlEventTouchUpInside];

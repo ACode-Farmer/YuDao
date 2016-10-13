@@ -42,7 +42,7 @@
     [super viewDidLoad];
     self.tableView.rowHeight = 40*widthHeight_ratio;
     self.tableView.scrollEnabled = NO;
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,9 +79,9 @@
     }
     cell.textLabel.text = model.title;
     if (model.isCheck) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.textLabel.textColor = [UIColor orangeColor];
     }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     
     return cell;
@@ -121,6 +121,20 @@
         }];
     }
     return _data;
+}
+
+- (void)setIsShow:(BOOL)isShow{
+    _isShow = isShow;
+    if (_isShow) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.view.height = self.tableView.rowHeight * 8;
+        }];
+        
+    }else{
+        [UIView animateWithDuration:0.25 animations:^{
+            self.view.height = 0;
+        }];
+    }
 }
 
 @end

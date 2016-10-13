@@ -42,7 +42,15 @@
 
 - (void)setAllListItem:(YDAllListItem *)allListItem{
     _allListItem = allListItem;
-    self.placingLabel.text = allListItem.placing;
+    if ([allListItem.placing length] > 5) {
+        NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:8];
+        UIColor *color = [UIColor blackColor];
+        NSAttributedString *string = [[NSAttributedString alloc] initWithString:allListItem.placing attributes:@{NSForegroundColorAttributeName : color, NSParagraphStyleAttributeName: paragraphStyle}];
+        self.placingLabel.attributedText = string;
+    }else{
+        self.placingLabel.text = allListItem.placing;
+    }
     self.headerImageView.image = [UIImage imageNamed:allListItem.imageName];
     self.nameLabel.text = allListItem.name;
     self.dataLabel.text = allListItem.data;
@@ -55,20 +63,20 @@
     
     self.placingLabel.sd_layout
     .centerYEqualToView(view)
-    .leftSpaceToView(view,0)
-    .widthIs(68*widthHeight_ratio)
-    .heightRatioToView(view,0.5);
+    .leftSpaceToView(view,15)
+    .widthIs(70*widthHeight_ratio)
+    .heightRatioToView(view,1);
     
     self.headerImageView.sd_layout
     .centerYEqualToView(view)
-    .leftSpaceToView(self.placingLabel,22*widthHeight_ratio)
-    .widthIs(31*widthHeight_ratio)
+    .leftSpaceToView(self.placingLabel,10)
+    .widthIs(40*widthHeight_ratio)
     .heightEqualToWidth();
     
     self.nameLabel.sd_layout
     .centerYEqualToView(view)
     .leftSpaceToView(self.headerImageView,24*widthHeight_ratio)
-    .heightRatioToView(view,0.8)
+    .heightRatioToView(view,1)
     .widthIs(100*widthHeight_ratio);
     
     self.attentionBtn.sd_layout
@@ -81,7 +89,7 @@
     .centerYEqualToView(view)
     .leftSpaceToView(self.nameLabel,14*widthHeight_ratio)
     .rightSpaceToView(self.attentionBtn,5*widthHeight_ratio)
-    .heightRatioToView(view,0.8);
+    .heightRatioToView(view,1);
     
     [self.attentionBtn addTarget:self action:@selector(attentionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -96,6 +104,9 @@
     if (!_placingLabel) {
         _placingLabel = [UILabel new];
         _placingLabel.textAlignment = NSTextAlignmentCenter;
+        [_placingLabel setNumberOfLines:0];
+        _placingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _placingLabel.font = [UIFont font_15];
     }
     return _placingLabel;
 }

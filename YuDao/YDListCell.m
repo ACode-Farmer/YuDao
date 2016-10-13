@@ -46,7 +46,7 @@
     .leftSpaceToView(self.placingLabel,kHeaderImageViewLeftMargin)
     .widthIs(kHeaderImageViewWidth)
     .heightIs(kHeaderImageViewHeight);
-    self.headerImageView.sd_cornerRadiusFromWidthRatio  = @0.5;
+    [self.headerImageView setCircularImageView];
     
     UIImageView *vipImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vip"]];
     [view addSubview:vipImageView];
@@ -56,7 +56,6 @@
     .leftSpaceToView(self.headerImageView,-10)
     .widthIs(20)
     .heightEqualToWidth();
-    vipImageView.sd_cornerRadiusFromWidthRatio = @0.5;
     
     self.nameLabel.sd_layout
     .centerYEqualToView(view)
@@ -69,11 +68,11 @@
     .rightSpaceToView(view,kAttentionBtnRightMargin)
     .widthIs(kAttentionBtnWidth)
     .heightIs(kAttentionBtnHeight);
-    self.attentionBtn.sd_cornerRadius = @5;
+    self.attentionBtn.layer.cornerRadius = 5.f;
     self.attentionBtn.backgroundColor = [UIColor yellowColor];
-    self.attentionBtn.layer.masksToBounds = YES;
     self.attentionBtn.layer.borderWidth = 1.0f;
     self.attentionBtn.layer.borderColor = [UIColor blackColor].CGColor;
+    [self.attentionBtn setTitleColor:[UIColor colorWithString:@"#70449f"] forState:0];
     
     [self.attentionBtn setTitleColor:[UIColor blackColor] forState:0];
     [self.attentionBtn addTarget:self action:@selector(attentionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -97,5 +96,8 @@
         [self.attentionBtn setTitle:@"关注" forState:0];
     }
 }
+
+#pragma mark - Getters
+
 
 @end

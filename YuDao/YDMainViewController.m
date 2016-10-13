@@ -14,6 +14,7 @@
 #import "DynamicViewController.h"
 #import "YDMainViewConfigure.h"
 #import "YDRankingViewController.h"
+#import "CaptureViewController.h"
 
 @interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate>
 
@@ -31,12 +32,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.leftBarButtonItem = ({
+        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"二维码"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemAction:)];
+        leftBarButton;
+    });
     self.navigationItem.titleView = ({
         UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_width/2, 40)];
         titleLable.text = @"奔驰AMG－C63";
         titleLable.textAlignment = NSTextAlignmentCenter;
         titleLable.textColor = [UIColor blackColor];
-        titleLable.font = [UIFont systemFontOfSize:14];
+        titleLable.font = [UIFont systemFontOfSize:16];
         UIView *coverView = [UIView new];
         [self.view addSubview:coverView];
         titleLable;
@@ -52,6 +58,24 @@
     [self layoutFourMainViews];
     
     [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
+}
+
+#pragma mark - Events
+- (void)leftBarButtonItemAction:(id)sender{
+    
+     CaptureViewController *capture = [CaptureViewController new];
+     capture.CaptureSuccessBlock = ^(CaptureViewController *captureVC,NSString *s){
+     [captureVC dismissViewControllerAnimated:NO completion:nil];
+     };
+     capture.CaptureFailBlock = ^(CaptureViewController *captureVC){
+     [captureVC dismissViewControllerAnimated:NO completion:nil];
+     };
+     capture.CaptureCancelBlock = ^(CaptureViewController *captureVC){
+     [captureVC dismissViewControllerAnimated:NO completion:nil];
+     };
+     
+     [self presentViewController:capture animated:YES completion:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -139,7 +163,7 @@
     if (!_contentView) {
         _contentView = [UIScrollView new];
         _contentView.contentSize = CGSizeMake(screen_width, 6*screen_height);
-        _contentView.backgroundColor = [UIColor lightGrayColor];
+        _contentView.backgroundColor = [UIColor colorWithString:@"#9c9c9c"];
         _contentView.delegate = self;
         _contentView.showsVerticalScrollIndicator = NO;
         [self.view addSubview:_contentView];

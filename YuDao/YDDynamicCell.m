@@ -17,6 +17,7 @@
         self.layer.masksToBounds = YES;
         self.backgroundColor = [UIColor whiteColor];
         _imageView = [UIImageView new];
+        
         _numberLabel = [UILabel new];
         _numberLabel.backgroundColor = [UIColor whiteColor];
         _numberLabel.alpha = 0.5;
@@ -24,11 +25,22 @@
         
         _timeLabel = [UILabel new];
         _timeLabel.textAlignment = NSTextAlignmentRight;
+        _timeLabel.font = [UIFont font_12];
+        _timeLabel.textColor = [UIColor colorWithString:@"#3d2953"];
         
         _nameLabel = [UILabel new];
+        _nameLabel.font = [UIFont font_16];
+        _nameLabel.textColor = [UIColor colorWithString:@"#3d2953"];
+        
         _contentLabel = [UILabel new];
+        _contentLabel.font = [UIFont font_13];
+        _contentLabel.textColor = [UIColor colorWithString:@"#706280"];
+        
         _placeImageView = [UIImageView new];
+        
         _placeLabel = [UILabel new];
+        _placeLabel.font = [UIFont font_13];
+        _placeLabel.textColor = [UIColor colorWithString:@"#c6c2cb"];
         
         [self sd_addSubviews:@[_imageView,_nameLabel,_contentLabel,_placeImageView,_placeLabel]];
         [_imageView sd_addSubviews:@[_numberLabel,_timeLabel]];

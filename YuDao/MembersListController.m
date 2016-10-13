@@ -26,19 +26,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (NSMutableArray *)dataSource{
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        for (NSInteger i = 0; i<5; i++) {
-            
-            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",i];
-            ContactsModel *model = [ContactsModel modelWith:@"来啊来啊！！！" imageName:string];
-            [_dataSource addObject:model];
-        }
-    }
-    return _dataSource;
-}
-
+#pragma mark - UITableViewDataSource
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource ? self.dataSource.count: 0;
 }
@@ -60,19 +48,18 @@
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getters
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        for (NSInteger i = 0; i<5; i++) {
+            
+            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",i];
+            ContactsModel *model = [ContactsModel modelWith:@"来啊来啊！！！" imageName:string];
+            [_dataSource addObject:model];
+        }
+    }
+    return _dataSource;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

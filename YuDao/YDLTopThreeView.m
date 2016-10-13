@@ -111,7 +111,6 @@
     [attentionBtn setTitleColor:[UIColor blackColor] forState:0];
     attentionBtn.backgroundColor = [UIColor yellowColor];
     [attentionBtn.layer setCornerRadius:5];
-    attentionBtn.layer.masksToBounds = YES;
     attentionBtn.layer.borderWidth = 1.0f;
     attentionBtn.layer.borderColor = [UIColor blackColor].CGColor;
     [attentionBtn addTarget:self action:@selector(attentionBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -127,9 +126,8 @@
         UILabel *label = (UILabel *)obj;
         label.backgroundColor = [UIColor yellowColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:14];
+        label.adjustsFontSizeToFitWidth = YES;
         [label.layer setCornerRadius:5];
-        label.layer.masksToBounds = YES;
         label.layer.borderWidth = 1.0f;
         label.layer.borderColor = [UIColor blackColor].CGColor;
         [view addSubview:label];
@@ -140,7 +138,7 @@
     .topSpaceToView(view,16)
     .heightIs(kImageViewWidth)
     .widthIs(kImageViewHeight);
-    imageView.sd_cornerRadiusFromWidthRatio = @0.5;
+    [imageView setCircularImageView];
     
     placingImageView.sd_layout
     .leftEqualToView(imageView)

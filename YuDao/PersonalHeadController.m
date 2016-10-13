@@ -44,9 +44,9 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"AlbumOperateMore"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction:)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    // Do any additional setup after loading the view.
 }
 
+#pragma mark - Events
 - (void)rightItemAction:(id)sender{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"拍照" style:0 handler:^(UIAlertAction * _Nonnull action) {
@@ -68,20 +68,5 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

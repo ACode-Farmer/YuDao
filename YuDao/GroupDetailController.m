@@ -78,6 +78,7 @@
     return cell;
 }
 
+#pragma mark - Events
 - (void)DidTapOnItemAtIndex:(NSInteger)index title:(NSString*)name
 {
     NSLog(@"tap on %d",(int)index);
@@ -85,9 +86,159 @@
 }
 
 
+- (void)bottomBtnAction:(UIButton *)sender{
+    NSLog(@"title = %@",sender.titleLabel.text);
+}
 
-#pragma mark - lazy load
+- (void)tapAction:(id)sender{
+    [self imageBtnAction:nil];
+}
 
+- (void)imageBtnAction:(UIButton *)sender{
+    NSString *title = nil;
+    if (sender) {
+        title = @"更换头像";
+    }else{
+        title = @"更换封面背景";
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *one = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        ChangeImageController *changeVC = [ChangeImageController new];
+        changeVC.optionalTitle = title;
+        [self.navigationController pushViewController:changeVC animated:YES];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:one];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)updateHeaderView:(UIView *)view{
+    view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test0.jpg"]];
+    UIButton *imageBtn = [view viewWithTag:101];
+    UILabel *label = [view viewWithTag:102];
+    
+    [imageBtn setImage:[UIImage imageNamed:@"test8.jpg"] forState:0];
+    [imageBtn setImage:[UIImage imageNamed:@"test8.jpg"] forState:UIControlStateHighlighted];
+    
+    label.text = @"今晚猎个痛快";
+    
+}
+
+#pragma mark - Private Methods
+/**
+ *  成员视图
+ *
+ *  @param view    cell.contentView
+ *  @param members 成员数组
+ */
+- (void )memberAddView:(UIView *)view from:(NSMutableArray *)members{
+    NSMutableArray *subViews = [NSMutableArray arrayWithCapacity:5];
+    UIView *lastView = nil;
+    for (NSInteger i = 0; i < members.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:members[i]]];
+        [view addSubview:imageView];
+        [subViews addObject:imageView];
+        if (i == 0) {
+            imageView.sd_layout
+            .leftSpaceToView(view,0)
+            .topSpaceToView(view,2)
+            .bottomSpaceToView(view,2);
+        }else{
+            lastView = subViews[i-1];
+            imageView.sd_layout
+            .leftSpaceToView(lastView,0)
+            .topSpaceToView(view,2)
+            .bottomSpaceToView(view,2);
+        }
+        
+        imageView.sd_cornerRadius = @10;
+        imageView.layer.borderWidth = 5;
+        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        
+    }
+    [view setSd_equalWidthSubviews:subViews];
+}
+
+- (void)interestAddView:(UIView *)view from:(NSMutableArray *)interests{
+    self.inView = [InterestView new];
+    [view addSubview:self.inView];
+    [self.inView addItemsToCell:interests];
+    self.inView.sd_layout
+    .topSpaceToView(view,0)
+    .leftSpaceToView(view,0)
+    .rightSpaceToView(view,0);
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellId = @"GDCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    switch (indexPath.row) {
+        case 0:
+        {
+            cell.textLabel.text = @"成员";
+            cell.textLabel.textColor = [UIColor blueColor];
+            cell.detailTextLabel.text = @"100人";
+            cell.accessoryType = 1;
+            break;}
+        case 1:
+        {
+            [self memberAddView:cell.contentView from:self.members];
+            break;}
+        case 2:
+        {
+            cell.textLabel.text = @"所在位置";
+            cell.textLabel.textColor = [UIColor blueColor];
+            break;}
+        case 3:
+        {
+            cell.textLabel.text = @"上海东方明珠塔";
+            break;}
+        case 4:
+        {
+            cell.textLabel.text = @"群组标签";
+            cell.textLabel.textColor = [UIColor blueColor];
+            break;}
+        case 5:
+        {
+            if (!self.inView) {
+                [self interestAddView:cell.contentView from:[NSMutableArray arrayWithObjects:@"旅行",@"美食",@"交友",@"同城聚会" ,nil]];
+            }
+            break;}
+        default:
+            break;
+    }
+    
+    return cell;
+}
+
+#pragma UITableViewDelegate
+- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 1) {
+        return screen_width/5+1;
+    }else{
+        return 45.f;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 0 || indexPath.row == 1) {
+        [self.navigationController pushViewController:[MembersListController new] animated:YES];
+    }
+    
+}
+
+#pragma mark - Getters
 - (NSMutableArray *)members{
     if (!_members) {
         _members = [NSMutableArray arrayWithCapacity:5];
@@ -178,169 +329,10 @@
     return _bottomView;
 }
 
-- (void)bottomBtnAction:(UIButton *)sender{
-    NSLog(@"title = %@",sender.titleLabel.text);
-}
 
-- (void)tapAction:(id)sender{
-    [self imageBtnAction:nil];
-}
-- (void)imageBtnAction:(UIButton *)sender{
-    NSString *title = nil;
-    if (sender) {
-        title = @"更换头像";
-    }else{
-        title = @"更换封面背景";
-    }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *one = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ChangeImageController *changeVC = [ChangeImageController new];
-        changeVC.optionalTitle = title;
-        [self.navigationController pushViewController:changeVC animated:YES];
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:one];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:YES completion:nil];
-}
 
-- (void)updateHeaderView:(UIView *)view{
-    view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"test0.jpg"]];
-    UIButton *imageBtn = [view viewWithTag:101];
-    UILabel *label = [view viewWithTag:102];
-    
-    [imageBtn setImage:[UIImage imageNamed:@"test8.jpg"] forState:0];
-    [imageBtn setImage:[UIImage imageNamed:@"test8.jpg"] forState:UIControlStateHighlighted];
-    
-    label.text = @"今晚猎个痛快";
-    
-}
 
-#pragma tableview dataSource
-- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"GDCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    switch (indexPath.row) {
-        case 0:
-        {
-            cell.textLabel.text = @"成员";
-            cell.textLabel.textColor = [UIColor blueColor];
-            cell.detailTextLabel.text = @"100人";
-            cell.accessoryType = 1;
-            break;}
-        case 1:
-        {
-            [self memberAddView:cell.contentView from:self.members];
-            break;}
-        case 2:
-        {
-            cell.textLabel.text = @"所在位置";
-            cell.textLabel.textColor = [UIColor blueColor];
-            break;}
-        case 3:
-        {
-            cell.textLabel.text = @"上海东方明珠塔";
-            break;}
-        case 4:
-        {
-            cell.textLabel.text = @"群组标签";
-            cell.textLabel.textColor = [UIColor blueColor];
-            break;}
-        case 5:
-        {
-            if (!self.inView) {
-                [self interestAddView:cell.contentView from:[NSMutableArray arrayWithObjects:@"旅行",@"美食",@"交友",@"同城聚会" ,nil]];
-            }
-            break;}
-        default:
-            break;
-    }
-    
-    return cell;
-}
 
-/**
- *  成员视图
- *
- *  @param view    cell.contentView
- *  @param members 成员数组
- */
-- (void )memberAddView:(UIView *)view from:(NSMutableArray *)members{
-    NSMutableArray *subViews = [NSMutableArray arrayWithCapacity:5];
-    UIView *lastView = nil;
-    for (NSInteger i = 0; i < members.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:members[i]]];
-        [view addSubview:imageView];
-        [subViews addObject:imageView];
-        if (i == 0) {
-            imageView.sd_layout
-            .leftSpaceToView(view,0)
-            .topSpaceToView(view,2)
-            .bottomSpaceToView(view,2);
-        }else{
-            lastView = subViews[i-1];
-            imageView.sd_layout
-            .leftSpaceToView(lastView,0)
-            .topSpaceToView(view,2)
-            .bottomSpaceToView(view,2);
-        }
-        
-        imageView.sd_cornerRadius = @10;
-        imageView.layer.borderWidth = 5;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        
-    }
-    [view setSd_equalWidthSubviews:subViews];
-}
-
-- (void)interestAddView:(UIView *)view from:(NSMutableArray *)interests{
-    self.inView = [InterestView new];
-    [view addSubview:self.inView];
-    [self.inView addItemsToCell:interests];
-    self.inView.sd_layout
-    .topSpaceToView(view,0)
-    .leftSpaceToView(view,0)
-    .rightSpaceToView(view,0);
-}
-
-#pragma tablei view delegate
-- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 1) {
-        return screen_width/5+1;
-    }else{
-        return 45.f;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.row == 0 || indexPath.row == 1) {
-        [self.navigationController pushViewController:[MembersListController new] animated:YES];
-    }
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

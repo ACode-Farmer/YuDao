@@ -26,6 +26,10 @@ static NSString *const YDListCellIdentifier = @"YDListCell";
         self.rowHeight = kYDListRowHeight;
         _dataSource = [dataSource mutableCopy];
         [self registerClass:[YDListCell class] forCellReuseIdentifier:YDListCellIdentifier];
+        
+        //这里将圆角栈化，目前在测试当中
+        self.layer.shouldRasterize = YES;
+        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
     }
     return self;
 }

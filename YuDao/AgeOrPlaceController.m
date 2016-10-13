@@ -28,6 +28,104 @@ static NSString *const APCellIdentifier = @"APCell";
     
 }
 
+#pragma mark - TableViewDatasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return self.dataSource ? self.dataSource.count: 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    APCell *cell = [tableView dequeueReusableCellWithIdentifier:APCellIdentifier];
+    if (cell == nil) {
+        cell = [[APCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:APCellIdentifier];
+    }
+    cell.model = self.dataSource[indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewdelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (self.vcType) {
+        case ControllerTypeAge:
+        {
+            if (indexPath.row == 0) {
+                IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"出生年月日" delegate:self];
+                [picker setActionSheetPickerStyle:IQActionSheetPickerStyleDatePicker];
+                [picker show];
+            }
+            break;}
+        case ControllerTypePlace:
+        {
+            if (indexPath.row == 0) {
+                
+            }else{
+                [self.navigationController pushViewController:[ProvinceController new] animated:YES];
+            }
+            break;}
+        case ControllerTypeGender:
+        {
+            APModel *model = self.dataSource[indexPath.row];
+            model.type = CellTypeCheckmark;
+            [self.dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (![obj isEqual:model]) {
+                    APModel *m = (APModel *)obj;
+                    m.type = CellTypeSubTitle;
+                }
+            }];
+            [tableView reloadData];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:model.title forKey:self.title];
+            [defaults synchronize];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;}
+        case ControllerTypeEmotion:
+        {
+            APModel *model = self.dataSource[indexPath.row];
+            model.type = CellTypeCheckmark;
+            [self.dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (![obj isEqual:model]) {
+                    APModel *m = (APModel *)obj;
+                    m.type = CellTypeSubTitle;
+                }
+            }];
+            [tableView reloadData];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:model.title forKey:self.title];
+            [defaults synchronize];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;}
+        default:
+            break;
+    }
+}
+
+#pragma mark - PickerViewDelegate
+- (void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectDate:(NSDate *)date{
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];//日历
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date toDate:[NSDate date] options:0];
+    NSInteger year = [components year];
+    NSInteger month = [components month];
+    //NSInteger day = [components day];
+    if (month>=0) {
+        year+=1;
+    }
+    NSString *age = [NSString stringWithFormat:@"%ld",year];
+    APModel *model = self.dataSource[0];
+    model.subTitle = age;
+    [self.tableView reloadData];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:age forKey:self.title];
+    [defaults synchronize];
+}
+
+#pragma mark - Getters
 - (NSArray *)dataSource{
     if (!_dataSource) {
         switch (self.vcType) {
@@ -89,152 +187,5 @@ static NSString *const APCellIdentifier = @"APCell";
     return _dataSource;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.dataSource ? self.dataSource.count: 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    APCell *cell = [tableView dequeueReusableCellWithIdentifier:APCellIdentifier];
-    if (cell == nil) {
-        cell = [[APCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:APCellIdentifier];
-    }
-    cell.model = self.dataSource[indexPath.row];
-    
-    return cell;
-}
-
-#pragma mark - Table view delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (self.vcType) {
-        case ControllerTypeAge:
-        {
-            if (indexPath.row == 0) {
-                IQActionSheetPickerView *picker = [[IQActionSheetPickerView alloc] initWithTitle:@"出生年月日" delegate:self];
-                [picker setActionSheetPickerStyle:IQActionSheetPickerStyleDatePicker];
-                [picker show];
-            }
-            break;}
-        case ControllerTypePlace:
-        {
-            if (indexPath.row == 0) {
-                
-            }else{
-                [self.navigationController pushViewController:[ProvinceController new] animated:YES];
-            }
-            break;}
-        case ControllerTypeGender:
-        {
-            APModel *model = self.dataSource[indexPath.row];
-            model.type = CellTypeCheckmark;
-            [self.dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (![obj isEqual:model]) {
-                    APModel *m = (APModel *)obj;
-                    m.type = CellTypeSubTitle;
-                }
-            }];
-            [tableView reloadData];
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:model.title forKey:self.title];
-            [defaults synchronize];
-            [self.navigationController popViewControllerAnimated:YES];
-            break;}
-        case ControllerTypeEmotion:
-        {
-            APModel *model = self.dataSource[indexPath.row];
-            model.type = CellTypeCheckmark;
-            [self.dataSource enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (![obj isEqual:model]) {
-                    APModel *m = (APModel *)obj;
-                    m.type = CellTypeSubTitle;
-                }
-            }];
-            [tableView reloadData];
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:model.title forKey:self.title];
-            [defaults synchronize];
-            [self.navigationController popViewControllerAnimated:YES];
-            break;}
-        default:
-            break;
-    }
-}
-
-
-#pragma mark - PickerViewDelegate
-- (void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectDate:(NSDate *)date{
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];//日历
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date toDate:[NSDate date] options:0];
-    NSInteger year = [components year];
-    NSInteger month = [components month];
-    //NSInteger day = [components day];
-    if (month>=0) {
-        year+=1;
-    }
-    NSString *age = [NSString stringWithFormat:@"%ld",year];
-    APModel *model = self.dataSource[0];
-    model.subTitle = age;
-    [self.tableView reloadData];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:age forKey:self.title];
-    [defaults synchronize];
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

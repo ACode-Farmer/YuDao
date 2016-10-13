@@ -34,7 +34,7 @@
     [super viewDidLoad];
     self.title = @"排行榜";
     
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
     
     [self.view addSubview:self.typeView];
@@ -53,15 +53,7 @@
 #pragma mark Events
 - (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
     self.ordinaryVC.isShow = !self.ordinaryVC.isShow;
-    if (self.ordinaryVC.isShow) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.ordinaryVC.view.height = self.ordinaryVC.tableView.rowHeight * 8;
-        }];
-    }else{
-        [UIView animateWithDuration:0.25 animations:^{
-            self.ordinaryVC.view.height = 0;
-        }];
-    }
+    
 }
 
 #pragma mark Private Methods -
@@ -72,7 +64,7 @@
         [self.scrollView addSubview:vc.view];
         [self addChildViewController:vc];
         [vc didMoveToParentViewController:self];
-        vc.view.frame = CGRectMake(idx * screen_width, 0, screen_width, self.scrollView.bounds.size.height);
+        vc.view.frame = CGRectMake(idx * screen_width, 0, screen_width,screen_height - CGRectGetMaxY(self.typeView.frame));
     }];
 }
 
@@ -94,7 +86,6 @@
 #pragma mark - YDOrdinaryTableViewControllerDelegate
 - (void)OrdinaryTableViewControllerWith:(UITableView *)tableView{
     self.ordinaryVC.isShow = !self.ordinaryVC.isShow;
-    self.ordinaryVC.view.height = 0;
 }
 
 #pragma mark - Getters

@@ -43,18 +43,8 @@
     [self.navigationController pushViewController:[CreateGroupController  new] animated:YES];
 }
 
-- (NSMutableArray *)dataSource{
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-        ContactsModel *model1 = [ContactsModel modelWith:@"为了部落" imageName:@"test8.jpg"];
-        ContactsModel *model2 = [ContactsModel modelWith:@"艾欧尼亚" imageName:@"test8.jpg"];
-        [_dataSource addObject:model1];
-        [_dataSource addObject:model2];
-    }
-    return _dataSource;
-}
 
-#pragma mark - dataSource
+#pragma mark - UITableViewDataSource
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return self.indexArray;
@@ -155,19 +145,15 @@
     return _sectionTitleView;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        ContactsModel *model1 = [ContactsModel modelWith:@"为了部落" imageName:@"test8.jpg"];
+        ContactsModel *model2 = [ContactsModel modelWith:@"艾欧尼亚" imageName:@"test8.jpg"];
+        [_dataSource addObject:model1];
+        [_dataSource addObject:model2];
+    }
+    return _dataSource;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

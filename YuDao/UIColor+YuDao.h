@@ -10,6 +10,9 @@
 
 @interface UIColor (YuDao)
 
+#pragma mark - 色值
++ (UIColor *)colorWithString:(NSString *)colorString;
+
 #pragma mark - # 字体
 + (UIColor *)colorTextBlack;
 + (UIColor *)colorTextGray;

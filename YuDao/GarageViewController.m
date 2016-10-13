@@ -32,8 +32,12 @@
     
 }
 
-#pragma lazy load
+#pragma mark - Events
+- (void)addViewAction:(UIGestureRecognizer *)tap{
+    [self.navigationController pushViewController:[BrandViewController new] animated:YES];
+}
 
+#pragma mark - Getters
 - (UIView *)addCarView{
     if (!_addCarView) {
         _addCarView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, screen_width, 0.3*screen_height)];
@@ -64,24 +68,5 @@
     return _tableView;
 }
 
-#pragma mark actions - 
-- (void)addViewAction:(UIGestureRecognizer *)tap{
-    [self.navigationController pushViewController:[BrandViewController new] animated:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

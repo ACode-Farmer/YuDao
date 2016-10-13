@@ -42,7 +42,6 @@
         UIView *view = (UIView *)obj;
         view.backgroundColor = [UIColor whiteColor];
     }];
-    self.loginBtn.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

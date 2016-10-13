@@ -43,8 +43,6 @@
     }
     self.textF.text = [defaults stringForKey:self.title];
     
-    
-    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction:)];
     rightItem.enabled = NO;
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -56,7 +54,7 @@
     [self.textF becomeFirstResponder];
 }
 
-
+#pragma mark - Events
 - (void)rightItemAction:(id)sender{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.textF.text forKey:self.title];
@@ -64,6 +62,23 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (string.length > 0) {
+        string = [textField.text stringByAppendingString:string];
+    }else{
+        string = [textField.text substringWithRange:NSMakeRange(0, textField.text.length-1)];
+    }
+    NSLog(@"string - %@",string);
+    if (![string isEqualToString:@"此处后期使用单例"]) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }else{
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    return YES;
+}
+
+#pragma mark - Getters
 - (UITextField *)textF{
     if (!_textF) {
         _textF = [UITextField new];
@@ -85,36 +100,5 @@
     }
     return _label;
 }
-
-#pragma textField delegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if (string.length > 0) {
-        string = [textField.text stringByAppendingString:string];
-    }else{
-        string = [textField.text substringWithRange:NSMakeRange(0, textField.text.length-1)];
-    }
-    NSLog(@"string - %@",string);
-    if (![string isEqualToString:@"此处后期使用单例"]) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }else{
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

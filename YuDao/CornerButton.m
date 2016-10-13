@@ -29,11 +29,10 @@
     CornerButton *btn = [self buttonWithType:0];
     
     [btn setTitle:title forState:0];
-    [btn setTitleColor:[UIColor blackColor] forState:0];
-    [btn setTitleColor:[UIColor blackColor] forState:1];
+    [btn setTitleColor:[UIColor colorWithString:@"#784ea4"] forState:0];
+    [btn setTitleColor:[UIColor colorWithString:@"#784ea4"] forState:1];
     [btn setBackgroundColor:color];
-    btn.sd_cornerRadiusFromWidthRatio = @0.5;
-    btn.layer.masksToBounds = YES;
+    btn.layer.cornerRadius = btn.bounds.size.width/2;
     
     return btn;
 }

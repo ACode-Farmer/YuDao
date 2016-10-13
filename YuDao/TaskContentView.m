@@ -30,6 +30,7 @@
 - (void)setupSubviews{
     _titleLabel = [UILabel new];
     _titleLabel.text = @"任务一：时速排行榜";
+    [_timeLabel setFont:[UIFont systemFontOfSize:20]];
     _timeLabel = [UILabel new];
     _timeLabel.text = @"任务时效:";
     _rewardLabel = [UILabel new];
@@ -37,8 +38,13 @@
     _targetLebel = [UILabel new];
     _targetLebel.text = @"任务目标:";
     _goBtn = [CornerButton circularButtonWithTitle:@"GO" backgroundColor:[UIColor orangeColor]];
-    NSArray *subviews = @[_titleLabel,_timeLabel,_rewardLabel,_targetLebel,_goBtn];
-    [self sd_addSubviews:subviews];
+    NSArray *subviews = @[_titleLabel,_timeLabel,_rewardLabel,_targetLebel];
+    [subviews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UILabel *label = (UILabel *)obj;
+        [label setTextColor:[UIColor colorWithString:@"#8159aa"]];
+        [self addSubview:label];
+    }];
+    [self addSubview:_goBtn];
     
     _titleLabel.sd_layout
     .topSpaceToView(self,10)
@@ -71,6 +77,8 @@
     .heightIs(76*widthHeight_ratio)
     .widthEqualToHeight();
     [_goBtn addTarget:self action:@selector(goBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    _goBtn.layer.borderWidth = 1.f;
+    _goBtn.layer.borderColor = [UIColor colorWithString:@"#8159aa"].CGColor;
     
     [self setupAutoHeightWithBottomView:_targetLebel bottomMargin:25*widthHeight_ratio];
 }
@@ -88,14 +96,17 @@
     NSString *string = [_targetLebel.text stringByAppendingString:model.target];
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:5];
-    UIColor *color = [UIColor blackColor];
+    UIColor *color = [UIColor colorWithString:@"#8159aa"];
     NSAttributedString *attstring = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName : color, NSParagraphStyleAttributeName: paragraphStyle}];
     _targetLebel.attributedText = attstring;
     if (model.isComplete) {
-        [_goBtn setTitle:@"完成" forState:0];
-    }else{
         [_goBtn setTitle:@"GO" forState:0];
+    }else{
+        [_goBtn setTitle:@"完成" forState:0];
     }
 }
+
+#pragma mark - Getters
+
 
 @end

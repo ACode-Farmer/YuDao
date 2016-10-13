@@ -29,7 +29,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.titleView];
     
-    TaskModel *textModel = [TaskModel modelWithTime:@"1天内" reward:@"1000积分" target:@"注册成为“遇道”用户，可使用遇道的社交功能，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流，与其它遇道用户聊天交流" isComplete:YES];
+    TaskModel *textModel = [TaskModel modelWithTime:@"1天内" reward:@"1000积分" target:@"使用手机号注册成为遇道用户" isComplete:YES];
     self.contentView.model = textModel;
     
     [self.view setupAutoHeightWithBottomView:self.contentView bottomMargin:0];

@@ -29,21 +29,15 @@
     });
     
 }
+
+#pragma mark - Events
 - (void)rightItemAction{
     InterestController *inVC = [InterestController new];
     inVC.optionalTitle = @"添加兴趣标签";
     [self.navigationController pushViewController:inVC animated:YES];
 }
 
-#pragma lazy load
-- (NSArray *)dataSource{
-    if (!_dataSource) {
-        _dataSource = @[@"123415",@"6334748",@"fasgdfshs",@"hadsbgcxbdfj",@"wfeshfcvb",@"fshdfjvc",@"geghdcbcxbc"];
-    }
-    return _dataSource;
-}
-
-#pragma table view dataSource
+#pragma UITableViewDataSource
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource? self.dataSource.count :0;
 }
@@ -57,26 +51,18 @@
     return cell;
 }
 
-#pragma table view delegate
-
+#pragma UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.place = self.dataSource[indexPath.row];
     NSLog(@"place = %@",self.place);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Getters
+- (NSArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = @[@"123415",@"6334748",@"fasgdfshs",@"hadsbgcxbdfj",@"wfeshfcvb",@"fshdfjvc",@"geghdcbcxbc"];
+    }
+    return _dataSource;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -61,74 +61,8 @@ static NSString *currentImagePath;
     }
 }
 
-#pragma lazy load
-- (UIView *)frontView{
-    if (!_frontView) {
-        _frontView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, screen_width, 0.3*screen_height)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
-        label.text = @"请拍照上传身份证正面";
-        label.textColor = [UIColor blackColor];
-        [_frontView addSubview:label];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(label.frame)+5, screen_width - 10, _frontView.bounds.size.height - label.bounds.size.height-10)];
-        imageView.layer.cornerRadius = 15;
-        imageView.layer.borderWidth = 1.f;
-        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        imageView.layer.masksToBounds = YES;
-        imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addViewAction:)];
-        [imageView addGestureRecognizer:tap];
-        [_frontView addSubview:imageView];
-        _frontImageView = imageView;
-    }
-    return _frontView;
-}
 
-- (UIView *)backView{
-    if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 5 + CGRectGetMaxY(self.frontView.frame) , screen_width, 0.3*screen_height)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
-        label.text = @"请拍照上传身份证反面";
-        label.textColor = [UIColor blackColor];
-        [_backView addSubview:label];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(label.frame)+5, screen_width - 10, _backView.bounds.size.height - label.bounds.size.height-10)];
-        imageView.layer.cornerRadius = 15;
-        imageView.layer.borderWidth = 1.f;
-        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        imageView.layer.masksToBounds = YES;
-        imageView.image = [UIImage imageNamed:@"add"];
-        imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addViewAction:)];
-        [imageView addGestureRecognizer:tap];
-        [_backView addSubview:imageView];
-        _backImageView = imageView;
-    }
-    return _backView;
-}
-
-- (UIView *)commitView{
-    if (!_commitView) {
-        _commitView = [[UIView alloc] initWithFrame:CGRectMake(0, 5+CGRectGetMaxY(self.backView.frame), screen_width, 0.3*screen_height)];
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(5, 20, screen_width-10, 40)];
-        btn.backgroundColor = [UIColor orangeColor];
-        [btn addTarget:self action:@selector(commitBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        btn.layer.cornerRadius = 10.f;
-        btn.layer.masksToBounds = YES;
-        [btn setTitle:@"提交" forState:0];
-        [btn setTitleColor:[UIColor whiteColor] forState:0];
-        [_commitView addSubview:btn];
-        
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(btn.frame)+5, screen_width-10, 42)];
-        label.numberOfLines = 0;
-        label.text = @"*上传的证件资料仅作为认证使用,《遇道》承诺绝不用于其它用途，请放心上传";
-        [_commitView addSubview:label];
-        
-    }
-    return _commitView;
-}
-
-#pragma mark actions -
+#pragma mark - Events
 - (void)addViewAction:(UIGestureRecognizer *)tap{
     if (tap.view == _frontImageView) {
         currentImagePath = _frontImagePath;
@@ -221,19 +155,72 @@ static NSString *currentImagePath;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark Getters
+- (UIView *)frontView{
+    if (!_frontView) {
+        _frontView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, screen_width, 0.3*screen_height)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
+        label.text = @"请拍照上传身份证正面";
+        label.textColor = [UIColor blackColor];
+        [_frontView addSubview:label];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(label.frame)+5, screen_width - 10, _frontView.bounds.size.height - label.bounds.size.height-10)];
+        imageView.layer.cornerRadius = 15;
+        imageView.layer.borderWidth = 1.f;
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        imageView.layer.masksToBounds = YES;
+        imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addViewAction:)];
+        [imageView addGestureRecognizer:tap];
+        [_frontView addSubview:imageView];
+        _frontImageView = imageView;
+    }
+    return _frontView;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIView *)backView{
+    if (!_backView) {
+        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 5 + CGRectGetMaxY(self.frontView.frame) , screen_width, 0.3*screen_height)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
+        label.text = @"请拍照上传身份证反面";
+        label.textColor = [UIColor blackColor];
+        [_backView addSubview:label];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, CGRectGetMaxY(label.frame)+5, screen_width - 10, _backView.bounds.size.height - label.bounds.size.height-10)];
+        imageView.layer.cornerRadius = 15;
+        imageView.layer.borderWidth = 1.f;
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        imageView.layer.masksToBounds = YES;
+        imageView.image = [UIImage imageNamed:@"add"];
+        imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addViewAction:)];
+        [imageView addGestureRecognizer:tap];
+        [_backView addSubview:imageView];
+        _backImageView = imageView;
+    }
+    return _backView;
 }
-*/
+
+- (UIView *)commitView{
+    if (!_commitView) {
+        _commitView = [[UIView alloc] initWithFrame:CGRectMake(0, 5+CGRectGetMaxY(self.backView.frame), screen_width, 0.3*screen_height)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(5, 20, screen_width-10, 40)];
+        btn.backgroundColor = [UIColor orangeColor];
+        [btn addTarget:self action:@selector(commitBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        btn.layer.cornerRadius = 10.f;
+        btn.layer.masksToBounds = YES;
+        [btn setTitle:@"提交" forState:0];
+        [btn setTitleColor:[UIColor whiteColor] forState:0];
+        [_commitView addSubview:btn];
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(btn.frame)+5, screen_width-10, 42)];
+        label.numberOfLines = 0;
+        label.text = @"*上传的证件资料仅作为认证使用,《遇道》承诺绝不用于其它用途，请放心上传";
+        [_commitView addSubview:label];
+        
+    }
+    return _commitView;
+}
+
 
 @end

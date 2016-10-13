@@ -12,8 +12,28 @@
 
 + (UIFont *) fontNavBarTitle
 {
-    return [UIFont boldSystemFontOfSize:17.5f];
+    return [UIFont boldSystemFontOfSize:16.0f];
 }
+
++ (UIFont *)font_12{
+    return [UIFont systemFontOfSize:12.0f];
+}
++ (UIFont *)font_13{
+    return [UIFont systemFontOfSize:13.0f];
+}
++ (UIFont *)font_14{
+    return [UIFont systemFontOfSize:14.0f];
+}
++ (UIFont *)font_15{
+    return [UIFont systemFontOfSize:15.0f];
+}
++ (UIFont *)font_16{
+    return [UIFont systemFontOfSize:16.0f];
+}
++ (UIFont *)font_17{
+    return [UIFont systemFontOfSize:17.0f];
+}
+
 
 + (UIFont *) fontConversationUsername
 {

@@ -8,6 +8,7 @@
 
 #import "ContactsTableViewController.h"
 #import "GroupController.h"
+#import "PhoneContactsTableViewController.h"
 
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
@@ -39,8 +40,6 @@
             sectionTitleView.font = [UIFont boldSystemFontOfSize:60];
             sectionTitleView.textColor = [UIColor blueColor];
             sectionTitleView.backgroundColor = [UIColor clearColor];
-//            sectionTitleView.layer.cornerRadius = 6;
-//            sectionTitleView.layer.borderWidth = 1.0f;
             _sectionTitleView.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
         sectionTitleView;
     });
@@ -70,25 +69,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-}
-
-#pragma mark - lazy load
-- (HeaderTableView *)headerView{
-    if (!_headerView) {
-        _headerView = [[HeaderTableView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 80) withDataSource:self.headerViewDataSource];
-        _headerView.clickCellDelegate = self;
-    }
-    return _headerView;
-}
-
-- (NSArray *)headerViewDataSource{
-    if (!_headerViewDataSource) {
-        HeaderModel *model1 = [HeaderModel modelWithImageName:@"" Name:@"群聊"];
-        HeaderModel *model2 = [HeaderModel modelWithImageName:@"" Name:@"手机联系人"];
-        _headerViewDataSource = @[model1,model2];
-    }
-    return _headerViewDataSource;
+    
 }
 
 #pragma mark -  HeaderTableViewDelegate -
@@ -96,11 +77,11 @@
     if ([model.name isEqualToString:@"群聊"]) {
         [self.navigationController pushViewController:[GroupController new] animated:YES];
     }else{
-        [self performSegueWithIdentifier:@"PhoneContacts" sender:nil];
+        [self.navigationController pushViewController:[PhoneContactsTableViewController new] animated:YES];
     }
 }
-#pragma mark - UITableViewDataSource
 
+#pragma mark - UITableViewDataSource
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return self.indexArray;
@@ -144,6 +125,26 @@
     return index;
 }
 
+#pragma mark - UITableViewDelegate
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *lab = [UILabel new];
+    lab.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    lab.text = [self.indexArray objectAtIndex:section];
+    lab.textColor = [UIColor lightGrayColor];
+    return lab;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:model.name
+                                                   delegate:nil
+                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
+    [alert show];
+}
 
 #pragma mark - private
 - (void)timerHandler:(NSTimer *)sender
@@ -167,39 +168,22 @@
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
-
-
-#pragma mark - 
-#pragma mark - UITableViewDelegate
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UILabel *lab = [UILabel new];
-    lab.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    lab.text = [self.indexArray objectAtIndex:section];
-    lab.textColor = [UIColor lightGrayColor];
-    return lab;
+#pragma mark - Getters
+- (HeaderTableView *)headerView{
+    if (!_headerView) {
+        _headerView = [[HeaderTableView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 80) withDataSource:self.headerViewDataSource];
+        _headerView.clickCellDelegate = self;
+    }
+    return _headerView;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 40.0f;
-//}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:model.name
-                                                   delegate:nil
-                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
-    [alert show];
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)headerViewDataSource{
+    if (!_headerViewDataSource) {
+        HeaderModel *model1 = [HeaderModel modelWithImageName:@"" Name:@"群聊"];
+        HeaderModel *model2 = [HeaderModel modelWithImageName:@"" Name:@"手机联系人"];
+        _headerViewDataSource = @[model1,model2];
+    }
+    return _headerViewDataSource;
 }
 
 @end

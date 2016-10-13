@@ -28,17 +28,23 @@
     _userLocatioinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _userLocatioinBtn.frame = CGRectMake(screen_width/5, 2, 110, size.height - 4);
     [_userLocatioinBtn setTitle:@"金沙江路" forState:0];
+    [_userLocatioinBtn.titleLabel setFont:[UIFont font_15]];
+    [_userLocatioinBtn setImage:[UIImage imageNamed:@"locationIcon"] forState:0];
+    [_userLocatioinBtn setImage:[UIImage imageNamed:@"locationIcon"] forState:1];
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(_userLocatioinBtn.frame.origin.x+3, CGRectGetMaxY(_userLocatioinBtn.frame)+0.5, _userLocatioinBtn.bounds.size.width, 1)];
+    lineView.backgroundColor = [UIColor colorWithString:@"#7147a0"];
+    [self addSubview:lineView];
     
     _distanceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _distanceBtn.frame = CGRectMake(3*screen_width/5, 2, 110, size.height - 4);
-    [_distanceBtn setTitle:@"10m" forState:UIControlStateNormal];
+    _distanceBtn.frame = CGRectMake(CGRectGetMaxX(_userLocatioinBtn.frame)+30, 2, 110, size.height - 4);
+    [_distanceBtn setTitle:@"车距我：1KM" forState:UIControlStateNormal];
+    [_distanceBtn.titleLabel setFont:[UIFont font_15]];
     
     NSArray *subViews = @[_userLocatioinBtn,_distanceBtn];
     for (UIButton *btn in subViews) {
         btn.backgroundColor = [UIColor clearColor];
-        [btn setTitleColor:[UIColor blackColor] forState:0];
-        [btn setImage:[UIImage imageNamed:@"set"] forState:0];
-        [btn setImage:[UIImage imageNamed:@"set"] forState:1];
+        [btn setTitleColor:[UIColor colorWithString:@"#7147a0"] forState:0];
         [self addSubview:btn];
     }
     [_userLocatioinBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:space];
