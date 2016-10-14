@@ -163,15 +163,12 @@
 {
     return 40.0f;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 15.f;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:model.name
-                                                   delegate:nil
-                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
-    [alert show];
+    
 }
 
 - (void)friendOperation:(UIButton *)sender{

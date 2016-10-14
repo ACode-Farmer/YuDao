@@ -34,7 +34,7 @@
 
 #pragma mark - Events
 - (void)addViewAction:(UIGestureRecognizer *)tap{
-    [self.navigationController pushViewController:[BrandViewController new] animated:YES];
+    [self.navigationController secondLevel_push_fromViewController:self toVC:[BrandViewController new]];
 }
 
 #pragma mark - Getters

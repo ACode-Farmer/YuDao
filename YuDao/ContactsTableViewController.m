@@ -9,7 +9,7 @@
 #import "ContactsTableViewController.h"
 #import "GroupController.h"
 #import "PhoneContactsTableViewController.h"
-
+#import "ChatTableViewController.h"
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
 #import "ContactsModel.h"
@@ -65,6 +65,8 @@
     
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.rowHeight = 45;
+    self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+    //self.tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -72,12 +74,28 @@
     
 }
 
+#pragma mark - Events
+/**
+ *  获得点击图片所在的行
+ *
+ */
+- (void)tapCellGuestureAction:(UIGestureRecognizer *)tap{
+    id selectedCell = [[tap.view superview] superview];
+    NSIndexPath *selectedIndex = [self.tableView indexPathForCell:selectedCell];
+    NSLog(@"section = %ld  row = %ld",selectedIndex.section,selectedIndex.row);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"个人资料界面尚未完成"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark -  HeaderTableViewDelegate -
 - (void)clickHeaderTableViewCell:(HeaderModel *)model{
     if ([model.name isEqualToString:@"群聊"]) {
-        [self.navigationController pushViewController:[GroupController new] animated:YES];
+        [self.navigationController secondLevel_push_fromViewController:self toVC:[GroupController new]];
     }else{
-        [self.navigationController pushViewController:[PhoneContactsTableViewController new] animated:YES];
+        [self.navigationController secondLevel_push_fromViewController:self toVC:[PhoneContactsTableViewController new]];
     }
 }
 
@@ -108,8 +126,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.imageView.layer.cornerRadius = 5.0f;
         cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.userInteractionEnabled = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.textAlignment = NSTextAlignmentCenter;
+        
+        //给头像添加点击事件
+        UITapGestureRecognizer *tapCell = [[UITapGestureRecognizer alloc ]initWithTarget:self action:@selector(tapCellGuestureAction:)];
+        [cell.imageView addGestureRecognizer:tapCell];
     }
     ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
@@ -134,16 +157,16 @@
     lab.textColor = [UIColor lightGrayColor];
     return lab;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 15.f;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:model.name
-                                                   delegate:nil
-                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
-    [alert show];
+    ChatTableViewController *chatVC = [ChatTableViewController new];
+    chatVC.variableTitle = model.name;
+    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
 }
 
 #pragma mark - private
@@ -171,7 +194,7 @@
 #pragma mark - Getters
 - (HeaderTableView *)headerView{
     if (!_headerView) {
-        _headerView = [[HeaderTableView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 80) withDataSource:self.headerViewDataSource];
+        _headerView = [[HeaderTableView alloc] initWithFrame:CGRectMake(0, 0, screen_width-15, 120) withDataSource:self.headerViewDataSource];
         _headerView.clickCellDelegate = self;
     }
     return _headerView;

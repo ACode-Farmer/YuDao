@@ -21,22 +21,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"聊天";
+    if (self.variableTitle) {
+        self.title = self.variableTitle;
+    }else{
+        self.title = @"聊天";
+    }
     self.tableView.showsVerticalScrollIndicator = NO;
     [self.tableView registerClass:[ChatCell class] forCellReuseIdentifier:@"ChatCell"];
     
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   
+    
+}
 #pragma mark lazy load
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
         _dataSource = [NSMutableArray array];
-        for (int i = 0; i < 5; i++) {
-            ChatModel *model = [ChatModel modelWithImage:@"icon1.jpg" content:@"默默默默默默默默默默默默默默默默默默默默默默默默默默默默" time:@"7:01" type:0];
+        for (int i = 0; i < 3; i++) {
+            ChatModel *model = [ChatModel modelWithImage:@"icon1.jpg" content:@"默默默默默默默默默默默默默默默默默默默" time:@"7:01" type:0];
             [_dataSource addObject:model];
         }
-        for (int i = 0; i < 5; i++) {
-            ChatModel *model = [ChatModel modelWithImage:@"icon2.jpg" content:@"我默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默默" time:@"8:01" type:1];
+        for (int i = 0; i < 3; i++) {
+            ChatModel *model = [ChatModel modelWithImage:@"icon2.jpg" content:@"我默默默默默默默默默默默默默默默默默默默默默默默默默默默默默" time:@"8:01" type:1];
             [_dataSource addObject:model];
         }
     }

@@ -14,4 +14,6 @@
 
 - (void)addItemsToCell:(NSArray *)items;
 
+- (void)addSearchItems:(NSArray *)items;
+
 @end

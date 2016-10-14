@@ -18,6 +18,7 @@
         self.delegate = self;
         self.rowHeight = 40;
         _dataSource = dataSource;
+        self.tableHeaderView = self.searchVC.searchBar;
     }
     return self;
 }
@@ -49,6 +50,24 @@
     if (self.clickCellDelegate && [self.clickCellDelegate respondsToSelector:@selector(clickHeaderTableViewCell:)]) {
         [self.clickCellDelegate clickHeaderTableViewCell:model];
     }
+}
+
+#pragma mark - Getters
+- (YDSearchController *)searchVC{
+    if (!_searchVC) {
+        _searchVC = [[YDSearchController alloc] initWithSearchResultsController:self.searchResultsVC];
+        [_searchVC setSearchResultsUpdater:self.searchResultsVC];
+        [_searchVC.searchBar setPlaceholder:@"搜索"];
+        //[_searchVC.searchBar setDelegate:self];
+    }
+    return _searchVC;
+}
+
+- (YDSearchResultsTableViewController *)searchResultsVC{
+    if (!_searchResultsVC) {
+        _searchResultsVC = [YDSearchResultsTableViewController new];
+    }
+    return _searchResultsVC;
 }
 
 @end

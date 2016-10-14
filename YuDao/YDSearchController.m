@@ -7,6 +7,8 @@
 //
 
 #import "YDSearchController.h"
+#import "UIImage+Color.h"
+#import "UIView+Extensions.h"
 
 @interface YDSearchController ()
 
@@ -17,35 +19,34 @@
 - (id)initWithSearchResultsController:(UIViewController *)searchResultsController
 {
     if (self = [super initWithSearchResultsController:searchResultsController]) {
-//        [self.searchBar setFrame:CGRectMake(0, 0, WIDTH_SCREEN, HEIGHT_NAVBAR)];
-//        [self.searchBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorGrayBG]]];
-//        [self.searchBar setBarTintColor:[UIColor colorGrayBG]];
-//        [self.searchBar setTintColor:[UIColor colorGreenDefault]];
-//        UITextField *tf = [[[self.searchBar.subviews firstObject] subviews] lastObject];
-//        [tf.layer setMasksToBounds:YES];
-//        [tf.layer setBorderWidth:BORDER_WIDTH_1PX];
-//        [tf.layer setBorderColor:[UIColor colorGrayLine].CGColor];
-//        [tf.layer setCornerRadius:5.0f];
-//        
-//        for (UIView *view in self.searchBar.subviews[0].subviews) {
-//            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-//                UIView *bg = [[UIView alloc] init];
-//                [bg setBackgroundColor:[UIColor colorGrayBG]];
-//                [view addSubview:bg];
-//                [bg mas_makeConstraints:^(MASConstraintMaker *make) {
-//                    make.edges.mas_equalTo(0);
-//                }];
-//                
-//                UIView *line = [[UIView alloc] init];
-//                [line setBackgroundColor:[UIColor colorGrayLine]];
-//                [view addSubview:line];
-//                [line mas_makeConstraints:^(MASConstraintMaker *make) {
-//                    make.left.and.right.and.bottom.mas_equalTo(0);
-//                    make.height.mas_equalTo(BORDER_WIDTH_1PX);
-//                }];
-//                break;
-//            }
-//        }
+        self.searchBar.frame=CGRectMake(0, 0, screen_width,height_navBar);
+        self.searchBar.backgroundImage = [UIImage imageWithColor:[UIColor colorGrayBG]];
+        self.searchBar.barTintColor = [UIColor colorGrayBG];
+        [self.searchBar setTintColor:[UIColor colorGreenDefault]];
+        UITextField *tf = [[[self.searchBar.subviews firstObject] subviews] lastObject];
+        [tf.layer setMasksToBounds:YES];
+        [tf.layer setBorderWidth:BORDER_WIDTH_1PX];
+        [tf.layer setBorderColor:[UIColor colorGrayLine].CGColor];
+        [tf.layer setCornerRadius:5.0f];
+        
+        for (UIView *view in self.searchBar.subviews[0].subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                UIView *backView = [UIView new];
+                backView.backgroundColor = [UIColor colorGrayBG];
+                [view addSubview:backView];
+                view.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
+                
+                UIView *line = [UIView new];
+                line.backgroundColor = [UIColor colorGrayLine];
+                [view addSubview:line];
+                line.sd_layout
+                .leftSpaceToView(view,0)
+                .rightSpaceToView(view,0)
+                .bottomSpaceToView(view,0)
+                .heightIs(BORDER_WIDTH_1PX);
+                break;
+            }
+        }
     }
     return self;
 }

@@ -126,6 +126,16 @@
 		A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D201D928AA900DFAFC2 /* GroupController.m */; };
 		A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D231D92902600DFAFC2 /* GroupDetailController.m */; };
 		A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D261D929A6C00DFAFC2 /* PersonalController.m */; };
+		A06DA2EA1DB07109004362BA /* speed_car.png in Resources */ = {isa = PBXBuildFile; fileRef = A06DA2E91DB07109004362BA /* speed_car.png */; };
+		A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */; };
+		A06DA2F21DB08AE5004362BA /* YDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */; };
+		A06DA2F71DB0ABCB004362BA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F41DB0ABCB004362BA /* UIView+Frame.m */; };
+		A06DA2F81DB0ABCB004362BA /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F61DB0ABCB004362BA /* UIView+Extensions.m */; };
+		A06DA2FD1DB0B37C004362BA /* YDSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2FC1DB0B37C004362BA /* YDSearchResultsTableViewController.m */; };
+		A06DA3001DB0D8A4004362BA /* YDGarageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2FF1DB0D8A4004362BA /* YDGarageViewController.m */; };
+		A06DA3041DB0D909004362BA /* YDGarageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA3031DB0D909004362BA /* YDGarageCell.m */; };
+		A06DA3071DB0DE9F004362BA /* YDGarageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA3061DB0DE9F004362BA /* YDGarageModel.m */; };
+		A06DA30A1DB0E627004362BA /* YDCarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA3091DB0E627004362BA /* YDCarDetailViewController.m */; };
 		A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */; };
 		A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */; };
 		A06F084A1D9E634100D4E829 /* QRCode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A06F08491D9E634100D4E829 /* QRCode.jpg */; };
@@ -437,6 +447,25 @@
 		A06A9D231D92902600DFAFC2 /* GroupDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailController.m; sourceTree = "<group>"; };
 		A06A9D251D929A6C00DFAFC2 /* PersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalController.h; sourceTree = "<group>"; };
 		A06A9D261D929A6C00DFAFC2 /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
+		A06DA2E91DB07109004362BA /* speed_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_car.png; sourceTree = "<group>"; };
+		A06DA2EC1DB07D56004362BA /* UINavigationController+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YuDao.h"; sourceTree = "<group>"; };
+		A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YuDao.m"; sourceTree = "<group>"; };
+		A06DA2F01DB08AE5004362BA /* YDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSearchViewController.h; sourceTree = "<group>"; };
+		A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSearchViewController.m; sourceTree = "<group>"; };
+		A06DA2F31DB0ABCB004362BA /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		A06DA2F41DB0ABCB004362BA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		A06DA2F51DB0ABCB004362BA /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
+		A06DA2F61DB0ABCB004362BA /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
+		A06DA2FB1DB0B37C004362BA /* YDSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSearchResultsTableViewController.h; sourceTree = "<group>"; };
+		A06DA2FC1DB0B37C004362BA /* YDSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSearchResultsTableViewController.m; sourceTree = "<group>"; };
+		A06DA2FE1DB0D8A4004362BA /* YDGarageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGarageViewController.h; sourceTree = "<group>"; };
+		A06DA2FF1DB0D8A4004362BA /* YDGarageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGarageViewController.m; sourceTree = "<group>"; };
+		A06DA3021DB0D909004362BA /* YDGarageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGarageCell.h; sourceTree = "<group>"; };
+		A06DA3031DB0D909004362BA /* YDGarageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGarageCell.m; sourceTree = "<group>"; };
+		A06DA3051DB0DE9F004362BA /* YDGarageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGarageModel.h; sourceTree = "<group>"; };
+		A06DA3061DB0DE9F004362BA /* YDGarageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGarageModel.m; sourceTree = "<group>"; };
+		A06DA3081DB0E627004362BA /* YDCarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDCarDetailViewController.h; sourceTree = "<group>"; };
+		A06DA3091DB0E627004362BA /* YDCarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDCarDetailViewController.m; sourceTree = "<group>"; };
 		A06F08441D9E629A00D4E829 /* MyQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQRCodeViewController.h; sourceTree = "<group>"; };
 		A06F08451D9E629A00D4E829 /* MyQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQRCodeViewController.m; sourceTree = "<group>"; };
 		A06F08461D9E629A00D4E829 /* MyQRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyQRCodeViewController.xib; sourceTree = "<group>"; };
@@ -1077,6 +1106,61 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		A06DA2EB1DB07D31004362BA /* Navigation_push */ = {
+			isa = PBXGroup;
+			children = (
+				A06DA2EC1DB07D56004362BA /* UINavigationController+YuDao.h */,
+				A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */,
+			);
+			name = Navigation_push;
+			sourceTree = "<group>";
+		};
+		A06DA2EF1DB08AA6004362BA /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				A06DA2F01DB08AE5004362BA /* YDSearchViewController.h */,
+				A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */,
+				A06DA2FB1DB0B37C004362BA /* YDSearchResultsTableViewController.h */,
+				A06DA2FC1DB0B37C004362BA /* YDSearchResultsTableViewController.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
+		A06DA2F91DB0AC27004362BA /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				A06DA2F31DB0ABCB004362BA /* UIView+Frame.h */,
+				A06DA2F41DB0ABCB004362BA /* UIView+Frame.m */,
+				A06DA2F51DB0ABCB004362BA /* UIView+Extensions.h */,
+				A06DA2F61DB0ABCB004362BA /* UIView+Extensions.m */,
+				A093B9211DADDADA009D568A /* UIView+Gesture.h */,
+				A093B9221DADDADA009D568A /* UIView+Gesture.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
+		A06DA2FA1DB0AC34004362BA /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				A093B90E1DADD5E2009D568A /* UIImage+Color.h */,
+				A093B90F1DADD5E2009D568A /* UIImage+Color.m */,
+				A093B9111DADD609009D568A /* UIImage+Size.h */,
+				A093B9121DADD609009D568A /* UIImage+Size.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
+		A06DA3011DB0D8E2004362BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A06DA3021DB0D909004362BA /* YDGarageCell.h */,
+				A06DA3031DB0D909004362BA /* YDGarageCell.m */,
+				A06DA3051DB0DE9F004362BA /* YDGarageModel.h */,
+				A06DA3061DB0DE9F004362BA /* YDGarageModel.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A06F08431D9E626500D4E829 /* 我的二维码 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1143,6 +1227,11 @@
 				A07B8C3A1D9BB2D80040DD8B /* GarageViewController.m */,
 				A07B8C401D9BCAE10040DD8B /* BrandViewController.h */,
 				A07B8C411D9BCAE10040DD8B /* BrandViewController.m */,
+				A06DA2FE1DB0D8A4004362BA /* YDGarageViewController.h */,
+				A06DA2FF1DB0D8A4004362BA /* YDGarageViewController.m */,
+				A06DA3081DB0E627004362BA /* YDCarDetailViewController.h */,
+				A06DA3091DB0E627004362BA /* YDCarDetailViewController.m */,
+				A06DA3011DB0D8E2004362BA /* Views */,
 			);
 			name = "我的车库";
 			sourceTree = "<group>";
@@ -1286,6 +1375,7 @@
 				A067C69B1D98EB95000E4146 /* YDMainViewController.h */,
 				A067C69C1D98EB95000E4146 /* YDMainViewController.m */,
 				A0C08CF81DA8F95A0031977B /* YDMainViewConfigure.h */,
+				A06DA2EF1DB08AA6004362BA /* 搜索 */,
 				A0A96C1C1D98BCCC00E17E6D /* 行车信息 */,
 				A05D73DB1D9A065000E5E3A2 /* 排行榜 */,
 				A05D73DC1D9A10C100E5E3A2 /* 任务  */,
@@ -1383,6 +1473,7 @@
 		A08247CB1D7FF67000DC58C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A06DA2E91DB07109004362BA /* speed_car.png */,
 				A06F08491D9E634100D4E829 /* QRCode.jpg */,
 				A067C6B51D992C01000E4146 /* 回到顶部.png */,
 				A067C6AD1D991CEE000E4146 /* 010.jpg */,
@@ -1568,6 +1659,7 @@
 		A093B8F51DADCF4B009D568A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A06DA2EB1DB07D31004362BA /* Navigation_push */,
 				A093B9141DADD767009D568A /* UIUtilities */,
 				A093B9151DADD778009D568A /* NetworkUtilities */,
 			);
@@ -1600,12 +1692,8 @@
 		A093B90C1DADD561009D568A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A093B90E1DADD5E2009D568A /* UIImage+Color.h */,
-				A093B90F1DADD5E2009D568A /* UIImage+Color.m */,
-				A093B9111DADD609009D568A /* UIImage+Size.h */,
-				A093B9121DADD609009D568A /* UIImage+Size.m */,
-				A093B9211DADDADA009D568A /* UIView+Gesture.h */,
-				A093B9221DADDADA009D568A /* UIView+Gesture.m */,
+				A06DA2FA1DB0AC34004362BA /* UIImage */,
+				A06DA2F91DB0AC27004362BA /* UIView */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1826,6 +1914,7 @@
 				A06227201DAF5804006ADC50 /* TabBar.xcassets in Resources */,
 				A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */,
 				A093B91D1DADD819009D568A /* ShouYe.xcassets in Resources */,
+				A06DA2EA1DB07109004362BA /* speed_car.png in Resources */,
 				A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */,
 				A08247DA1D7FF6A300DC58C2 /* sora_6.png in Resources */,
 				A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */,
@@ -1930,14 +2019,17 @@
 				A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */,
 				A08247A71D7FF30100DC58C2 /* DrivingDataCell.m in Sources */,
 				A06A9D141D9263F200DFAFC2 /* AdviseController.m in Sources */,
+				A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */,
 				A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */,
 				A01A34421D8699FD00852D16 /* UIImageView+WebCache.m in Sources */,
+				A06DA30A1DB0E627004362BA /* YDCarDetailViewController.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
 				A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */,
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
 				A01A33D61D86917500852D16 /* OperationMenuView.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
 				A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */,
+				A06DA3001DB0D8A4004362BA /* YDGarageViewController.m in Sources */,
 				A067C6AC1D98F83C000E4146 /* DataView.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
 				A01A33CF1D868EDC00852D16 /* DynamicCell.m in Sources */,
@@ -1953,6 +2045,7 @@
 				A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */,
 				A067C6A81D98F21B000E4146 /* CornerButton.m in Sources */,
 				A093B93B1DAE173D009D568A /* YDRTypeView.m in Sources */,
+				A06DA2F21DB08AE5004362BA /* YDSearchViewController.m in Sources */,
 				A05887031D858B6C00F488BE /* ChatCell.m in Sources */,
 				A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */,
 				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
@@ -1995,6 +2088,7 @@
 				A06A9D1E1D92805000DFAFC2 /* CommonController.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
+				A06DA2FD1DB0B37C004362BA /* YDSearchResultsTableViewController.m in Sources */,
 				A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */,
 				A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */,
 				A093B9231DADDADA009D568A /* UIView+Gesture.m in Sources */,
@@ -2014,7 +2108,9 @@
 				A05CD12A1DAA1D0D008E01D1 /* ListViewModel.m in Sources */,
 				A057AB8F1D8FB66800F8817E /* APModel.m in Sources */,
 				A01A34411D8699FD00852D16 /* UIImageView+HighlightedWebCache.m in Sources */,
+				A06DA3071DB0DE9F004362BA /* YDGarageModel.m in Sources */,
 				A023EE231D950A0C00581EB1 /* YSLScrollMenuView.m in Sources */,
+				A06DA3041DB0D909004362BA /* YDGarageCell.m in Sources */,
 				A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
@@ -2044,6 +2140,7 @@
 				A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
 				A05D73E21D9A24F000E5E3A2 /* TaskContentView.m in Sources */,
+				A06DA2F81DB0ABCB004362BA /* UIView+Extensions.m in Sources */,
 				A057AB9E1D8FC30E00F8817E /* IQActionSheetToolbar.m in Sources */,
 				A057AB9C1D8FC30E00F8817E /* IQActionSheetPickerView.m in Sources */,
 				A01A34391D8699FD00852D16 /* SDWebImageDownloader.m in Sources */,
@@ -2060,6 +2157,7 @@
 				A01A34381D8699FD00852D16 /* SDWebImageDecoder.m in Sources */,
 				A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
+				A06DA2F71DB0ABCB004362BA /* UIView+Frame.m in Sources */,
 				A093B9081DADD477009D568A /* YDViewController.m in Sources */,
 				A06227231DAF8034006ADC50 /* CaptureViewController.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,

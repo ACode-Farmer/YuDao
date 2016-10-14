@@ -10,4 +10,8 @@
 
 @interface IDCardViewController : UIViewController
 
+@property (nonatomic, strong) NSString *variableTitle;
+@property (nonatomic, strong) NSString *firstTitle;
+@property (nonatomic ,strong) NSString *secondTitle;
+
 @end

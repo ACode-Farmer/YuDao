@@ -37,7 +37,6 @@
         imageX = 10;
         messageX = 65;
     }else{
-        NSLog(@"123");
         imageX = CGRectGetWidth([UIScreen mainScreen].bounds) - 60;
         messageX = imageX - messageSize.width - 45;
     }

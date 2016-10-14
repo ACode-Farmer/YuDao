@@ -15,6 +15,7 @@
 #import "YDMainViewConfigure.h"
 #import "YDRankingViewController.h"
 #import "CaptureViewController.h"
+#import "YDSearchViewController.h"
 
 @interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate>
 
@@ -36,6 +37,10 @@
     self.navigationItem.leftBarButtonItem = ({
         UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"二维码"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemAction:)];
         leftBarButton;
+    });
+    self.navigationItem.rightBarButtonItem = ({
+        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+        rightBarButton;
     });
     self.navigationItem.titleView = ({
         UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_width/2, 40)];
@@ -76,6 +81,10 @@
      
      [self presentViewController:capture animated:YES completion:nil];
     
+}
+
+- (void)rightBarButtonItemAction:(id)sender{
+    [self.navigationController firstLevel_push_fromViewController:self toVC:[YDSearchViewController new]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

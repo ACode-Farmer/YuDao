@@ -12,6 +12,7 @@
 #import "CreateGroupController.h"
 #import "ContactsModel.h"
 #import "UIImage+ChangeIt.h"
+#import "ChatTableViewController.h"
 
 @interface GroupController ()
 
@@ -37,6 +38,17 @@
         rightItem;
     });
     
+}
+
+#pragma mark - Events
+/**
+ *  获得点击图片所在的行
+ *
+ */
+- (void)tapCellGuestureAction:(UIGestureRecognizer *)tap{
+    GroupDetailController *gdVC = [GroupDetailController new];
+    gdVC.type = ControllerTypeOld;
+    [self.navigationController secondLevel_push_fromViewController:self toVC:gdVC];
 }
 
 - (void)rightItemAction{
@@ -72,6 +84,10 @@
         cell.imageView.layer.cornerRadius = 5.0f;
         cell.imageView.layer.masksToBounds = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //给头像添加点击事件
+        UITapGestureRecognizer *tapCell = [[UITapGestureRecognizer alloc ]initWithTarget:self action:@selector(tapCellGuestureAction:)];
+        cell.imageView.userInteractionEnabled = YES;
+        [cell.imageView addGestureRecognizer:tapCell];
     }
     ContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(60, 60, 40, 40)];
@@ -97,9 +113,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GroupDetailController *gdVC = [GroupDetailController new];
-    gdVC.type = ControllerTypeOld;
-    [self.navigationController pushViewController:gdVC animated:YES];
+    ContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];;
+    ChatTableViewController *chatVC = [ChatTableViewController new];
+    chatVC.variableTitle = model.name;
+    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index

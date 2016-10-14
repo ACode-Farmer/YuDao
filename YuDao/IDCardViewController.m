@@ -29,6 +29,7 @@ static NSString *currentImagePath;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.variableTitle;
     self.view.backgroundColor = [UIColor whiteColor];
     self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
@@ -160,7 +161,7 @@ static NSString *currentImagePath;
     if (!_frontView) {
         _frontView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, screen_width, 0.3*screen_height)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
-        label.text = @"请拍照上传身份证正面";
+        label.text = self.firstTitle;
         label.textColor = [UIColor blackColor];
         [_frontView addSubview:label];
         
@@ -182,7 +183,7 @@ static NSString *currentImagePath;
     if (!_backView) {
         _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 5 + CGRectGetMaxY(self.frontView.frame) , screen_width, 0.3*screen_height)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, screen_width, 21)];
-        label.text = @"请拍照上传身份证反面";
+        label.text = self.secondTitle;
         label.textColor = [UIColor blackColor];
         [_backView addSubview:label];
         

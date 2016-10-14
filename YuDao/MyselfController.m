@@ -11,6 +11,10 @@
 #import "LikedPeopleController.h"
 #import "GarageViewController.h"
 #import "MyQRCodeViewController.h"
+#import "MyInformationController.h"
+#import "MyMessageTableViewController.h"
+#import "ContactsTableViewController.h"
+#import "YDGarageViewController.h"
 
 #import "MyselfModel.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
@@ -19,7 +23,7 @@
 
 @property (nonatomic, strong) NSArray *datasource;
 
-@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIImageView *headerView;
 
 @end
 
@@ -31,7 +35,7 @@
    
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.showsVerticalScrollIndicator = false;
-    self.tableView.rowHeight = 45.f;
+    self.tableView.rowHeight = 60*widthHeight_ratio;
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
     self.navigationItem.rightBarButtonItem = rightBarButton;
@@ -68,7 +72,7 @@
     UIAlertAction *one = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ChangeImageController *changeVC = [ChangeImageController new];
         changeVC.optionalTitle = title;
-        [self.navigationController pushViewController:changeVC animated:YES];
+        [self.navigationController firstLevel_push_fromViewController:self toVC:changeVC];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:one];
@@ -113,22 +117,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
-            [self pushViewController:@"MyInformationController"];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[MyInformationController new]];
             break;
         case 1:
-            [self pushViewController:@"MyMessageTableViewController"];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[MyMessageTableViewController new]];
             break;
         case 2:
-            [self pushViewController:@"GarageViewController"];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[YDGarageViewController new]];
             break;
         case 3:
-            [self pushViewController:@"ContactsTableViewController"];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[ContactsTableViewController new]];
             break;
         case 4:
-            [self pushViewController:@"LikedPeopleController"];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[LikedPeopleController new]];
             break;
         case 5:
-            [self pushViewController:@"MyQRCodeViewController"];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:[MyQRCodeViewController new]];
             break;
         default:
             break;
@@ -149,61 +153,59 @@
     return _datasource;
 }
 
-- (UIView *)headerView{
+- (UIImageView *)headerView{
     if (!_headerView) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 160)];
-        [_headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pbg.jpg"]]];
+        _headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 220*widthHeight_ratio)];
+        _headerView.image = [UIImage imageNamed:@"mine_header_back"];
+        _headerView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         [_headerView addGestureRecognizer:tap];
         
         UIButton *userImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [userImageBtn setImage:[UIImage imageNamed:@"icon1.jpg"] forState:0];
         [userImageBtn setImage:[UIImage imageNamed:@"icon1.jpg"] forState:1];
-        userImageBtn.frame = CGRectMake(screen_width/2 - 30, 20, 60, 60);
-        userImageBtn.layer.cornerRadius = 30;
+        userImageBtn.frame = CGRectMake(screen_width/2 - 50*widthHeight_ratio, 20, 100*widthHeight_ratio, 100*widthHeight_ratio);
+        userImageBtn.layer.cornerRadius = 50*widthHeight_ratio;
         userImageBtn.layer.masksToBounds = YES;
         [userImageBtn addTarget:self action:@selector(userImageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIImageView *genderImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Like"]];
-        genderImage.layer.cornerRadius = 15;
-        genderImage.layer.masksToBounds = YES;
-        
         UIButton *vipBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [vipBtn setTitle:@"认证等级 V5" forState:0];
-        [vipBtn setTitleColor:[UIColor orangeColor] forState:0];
+        [vipBtn.titleLabel setFont:[UIFont font_14]];
+        [vipBtn setTitleColor:[UIColor whiteColor] forState:0];
         [vipBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
+        vipBtn.backgroundColor = [UIColor orangeColor];
         vipBtn.enabled = NO;
         
         UIButton *likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [likeBtn setTitle:@"666喜欢" forState:0];
-        [likeBtn setTitleColor:[UIColor orangeColor] forState:0];
+        [likeBtn.titleLabel setFont:[UIFont font_14]];
+        [likeBtn setTitleColor:[UIColor whiteColor] forState:0];
         [likeBtn setImage:[UIImage imageNamed:@"Like"] forState:0];
+        likeBtn.backgroundColor = [UIColor orangeColor];
         likeBtn.enabled = NO;
         
-        NSArray *headerSubViews = @[userImageBtn,genderImage,likeBtn,vipBtn];
+        NSArray *headerSubViews = @[userImageBtn,likeBtn,vipBtn];
         [headerSubViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [_headerView addSubview:obj];
         }];
-        genderImage.sd_layout
-        .leftSpaceToView(userImageBtn,2)
-        .bottomEqualToView(userImageBtn)
-        .widthIs(30)
-        .heightEqualToWidth();
         
         vipBtn.sd_layout
-        .rightSpaceToView(userImageBtn,0)
-        .topSpaceToView(userImageBtn,30)
-        .widthIs(150)
-        .heightIs(30);
+        .rightSpaceToView(userImageBtn,-10)
+        .bottomSpaceToView(_headerView,30*widthHeight_ratio)
+        .leftSpaceToView(_headerView,20*widthHeight_ratio)
+        .heightIs(40*widthHeight_ratio);
+        vipBtn.sd_cornerRadius = @5;
         
         likeBtn.sd_layout
-        .leftSpaceToView(userImageBtn,0)
-        .topEqualToView(vipBtn)
-        .widthIs(150)
-        .heightIs(30);
+        .leftSpaceToView(userImageBtn,-10)
+        .bottomEqualToView(vipBtn)
+        .rightSpaceToView(_headerView,20*widthHeight_ratio)
+        .heightIs(40*widthHeight_ratio);
+        likeBtn.sd_cornerRadius = @5;
         
-        [vipBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
-        [likeBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
+        //[vipBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
+        //[likeBtn layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleLeft imageTitleSpace:2];
     }
     return _headerView;
 }

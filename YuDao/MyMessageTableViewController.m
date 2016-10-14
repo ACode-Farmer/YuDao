@@ -48,7 +48,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    NSLog(@"Message");
 }
 
 #pragma mark - TableViewDatasource
@@ -88,7 +88,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController pushViewController:[ChatTableViewController new] animated:YES];
+    [self.navigationController secondLevel_push_fromViewController:self toVC:[ChatTableViewController new]];
 }
 
 

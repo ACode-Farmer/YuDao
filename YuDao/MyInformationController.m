@@ -129,56 +129,60 @@
 }
 
 - (void)footBtnAction:(UIButton *)sender{
-    [self.navigationController pushViewController:[IDCardViewController new] animated:YES];
+    IDCardViewController *idVC = [IDCardViewController new];
+    idVC.variableTitle = @"个人认证";
+    idVC.firstTitle = @"请拍照上传身份证正面";
+    idVC.secondTitle = @"请拍照上传身份证反面";
+    [self.navigationController secondLevel_push_fromViewController:self toVC:idVC];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
         {
-            [self.navigationController pushViewController:[PersonalHeadController new] animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:[PersonalHeadController new]];
             break;}
         case 1:
         {
             RealOrNickNameController *vc =  [RealOrNickNameController new];
             vc.isReal = NO;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 2:
         {
             RealOrNickNameController *vc =  [RealOrNickNameController new];
             vc.isReal = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 3:
         {
             AgeOrPlaceController *vc = [AgeOrPlaceController new];
             vc.vcType = ControllerTypeAge;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 4:
         {
             AgeOrPlaceController *vc = [AgeOrPlaceController new];
             vc.vcType = ControllerTypeGender;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 5:
         {
             AgeOrPlaceController *vc = [AgeOrPlaceController new];
             vc.vcType = ControllerTypeEmotion;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 6:
         {
             AgeOrPlaceController *vc = [AgeOrPlaceController new];
             vc.vcType = ControllerTypePlace;
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 7:
         {
             InterestController *inVC = [InterestController new];
             inVC.optionalTitle = @"个人兴趣";
-            [self.navigationController pushViewController:inVC animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:inVC];
             break;}
         default:
             break;

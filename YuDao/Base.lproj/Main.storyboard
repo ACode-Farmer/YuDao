@@ -18,9 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="R4p-wt-sdE">
-                        <barButtonItem key="rightBarButtonItem" image="搜索" id="pkH-M4-oIt"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="R4p-wt-sdE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,6 +183,5 @@
         <image name="tab_mine" width="37" height="30"/>
         <image name="tab_service" width="40" height="31"/>
         <image name="tab_shouye" width="50" height="30"/>
-        <image name="搜索" width="20" height="20"/>
     </resources>
 </document>

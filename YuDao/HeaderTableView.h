@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDSearchController.h"
+#import "YDSearchResultsTableViewController.h"
 @class HeaderModel;
 @protocol HeaderTableViewDelegate <NSObject>
 
@@ -17,7 +19,8 @@
 @interface HeaderTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak) id<HeaderTableViewDelegate> clickCellDelegate;
-
+@property (nonatomic ,strong) YDSearchController *searchVC;
+@property (nonatomic, strong) YDSearchResultsTableViewController *searchResultsVC;
 - (instancetype)initWithFrame:(CGRect)frame withDataSource:(NSArray *)dataSource;
 
 @end

@@ -43,11 +43,22 @@
     self.tableView.tableFooterView = [UIView new];
     [self updateHeaderView:self.headerView];
     
-    self.navigationItem.rightBarButtonItem = ({
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction)];
-        
-        rightItem;
-    });
+    NSString *rightBtnTitle = nil;
+    switch (self.type) {
+        case ControllerTypeMine:
+            rightBtnTitle = @"完成";
+            break;
+        case ControllerTypeNew:
+            rightBtnTitle = @"完成";
+            break;
+        case ControllerTypeOld:
+            rightBtnTitle = @"分享";
+            break;
+        default:
+            break;
+    }
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:rightBtnTitle style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
     [self.view addSubview:self.bottomView];
     [self.view bringSubviewToFront:self.bottomView];

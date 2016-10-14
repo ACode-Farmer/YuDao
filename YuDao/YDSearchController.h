@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) BOOL showVoiceButton;
 
+- (id)initWithSearchResultsController:(UIViewController *)searchResultsController;
+
 @end

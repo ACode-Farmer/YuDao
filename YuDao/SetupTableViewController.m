@@ -34,7 +34,7 @@
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
     self.tableView.tableFooterView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 60)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 100)];
         UIView *lineView = [[UIView alloc ]initWithFrame:CGRectMake(0, 0, screen_width, 0.5)];
         lineView.backgroundColor = [UIColor lightGrayColor];
         [view addSubview:lineView];
@@ -49,7 +49,7 @@
         .centerXEqualToView(view)
         .centerYEqualToView(view)
         .widthRatioToView(view,0.8)
-        .heightRatioToView(view,0.8);
+        .heightRatioToView(view,0.5);
         view;
     });
 }
@@ -105,25 +105,25 @@
         case 0:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 1:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 2:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
             break;}
         case 3:
         {
-            [self.navigationController pushViewController:[AdviseController new] animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:[AdviseController new]];
             break;}
         case 4:
         {
-            [self.navigationController pushViewController:[AboutUsController new] animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:[AboutUsController new]];
             break;}
         case 5:
         {
@@ -138,7 +138,7 @@
             break;}
         case 6:
         {
-            [self.navigationController pushViewController:[ProtocolViewController new] animated:YES];
+            [self.navigationController secondLevel_push_fromViewController:self toVC:[ProtocolViewController new]];
             break;}
         default:
             break;

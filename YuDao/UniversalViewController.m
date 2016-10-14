@@ -96,6 +96,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.detailTextLabel.textColor = [UIColor colorTextGray];
     }
     UISwitch *swit = [UISwitch new];
     swit.tag = indexPath.row;
