@@ -78,12 +78,10 @@
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         [btn setTitleColor:[UIColor whiteColor] forState:0];
         
-        CGSize strsize = [items[i] sizeWithAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:13.0] }];
-        btn.width = strsize.width +     margin;
+        CGSize strsize = [@"同城出游" sizeWithAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:13.0] }];
+        btn.width = strsize.width;
         btn.height = strsize.height+ margin;
         btn.layer.cornerRadius = btn.height/2;
-        btn.layer.borderWidth = 1.f;
-        btn.layer.borderColor = [UIColor blackColor].CGColor;
         btn.clipsToBounds = YES;
         if (i == 0) {
             btn.x = margin;

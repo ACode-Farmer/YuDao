@@ -67,7 +67,7 @@
             break;
         case 1:
             if (indexPath.row == 2) {
-                [self.navigationController pushViewController:[DynamicTableViewController new] animated:YES];
+                [self.navigationController firstLevel_push_fromViewController:self toVC:[DynamicTableViewController new]];
             }
             break;
         case 2:

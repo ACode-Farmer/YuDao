@@ -7,7 +7,7 @@
 //
 
 #import "SortTableView.h"
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 
 
 @implementation SortTableView
@@ -34,8 +34,8 @@
         self.delegate = self;
         
         //排序数据源
-        _indexArray = [ContactsModel IndexArray:dataSource];
-        _dataSource = [ContactsModel LetterSortArray:dataSource];
+        _indexArray = [YDContactsModel IndexArray:dataSource];
+        _dataSource = [YDContactsModel LetterSortArray:dataSource];
         
         _sectionTitleView = ({
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(screen_width/2-50, screen_height/2-100,100,100)];
@@ -91,7 +91,7 @@
 //            button;
 //        });
     }
-    ContactsModel *model = [[_dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDContactsModel *model = [[_dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
     return cell;
 }
@@ -123,7 +123,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ContactsModel *model = [[_dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDContactsModel *model = [[_dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                     message:model.name
                                                    delegate:nil

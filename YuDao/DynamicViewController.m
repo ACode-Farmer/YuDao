@@ -13,6 +13,7 @@
 #import "YDMainViewConfigure.h"
 #import "YDDynamicCell.h"
 #import "YDDModel.h"
+#import "DynamicTableViewController.h"
 
 static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
 
@@ -63,6 +64,7 @@ static NSString *const YDDynamicCellIdentifier = @"YDDynamicCell";
 #pragma collectionView delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld %ld",(long)indexPath.section,(long)indexPath.row);
+    [self.navigationController firstLevel_push_fromViewController:self toVC:[DynamicTableViewController new]];
 }
 
 - (void)collectionContentHeight{

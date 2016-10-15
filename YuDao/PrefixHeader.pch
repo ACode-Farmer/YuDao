@@ -12,7 +12,7 @@
 #import "UIColor+YuDao.h"       //颜色
 #import "UIFont+YuDao.h"        //字体
 #import "YDMacros.h"            //宏
-#import "YDMacros.h"            //枚举
+#import "YDEnumerate.h"            //枚举
 #import "UIView+Gesture.h"      //view上扩展手势
 #import "UIImageView+YuDao.h"   //圆形图片
 #import "UINavigationController+YuDao.h" //跳转界面

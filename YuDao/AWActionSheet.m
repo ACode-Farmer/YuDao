@@ -13,7 +13,6 @@
 @property (nonatomic, retain)UIScrollView* scrollView;
 @property (nonatomic, retain)UIPageControl* pageControl;
 @property (nonatomic, retain)NSMutableArray* items;
-@property (nonatomic, assign)id<AWActionSheetDelegate> IconDelegate;
 @property (nonatomic, assign) NSInteger itemCountforOneLine;
 
 @property (nonatomic, strong) UIView *backgroundMask;

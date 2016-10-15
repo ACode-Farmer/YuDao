@@ -6,21 +6,31 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 
-@implementation ContactsModel
+@implementation YDContactsModel
 
 + (instancetype)modelWith:(NSString *)name{
-    ContactsModel *model = [self new];
+    YDContactsModel *model = [self new];
     model.name = name;
     return model;
 }
 
 +(instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName{
-    ContactsModel *model = [self new];
+    YDContactsModel *model = [self new];
     model.name = name;
     model.imageName = imageName;
     
+    return model;
+}
+
++ (instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName groupType:(YDGroupDetailType )groupType{
+    YDContactsModel *model = [self new];
+    model.name = name;
+    model.imageName = imageName;
+    
+    model.groupType = groupType;
+    NSLog(@"type = %ld",model.groupType);
     return model;
 }
 
@@ -31,7 +41,7 @@
     NSMutableArray *A_Result = [NSMutableArray array];
     NSString *tempString ;
     
-    for (ContactsModel* model in tempArray)
+    for (YDContactsModel* model in tempArray)
     {
         NSString *pinyin = [model.pinYin substringToIndex:1];
         //不同
@@ -52,7 +62,7 @@
     NSMutableArray *item = [NSMutableArray array];
     NSString *tempString;
     //拼音分组
-    for (ContactsModel *model in tempArray) {
+    for (YDContactsModel *model in tempArray) {
         
         NSString *pinyin = [model.pinYin substringToIndex:1];
         //不同
@@ -84,7 +94,7 @@
     NSMutableArray *tempArray =[NSMutableArray array];
     for(int i=0;i<[stringArr count];i++)
     {
-        ContactsModel *model = [stringArr objectAtIndex:i];
+        YDContactsModel *model = [stringArr objectAtIndex:i];
         if(model.name == nil){
             model.name = @"";
         }
@@ -92,7 +102,7 @@
         model.name  = [model.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         //这里我自己写了一个递归过滤指定字符串   RemoveSpecialCharacter
-        model.name = [ContactsModel RemoveSpecialCharacter:model.name];
+        model.name = [YDContactsModel RemoveSpecialCharacter:model.name];
         
         //判断首字符是否为字母
         NSString *regex = @"[A-Za-z]+";
@@ -134,8 +144,8 @@
     //拼音分组
     for (NSString* object in tempArray) {
         
-        NSString *pinyin = [((ContactsModel*)object).pinYin substringToIndex:1];
-        NSString *string = ((ContactsModel*)object).name;
+        NSString *pinyin = [((YDContactsModel*)object).pinYin substringToIndex:1];
+        NSString *string = ((YDContactsModel*)object).name;
         //不同
         if(![tempString isEqualToString:pinyin])
         {
@@ -165,7 +175,7 @@
     NSMutableArray *chineseStringsArray=[NSMutableArray array];
     for(int i=0;i<[stringArr count];i++)
     {
-        ContactsModel *chineseString = [[ContactsModel alloc]init];
+        YDContactsModel *chineseString = [[YDContactsModel alloc]init];
         chineseString.name = [NSString stringWithString:[stringArr objectAtIndex:i]];
         if(chineseString.name == nil){
             chineseString.name = @"";
@@ -174,7 +184,7 @@
         chineseString.name  = [chineseString.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         //这里我自己写了一个递归过滤指定字符串   RemoveSpecialCharacter
-        chineseString.name = [ContactsModel RemoveSpecialCharacter:chineseString.name];
+        chineseString.name = [YDContactsModel RemoveSpecialCharacter:chineseString.name];
         
         //判断首字符是否为字母
         NSString *regex = @"[A-Za-z]+";
@@ -215,7 +225,7 @@
     //把排序好的内容从ChineseString类中提取出来
     NSMutableArray *result = [NSMutableArray array];
     for(int i=0;i<[stringArr count];i++){
-        [result addObject:((ContactsModel*)[tempArray objectAtIndex:i]).name];
+        [result addObject:((YDContactsModel*)[tempArray objectAtIndex:i]).name];
     }
     return result;
 }

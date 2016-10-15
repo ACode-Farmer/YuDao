@@ -18,9 +18,13 @@
 @end
 
 @interface AWActionSheet : UIWindow
+
+@property (nonatomic, assign)id<AWActionSheetDelegate> IconDelegate;
+
 -(id)initWithIconSheetDelegate:(id<AWActionSheetDelegate>)delegate ItemCount:(int)cout;
 
 - (void)show;
+
 @end
 
 

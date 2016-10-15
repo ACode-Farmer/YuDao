@@ -8,7 +8,7 @@
 
 #import "PhoneContactsTableViewController.h"
 #import <AddressBook/AddressBook.h>
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 
 @interface PhoneContactsTableViewController ()
 
@@ -26,8 +26,8 @@
     [super viewDidLoad];
     
     [self loadPerson];
-    _indexArray = [ContactsModel IndexArray:_dataSource];
-    _dataSource = [ContactsModel LetterSortArray:_dataSource];
+    _indexArray = [YDContactsModel IndexArray:_dataSource];
+    _dataSource = [YDContactsModel LetterSortArray:_dataSource];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -78,7 +78,7 @@
     CFArrayRef people = ABAddressBookCopyArrayOfAllPeople(addressBook);
     
     for ( int i = 0; i < numberOfPeople; i++){
-        ContactsModel *model = [[ContactsModel alloc] init];
+        YDContactsModel *model = [[YDContactsModel alloc] init];
         ABRecordRef person = CFArrayGetValueAtIndex(people, i);
         NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
         NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(person, kABPersonLastNameProperty));
@@ -138,7 +138,7 @@
             button;
         });
     }
-    ContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDContactsModel *model = [[self.dataSource objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
     return cell;
 }

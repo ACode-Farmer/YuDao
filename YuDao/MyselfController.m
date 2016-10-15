@@ -132,7 +132,7 @@
             [self.navigationController firstLevel_push_fromViewController:self toVC:[LikedPeopleController new]];
             break;
         case 5:
-            [self.navigationController secondLevel_push_fromViewController:self toVC:[MyQRCodeViewController new]];
+            [self.navigationController firstLevel_push_fromViewController:self toVC:[MyQRCodeViewController new]];
             break;
         default:
             break;

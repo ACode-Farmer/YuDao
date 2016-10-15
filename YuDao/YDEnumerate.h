@@ -10,6 +10,16 @@
 #define YDEnumerate_h
 
 /**
+ *  群组详情类型
+ */
+typedef NS_ENUM(NSInteger, YDGroupDetailType) {
+    YDGroupDetailTypeMine,          //我的群组
+    YDGroupDetailTypeNew,           //新建的群(这里表示建群的最后一步)
+    YDGroupDetailTypeJoined,        //已经加入的群组
+    YDGroupDetailTypeNotJoin,       //未加入的群组(可能是搜索活着扫码得到的)
+};
+
+/**
  *  会话提示类型
  */
 typedef NS_ENUM(NSInteger, TLClueType) {

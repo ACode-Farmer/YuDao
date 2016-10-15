@@ -7,9 +7,9 @@
 //
 
 #import "InterestController.h"
-#import "GroupDetailController.h"
 #import "InterestView.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
+#import "YDMGroupDetailViewController.h"
 @interface InterestController ()
 
 @property (nonatomic, strong) UIScrollView *scrView;
@@ -66,8 +66,8 @@
     .rightEqualToView(_inView2)
     ;
     
-    [_inView1 addItems:@[@"腾讯",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
-    [_inView2 addItems:@[@"腾讯",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
+    [_inView1 addItems:@[@"旅游",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
+    [_inView2 addItems:@[@"美食",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
     [_inView3 addItems:@[@"这是一句用来测试的文本",@"腾讯",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
     
     [self.scrView setupAutoContentSizeWithBottomView:_inView3 bottomMargin:0];
@@ -79,7 +79,8 @@
     if ([sender.title isEqualToString:@"完成"]) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-        [self.navigationController pushViewController:[GroupDetailController new] animated:YES];
+        YDMGroupDetailViewController *gdVC = [[YDMGroupDetailViewController alloc] initWithType:YDGroupDetailTypeNew title:@"群组详情"];
+        [self.navigationController secondLevel_push_fromViewController:self toVC:gdVC];
     }
     
 }

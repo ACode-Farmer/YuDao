@@ -40,7 +40,7 @@ static CGFloat textFieldH = 40;
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
     //[self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
-    self.dataArray = [NSMutableArray arrayWithArray:[self creatModelsWithCount:10]];
+    self.dataArray = [NSMutableArray arrayWithArray:[self creatModelsWithCount:3]];
     
     TableHeaderView *headerView = [TableHeaderView new];
     headerView.frame = CGRectMake(0, 0, 0, 260);

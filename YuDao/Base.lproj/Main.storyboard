@@ -46,7 +46,7 @@
         <!--服务-->
         <scene sceneID="R1E-yW-dkY">
             <objects>
-                <viewController id="dAE-If-VAi" sceneMemberID="viewController">
+                <viewController id="dAE-If-VAi" customClass="YDServiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5th-Tb-wBN"/>
                         <viewControllerLayoutGuide type="bottom" id="mMD-d9-vM3"/>

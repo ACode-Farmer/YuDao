@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "pinyin.h"
 
-@interface ContactsModel : NSObject
+@interface YDContactsModel : NSObject
 
+@property (nonatomic, assign) YDGroupDetailType groupType;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *pinYin;
 @property (nonatomic, copy) NSString *imageName;
@@ -19,9 +20,14 @@
 //1.已经是好友了  2.已注册但不是好友  3.未注册(邀请注册)
 @property (nonatomic, assign) NSInteger type;
 
+
+
+
 + (instancetype)modelWith:(NSString *)name;
 
 + (instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName;
+
++ (instancetype)modelWith:(NSString *)name imageName:(NSString *)imageName groupType:(YDGroupDetailType )groupType;
 
 //-----  返回tableview右方indexArray
 +(NSMutableArray*)IndexArray:(NSArray*)stringArr;

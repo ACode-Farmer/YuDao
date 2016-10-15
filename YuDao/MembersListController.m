@@ -7,12 +7,12 @@
 //
 
 #import "MembersListController.h"
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 #import "UIImage+ChangeIt.h"
 
 @interface MembersListController ()
 
-@property (nonatomic, strong) NSMutableArray<ContactsModel *> *dataSource;
+@property (nonatomic, strong) NSMutableArray<YDContactsModel *> *dataSource;
 
 @end
 
@@ -40,7 +40,7 @@
         cell.imageView.layer.masksToBounds = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    ContactsModel *model = self.dataSource[indexPath.row];
+    YDContactsModel *model = self.dataSource[indexPath.row];
     UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(60, 60, 40, 40)];
     cell.imageView.image = image;
     cell.textLabel.text = model.name;
@@ -55,7 +55,7 @@
         for (NSInteger i = 0; i<5; i++) {
             
             NSString *string = [NSString stringWithFormat:@"head%ld.jpg",i];
-            ContactsModel *model = [ContactsModel modelWith:@"来啊来啊！！！" imageName:string];
+            YDContactsModel *model = [YDContactsModel modelWith:@"来啊来啊！！！" imageName:string];
             [_dataSource addObject:model];
         }
     }

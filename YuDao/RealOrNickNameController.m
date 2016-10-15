@@ -51,7 +51,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.textF becomeFirstResponder];
+    //[self.textF becomeFirstResponder];
 }
 
 #pragma mark - Events

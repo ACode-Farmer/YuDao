@@ -8,7 +8,7 @@
 
 #import "BrandViewController.h"
 #import "SortTableView.h"
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 
 @interface BrandViewController ()
 
@@ -30,11 +30,11 @@
 #pragma mark - Getters
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {
-        ContactsModel *model1 = [ContactsModel modelWith:@"AAA"];
-        ContactsModel *model2 = [ContactsModel modelWith:@"BBB"];
-        ContactsModel *model3 = [ContactsModel modelWith:@"CCC"];
-        ContactsModel *model4 = [ContactsModel modelWith:@"DDD"];
-        ContactsModel *model5 = [ContactsModel modelWith:@"EEE"];
+        YDContactsModel *model1 = [YDContactsModel modelWith:@"AAA"];
+        YDContactsModel *model2 = [YDContactsModel modelWith:@"BBB"];
+        YDContactsModel *model3 = [YDContactsModel modelWith:@"CCC"];
+        YDContactsModel *model4 = [YDContactsModel modelWith:@"DDD"];
+        YDContactsModel *model5 = [YDContactsModel modelWith:@"EEE"];
     
         _dataSource = [NSMutableArray arrayWithObjects:model1,model2,model3,model4,model5, nil];
     }

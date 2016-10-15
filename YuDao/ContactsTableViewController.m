@@ -12,11 +12,12 @@
 #import "ChatTableViewController.h"
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
-#import "ContactsModel.h"
+#import "YDContactsModel.h"
 
 #import "UIImage+ChangeIt.h"
 
 @interface ContactsTableViewController ()<HeaderTableViewDelegate>
+
 @property(nonatomic,strong)NSMutableArray *indexArray;
 @property(nonatomic,strong)NSMutableArray *letterResultArr;
 
@@ -55,13 +56,13 @@
                               nil];
     NSMutableArray *tempArray = [NSMutableArray array];
     for (NSString *name in stringsToSort) {
-        ContactsModel *model = [[ContactsModel alloc] init];
+        YDContactsModel *model = [[YDContactsModel alloc] init];
         model.imageName = @"icon1.jpg";
         model.name = name;
         [tempArray addObject:model];
     }
-    self.indexArray = [ContactsModel IndexArray:tempArray];
-    self.letterResultArr = [ContactsModel LetterSortArray:tempArray];
+    self.indexArray = [YDContactsModel IndexArray:tempArray];
+    self.letterResultArr = [YDContactsModel LetterSortArray:tempArray];
     
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.rowHeight = 45;
@@ -71,10 +72,20 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(contactsRightBarItemAction:)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
 }
 
 #pragma mark - Events
+
+- (void)contactsRightBarItemAction:(UIBarButtonItem *)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"添加好友界面尚未完成"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
+    [alert show];
+}
+
 /**
  *  获得点击图片所在的行
  *
@@ -134,7 +145,7 @@
         UITapGestureRecognizer *tapCell = [[UITapGestureRecognizer alloc ]initWithTarget:self action:@selector(tapCellGuestureAction:)];
         [cell.imageView addGestureRecognizer:tapCell];
     }
-    ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     cell.textLabel.text = model.name;
     UIImage *image = [[UIImage alloc] clipImageWithImage:[UIImage imageNamed:model.imageName] inRect:CGRectMake(60, 60, 40, 40)];
     cell.imageView.image = image;
@@ -163,7 +174,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     ChatTableViewController *chatVC = [ChatTableViewController new];
     chatVC.variableTitle = model.name;
     [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];

@@ -19,6 +19,7 @@
 @interface HeaderTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak) id<HeaderTableViewDelegate> clickCellDelegate;
+
 @property (nonatomic ,strong) YDSearchController *searchVC;
 @property (nonatomic, strong) YDSearchResultsTableViewController *searchResultsVC;
 - (instancetype)initWithFrame:(CGRect)frame withDataSource:(NSArray *)dataSource;

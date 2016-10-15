@@ -70,7 +70,6 @@
 		A023EE231D950A0C00581EB1 /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */; };
 		A023EE261D951B6000581EB1 /* LikedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE251D951B6000581EB1 /* LikedListController.m */; };
 		A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A023EE291D9522DB00581EB1 /* LIkedListCell.m */; };
-		A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E01D938F46006D38A4 /* MembersListController.m */; };
 		A034C9E61D93BFAD006D38A4 /* AWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */; };
 		A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A034C9E81D93C44D006D38A4 /* CreateGroupController.m */; };
 		A034C9EB1D93C44D006D38A4 /* CreateGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */; };
@@ -124,7 +123,6 @@
 		A06A9D1A1D9265F800DFAFC2 /* AboutUsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06A9D181D9265F800DFAFC2 /* AboutUsController.xib */; };
 		A06A9D1E1D92805000DFAFC2 /* CommonController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D1D1D92805000DFAFC2 /* CommonController.m */; };
 		A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D201D928AA900DFAFC2 /* GroupController.m */; };
-		A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D231D92902600DFAFC2 /* GroupDetailController.m */; };
 		A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D261D929A6C00DFAFC2 /* PersonalController.m */; };
 		A06DA2EA1DB07109004362BA /* speed_car.png in Resources */ = {isa = PBXBuildFile; fileRef = A06DA2E91DB07109004362BA /* speed_car.png */; };
 		A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */; };
@@ -146,6 +144,12 @@
 		A0743E601DABA63F00545125 /* YDDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E5F1DABA63F00545125 /* YDDModel.m */; };
 		A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4001DACC58E00F6821D /* YDLoginViewController.m */; };
 		A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4061DACDA9700F6821D /* YDSpotView.m */; };
+		A07641D61DB1DAB8009664D1 /* YDGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641D51DB1DAB8009664D1 /* YDGroupDetailViewController.m */; };
+		A07641DB1DB1EF3E009664D1 /* YDMGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641DA1DB1EF3E009664D1 /* YDMGroupDetailViewController.m */; };
+		A07641DE1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641DD1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m */; };
+		A07641E21DB202D8009664D1 /* MembersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E11DB202D8009664D1 /* MembersListController.m */; };
+		A07641E51DB20EF0009664D1 /* YDGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E41DB20EF0009664D1 /* YDGroupModel.m */; };
+		A07641E81DB224E5009664D1 /* YDServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E71DB224E5009664D1 /* YDServiceViewController.m */; };
 		A078413B1D89435B00D015D3 /* ListScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A078413A1D89435B00D015D3 /* ListScrollView.m */; };
 		A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */; };
 		A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */; };
@@ -199,7 +203,7 @@
 		A08247F21D80009300DC58C2 /* LocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247F11D80009300DC58C2 /* LocationView.m */; };
 		A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247F41D80013A00DC58C2 /* LocationModel.m */; };
 		A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247F81D80148D00DC58C2 /* pinyin.m */; };
-		A08247FC1D80148D00DC58C2 /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247FA1D80148D00DC58C2 /* ContactsModel.m */; };
+		A08247FC1D80148D00DC58C2 /* YDContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247FA1D80148D00DC58C2 /* YDContactsModel.m */; };
 		A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247FF1D8014BE00DC58C2 /* ContactsTableViewController.m */; };
 		A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248051D8018E100DC58C2 /* HeaderTableView.m */; };
 		A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248081D8019BF00DC58C2 /* HeaderModel.m */; };
@@ -345,7 +349,6 @@
 		A023EE281D9522DB00581EB1 /* LIkedListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIkedListCell.h; sourceTree = "<group>"; };
 		A023EE291D9522DB00581EB1 /* LIkedListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIkedListCell.m; sourceTree = "<group>"; };
 		A034C9DF1D938F46006D38A4 /* MembersListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersListController.h; sourceTree = "<group>"; };
-		A034C9E01D938F46006D38A4 /* MembersListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersListController.m; sourceTree = "<group>"; };
 		A034C9E41D93BFAD006D38A4 /* AWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWActionSheet.h; sourceTree = "<group>"; };
 		A034C9E51D93BFAD006D38A4 /* AWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWActionSheet.m; sourceTree = "<group>"; };
 		A034C9E71D93C44D006D38A4 /* CreateGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupController.h; sourceTree = "<group>"; };
@@ -443,8 +446,6 @@
 		A06A9D1D1D92805000DFAFC2 /* CommonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonController.m; sourceTree = "<group>"; };
 		A06A9D1F1D928AA900DFAFC2 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
 		A06A9D201D928AA900DFAFC2 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
-		A06A9D221D92902600DFAFC2 /* GroupDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailController.h; sourceTree = "<group>"; };
-		A06A9D231D92902600DFAFC2 /* GroupDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailController.m; sourceTree = "<group>"; };
 		A06A9D251D929A6C00DFAFC2 /* PersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalController.h; sourceTree = "<group>"; };
 		A06A9D261D929A6C00DFAFC2 /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
 		A06DA2E91DB07109004362BA /* speed_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_car.png; sourceTree = "<group>"; };
@@ -484,6 +485,17 @@
 		A074B4001DACC58E00F6821D /* YDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDLoginViewController.m; sourceTree = "<group>"; };
 		A074B4051DACDA9700F6821D /* YDSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSpotView.h; sourceTree = "<group>"; };
 		A074B4061DACDA9700F6821D /* YDSpotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSpotView.m; sourceTree = "<group>"; };
+		A07641D41DB1DAB8009664D1 /* YDGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGroupDetailViewController.h; sourceTree = "<group>"; };
+		A07641D51DB1DAB8009664D1 /* YDGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGroupDetailViewController.m; sourceTree = "<group>"; };
+		A07641D91DB1EF3E009664D1 /* YDMGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMGroupDetailViewController.h; sourceTree = "<group>"; };
+		A07641DA1DB1EF3E009664D1 /* YDMGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMGroupDetailViewController.m; sourceTree = "<group>"; };
+		A07641DC1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDMGroupDetailViewController+Delegate.h"; sourceTree = "<group>"; };
+		A07641DD1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDMGroupDetailViewController+Delegate.m"; sourceTree = "<group>"; };
+		A07641E11DB202D8009664D1 /* MembersListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersListController.m; sourceTree = "<group>"; };
+		A07641E31DB20EF0009664D1 /* YDGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGroupModel.h; sourceTree = "<group>"; };
+		A07641E41DB20EF0009664D1 /* YDGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGroupModel.m; sourceTree = "<group>"; };
+		A07641E61DB224E5009664D1 /* YDServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDServiceViewController.h; sourceTree = "<group>"; };
+		A07641E71DB224E5009664D1 /* YDServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDServiceViewController.m; sourceTree = "<group>"; };
 		A07841391D89435B00D015D3 /* ListScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListScrollView.h; sourceTree = "<group>"; };
 		A078413A1D89435B00D015D3 /* ListScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListScrollView.m; sourceTree = "<group>"; };
 		A07B8C331D9BAEFB0040DD8B /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
@@ -574,8 +586,8 @@
 		A08247F41D80013A00DC58C2 /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 		A08247F71D80148D00DC58C2 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		A08247F81D80148D00DC58C2 /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
-		A08247F91D80148D00DC58C2 /* ContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsModel.h; sourceTree = "<group>"; };
-		A08247FA1D80148D00DC58C2 /* ContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsModel.m; sourceTree = "<group>"; };
+		A08247F91D80148D00DC58C2 /* YDContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDContactsModel.h; sourceTree = "<group>"; };
+		A08247FA1D80148D00DC58C2 /* YDContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDContactsModel.m; sourceTree = "<group>"; };
 		A08247FE1D8014BE00DC58C2 /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
 		A08247FF1D8014BE00DC58C2 /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
 		A08248041D8018E100DC58C2 /* HeaderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderTableView.h; sourceTree = "<group>"; };
@@ -1096,6 +1108,7 @@
 		A06A9D1B1D92802D00DFAFC2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A07641D71DB1DABD009664D1 /* YDGroupDetailViewController */,
 				A093B92D1DAE03FD009D568A /* YDAllListViewContoller */,
 				A093B8F11DADCE7B009D568A /* YDSearchController */,
 				A093B8F01DADCDFB009D568A /* YDViewController */,
@@ -1191,6 +1204,45 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		A07641D71DB1DABD009664D1 /* YDGroupDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A07641D41DB1DAB8009664D1 /* YDGroupDetailViewController.h */,
+				A07641D51DB1DAB8009664D1 /* YDGroupDetailViewController.m */,
+			);
+			name = YDGroupDetailViewController;
+			sourceTree = "<group>";
+		};
+		A07641D81DB1EE6A009664D1 /* 群组 */ = {
+			isa = PBXGroup;
+			children = (
+				A06A9D1F1D928AA900DFAFC2 /* GroupController.h */,
+				A06A9D201D928AA900DFAFC2 /* GroupController.m */,
+				A034C9E71D93C44D006D38A4 /* CreateGroupController.h */,
+				A034C9E81D93C44D006D38A4 /* CreateGroupController.m */,
+				A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */,
+				A034C9EC1D93CA36006D38A4 /* PlaceController.h */,
+				A034C9ED1D93CA36006D38A4 /* PlaceController.m */,
+				A07641E31DB20EF0009664D1 /* YDGroupModel.h */,
+				A07641E41DB20EF0009664D1 /* YDGroupModel.m */,
+				A07641E01DB1F7F1009664D1 /* 群组详情 */,
+			);
+			name = "群组";
+			sourceTree = "<group>";
+		};
+		A07641E01DB1F7F1009664D1 /* 群组详情 */ = {
+			isa = PBXGroup;
+			children = (
+				A07641D91DB1EF3E009664D1 /* YDMGroupDetailViewController.h */,
+				A07641DA1DB1EF3E009664D1 /* YDMGroupDetailViewController.m */,
+				A07641DC1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.h */,
+				A07641DD1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m */,
+				A034C9DF1D938F46006D38A4 /* MembersListController.h */,
+				A07641E11DB202D8009664D1 /* MembersListController.m */,
+			);
+			name = "群组详情";
+			sourceTree = "<group>";
+		};
 		A07B8C311D9BAAB60040DD8B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1241,8 +1293,8 @@
 			children = (
 				A07B8C3D1D9BBA560040DD8B /* SortTableView.h */,
 				A07B8C3E1D9BBA560040DD8B /* SortTableView.m */,
-				A08247F91D80148D00DC58C2 /* ContactsModel.h */,
-				A08247FA1D80148D00DC58C2 /* ContactsModel.m */,
+				A08247F91D80148D00DC58C2 /* YDContactsModel.h */,
+				A08247FA1D80148D00DC58C2 /* YDContactsModel.m */,
 				A08247F71D80148D00DC58C2 /* pinyin.h */,
 				A08247F81D80148D00DC58C2 /* pinyin.m */,
 			);
@@ -1274,6 +1326,8 @@
 		A07F82A11D82A2F100F9EA6B /* 服务 */ = {
 			isa = PBXGroup;
 			children = (
+				A07641E61DB224E5009664D1 /* YDServiceViewController.h */,
+				A07641E71DB224E5009664D1 /* YDServiceViewController.m */,
 			);
 			name = "服务";
 			sourceTree = "<group>";
@@ -1551,16 +1605,9 @@
 				A08248031D8018B800DC58C2 /* Models */,
 				A08248021D8018B200DC58C2 /* VIews */,
 				A08248011D80189C00DC58C2 /* Controllers */,
-				A08247FD1D8014A000DC58C2 /* ContactsSort */,
+				A07641D81DB1EE6A009664D1 /* 群组 */,
 			);
 			name = "通讯录";
-			sourceTree = "<group>";
-		};
-		A08247FD1D8014A000DC58C2 /* ContactsSort */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ContactsSort;
 			sourceTree = "<group>";
 		};
 		A08248011D80189C00DC58C2 /* Controllers */ = {
@@ -1570,17 +1617,6 @@
 				A08247FF1D8014BE00DC58C2 /* ContactsTableViewController.m */,
 				A0493B171D812DC4006FCD50 /* PhoneContactsTableViewController.h */,
 				A0493B181D812DC4006FCD50 /* PhoneContactsTableViewController.m */,
-				A06A9D1F1D928AA900DFAFC2 /* GroupController.h */,
-				A06A9D201D928AA900DFAFC2 /* GroupController.m */,
-				A034C9E71D93C44D006D38A4 /* CreateGroupController.h */,
-				A034C9E81D93C44D006D38A4 /* CreateGroupController.m */,
-				A034C9E91D93C44D006D38A4 /* CreateGroupController.xib */,
-				A034C9EC1D93CA36006D38A4 /* PlaceController.h */,
-				A034C9ED1D93CA36006D38A4 /* PlaceController.m */,
-				A06A9D221D92902600DFAFC2 /* GroupDetailController.h */,
-				A06A9D231D92902600DFAFC2 /* GroupDetailController.m */,
-				A034C9DF1D938F46006D38A4 /* MembersListController.h */,
-				A034C9E01D938F46006D38A4 /* MembersListController.m */,
 				A06A9D251D929A6C00DFAFC2 /* PersonalController.h */,
 				A06A9D261D929A6C00DFAFC2 /* PersonalController.m */,
 			);
@@ -2006,6 +2042,7 @@
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A05D73E61D9A5EC400E5E3A2 /* DynamicViewController.m in Sources */,
 				A08247C71D7FF4C800DC58C2 /* FriendModel.m in Sources */,
+				A07641E21DB202D8009664D1 /* MembersListController.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
 				A0743E581DAB641D00545125 /* YDListTableView.m in Sources */,
@@ -2028,7 +2065,6 @@
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
 				A01A33D61D86917500852D16 /* OperationMenuView.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
-				A034C9E11D938F46006D38A4 /* MembersListController.m in Sources */,
 				A06DA3001DB0D8A4004362BA /* YDGarageViewController.m in Sources */,
 				A067C6AC1D98F83C000E4146 /* DataView.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
@@ -2040,8 +2076,9 @@
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
 				A037BC691D91039400D8D12F /* CityController.m in Sources */,
 				A01A34111D8699DE00852D16 /* SDWaitingView.m in Sources */,
+				A07641E81DB224E5009664D1 /* YDServiceViewController.m in Sources */,
 				A01A33FA1D86941500852D16 /* MLExpressionManager.m in Sources */,
-				A08247FC1D80148D00DC58C2 /* ContactsModel.m in Sources */,
+				A08247FC1D80148D00DC58C2 /* YDContactsModel.m in Sources */,
 				A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */,
 				A067C6A81D98F21B000E4146 /* CornerButton.m in Sources */,
 				A093B93B1DAE173D009D568A /* YDRTypeView.m in Sources */,
@@ -2093,12 +2130,13 @@
 				A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */,
 				A093B9231DADDADA009D568A /* UIView+Gesture.m in Sources */,
 				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
-				A06A9D241D92902600DFAFC2 /* GroupDetailController.m in Sources */,
 				A01A343C1D8699FD00852D16 /* SDWebImagePrefetcher.m in Sources */,
 				A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */,
+				A07641DE1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m in Sources */,
 				A08247911D7FC61D00DC58C2 /* HomePageController.m in Sources */,
 				A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */,
 				A01A343D1D8699FD00852D16 /* UIButton+WebCache.m in Sources */,
+				A07641D61DB1DAB8009664D1 /* YDGroupDetailViewController.m in Sources */,
 				A01A34371D8699FD00852D16 /* SDWebImageCompat.m in Sources */,
 				A01A33F71D86941500852D16 /* NSAttributedString+MLLabel.m in Sources */,
 				A0743E551DAB5E3400545125 /* YDListCell.m in Sources */,
@@ -2136,6 +2174,7 @@
 				A093B9131DADD609009D568A /* UIImage+Size.m in Sources */,
 				A05CD11C1DA9D9C5008E01D1 /* YDListViewController.m in Sources */,
 				A093B8F41DADCEA9009D568A /* YDNavigationController.m in Sources */,
+				A07641E51DB20EF0009664D1 /* YDGroupModel.m in Sources */,
 				A0743E5C1DAB7E1F00545125 /* YDDynamicCell.m in Sources */,
 				A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */,
 				A08247941D7FC64A00DC58C2 /* HomePageTableView.m in Sources */,
@@ -2158,6 +2197,7 @@
 				A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */,
 				A08247CA1D7FF5AA00DC58C2 /* SignInView.m in Sources */,
 				A06DA2F71DB0ABCB004362BA /* UIView+Frame.m in Sources */,
+				A07641DB1DB1EF3E009664D1 /* YDMGroupDetailViewController.m in Sources */,
 				A093B9081DADD477009D568A /* YDViewController.m in Sources */,
 				A06227231DAF8034006ADC50 /* CaptureViewController.m in Sources */,
 				A08247F51D80013A00DC58C2 /* LocationModel.m in Sources */,
