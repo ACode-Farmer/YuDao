@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.tableFooterView = [UIView new];
 }
 
 //根据控制器类型取得相应的数据源

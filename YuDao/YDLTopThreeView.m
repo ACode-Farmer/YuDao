@@ -20,8 +20,8 @@
 //小视图宽高
 #define kImageViewWidth      65 * widthHeight_ratio
 #define kImageViewHeight     65 * widthHeight_ratio
-#define kSmallBtnWidth       32 * widthHeight_ratio
-#define kSmallBtnHeight      22 * widthHeight_ratio
+#define kSmallBtnWidth       35 * widthHeight_ratio
+#define kSmallBtnHeight      21 * widthHeight_ratio
 #define kAttentionBtnWidth   98 * widthHeight_ratio
 #define kAttentionBtnHeight  26 * widthHeight_ratio
 
@@ -48,6 +48,7 @@
     [_modelArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ListViewModel *model = (ListViewModel *)obj;
         UIView *view = [self commonViewWithModel:model];
+        view.tag = 1000+idx;
         [self addSubview:view];
         [views addObject:view];
         view.sd_cornerRadius = @5;
@@ -81,7 +82,10 @@
     view.backgroundColor = [UIColor whiteColor];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:model.imageName]];
+    imageView.userInteractionEnabled = YES;
     [view addSubview:imageView];
+    UITapGestureRecognizer *tapHeader = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topTheeeViewTapHeaderImage:)];
+    [imageView addGestureRecognizer:tapHeader];
     UIImageView *smallImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vip"]];
     [view addSubview:smallImageView];
     UIImageView *placingImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"list_placing"]];
@@ -128,8 +132,9 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.adjustsFontSizeToFitWidth = YES;
         [label.layer setCornerRadius:5];
-        label.layer.borderWidth = 1.0f;
-        label.layer.borderColor = [UIColor blackColor].CGColor;
+        label.layer.masksToBounds = YES;
+        //label.layer.borderWidth = 1.0f;
+        //label.layer.borderColor = [UIColor blackColor].CGColor;
         [view addSubview:label];
     }];
     
@@ -184,6 +189,14 @@
     
     
     return view;
+}
+
+#pragma mark - Events
+- (void)topTheeeViewTapHeaderImage:(UIGestureRecognizer *)tap{
+    ListViewModel *model = [_modelArray objectAtIndex:[tap.view superview].tag-1000];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(topThreeViewUserName:)]) {
+        [self.delegate topThreeViewUserName:model.name];
+    }
 }
 
 - (void)attentionBtnAction:(UIButton *)sender{

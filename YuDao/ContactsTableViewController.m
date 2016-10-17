@@ -15,6 +15,7 @@
 #import "YDContactsModel.h"
 
 #import "UIImage+ChangeIt.h"
+#import "YDAddFriendViewController.h"
 
 @interface ContactsTableViewController ()<HeaderTableViewDelegate>
 
@@ -79,11 +80,7 @@
 #pragma mark - Events
 
 - (void)contactsRightBarItemAction:(UIBarButtonItem *)sender{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:@"添加好友界面尚未完成"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
-    [alert show];
+    [self.navigationController secondLevel_push_fromViewController:self toVC:[YDAddFriendViewController new]];
 }
 
 /**

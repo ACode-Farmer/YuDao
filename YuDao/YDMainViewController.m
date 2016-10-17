@@ -16,6 +16,7 @@
 #import "YDRankingViewController.h"
 #import "CaptureViewController.h"
 #import "YDSearchViewController.h"
+#import "YDPersonalDataController.h"
 
 @interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate>
 
@@ -115,9 +116,16 @@
 
 #pragma mark Custom Delegate - 
 - (void)listViewControllerWith:(NSString *)title{
+    UIViewController *vc = nil;
+    if (title) {
+        vc = [YDPersonalDataController new];
+        vc.title = title;
+    }else{
+        vc = [YDRankingViewController new];
+    }
     
     [self setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:[YDRankingViewController new] animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
     [self setHidesBottomBarWhenPushed:NO];
 }
 

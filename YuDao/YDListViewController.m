@@ -12,9 +12,9 @@
 #import "YDListTableView.h"
 #import "YDMainViewConfigure.h"
 #import "ListViewModel.h"
+#import "YDPersonalDataController.h"
 
-
-@interface YDListViewController ()<YDListTableViewDelegate>
+@interface YDListViewController ()<YDListTableViewDelegate,YDTopThreeViewDelegate>
 
 @property (nonatomic, strong) YDMainTitleView *titleView;
 
@@ -49,7 +49,6 @@
 
 #pragma - mark Actions
 - (void)allListBtnAction:(UIButton *)sender{
-    
     if (self.delegate && [self.delegate respondsToSelector:@selector(listViewControllerWith:)]) {
         [self.delegate listViewControllerWith:sender.titleLabel.text];
     }
@@ -57,7 +56,12 @@
 
 #pragma - mark Custom Delegate
 - (void)ListTableViewWithName:(NSString *)name{
-    NSLog(@"name = %@",name);
+   [self.delegate listViewControllerWith:name];
+}
+
+//    YDTopThreeViewDelegate
+- (void)topThreeViewUserName:(NSString *)name{
+    [self.delegate listViewControllerWith:name];
 }
 
 #pragma mark - lazy load
@@ -109,6 +113,7 @@
     if (!_topThreeView) {
         _topThreeView = [[YDLTopThreeView alloc] initWithModelArray:self.topThreeDataArray];
         _topThreeView.frame = CGRectMake(0, CGRectGetMaxY(self.titleView.frame)+8*widthHeight_ratio, screen_width, 188*widthHeight_ratio);
+        _topThreeView.delegate = self;
     }
     return _topThreeView;
 }

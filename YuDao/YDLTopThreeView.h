@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 @class ListViewModel;
 
+@protocol YDTopThreeViewDelegate <NSObject>
+
+- (void)topThreeViewUserName:(NSString *)name;
+
+@end
+
 @interface YDLTopThreeView : UIView
+
+@property (nonatomic, weak) id<YDTopThreeViewDelegate> delegate;
 
 @property (nonatomic, strong) NSArray<ListViewModel *> *dataSource;
 

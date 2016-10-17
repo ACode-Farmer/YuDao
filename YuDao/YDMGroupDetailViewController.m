@@ -55,7 +55,7 @@
             }
         }
     }else{
-        AWActionSheet *sheet = [[AWActionSheet alloc] initWithIconSheetDelegate:self ItemCount:[sheet.IconDelegate numberOfItemsInActionSheet]];
+        AWActionSheet *sheet = [[AWActionSheet alloc] initWithIconSheetDelegate:self ItemCount:4];
         [sheet show];
     }
 }

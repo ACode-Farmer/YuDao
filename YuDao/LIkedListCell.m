@@ -31,8 +31,12 @@
         _gradeLebel.font = [UIFont font_12];
         
         _talkBtn = [UIButton new];
+        _talkBtn.tag = 1000;
+        [_talkBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_talkBtn setImage:[UIImage imageNamed:@"talk"] forState:0];
         _addBtn = [UIButton new];
+        _addBtn.tag = 10001;
+        [_addBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_addBtn setImage:[UIImage imageNamed:@"add"] forState:0];
         [self.contentView sd_addSubviews:@[_headImageView,_nameLabel,_gradeLebel,_talkBtn,_addBtn]];
         
@@ -79,10 +83,18 @@
     .heightEqualToWidth();
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)buttonAction:(UIButton *)sender{
+    NSString *title = nil;
+    if (sender.tag == 1000) {
+        title = @"非好友，暂时不可会话!";
+    }else{
+        title = @"好友请求已发送，等待对方回复!";
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:title
+                                                   delegate:nil
+                                          cancelButtonTitle:@"确认" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
