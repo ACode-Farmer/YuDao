@@ -11,7 +11,7 @@
 @interface InterestView : UIView
 
 - (void)addItems:(NSArray *)items;
-
+- (void)addItems:(NSArray *)items title:(NSString *)title;
 - (void)addItemsToCell:(NSArray *)items;
 
 - (void)addSearchItems:(NSArray *)items;

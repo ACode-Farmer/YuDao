@@ -29,7 +29,13 @@
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     self.tableView.tableHeaderView = self.headerImageView;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDMTitleCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDMFirstCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDMSecondCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDMThirdCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDMFourthCell"];
     
+    self.tableView.tableFooterView = self.bottomView;
 //    [self.tableView addSubview:self.bottomView];
 //    [self.view bringSubviewToFront:self.bottomView];
 //    self.bottomView.sd_layout
@@ -149,12 +155,16 @@
 - (UIView *)bottomView{
     if (!_bottomView) {
         _bottomView = [[UIView alloc] init];
-        _bottomView.backgroundColor = [UIColor orangeColor];
+        _bottomView.frame = CGRectMake(0, 0, screen_width, 40);
+        UIView *lineView = [UIView new];
+        lineView.frame = CGRectMake(0, 0, screen_width, 1);
+        lineView.backgroundColor = [UIColor colorGrayLine];
+        [_bottomView addSubview:lineView];
         {
             UIButton *oneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             oneBtn.frame = CGRectMake(0, 0, screen_width/2-0.5, 40);
             oneBtn.backgroundColor = [UIColor clearColor];
-            [oneBtn setTitleColor:[UIColor whiteColor] forState:0];
+            [oneBtn setTitleColor:[UIColor blackColor] forState:0];
             [oneBtn addTarget:self action:@selector(bottomBtnAction:) forControlEvents:UIControlEventTouchUpInside];
             if (self.groupType == YDGroupDetailTypeJoined || self.groupType == YDGroupDetailTypeMine || self.groupType == YDGroupDetailTypeNew) {
                 [oneBtn setTitle:@"发消息" forState:0];
@@ -165,12 +175,12 @@
         }
         {
             UIView *spaceView = [[UIView alloc] initWithFrame:CGRectMake(screen_width/2-0.5, 5, 1, 30)];
-            spaceView.backgroundColor = [UIColor whiteColor];
+            spaceView.backgroundColor = [UIColor blackColor];
             [_bottomView addSubview:spaceView];
             UIButton *twoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             twoBtn.frame = CGRectMake(screen_width/2+1, 0, screen_width/2-0.5, 40);
             twoBtn.backgroundColor = [UIColor clearColor];
-            [twoBtn setTitleColor:[UIColor whiteColor] forState:0];
+            [twoBtn setTitleColor:[UIColor blackColor] forState:0];
             [twoBtn setTitle:@"举报" forState:0];
             [twoBtn addTarget:self action:@selector(bottomBtnAction:) forControlEvents:UIControlEventTouchUpInside];
             [_bottomView addSubview:twoBtn];

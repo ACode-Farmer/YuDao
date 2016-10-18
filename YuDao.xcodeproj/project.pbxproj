@@ -157,6 +157,8 @@
 		A07641E21DB202D8009664D1 /* MembersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E11DB202D8009664D1 /* MembersListController.m */; };
 		A07641E51DB20EF0009664D1 /* YDGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E41DB20EF0009664D1 /* YDGroupModel.m */; };
 		A07641E81DB224E5009664D1 /* YDServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641E71DB224E5009664D1 /* YDServiceViewController.m */; };
+		A079CE211DB6061100EB113F /* YDIllegalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079CE201DB6061100EB113F /* YDIllegalViewController.m */; };
+		A079CE251DB6172C00EB113F /* YDDrivingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079CE241DB6172C00EB113F /* YDDrivingDetailViewController.m */; };
 		A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */; };
 		A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */; };
 		A07B8C3B1D9BB2D80040DD8B /* GarageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07B8C3A1D9BB2D80040DD8B /* GarageViewController.m */; };
@@ -177,14 +179,6 @@
 		A08247831D7FC4BC00DC58C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08247811D7FC4BC00DC58C2 /* LaunchScreen.storyboard */; };
 		A08247991D7FDEC400DC58C2 /* TableNodeDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = A08247981D7FDEC400DC58C2 /* TableNodeDataSource.plist */; };
 		A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247C31D7FF49900DC58C2 /* TaskModel.m */; };
-		A08247D41D7FF6A300DC58C2 /* sora_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247CC1D7FF6A300DC58C2 /* sora_0.png */; };
-		A08247D51D7FF6A300DC58C2 /* sora_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247CD1D7FF6A300DC58C2 /* sora_1.png */; };
-		A08247D61D7FF6A300DC58C2 /* sora_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247CE1D7FF6A300DC58C2 /* sora_2.png */; };
-		A08247D71D7FF6A300DC58C2 /* sora_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247CF1D7FF6A300DC58C2 /* sora_3.png */; };
-		A08247D81D7FF6A300DC58C2 /* sora_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247D01D7FF6A300DC58C2 /* sora_4.png */; };
-		A08247D91D7FF6A300DC58C2 /* sora_5.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247D11D7FF6A300DC58C2 /* sora_5.png */; };
-		A08247DA1D7FF6A300DC58C2 /* sora_6.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247D21D7FF6A300DC58C2 /* sora_6.png */; };
-		A08247DB1D7FF6A300DC58C2 /* sora_7.png in Resources */ = {isa = PBXBuildFile; fileRef = A08247D31D7FF6A300DC58C2 /* sora_7.png */; };
 		A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247DE1D7FF71400DC58C2 /* MyselfController.m */; };
 		A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247E11D7FF71D00DC58C2 /* MyInformationController.m */; };
 		A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A08247E81D7FF97600DC58C2 /* icon1.jpg */; };
@@ -501,6 +495,10 @@
 		A07641E41DB20EF0009664D1 /* YDGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGroupModel.m; sourceTree = "<group>"; };
 		A07641E61DB224E5009664D1 /* YDServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDServiceViewController.h; sourceTree = "<group>"; };
 		A07641E71DB224E5009664D1 /* YDServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDServiceViewController.m; sourceTree = "<group>"; };
+		A079CE1F1DB6061100EB113F /* YDIllegalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDIllegalViewController.h; sourceTree = "<group>"; };
+		A079CE201DB6061100EB113F /* YDIllegalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDIllegalViewController.m; sourceTree = "<group>"; };
+		A079CE231DB6172C00EB113F /* YDDrivingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDrivingDetailViewController.h; sourceTree = "<group>"; };
+		A079CE241DB6172C00EB113F /* YDDrivingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDrivingDetailViewController.m; sourceTree = "<group>"; };
 		A07B8C331D9BAEFB0040DD8B /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
 		A07B8C341D9BAEFB0040DD8B /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
 		A07B8C351D9BAEFB0040DD8B /* ProtocolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtocolViewController.xib; sourceTree = "<group>"; };
@@ -537,14 +535,6 @@
 		A08247981D7FDEC400DC58C2 /* TableNodeDataSource.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TableNodeDataSource.plist; sourceTree = "<group>"; };
 		A08247C21D7FF49900DC58C2 /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskModel.h; sourceTree = "<group>"; };
 		A08247C31D7FF49900DC58C2 /* TaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskModel.m; sourceTree = "<group>"; };
-		A08247CC1D7FF6A300DC58C2 /* sora_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_0.png; sourceTree = "<group>"; };
-		A08247CD1D7FF6A300DC58C2 /* sora_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_1.png; sourceTree = "<group>"; };
-		A08247CE1D7FF6A300DC58C2 /* sora_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_2.png; sourceTree = "<group>"; };
-		A08247CF1D7FF6A300DC58C2 /* sora_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_3.png; sourceTree = "<group>"; };
-		A08247D01D7FF6A300DC58C2 /* sora_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_4.png; sourceTree = "<group>"; };
-		A08247D11D7FF6A300DC58C2 /* sora_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_5.png; sourceTree = "<group>"; };
-		A08247D21D7FF6A300DC58C2 /* sora_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_6.png; sourceTree = "<group>"; };
-		A08247D31D7FF6A300DC58C2 /* sora_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sora_7.png; sourceTree = "<group>"; };
 		A08247DD1D7FF71400DC58C2 /* MyselfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfController.h; sourceTree = "<group>"; };
 		A08247DE1D7FF71400DC58C2 /* MyselfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfController.m; sourceTree = "<group>"; };
 		A08247E01D7FF71D00DC58C2 /* MyInformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInformationController.h; sourceTree = "<group>"; };
@@ -1080,6 +1070,8 @@
 			children = (
 				A067C69E1D98ECC6000E4146 /* YDDrivingViewController.h */,
 				A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */,
+				A079CE231DB6172C00EB113F /* YDDrivingDetailViewController.h */,
+				A079CE241DB6172C00EB113F /* YDDrivingDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1290,6 +1282,8 @@
 				A06DA2FF1DB0D8A4004362BA /* YDGarageViewController.m */,
 				A06DA3081DB0E627004362BA /* YDCarDetailViewController.h */,
 				A06DA3091DB0E627004362BA /* YDCarDetailViewController.m */,
+				A079CE1F1DB6061100EB113F /* YDIllegalViewController.h */,
+				A079CE201DB6061100EB113F /* YDIllegalViewController.m */,
 				A06DA3011DB0D8E2004362BA /* Views */,
 			);
 			name = "我的车库";
@@ -1402,6 +1396,8 @@
 			isa = PBXGroup;
 			children = (
 				A093B8FF1DADD2F7009D568A /* 界面 */,
+				A08247EC1D7FFC6700DC58C2 /* Search */,
+				A023EE1C1D95069F00581EB1 /* Controllers */,
 				A093B8FC1DADD128009D568A /* Config */,
 				A06A9D1B1D92802D00DFAFC2 /* Common */,
 				A093B8F51DADCF4B009D568A /* Utilities */,
@@ -1470,14 +1466,6 @@
 				A01A34631D86AA6C00852D16 /* test8.jpg */,
 				A08247E81D7FF97600DC58C2 /* icon1.jpg */,
 				A08247E91D7FF97600DC58C2 /* pbg.jpg */,
-				A08247CC1D7FF6A300DC58C2 /* sora_0.png */,
-				A08247CD1D7FF6A300DC58C2 /* sora_1.png */,
-				A08247CE1D7FF6A300DC58C2 /* sora_2.png */,
-				A08247CF1D7FF6A300DC58C2 /* sora_3.png */,
-				A08247D01D7FF6A300DC58C2 /* sora_4.png */,
-				A08247D11D7FF6A300DC58C2 /* sora_5.png */,
-				A08247D21D7FF6A300DC58C2 /* sora_6.png */,
-				A08247D31D7FF6A300DC58C2 /* sora_7.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1644,8 +1632,6 @@
 				A07F82A01D82A2ED00F9EA6B /* 发现 */,
 				A07F82A11D82A2F100F9EA6B /* 服务 */,
 				A08247DC1D7FF70B00DC58C2 /* 我 */,
-				A08247EC1D7FFC6700DC58C2 /* Search */,
-				A023EE1C1D95069F00581EB1 /* Controllers */,
 			);
 			name = "界面";
 			sourceTree = "<group>";
@@ -1851,16 +1837,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01A345A1D86A91500852D16 /* head4.jpg in Resources */,
-				A08247D91D7FF6A300DC58C2 /* sora_5.png in Resources */,
 				A01A345F1D86A91500852D16 /* test4.jpg in Resources */,
 				A01A345D1D86A91500852D16 /* test2.jpg in Resources */,
 				A093B91B1DADD7FA009D568A /* Mine.xcassets in Resources */,
 				A034C9EB1D93C44D006D38A4 /* CreateGroupController.xib in Resources */,
 				A067C6B61D992C01000E4146 /* 回到顶部.png in Resources */,
-				A08247DB1D7FF6A300DC58C2 /* sora_7.png in Resources */,
-				A08247D51D7FF6A300DC58C2 /* sora_1.png in Resources */,
-				A08247D71D7FF6A300DC58C2 /* sora_3.png in Resources */,
-				A08247D61D7FF6A300DC58C2 /* sora_2.png in Resources */,
 				A01A345C1D86A91500852D16 /* test1.jpg in Resources */,
 				A08247EB1D7FF97600DC58C2 /* pbg.jpg in Resources */,
 				A01A34641D86AA6C00852D16 /* test8.jpg in Resources */,
@@ -1876,7 +1857,6 @@
 				A06DA2EA1DB07109004362BA /* speed_car.png in Resources */,
 				A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */,
 				A03BEC301DB4AA74006CFE43 /* Localizable.strings in Resources */,
-				A08247DA1D7FF6A300DC58C2 /* sora_6.png in Resources */,
 				A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */,
 				A037BC661D9100D200D8D12F /* area.plist in Resources */,
 				A01A34591D86A91500852D16 /* head3.jpg in Resources */,
@@ -1885,11 +1865,9 @@
 				A06A9D151D9263F200DFAFC2 /* AdviseController.xib in Resources */,
 				A01A34621D86A91500852D16 /* test7.jpg in Resources */,
 				A01A345E1D86A91500852D16 /* test3.jpg in Resources */,
-				A08247D41D7FF6A300DC58C2 /* sora_0.png in Resources */,
 				A01A345B1D86A91500852D16 /* test0.jpg in Resources */,
 				A06F08481D9E629B00D4E829 /* MyQRCodeViewController.xib in Resources */,
 				A01A34011D86941500852D16 /* LICENSE in Resources */,
-				A08247D81D7FF6A300DC58C2 /* sora_4.png in Resources */,
 				A08247831D7FC4BC00DC58C2 /* LaunchScreen.storyboard in Resources */,
 				A08247801D7FC4BC00DC58C2 /* Assets.xcassets in Resources */,
 				A01A34561D86A91500852D16 /* head0.jpg in Resources */,
@@ -1968,6 +1946,7 @@
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
 				A0743E581DAB641D00545125 /* YDListTableView.m in Sources */,
+				A079CE251DB6172C00EB113F /* YDDrivingDetailViewController.m in Sources */,
 				A034C9EE1D93CA36006D38A4 /* PlaceController.m in Sources */,
 				A093B92C1DAE02AA009D568A /* YDAllListViewController.m in Sources */,
 				A01A34351D8699FD00852D16 /* NSData+ImageContentType.m in Sources */,
@@ -2072,6 +2051,7 @@
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
 				A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */,
 				A01A33FC1D86941500852D16 /* NSAttributedString+MLExpression.m in Sources */,
+				A079CE211DB6061100EB113F /* YDIllegalViewController.m in Sources */,
 				A07B8C3F1D9BBA560040DD8B /* SortTableView.m in Sources */,
 				A093B9301DAE0464009D568A /* YDAllListCell.m in Sources */,
 				A08247F21D80009300DC58C2 /* LocationView.m in Sources */,

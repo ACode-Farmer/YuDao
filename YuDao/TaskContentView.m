@@ -76,6 +76,7 @@
     .bottomEqualToView(_targetLebel)
     .heightIs(76*widthHeight_ratio)
     .widthEqualToHeight();
+    _goBtn.sd_cornerRadiusFromWidthRatio = @0.5;
     [_goBtn addTarget:self action:@selector(goBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     _goBtn.layer.borderWidth = 1.f;
     _goBtn.layer.borderColor = [UIColor colorWithString:@"#8159aa"].CGColor;

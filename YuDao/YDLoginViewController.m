@@ -46,10 +46,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"timg.jpeg"] forBarMetrics:UIBarMetricsDefault];
-    
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -69,6 +66,7 @@
 - (void)loginBtnAction:(UIButton *)sender{
     [self.accountsTF resignFirstResponder];
     [self.passwordTF resignFirstResponder];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Custom Delegate

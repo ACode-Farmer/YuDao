@@ -8,6 +8,14 @@
 
 #import "CommonController.h"
 
+@protocol YDLikedListControllerDelegate <NSObject>
+
+- (void)likedListControllerPushTo:(UIViewController *)vc;
+
+@end
+
 @interface LikedListController : CommonController
+
+@property (nonatomic, weak) id<YDLikedListControllerDelegate> delegate;
 
 @end

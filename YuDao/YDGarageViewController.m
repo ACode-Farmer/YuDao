@@ -8,6 +8,7 @@
 
 #import "YDGarageViewController.h"
 #import "YDCarDetailViewController.h"
+#import "YDIllegalViewController.h"
 #import "YDGarageCell.h"
 #import "YDGarageModel.h"
 
@@ -31,7 +32,15 @@ NSString *const kGarageCellId = @"YDGarageCell";
 
 #pragma mark - Custom Delegate
 - (void)garageCellWithTitle:(NSString *)title{
-    NSLog(@"delegate = %@",title);
+    if ([title isEqualToString:@"违章查询"]) {
+        [self.navigationController secondLevel_push_fromViewController:self toVC:[YDIllegalViewController new]];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"未认证不可查询相关信息!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"YES" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark - UITableViewDataSource

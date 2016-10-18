@@ -13,6 +13,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = 0;
         self.contentView.backgroundColor = [UIColor colorGrayBG];
         [self.contentView sd_addSubviews:@[self.carImageView,self.carName,self.identifierBtn,self.carModel,self.checkBtn]];
         [self y_layoutSubviews];
@@ -57,11 +58,11 @@
 
 #pragma mark - Events
 - (void)identifierBtnOrCheckBtnAction:(UIButton *)sender{
-    NSLog(@"title = %@",sender.titleLabel.text);
     if (self.delegate && [self.delegate respondsToSelector:@selector(garageCellWithTitle:)]) {
         [self.delegate garageCellWithTitle:sender.titleLabel.text];
     }
 }
+
 
 #pragma mark - Setter
 - (void)setModel:(YDGarageModel *)model{

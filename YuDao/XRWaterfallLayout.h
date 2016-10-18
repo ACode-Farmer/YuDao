@@ -37,6 +37,8 @@
 //section与collectionView的间距，默认是（0，0，0，0）
 @property (nonatomic, assign) UIEdgeInsets sectionInset;
 
+
+
 //同时设置列间距，行间距，sectionInset
 - (void)setColumnSpacing:(NSInteger)columnSpacing rowSpacing:(NSInteger)rowSepacing sectionInset:(UIEdgeInsets)sectionInset;
 

@@ -15,6 +15,7 @@
 #import "YDContactsModel.h"
 
 #import "UIImage+ChangeIt.h"
+#import "YDPersonalDataController.h"
 #import "YDAddFriendViewController.h"
 
 @interface ContactsTableViewController ()<HeaderTableViewDelegate>
@@ -91,11 +92,7 @@
     id selectedCell = [[tap.view superview] superview];
     NSIndexPath *selectedIndex = [self.tableView indexPathForCell:selectedCell];
     NSLog(@"section = %ld  row = %ld",selectedIndex.section,selectedIndex.row);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:@"个人资料界面尚未完成"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
-    [alert show];
+    [self.navigationController secondLevel_push_fromViewController:self toVC:[YDPersonalDataController new]];
 }
 
 #pragma mark -  HeaderTableViewDelegate -

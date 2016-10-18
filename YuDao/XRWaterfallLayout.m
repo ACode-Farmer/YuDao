@@ -126,7 +126,6 @@
     
     //更新字典中的最大y值
     self.maxYDic[minIndex] = @(CGRectGetMaxY(attributes.frame));
-    
     return attributes;
 }
 

@@ -63,7 +63,7 @@
     }];
     [self layoutFourMainViews];
     
-    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
+    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:70];
 }
 
 #pragma mark - Events
@@ -180,7 +180,7 @@
     if (!_contentView) {
         _contentView = [UIScrollView new];
         _contentView.contentSize = CGSizeMake(screen_width, 6*screen_height);
-        _contentView.backgroundColor = [UIColor colorWithString:@"#9c9c9c"];
+        _contentView.backgroundColor = [UIColor colorWithString:@"#dcdcdc"];
         _contentView.delegate = self;
         _contentView.showsVerticalScrollIndicator = NO;
         [self.view addSubview:_contentView];

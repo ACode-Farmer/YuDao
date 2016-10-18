@@ -130,11 +130,11 @@
         UILabel *label = (UILabel *)obj;
         label.backgroundColor = [UIColor yellowColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont font_13];
         [label.layer setCornerRadius:5];
         label.layer.masksToBounds = YES;
-        //label.layer.borderWidth = 1.0f;
-        //label.layer.borderColor = [UIColor blackColor].CGColor;
+        label.layer.borderWidth = 1.0f;
+        label.layer.borderColor = [UIColor blackColor].CGColor;
         [view addSubview:label];
     }];
     

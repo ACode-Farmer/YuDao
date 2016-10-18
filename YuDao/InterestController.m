@@ -44,7 +44,7 @@
     _inView3 = [InterestView new];;
     NSArray *subViews = @[_inView1,_inView2,_inView3];
     for (UIView *view in subViews) {
-        view.backgroundColor = [UIColor orangeColor];
+        view.backgroundColor = [UIColor whiteColor];
         [self.scrView addSubview:view];
     }
     
@@ -57,18 +57,18 @@
     _inView2.sd_layout
     .topSpaceToView(_inView1,10)
     .leftEqualToView(_inView1)
-    .rightEqualToView(_inView1)
-    ;
+    .rightEqualToView(_inView1);
     
     _inView3.sd_layout
     .topSpaceToView(_inView2,10)
     .leftEqualToView(_inView2)
-    .rightEqualToView(_inView2)
-    ;
+    .rightEqualToView(_inView2);
     
-    [_inView1 addItems:@[@"旅游",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
-    [_inView2 addItems:@[@"美食",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
-    [_inView3 addItems:@[@"这是一句用来测试的文本",@"腾讯",@"阿里巴巴",@"百度",@"谷歌(google)",@"这是一句用来测试的文本"]];
+    [_inView1 addItems:@[@"汽车",@"网购",@"宠物",@"散步",@"养花",@"朋友聚会",@"投资理财",@"电子产品"] title:@"生活"];
+    
+    [_inView2 addItems:@[@"游泳",@"跑步",@"篮球",@"滑雪",@"瑜伽",@"台球",@"足球",@"爬山",@"骑行",@"健身",@"高尔夫",@"野外露营"] title:@"体育"];
+    
+    [_inView3 addItems:@[@"网络游戏",@"歌舞话剧",@"酒吧",@"KTV",@"钓鱼",@"书法绘画",@"自驾游",@"阅读"] title:@"休闲"];
     
     [self.scrView setupAutoContentSizeWithBottomView:_inView3 bottomMargin:0];
     

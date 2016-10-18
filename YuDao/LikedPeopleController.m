@@ -10,7 +10,7 @@
 #import "ContainerController.h"
 #import "LikedListController.h"
 
-@interface LikedPeopleController ()<ContainerControllerDelegate>
+@interface LikedPeopleController ()<ContainerControllerDelegate,YDLikedListControllerDelegate>
 
 @end
 
@@ -23,10 +23,13 @@
     
     LikedListController *one = [LikedListController new];
     one.title = @"喜欢我的";
+    one.delegate = self;
     LikedListController *two = [LikedListController new];
     two.title = @"我喜欢的";
+    two.delegate = self;
     LikedListController *three = [LikedListController new];
     three.title = @"互相喜欢";
+    three.delegate = self;
     
     // ContainerView
 //    float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
@@ -45,6 +48,10 @@
     
 }
 
+#pragma mark - Custon Delegate
+- (void)likedListControllerPushTo:(UIViewController *)vc{
+    [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
+}
 
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller

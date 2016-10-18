@@ -14,6 +14,7 @@
 #import "YDMainTitleView.h"
 #import "YDDataTypeView.h"
 #import "YDMainViewConfigure.h"
+#import "YDDrivingDetailViewController.h"
 
 @interface YDDrivingViewController ()
 
@@ -53,28 +54,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma tapDataView action -
-
-- (void)tapDataView:(UIGestureRecognizer *)tap{
-    NSLog(@"点击了数据视图...");
+#pragma Events
+- (void)tapDataViewAction:(UIGestureRecognizer *)tap{
+    [self.navigationController firstLevel_push_fromViewController:self toVC:[YDDrivingDetailViewController new]];
 }
-
-//#pragma buttons action -
-//- (void)operationButtonAction:(UIButton *)sender{
-//    NSInteger index = sender.tag - 1000;
-//    DrivingModel *model = self.dataSource[index];
-//    _dataview.model = model;
-//    [self.bottomBtns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        if (idx !=0 ||idx != 1) {
-//            CornerButton *btn = (CornerButton *)obj;
-//            if (btn.tag == sender.tag) {
-//                btn.backgroundColor = [UIColor orangeColor];
-//            }else{
-//                btn.backgroundColor = [UIColor whiteColor];
-//            }
-//        }
-//    }];
-//}
 
 #pragma mark lazy load -
 
@@ -121,6 +104,9 @@
         _dataview = [DataView new];
         _dataview.frame = CGRectMake(105 *widthHeight_ratio, 77*widthHeight_ratio, 155*widthHeight_ratio, 171*widthHeight_ratio);
         _dataview.model = [self.dataSource firstObject];
+        UITapGestureRecognizer *tapDataView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDataViewAction:)];
+        [_dataview addGestureRecognizer:tapDataView];
+        
         [self.backgroundView addSubview:_dataview];
     }
     return _dataview;

@@ -11,6 +11,7 @@
 #import "AdviseController.h"
 #import "AboutUsController.h"
 #import "ProtocolViewController.h"
+#import "YDLoginViewController.h"
 
 @interface SetupTableViewController ()
 
@@ -67,7 +68,7 @@
         
     }];
     UIAlertAction *sinOut = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self.navigationController secondLevel_push_fromViewController:self toVC:[YDLoginViewController new]];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:changeUser];

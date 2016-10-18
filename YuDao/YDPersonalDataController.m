@@ -119,6 +119,11 @@
         _firstTable.tableFooterView = [UIView new];
         _firstTable.dataSource = self;
         _firstTable.delegate =  self;
+        
+        [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPSecondSectionCell"];
+        [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPThirdSectionCell"];
+        [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPFourthSectionCell"];
+        [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPTitleCell"];
     }
     return _firstTable;
 }

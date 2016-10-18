@@ -10,6 +10,13 @@
 #import "InterestView.h"
 #import "MembersListController.h"
 #import "InterestController.h"
+
+NSString *const YDMTitleCell = @"YDMTitleCell";
+NSString *const YDMFirstCell = @"YDMFirstCell";
+NSString *const YDMSecondCell = @"YDMSecondCell";
+NSString *const YDMThirdCell = @"YDMThirdCell";
+NSString *const YDMFourthCell = @"YDMFourthCell";
+
 @implementation YDMGroupDetailViewController (Delegate)
 
 #pragma mark - Events
@@ -85,15 +92,11 @@
     return 9;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellId = @"GDCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    UITableViewCell *cell = nil;
     switch (indexPath.row) {
         case 0:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMTitleCell];
             cell.textLabel.text = @"成员";
             cell.textLabel.textColor = [UIColor colorWithString:@"#784ea4"];
             cell.detailTextLabel.text = @"100人";
@@ -101,10 +104,12 @@
             break;}
         case 1:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMFirstCell];
             [self memberAddView:cell.contentView from:self.members];
             break;}
         case 2:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMTitleCell];
             cell.textLabel.text = @"所在位置";
             cell.textLabel.textColor = [UIColor colorWithString:@"#784ea4"];
             if (self.groupType == YDGroupDetailTypeMine || self.groupType == YDGroupDetailTypeNew) {
@@ -113,10 +118,12 @@
             break;}
         case 3:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMSecondCell];
             cell.textLabel.text = @"上海东方明珠塔";
             break;}
         case 4:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMTitleCell];
             cell.textLabel.text = @"群组标签";
             cell.textLabel.textColor = [UIColor colorWithString:@"#784ea4"];
             if (self.groupType == YDGroupDetailTypeMine || self.groupType == YDGroupDetailTypeNew) {
@@ -125,17 +132,20 @@
             break;}
         case 5:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMThirdCell];
             if (!self.inView) {
                 [self interestAddView:cell.contentView from:[NSMutableArray arrayWithObjects:@"旅行",@"美食",@"交友",@"同城聚会" ,nil]];
             }
             break;}
         case 6:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMTitleCell];
             cell.textLabel.text = @"群组属性";
             cell.textLabel.textColor = [UIColor colorWithString:@"#784ea4"];
             break;}
         case 7:
         {
+            cell = [tableView dequeueReusableCellWithIdentifier:YDMFourthCell];
             cell.textLabel.text = @"群消息免打扰";
             UISwitch *swit = [UISwitch new];
             swit.tag = indexPath.row;
@@ -144,6 +154,7 @@
             break;}
         case 8:
         {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"YDMSubtitleCell"];
             cell.textLabel.text = @"我的群名片";
             cell.detailTextLabel.text = @"Simon";
             cell.accessoryType = 1;

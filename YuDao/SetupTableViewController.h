@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YDSetupControllerDelegate <NSObject>
+
+
+@end
+
 @interface SetupTableViewController : UITableViewController
+
 
 @end
