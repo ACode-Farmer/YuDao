@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatTableViewController : UITableViewController
+@interface ChatTableViewController : UIViewController
 
 @property (nonatomic, strong) NSString *variableTitle;
 

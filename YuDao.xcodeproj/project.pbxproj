@@ -116,6 +116,15 @@
 		A06227231DAF8034006ADC50 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227221DAF8034006ADC50 /* CaptureViewController.m */; };
 		A06227261DAF9158006ADC50 /* UIImage+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227251DAF9158006ADC50 /* UIImage+YuDao.m */; };
 		A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06227281DAF971A006ADC50 /* UIImageView+YuDao.m */; };
+		A0669F511DB72540008F8BB3 /* Chat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0669F501DB72540008F8BB3 /* Chat.xcassets */; };
+		A0669F581DB73662008F8BB3 /* YDChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F571DB73662008F8BB3 /* YDChatBar.m */; };
+		A0669F5E1DB736DB008F8BB3 /* YDTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F5D1DB736DB008F8BB3 /* YDTalkButton.m */; };
+		A0669F651DB74617008F8BB3 /* UIButton+TLChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F641DB74617008F8BB3 /* UIButton+TLChat.m */; };
+		A0669F6C1DB764AA008F8BB3 /* YDBaseKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F6B1DB764AA008F8BB3 /* YDBaseKeyboard.m */; };
+		A0669F731DB76C12008F8BB3 /* YDMoreKeyboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F721DB76C12008F8BB3 /* YDMoreKeyboardItem.m */; };
+		A0669F761DB76DB1008F8BB3 /* YDMoreKeyboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F751DB76DB1008F8BB3 /* YDMoreKeyboardCell.m */; };
+		A0669F7A1DB77AAC008F8BB3 /* YDMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F791DB77AAC008F8BB3 /* YDMoreKeyboard.m */; };
+		A0669F801DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0669F7F1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m */; };
 		A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067110C1D9CB034003EDA94 /* IDCardViewController.m */; };
 		A067C69D1D98EB95000E4146 /* YDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69C1D98EB95000E4146 /* YDMainViewController.m */; };
 		A067C6A11D98ECC6000E4146 /* YDDrivingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C69F1D98ECC6000E4146 /* YDDrivingViewController.m */; };
@@ -421,6 +430,28 @@
 		A06227251DAF9158006ADC50 /* UIImage+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YuDao.m"; sourceTree = "<group>"; };
 		A06227271DAF971A006ADC50 /* UIImageView+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YuDao.h"; sourceTree = "<group>"; };
 		A06227281DAF971A006ADC50 /* UIImageView+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YuDao.m"; sourceTree = "<group>"; };
+		A0669F501DB72540008F8BB3 /* Chat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Chat.xcassets; sourceTree = "<group>"; };
+		A0669F561DB73662008F8BB3 /* YDChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatBar.h; sourceTree = "<group>"; };
+		A0669F571DB73662008F8BB3 /* YDChatBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDChatBar.m; sourceTree = "<group>"; };
+		A0669F5C1DB736DB008F8BB3 /* YDTalkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDTalkButton.h; sourceTree = "<group>"; };
+		A0669F5D1DB736DB008F8BB3 /* YDTalkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDTalkButton.m; sourceTree = "<group>"; };
+		A0669F5F1DB73D42008F8BB3 /* YDChatMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDChatMacros.h; sourceTree = "<group>"; };
+		A0669F611DB73E31008F8BB3 /* YDChatBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatBarDelegate.h; sourceTree = "<group>"; };
+		A0669F631DB74617008F8BB3 /* UIButton+TLChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TLChat.h"; sourceTree = "<group>"; };
+		A0669F641DB74617008F8BB3 /* UIButton+TLChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TLChat.m"; sourceTree = "<group>"; };
+		A0669F681DB76463008F8BB3 /* YDKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDKeyboardDelegate.h; sourceTree = "<group>"; };
+		A0669F691DB7648A008F8BB3 /* YDKeyBoardProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDKeyBoardProtocol.h; sourceTree = "<group>"; };
+		A0669F6A1DB764AA008F8BB3 /* YDBaseKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBaseKeyboard.h; sourceTree = "<group>"; };
+		A0669F6B1DB764AA008F8BB3 /* YDBaseKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBaseKeyboard.m; sourceTree = "<group>"; };
+		A0669F701DB76C12008F8BB3 /* YDMoreKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMoreKeyboardDelegate.h; sourceTree = "<group>"; };
+		A0669F711DB76C12008F8BB3 /* YDMoreKeyboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMoreKeyboardItem.h; sourceTree = "<group>"; };
+		A0669F721DB76C12008F8BB3 /* YDMoreKeyboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMoreKeyboardItem.m; sourceTree = "<group>"; };
+		A0669F741DB76DB1008F8BB3 /* YDMoreKeyboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMoreKeyboardCell.h; sourceTree = "<group>"; };
+		A0669F751DB76DB1008F8BB3 /* YDMoreKeyboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMoreKeyboardCell.m; sourceTree = "<group>"; };
+		A0669F781DB77AAC008F8BB3 /* YDMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMoreKeyboard.h; sourceTree = "<group>"; };
+		A0669F791DB77AAC008F8BB3 /* YDMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMoreKeyboard.m; sourceTree = "<group>"; };
+		A0669F7E1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDMoreKeyboard+CollectionView.h"; sourceTree = "<group>"; };
+		A0669F7F1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDMoreKeyboard+CollectionView.m"; sourceTree = "<group>"; };
 		A067110B1D9CB034003EDA94 /* IDCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardViewController.h; sourceTree = "<group>"; };
 		A067110C1D9CB034003EDA94 /* IDCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardViewController.m; sourceTree = "<group>"; };
 		A067C69B1D98EB95000E4146 /* YDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainViewController.h; sourceTree = "<group>"; };
@@ -968,12 +999,12 @@
 		A05886FD1D858A6900F488BE /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				A05886FA1D858A0B00F488BE /* ChatTableViewController.h */,
-				A05886FB1D858A0B00F488BE /* ChatTableViewController.m */,
-				A05887011D858B6C00F488BE /* ChatCell.h */,
-				A05887021D858B6C00F488BE /* ChatCell.m */,
-				A05886FE1D858A8900F488BE /* ChatModel.h */,
-				A05886FF1D858A8900F488BE /* ChatModel.m */,
+				A0669F671DB76418008F8BB3 /* Keyboards */,
+				A0669F591DB7366D008F8BB3 /* ChatBar */,
+				A0669F551DB73636008F8BB3 /* Controller */,
+				A0669F541DB7362C008F8BB3 /* Model */,
+				A0669F531DB7361E008F8BB3 /* Views */,
+				A0669F5F1DB73D42008F8BB3 /* YDChatMacros.h */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1074,6 +1105,114 @@
 				A079CE241DB6172C00EB113F /* YDDrivingDetailViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		A0669F531DB7361E008F8BB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A05887011D858B6C00F488BE /* ChatCell.h */,
+				A05887021D858B6C00F488BE /* ChatCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A0669F541DB7362C008F8BB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A05886FE1D858A8900F488BE /* ChatModel.h */,
+				A05886FF1D858A8900F488BE /* ChatModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A0669F551DB73636008F8BB3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A05886FA1D858A0B00F488BE /* ChatTableViewController.h */,
+				A05886FB1D858A0B00F488BE /* ChatTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A0669F591DB7366D008F8BB3 /* ChatBar */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F611DB73E31008F8BB3 /* YDChatBarDelegate.h */,
+				A0669F561DB73662008F8BB3 /* YDChatBar.h */,
+				A0669F571DB73662008F8BB3 /* YDChatBar.m */,
+				A0669F5B1DB736AD008F8BB3 /* ChatBarViews */,
+			);
+			name = ChatBar;
+			sourceTree = "<group>";
+		};
+		A0669F5B1DB736AD008F8BB3 /* ChatBarViews */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F5C1DB736DB008F8BB3 /* YDTalkButton.h */,
+				A0669F5D1DB736DB008F8BB3 /* YDTalkButton.m */,
+			);
+			name = ChatBarViews;
+			sourceTree = "<group>";
+		};
+		A0669F661DB7461B008F8BB3 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F631DB74617008F8BB3 /* UIButton+TLChat.h */,
+				A0669F641DB74617008F8BB3 /* UIButton+TLChat.m */,
+			);
+			name = UIButton;
+			sourceTree = "<group>";
+		};
+		A0669F671DB76418008F8BB3 /* Keyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F681DB76463008F8BB3 /* YDKeyboardDelegate.h */,
+				A0669F691DB7648A008F8BB3 /* YDKeyBoardProtocol.h */,
+				A0669F6A1DB764AA008F8BB3 /* YDBaseKeyboard.h */,
+				A0669F6B1DB764AA008F8BB3 /* YDBaseKeyboard.m */,
+				A0669F6E1DB76BB3008F8BB3 /* ChatMoreKeyboard */,
+				A0669F6D1DB76B96008F8BB3 /* ChatEmojiKeyboard */,
+			);
+			name = Keyboards;
+			sourceTree = "<group>";
+		};
+		A0669F6D1DB76B96008F8BB3 /* ChatEmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ChatEmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		A0669F6E1DB76BB3008F8BB3 /* ChatMoreKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F701DB76C12008F8BB3 /* YDMoreKeyboardDelegate.h */,
+				A0669F781DB77AAC008F8BB3 /* YDMoreKeyboard.h */,
+				A0669F791DB77AAC008F8BB3 /* YDMoreKeyboard.m */,
+				A0669F7E1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.h */,
+				A0669F7F1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m */,
+				A0669F771DB76DB4008F8BB3 /* MoreKeyboardCell */,
+				A0669F6F1DB76BF6008F8BB3 /* MoreKeyboardModel */,
+			);
+			name = ChatMoreKeyboard;
+			sourceTree = "<group>";
+		};
+		A0669F6F1DB76BF6008F8BB3 /* MoreKeyboardModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F711DB76C12008F8BB3 /* YDMoreKeyboardItem.h */,
+				A0669F721DB76C12008F8BB3 /* YDMoreKeyboardItem.m */,
+			);
+			name = MoreKeyboardModel;
+			sourceTree = "<group>";
+		};
+		A0669F771DB76DB4008F8BB3 /* MoreKeyboardCell */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F741DB76DB1008F8BB3 /* YDMoreKeyboardCell.h */,
+				A0669F751DB76DB1008F8BB3 /* YDMoreKeyboardCell.m */,
+			);
+			name = MoreKeyboardCell;
 			sourceTree = "<group>";
 		};
 		A067110A1D9CB014003EDA94 /* 个人认证 */ = {
@@ -1639,6 +1778,7 @@
 		A093B90C1DADD561009D568A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A0669F661DB7461B008F8BB3 /* UIButton */,
 				A06DA2FA1DB0AC34004362BA /* UIImage */,
 				A06DA2F91DB0AC27004362BA /* UIView */,
 			);
@@ -1682,6 +1822,7 @@
 				A093B91A1DADD7FA009D568A /* Mine.xcassets */,
 				A093B91C1DADD819009D568A /* ShouYe.xcassets */,
 				A062271F1DAF5804006ADC50 /* TabBar.xcassets */,
+				A0669F501DB72540008F8BB3 /* Chat.xcassets */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1849,6 +1990,7 @@
 				A01A34581D86A91500852D16 /* head2.jpg in Resources */,
 				A01A34611D86A91500852D16 /* test6.jpg in Resources */,
 				A05D73EF1D9A605E00E5E3A2 /* XRCollectionViewCell.xib in Resources */,
+				A0669F511DB72540008F8BB3 /* Chat.xcassets in Resources */,
 				A05CD1211DA9F5E7008E01D1 /* 行车数据背景图.png in Resources */,
 				A01A34571D86A91500852D16 /* head1.jpg in Resources */,
 				A06227201DAF5804006ADC50 /* TabBar.xcassets in Resources */,
@@ -1974,8 +2116,10 @@
 				A01A34401D8699FD00852D16 /* UIImage+WebP.m in Sources */,
 				A093B9051DADD3E2009D568A /* YDTableViewController.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
+				A0669F581DB73662008F8BB3 /* YDChatBar.m in Sources */,
 				A03BEC431DB4D46D006CFE43 /* YDPTimeAxisModel.m in Sources */,
 				A037BC691D91039400D8D12F /* CityController.m in Sources */,
+				A0669F5E1DB736DB008F8BB3 /* YDTalkButton.m in Sources */,
 				A01A34111D8699DE00852D16 /* SDWaitingView.m in Sources */,
 				A07641E81DB224E5009664D1 /* YDServiceViewController.m in Sources */,
 				A01A33FA1D86941500852D16 /* MLExpressionManager.m in Sources */,
@@ -2002,6 +2146,7 @@
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
+				A0669F6C1DB764AA008F8BB3 /* YDBaseKeyboard.m in Sources */,
 				A057AB9D1D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */,
 				A0743E521DAB5C9F00545125 /* YDBaseCell.m in Sources */,
@@ -2011,7 +2156,9 @@
 				A093B9021DADD39C009D568A /* YDTabBarController.m in Sources */,
 				A0743E601DABA63F00545125 /* YDDModel.m in Sources */,
 				A01A34431D8699FD00852D16 /* UIView+WebCacheOperation.m in Sources */,
+				A0669F651DB74617008F8BB3 /* UIButton+TLChat.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
+				A0669F731DB76C12008F8BB3 /* YDMoreKeyboardItem.m in Sources */,
 				A013A6761D8E968100A9080A /* SetupModel.m in Sources */,
 				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
 				A05CD11F1DA9E47B008E01D1 /* YDDataTypeView.m in Sources */,
@@ -2059,8 +2206,10 @@
 				A01A33FF1D86941500852D16 /* MLLabel.m in Sources */,
 				A013A6701D8E80C600A9080A /* SetupTableViewController.m in Sources */,
 				A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */,
+				A0669F801DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m in Sources */,
 				A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */,
 				A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */,
+				A0669F761DB76DB1008F8BB3 /* YDMoreKeyboardCell.m in Sources */,
 				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A01A34341D8699FD00852D16 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2090,6 +2239,7 @@
 				A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */,
 				A057ABAC1D8FE3B300F8817E /* InterestView.m in Sources */,
 				A093B9361DAE0DD0009D568A /* YDRankingViewController.m in Sources */,
+				A0669F7A1DB77AAC008F8BB3 /* YDMoreKeyboard.m in Sources */,
 				A01A34381D8699FD00852D16 /* SDWebImageDecoder.m in Sources */,
 				A037BC701D91238B00D8D12F /* ChangeImageController.m in Sources */,
 				A06DA2F71DB0ABCB004362BA /* UIView+Frame.m in Sources */,
@@ -2229,7 +2379,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ve-link.YuDao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2248,7 +2398,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ve-link.YuDao";
 				PRODUCT_NAME = "$(TARGET_NAME)";

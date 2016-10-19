@@ -28,12 +28,12 @@
         
         _gradeLebel = [UILabel new];
         _gradeLebel.textColor = [UIColor orangeColor];
-        _gradeLebel.font = [UIFont font_12];
+        _gradeLebel.font = [UIFont font_13];
         
         _talkBtn = [UIButton new];
         _talkBtn.tag = 1000;
         [_talkBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_talkBtn setImage:[UIImage imageNamed:@"talk"] forState:0];
+        [_talkBtn setImage:[UIImage imageNamed:@"mine_chat"] forState:0];
         _addBtn = [UIButton new];
         _addBtn.tag = 10001;
         [_addBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,7 +66,7 @@
     
     _gradeLebel.sd_layout
     .topEqualToView(_headImageView)
-    .leftSpaceToView(_nameLabel,5)
+    .leftSpaceToView(_nameLabel,10)
     .bottomEqualToView(_headImageView);
     [_gradeLebel setSingleLineAutoResizeWithMaxWidth:100];
     

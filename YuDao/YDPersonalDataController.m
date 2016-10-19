@@ -186,9 +186,11 @@
             UIButton *button = [UIButton new];
             [button setTitle:obj forState:0];
             [button setTitleColor:[UIColor blackColor] forState:0];
-            [button setImage:[UIImage imageNamed:@"add"] forState:0];
-            [button layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:30];
+            [button setImage:[UIImage imageNamed:@"mine_gou"] forState:0];
+            [button layoutButtonWithEdgeInsetsStyle:MKButtonEdgeInsetsStyleRight imageTitleSpace:5];
             button.titleLabel.textAlignment = NSTextAlignmentLeft;
+            [button.titleLabel setFont:[UIFont font_13]];
+            button.contentMode = UIViewContentModeCenter;
             [_identifierView addSubview:button];
             button.height = _identifierView.height/2;
             button.width = screen_width/3;

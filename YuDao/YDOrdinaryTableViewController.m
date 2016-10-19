@@ -127,12 +127,12 @@
     _isShow = isShow;
     if (_isShow) {
         [UIView animateWithDuration:0.25 animations:^{
-            self.view.height = self.tableView.rowHeight * 8;
+            self.view.sd_layout.heightIs(self.tableView.rowHeight * 8);
         }];
         
     }else{
         [UIView animateWithDuration:0.25 animations:^{
-            self.view.height = 0;
+            self.view.sd_layout.heightIs(0);
         }];
     }
 }
