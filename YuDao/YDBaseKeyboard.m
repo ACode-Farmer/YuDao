@@ -26,7 +26,7 @@
         [self.keyboardDelegate chatKeyboardWillShow:self animated:animation];
     }
     [view addSubview:self];
-    CGFloat keyboardHeight = [self keyboardHeight];
+    CGFloat keyboardHeight = HEIGHT_CHAT_KEYBOARD;
     
     self.sd_layout
     .leftSpaceToView(view,0)
@@ -40,11 +40,12 @@
             self.sd_layout.bottomSpaceToView(view,0);
             [view layoutIfNeeded];
             if (self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(chatKeyboard:didChangeHeight:)]) {
-                [self.keyboardDelegate chatKeyboard:self didChangeHeight:view.height - self.y];
+                [self.keyboardDelegate chatKeyboard:self didChangeHeight:keyboardHeight];
             }
         } completion:^(BOOL finished) {
             if (self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(chatKeyboardDidShow:animated:)]) {
                 [self.keyboardDelegate chatKeyboardDidShow:self animated:animation];
+                NSLog(@"x=%f,y=%f,w=%f,h=%f",self.origin.x,self.origin.y,self.size.width,self.size.height);
             }
         }];
     }

@@ -21,6 +21,7 @@
 
 #define     height_tabBar               49.0f
 #define     height_navBar               44.0f
+#define     HEIGHT_TABBAR               49.0f
 
 /********************  Methods  ************************/
 #define     YDURL(urlString)    [NSURL URLWithString:urlString]

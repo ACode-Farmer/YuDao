@@ -15,14 +15,14 @@ static YDMoreKeyboard *moreKB;
 + (YDMoreKeyboard *)keyboard{
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        moreKB = [YDMoreKeyboard new];
+        moreKB = [[YDMoreKeyboard alloc] init];
     });
     return moreKB;
 }
 
 - (id)init{
     if (self = [super init]) {
-        [self setBackgroundColor:[UIColor colorGrayForChatBar]];
+        [self setBackgroundColor:[UIColor yellowColor]];
         [self addSubview:self.collectionView];
         [self addSubview:self.pageControl];
         [self y_addMasonry];

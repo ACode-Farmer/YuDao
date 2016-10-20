@@ -207,7 +207,7 @@ static NSString *textRec = @"";
             [self.delegate chatBar:self changeStatusFrom:self.status to:YDChatBarStatusKeyboard];
         }
         [self.voiceButton setImage:kVoiceImage imageHL:kVoiceImageHL];
-        //[self.textView becomeFirstResponder];
+        [self.textView becomeFirstResponder];
         [self.textView setHidden:NO];
         [self.talkButton setHidden:YES];
         self.status = YDChatBarStatusKeyboard;
@@ -239,13 +239,6 @@ static NSString *textRec = @"";
 
 - (void)emojiButtonDown
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                    message:@"暂无表情!"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"确认" otherButtonTitles:nil];
-    [alert show];
-    return;
-    
     // 开始文字输入
     if (self.status == YDChatBarStatusEmoji) {
         if (_delegate && [_delegate respondsToSelector:@selector(chatBar:changeStatusFrom:to:)]) {
@@ -281,7 +274,7 @@ static NSString *textRec = @"";
             [self.delegate chatBar:self changeStatusFrom:self.status to:YDChatBarStatusKeyboard];
         }
         [self.moreButton setImage:kMoreImage imageHL:kMoreImageHL];
-        //[self.textView becomeFirstResponder];
+        [self.textView becomeFirstResponder];
         self.status = YDChatBarStatusKeyboard;
     }
     else {      // 打开更多键盘

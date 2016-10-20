@@ -133,6 +133,28 @@
 		A067C6AC1D98F83C000E4146 /* DataView.m in Sources */ = {isa = PBXBuildFile; fileRef = A067C6AB1D98F83C000E4146 /* DataView.m */; };
 		A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A067C6AD1D991CEE000E4146 /* 010.jpg */; };
 		A067C6B61D992C01000E4146 /* 回到顶部.png in Resources */ = {isa = PBXBuildFile; fileRef = A067C6B51D992C01000E4146 /* 回到顶部.png */; };
+		A068F3FD1DB85D3D0005765C /* YDChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F3FC1DB85D3D0005765C /* YDChatBaseViewController.m */; };
+		A068F4011DB85E7E0005765C /* YDMessageBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4001DB85E7E0005765C /* YDMessageBaseCell.m */; };
+		A068F4051DB85FD10005765C /* YDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4041DB85FD10005765C /* YDMessage.m */; };
+		A068F40C1DB862050005765C /* YDMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F40B1DB862050005765C /* YDMessageFrame.m */; };
+		A068F40F1DB8642D0005765C /* YDTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F40E1DB8642D0005765C /* YDTextMessage.m */; };
+		A068F4121DB866080005765C /* YDImageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4111DB866080005765C /* YDImageMessage.m */; };
+		A068F4151DB8673D0005765C /* YDExpressionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4141DB8673D0005765C /* YDExpressionMessage.m */; };
+		A068F4181DB868CC0005765C /* YDEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4171DB868CC0005765C /* YDEmoji.m */; };
+		A068F4201DB869350005765C /* NSDate+YDChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F41B1DB869350005765C /* NSDate+YDChat.m */; };
+		A068F4281DB869740005765C /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4251DB869740005765C /* NSDate+Extension.m */; };
+		A068F4291DB869740005765C /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4271DB869740005765C /* NSDate+Utilities.m */; };
+		A068F42C1DB86B5A0005765C /* NSFileManager+Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F42B1DB86B5A0005765C /* NSFileManager+Paths.m */; };
+		A068F4301DB86F500005765C /* YDHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F42F1DB86F500005765C /* YDHost.m */; };
+		A068F4361DB88AA50005765C /* YDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4351DB88AA50005765C /* YDUser.m */; };
+		A068F43A1DB88B8A0005765C /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4391DB88B8A0005765C /* NSString+PinYin.m */; };
+		A068F43D1DB88C3E0005765C /* YDUserGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F43C1DB88C3E0005765C /* YDUserGroup.m */; };
+		A068F4471DB8940A0005765C /* YDChatBaseViewController+ChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4461DB8940A0005765C /* YDChatBaseViewController+ChatBar.m */; };
+		A068F44A1DB896540005765C /* NSFileManager+YDChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4491DB896540005765C /* NSFileManager+YDChat.m */; };
+		A068F4511DB897500005765C /* YDUserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4501DB897500005765C /* YDUserHelper.m */; };
+		A068F4541DB899640005765C /* YDChatBaseViewController+MessageDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4531DB899640005765C /* YDChatBaseViewController+MessageDisplayView.m */; };
+		A068F4571DB89AD10005765C /* YDChatBaseViewController+Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F4561DB89AD10005765C /* YDChatBaseViewController+Proxy.m */; };
+		A068F45B1DB8B07D0005765C /* YDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A068F45A1DB8B07D0005765C /* YDChatViewController.m */; };
 		A06A9D141D9263F200DFAFC2 /* AdviseController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D121D9263F200DFAFC2 /* AdviseController.m */; };
 		A06A9D151D9263F200DFAFC2 /* AdviseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06A9D131D9263F200DFAFC2 /* AdviseController.xib */; };
 		A06A9D191D9265F800DFAFC2 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D171D9265F800DFAFC2 /* AboutUsController.m */; };
@@ -466,6 +488,52 @@
 		A067C6AB1D98F83C000E4146 /* DataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataView.m; sourceTree = "<group>"; };
 		A067C6AD1D991CEE000E4146 /* 010.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 010.jpg; sourceTree = "<group>"; };
 		A067C6B51D992C01000E4146 /* 回到顶部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "回到顶部.png"; sourceTree = "<group>"; };
+		A068F3FB1DB85D3D0005765C /* YDChatBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatBaseViewController.h; sourceTree = "<group>"; };
+		A068F3FC1DB85D3D0005765C /* YDChatBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDChatBaseViewController.m; sourceTree = "<group>"; };
+		A068F3FF1DB85E7E0005765C /* YDMessageBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageBaseCell.h; sourceTree = "<group>"; };
+		A068F4001DB85E7E0005765C /* YDMessageBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessageBaseCell.m; sourceTree = "<group>"; };
+		A068F4031DB85FD10005765C /* YDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessage.h; sourceTree = "<group>"; };
+		A068F4041DB85FD10005765C /* YDMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessage.m; sourceTree = "<group>"; };
+		A068F40A1DB862050005765C /* YDMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageFrame.h; sourceTree = "<group>"; };
+		A068F40B1DB862050005765C /* YDMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessageFrame.m; sourceTree = "<group>"; };
+		A068F40D1DB8642D0005765C /* YDTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDTextMessage.h; sourceTree = "<group>"; };
+		A068F40E1DB8642D0005765C /* YDTextMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDTextMessage.m; sourceTree = "<group>"; };
+		A068F4101DB866080005765C /* YDImageMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDImageMessage.h; sourceTree = "<group>"; };
+		A068F4111DB866080005765C /* YDImageMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDImageMessage.m; sourceTree = "<group>"; };
+		A068F4131DB8673D0005765C /* YDExpressionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDExpressionMessage.h; sourceTree = "<group>"; };
+		A068F4141DB8673D0005765C /* YDExpressionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDExpressionMessage.m; sourceTree = "<group>"; };
+		A068F4161DB868CC0005765C /* YDEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDEmoji.h; sourceTree = "<group>"; };
+		A068F4171DB868CC0005765C /* YDEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDEmoji.m; sourceTree = "<group>"; };
+		A068F41A1DB869350005765C /* NSDate+YDChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YDChat.h"; sourceTree = "<group>"; };
+		A068F41B1DB869350005765C /* NSDate+YDChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YDChat.m"; sourceTree = "<group>"; };
+		A068F4241DB869740005765C /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		A068F4251DB869740005765C /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		A068F4261DB869740005765C /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		A068F4271DB869740005765C /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		A068F42A1DB86B5A0005765C /* NSFileManager+Paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Paths.h"; sourceTree = "<group>"; };
+		A068F42B1DB86B5A0005765C /* NSFileManager+Paths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Paths.m"; sourceTree = "<group>"; };
+		A068F42E1DB86F500005765C /* YDHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDHost.h; sourceTree = "<group>"; };
+		A068F42F1DB86F500005765C /* YDHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDHost.m; sourceTree = "<group>"; };
+		A068F4341DB88AA50005765C /* YDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDUser.h; sourceTree = "<group>"; };
+		A068F4351DB88AA50005765C /* YDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDUser.m; sourceTree = "<group>"; };
+		A068F4381DB88B8A0005765C /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
+		A068F4391DB88B8A0005765C /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
+		A068F43B1DB88C3E0005765C /* YDUserGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDUserGroup.h; sourceTree = "<group>"; };
+		A068F43C1DB88C3E0005765C /* YDUserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDUserGroup.m; sourceTree = "<group>"; };
+		A068F4441DB892E40005765C /* YDChatUserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatUserProtocol.h; sourceTree = "<group>"; };
+		A068F4451DB8940A0005765C /* YDChatBaseViewController+ChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDChatBaseViewController+ChatBar.h"; sourceTree = "<group>"; };
+		A068F4461DB8940A0005765C /* YDChatBaseViewController+ChatBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDChatBaseViewController+ChatBar.m"; sourceTree = "<group>"; };
+		A068F4481DB896540005765C /* NSFileManager+YDChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+YDChat.h"; sourceTree = "<group>"; };
+		A068F4491DB896540005765C /* NSFileManager+YDChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+YDChat.m"; sourceTree = "<group>"; };
+		A068F44F1DB897500005765C /* YDUserHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDUserHelper.h; sourceTree = "<group>"; };
+		A068F4501DB897500005765C /* YDUserHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDUserHelper.m; sourceTree = "<group>"; };
+		A068F4521DB899640005765C /* YDChatBaseViewController+MessageDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDChatBaseViewController+MessageDisplayView.h"; sourceTree = "<group>"; };
+		A068F4531DB899640005765C /* YDChatBaseViewController+MessageDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDChatBaseViewController+MessageDisplayView.m"; sourceTree = "<group>"; };
+		A068F4551DB89AD10005765C /* YDChatBaseViewController+Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDChatBaseViewController+Proxy.h"; sourceTree = "<group>"; };
+		A068F4561DB89AD10005765C /* YDChatBaseViewController+Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDChatBaseViewController+Proxy.m"; sourceTree = "<group>"; };
+		A068F4591DB8B07D0005765C /* YDChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatViewController.h; sourceTree = "<group>"; };
+		A068F45A1DB8B07D0005765C /* YDChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDChatViewController.m; sourceTree = "<group>"; };
+		A068F45C1DB8B33C0005765C /* YDMessageCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageCellDelegate.h; sourceTree = "<group>"; };
 		A06A9D111D9263F200DFAFC2 /* AdviseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviseController.h; sourceTree = "<group>"; };
 		A06A9D121D9263F200DFAFC2 /* AdviseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviseController.m; sourceTree = "<group>"; };
 		A06A9D131D9263F200DFAFC2 /* AdviseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdviseController.xib; sourceTree = "<group>"; };
@@ -999,12 +1067,17 @@
 		A05886FD1D858A6900F488BE /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				A068F4581DB8B05D0005765C /* YDChatViewController */,
+				A068F4331DB88A710005765C /* Users */,
+				A068F4311DB875DC0005765C /* ChatModels */,
+				A068F4061DB85FD60005765C /* MessageModels */,
+				A068F3FE1DB85E3B0005765C /* ChatMessageDisplayView */,
+				A068F3FA1DB85D050005765C /* ChatBaseViewController */,
 				A0669F671DB76418008F8BB3 /* Keyboards */,
 				A0669F591DB7366D008F8BB3 /* ChatBar */,
 				A0669F551DB73636008F8BB3 /* Controller */,
 				A0669F541DB7362C008F8BB3 /* Model */,
 				A0669F531DB7361E008F8BB3 /* Views */,
-				A0669F5F1DB73D42008F8BB3 /* YDChatMacros.h */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1179,6 +1252,8 @@
 		A0669F6D1DB76B96008F8BB3 /* ChatEmojiKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A068F4161DB868CC0005765C /* YDEmoji.h */,
+				A068F4171DB868CC0005765C /* YDEmoji.m */,
 			);
 			name = ChatEmojiKeyboard;
 			sourceTree = "<group>";
@@ -1186,13 +1261,12 @@
 		A0669F6E1DB76BB3008F8BB3 /* ChatMoreKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				A0669F701DB76C12008F8BB3 /* YDMoreKeyboardDelegate.h */,
+				A0669F6F1DB76BF6008F8BB3 /* MoreKeyboardModel */,
+				A0669F771DB76DB4008F8BB3 /* MoreKeyboardCell */,
 				A0669F781DB77AAC008F8BB3 /* YDMoreKeyboard.h */,
 				A0669F791DB77AAC008F8BB3 /* YDMoreKeyboard.m */,
 				A0669F7E1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.h */,
 				A0669F7F1DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m */,
-				A0669F771DB76DB4008F8BB3 /* MoreKeyboardCell */,
-				A0669F6F1DB76BF6008F8BB3 /* MoreKeyboardModel */,
 			);
 			name = ChatMoreKeyboard;
 			sourceTree = "<group>";
@@ -1200,6 +1274,7 @@
 		A0669F6F1DB76BF6008F8BB3 /* MoreKeyboardModel */ = {
 			isa = PBXGroup;
 			children = (
+				A0669F701DB76C12008F8BB3 /* YDMoreKeyboardDelegate.h */,
 				A0669F711DB76C12008F8BB3 /* YDMoreKeyboardItem.h */,
 				A0669F721DB76C12008F8BB3 /* YDMoreKeyboardItem.m */,
 			);
@@ -1241,6 +1316,126 @@
 				A0C08CFA1DA901C60031977B /* YDMainTitleView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A068F3FA1DB85D050005765C /* ChatBaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A068F3FB1DB85D3D0005765C /* YDChatBaseViewController.h */,
+				A068F3FC1DB85D3D0005765C /* YDChatBaseViewController.m */,
+				A068F4521DB899640005765C /* YDChatBaseViewController+MessageDisplayView.h */,
+				A068F4531DB899640005765C /* YDChatBaseViewController+MessageDisplayView.m */,
+				A068F4451DB8940A0005765C /* YDChatBaseViewController+ChatBar.h */,
+				A068F4461DB8940A0005765C /* YDChatBaseViewController+ChatBar.m */,
+				A068F4551DB89AD10005765C /* YDChatBaseViewController+Proxy.h */,
+				A068F4561DB89AD10005765C /* YDChatBaseViewController+Proxy.m */,
+			);
+			name = ChatBaseViewController;
+			sourceTree = "<group>";
+		};
+		A068F3FE1DB85E3B0005765C /* ChatMessageDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				A068F3FF1DB85E7E0005765C /* YDMessageBaseCell.h */,
+				A068F4001DB85E7E0005765C /* YDMessageBaseCell.m */,
+				A068F45C1DB8B33C0005765C /* YDMessageCellDelegate.h */,
+			);
+			name = ChatMessageDisplayView;
+			sourceTree = "<group>";
+		};
+		A068F4061DB85FD60005765C /* MessageModels */ = {
+			isa = PBXGroup;
+			children = (
+				A068F4031DB85FD10005765C /* YDMessage.h */,
+				A068F4041DB85FD10005765C /* YDMessage.m */,
+				A068F40D1DB8642D0005765C /* YDTextMessage.h */,
+				A068F40E1DB8642D0005765C /* YDTextMessage.m */,
+				A068F4101DB866080005765C /* YDImageMessage.h */,
+				A068F4111DB866080005765C /* YDImageMessage.m */,
+				A068F4131DB8673D0005765C /* YDExpressionMessage.h */,
+				A068F4141DB8673D0005765C /* YDExpressionMessage.m */,
+				A068F40A1DB862050005765C /* YDMessageFrame.h */,
+				A068F40B1DB862050005765C /* YDMessageFrame.m */,
+			);
+			name = MessageModels;
+			sourceTree = "<group>";
+		};
+		A068F4191DB8691B0005765C /* DataUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A068F41A1DB869350005765C /* NSDate+YDChat.h */,
+				A068F41B1DB869350005765C /* NSDate+YDChat.m */,
+				A068F4481DB896540005765C /* NSFileManager+YDChat.h */,
+				A068F4491DB896540005765C /* NSFileManager+YDChat.m */,
+			);
+			name = DataUtilities;
+			sourceTree = "<group>";
+		};
+		A068F4231DB869670005765C /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				A068F4241DB869740005765C /* NSDate+Extension.h */,
+				A068F4251DB869740005765C /* NSDate+Extension.m */,
+				A068F4261DB869740005765C /* NSDate+Utilities.h */,
+				A068F4271DB869740005765C /* NSDate+Utilities.m */,
+			);
+			name = NSDate;
+			sourceTree = "<group>";
+		};
+		A068F42D1DB86B630005765C /* NSFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				A068F42A1DB86B5A0005765C /* NSFileManager+Paths.h */,
+				A068F42B1DB86B5A0005765C /* NSFileManager+Paths.m */,
+			);
+			name = NSFileManager;
+			sourceTree = "<group>";
+		};
+		A068F4311DB875DC0005765C /* ChatModels */ = {
+			isa = PBXGroup;
+			children = (
+				A0669F5F1DB73D42008F8BB3 /* YDChatMacros.h */,
+				A068F4441DB892E40005765C /* YDChatUserProtocol.h */,
+			);
+			name = ChatModels;
+			sourceTree = "<group>";
+		};
+		A068F4331DB88A710005765C /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				A068F4341DB88AA50005765C /* YDUser.h */,
+				A068F4351DB88AA50005765C /* YDUser.m */,
+				A068F43B1DB88C3E0005765C /* YDUserGroup.h */,
+				A068F43C1DB88C3E0005765C /* YDUserGroup.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		A068F4371DB88B7E0005765C /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				A068F4381DB88B8A0005765C /* NSString+PinYin.h */,
+				A068F4391DB88B8A0005765C /* NSString+PinYin.m */,
+			);
+			name = NSString;
+			sourceTree = "<group>";
+		};
+		A068F44B1DB896BD0005765C /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				A068F44F1DB897500005765C /* YDUserHelper.h */,
+				A068F4501DB897500005765C /* YDUserHelper.m */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		A068F4581DB8B05D0005765C /* YDChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A068F4591DB8B07D0005765C /* YDChatViewController.h */,
+				A068F45A1DB8B07D0005765C /* YDChatViewController.m */,
+			);
+			name = YDChatViewController;
 			sourceTree = "<group>";
 		};
 		A06A9D1B1D92802D00DFAFC2 /* Common */ = {
@@ -1448,7 +1643,6 @@
 				A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */,
 				A07F829D1D82909400F9EA6B /* MyMseeageModel.h */,
 				A07F829E1D82909400F9EA6B /* MyMseeageModel.m */,
-				A05886FD1D858A6900F488BE /* Chat */,
 			);
 			name = "我的消息";
 			sourceTree = "<group>";
@@ -1542,6 +1736,7 @@
 				A093B8F51DADCF4B009D568A /* Utilities */,
 				A093B90C1DADD561009D568A /* Extensions */,
 				A093B9161DADD7B7009D568A /* Resources */,
+				A068F44B1DB896BD0005765C /* Business */,
 			);
 			path = YuDao;
 			sourceTree = "<group>";
@@ -1747,6 +1942,7 @@
 		A093B8F51DADCF4B009D568A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A068F4191DB8691B0005765C /* DataUtilities */,
 				A06DA2EB1DB07D31004362BA /* Navigation_push */,
 				A093B9141DADD767009D568A /* UIUtilities */,
 				A093B9151DADD778009D568A /* NetworkUtilities */,
@@ -1759,6 +1955,8 @@
 			children = (
 				A093B8FD1DADD169009D568A /* YDMacros.h */,
 				A093B8FE1DADD278009D568A /* YDEnumerate.h */,
+				A068F42E1DB86F500005765C /* YDHost.h */,
+				A068F42F1DB86F500005765C /* YDHost.m */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -1771,6 +1969,7 @@
 				A07F82A01D82A2ED00F9EA6B /* 发现 */,
 				A07F82A11D82A2F100F9EA6B /* 服务 */,
 				A08247DC1D7FF70B00DC58C2 /* 我 */,
+				A05886FD1D858A6900F488BE /* Chat */,
 			);
 			name = "界面";
 			sourceTree = "<group>";
@@ -1778,6 +1977,9 @@
 		A093B90C1DADD561009D568A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A068F4371DB88B7E0005765C /* NSString */,
+				A068F42D1DB86B630005765C /* NSFileManager */,
+				A068F4231DB869670005765C /* NSDate */,
 				A0669F661DB7461B008F8BB3 /* UIButton */,
 				A06DA2FA1DB0AC34004362BA /* UIImage */,
 				A06DA2F91DB0AC27004362BA /* UIView */,
@@ -2078,6 +2280,7 @@
 				A01A34481D869DF400852D16 /* TableHeaderView.m in Sources */,
 				A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */,
 				A093B9331DAE04A9009D568A /* YDAllListItem.m in Sources */,
+				A068F3FD1DB85D3D0005765C /* YDChatBaseViewController.m in Sources */,
 				A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */,
 				A01A343A1D8699FD00852D16 /* SDWebImageDownloaderOperation.m in Sources */,
 				A023EE261D951B6000581EB1 /* LikedListController.m in Sources */,
@@ -2094,6 +2297,7 @@
 				A01A34351D8699FD00852D16 /* NSData+ImageContentType.m in Sources */,
 				A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */,
 				A05887001D858A8900F488BE /* ChatModel.m in Sources */,
+				A068F4281DB869740005765C /* NSDate+Extension.m in Sources */,
 				A01A34361D8699FD00852D16 /* SDImageCache.m in Sources */,
 				A01A33D91D86918600852D16 /* CommentView.m in Sources */,
 				A05886FC1D858A0B00F488BE /* ChatTableViewController.m in Sources */,
@@ -2103,10 +2307,12 @@
 				A01A34421D8699FD00852D16 /* UIImageView+WebCache.m in Sources */,
 				A06DA30A1DB0E627004362BA /* YDCarDetailViewController.m in Sources */,
 				A08247EF1D7FFC7800DC58C2 /* SearchController.m in Sources */,
+				A068F4291DB869740005765C /* NSDate+Utilities.m in Sources */,
 				A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */,
 				A01A33FE1D86941500852D16 /* MLLabelLayoutManager.m in Sources */,
 				A01A33D61D86917500852D16 /* OperationMenuView.m in Sources */,
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
+				A068F4121DB866080005765C /* YDImageMessage.m in Sources */,
 				A06DA3001DB0D8A4004362BA /* YDGarageViewController.m in Sources */,
 				A067C6AC1D98F83C000E4146 /* DataView.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
@@ -2117,11 +2323,13 @@
 				A093B9051DADD3E2009D568A /* YDTableViewController.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
 				A0669F581DB73662008F8BB3 /* YDChatBar.m in Sources */,
+				A068F42C1DB86B5A0005765C /* NSFileManager+Paths.m in Sources */,
 				A03BEC431DB4D46D006CFE43 /* YDPTimeAxisModel.m in Sources */,
 				A037BC691D91039400D8D12F /* CityController.m in Sources */,
 				A0669F5E1DB736DB008F8BB3 /* YDTalkButton.m in Sources */,
 				A01A34111D8699DE00852D16 /* SDWaitingView.m in Sources */,
 				A07641E81DB224E5009664D1 /* YDServiceViewController.m in Sources */,
+				A068F4151DB8673D0005765C /* YDExpressionMessage.m in Sources */,
 				A01A33FA1D86941500852D16 /* MLExpressionManager.m in Sources */,
 				A08247FC1D80148D00DC58C2 /* YDContactsModel.m in Sources */,
 				A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */,
@@ -2131,34 +2339,40 @@
 				A05887031D858B6C00F488BE /* ChatCell.m in Sources */,
 				A03BEC391DB4C4B9006CFE43 /* YDAddFriendViewController.m in Sources */,
 				A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */,
+				A068F4541DB899640005765C /* YDChatBaseViewController+MessageDisplayView.m in Sources */,
 				A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */,
 				A03BEC211DB471D3006CFE43 /* YDPersonalDataController.m in Sources */,
 				A03BEC241DB48F4B006CFE43 /* YDPersonalDataController+Delegate.m in Sources */,
 				A023EE201D9506D900581EB1 /* ContainerController.m in Sources */,
+				A068F4571DB89AD10005765C /* YDChatBaseViewController+Proxy.m in Sources */,
 				A07B8C3B1D9BB2D80040DD8B /* GarageViewController.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
 				A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */,
 				A093B8F81DADCFCC009D568A /* UIColor+YuDao.m in Sources */,
 				A05CD1271DAA1CC5008E01D1 /* YDLTopThreeView.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
+				A068F4301DB86F500005765C /* YDHost.m in Sources */,
 				A093B90B1DADD4E2009D568A /* YDSearchController.m in Sources */,
 				A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */,
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */,
 				A01A343B1D8699FD00852D16 /* SDWebImageManager.m in Sources */,
 				A0669F6C1DB764AA008F8BB3 /* YDBaseKeyboard.m in Sources */,
+				A068F45B1DB8B07D0005765C /* YDChatViewController.m in Sources */,
 				A057AB9D1D8FC30E00F8817E /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */,
 				A0743E521DAB5C9F00545125 /* YDBaseCell.m in Sources */,
 				A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */,
 				A057ABA31D8FCF6400F8817E /* InterestController.m in Sources */,
 				A057ABAF1D8FEA2900F8817E /* UIView+Extnesion.m in Sources */,
+				A068F4201DB869350005765C /* NSDate+YDChat.m in Sources */,
 				A093B9021DADD39C009D568A /* YDTabBarController.m in Sources */,
 				A0743E601DABA63F00545125 /* YDDModel.m in Sources */,
 				A01A34431D8699FD00852D16 /* UIView+WebCacheOperation.m in Sources */,
 				A0669F651DB74617008F8BB3 /* UIButton+TLChat.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
 				A0669F731DB76C12008F8BB3 /* YDMoreKeyboardItem.m in Sources */,
+				A068F4361DB88AA50005765C /* YDUser.m in Sources */,
 				A013A6761D8E968100A9080A /* SetupModel.m in Sources */,
 				A07F82921D82823E00F9EA6B /* UIButton+ImageTitleSpacing.m in Sources */,
 				A05CD11F1DA9E47B008E01D1 /* YDDataTypeView.m in Sources */,
@@ -2167,8 +2381,10 @@
 				A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */,
 				A057AB921D8FB7F300F8817E /* APCell.m in Sources */,
 				A01A33FD1D86941500852D16 /* NSString+MLExpression.m in Sources */,
+				A068F4471DB8940A0005765C /* YDChatBaseViewController+ChatBar.m in Sources */,
 				A06A9D191D9265F800DFAFC2 /* AboutUsController.m in Sources */,
 				A06A9D1E1D92805000DFAFC2 /* CommonController.m in Sources */,
+				A068F4011DB85E7E0005765C /* YDMessageBaseCell.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
 				A06DA2FD1DB0B37C004362BA /* YDSearchResultsTableViewController.m in Sources */,
@@ -2184,6 +2400,7 @@
 				A07641D61DB1DAB8009664D1 /* YDGroupDetailViewController.m in Sources */,
 				A01A34371D8699FD00852D16 /* SDWebImageCompat.m in Sources */,
 				A01A33F71D86941500852D16 /* NSAttributedString+MLLabel.m in Sources */,
+				A068F4181DB868CC0005765C /* YDEmoji.m in Sources */,
 				A0743E551DAB5E3400545125 /* YDListCell.m in Sources */,
 				A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */,
 				A01A34101D8699DE00852D16 /* SDPhotoBrowser.m in Sources */,
@@ -2195,6 +2412,7 @@
 				A06DA3041DB0D909004362BA /* YDGarageCell.m in Sources */,
 				A067C6A51D98ED6E000E4146 /* DrivingModel.m in Sources */,
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
+				A068F4511DB897500005765C /* YDUserHelper.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
 				A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */,
 				A01A33FC1D86941500852D16 /* NSAttributedString+MLExpression.m in Sources */,
@@ -2208,13 +2426,17 @@
 				A08247E41D7FF71D00DC58C2 /* MyInformationController.m in Sources */,
 				A0669F801DB77DB5008F8BB3 /* YDMoreKeyboard+CollectionView.m in Sources */,
 				A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */,
+				A068F4051DB85FD10005765C /* YDMessage.m in Sources */,
 				A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */,
+				A068F40C1DB862050005765C /* YDMessageFrame.m in Sources */,
+				A068F44A1DB896540005765C /* NSFileManager+YDChat.m in Sources */,
 				A0669F761DB76DB1008F8BB3 /* YDMoreKeyboardCell.m in Sources */,
 				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A01A34341D8699FD00852D16 /* MKAnnotationView+WebCache.m in Sources */,
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
+				A068F43A1DB88B8A0005765C /* NSString+PinYin.m in Sources */,
 				A093B9101DADD5E2009D568A /* UIImage+Color.m in Sources */,
 				A093B9131DADD609009D568A /* UIImage+Size.m in Sources */,
 				A03BEC2B1DB4A899006CFE43 /* YDPersonalBasicCell.m in Sources */,
@@ -2222,6 +2444,7 @@
 				A093B8F41DADCEA9009D568A /* YDNavigationController.m in Sources */,
 				A07641E51DB20EF0009664D1 /* YDGroupModel.m in Sources */,
 				A0743E5C1DAB7E1F00545125 /* YDDynamicCell.m in Sources */,
+				A068F43D1DB88C3E0005765C /* YDUserGroup.m in Sources */,
 				A037BC641D9100A100D8D12F /* ProvinceController.m in Sources */,
 				A05D73E21D9A24F000E5E3A2 /* TaskContentView.m in Sources */,
 				A06DA2F81DB0ABCB004362BA /* UIView+Extensions.m in Sources */,
@@ -2233,6 +2456,7 @@
 				A01A343F1D8699FD00852D16 /* UIImage+MultiFormat.m in Sources */,
 				A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */,
 				A093B93E1DAE2FDA009D568A /* YDOrdinaryTableViewController.m in Sources */,
+				A068F40F1DB8642D0005765C /* YDTextMessage.m in Sources */,
 				A03BEC3F1DB4C944006CFE43 /* YDPTimeAxisCell.m in Sources */,
 				A06227261DAF9158006ADC50 /* UIImage+YuDao.m in Sources */,
 				A01A33CB1D867BBC00852D16 /* DynamicTableViewController.m in Sources */,

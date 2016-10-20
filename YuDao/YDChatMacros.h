@@ -15,6 +15,12 @@
 #define     HEIGHT_MAX_CHATBAR_TEXTVIEW     111.5f
 #define     HEIGHT_CHAT_KEYBOARD            215.0f
 
+#define     MAX_MESSAGE_WIDTH               screen_width * 0.58
+#define     MAX_MESSAGE_IMAGE_WIDTH         screen_width * 0.45
+#define     MIN_MESSAGE_IMAGE_WIDTH         screen_width * 0.25
+#define     MAX_MESSAGE_EXPRESSION_WIDTH    screen_width * 0.35
+#define     MIN_MESSAGE_EXPRESSION_WIDTH    screen_width * 0.2
+
 /**
  *  聊天表情
  */
