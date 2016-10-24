@@ -7,8 +7,16 @@
 //
 
 #import "YDChatBaseViewController.h"
+#import "YDChatMessageViewDelegate.h"
+#define     MAX_SHOWTIME_MSG_COUNT      10
+#define     MAX_SHOWTIME_MSG_SECOND     30
 
-@interface YDChatBaseViewController (MessageDisplayView)
+@interface YDChatBaseViewController (MessageDisplayView)<YDChatMessageViewDelegate>
+
+/**
+ *  添加展示消息（添加到chatVC）
+ */
+- (void)addToShowMessage:(YDMessage *)message;
 
 /**
  *  重置chatVC

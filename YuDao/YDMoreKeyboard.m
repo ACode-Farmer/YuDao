@@ -22,7 +22,7 @@ static YDMoreKeyboard *moreKB;
 
 - (id)init{
     if (self = [super init]) {
-        [self setBackgroundColor:[UIColor yellowColor]];
+        [self setBackgroundColor:[UIColor colorGrayForChatBar]];
         [self addSubview:self.collectionView];
         [self addSubview:self.pageControl];
         [self y_addMasonry];

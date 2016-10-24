@@ -12,6 +12,8 @@
 #import "YDTextMessage.h"
 #import "YDImageMessage.h"
 #import "YDUserHelper.h"
+#import "YDChatMessageViewDelegate.h"
+#import "YDChatMessageDisplayView.h"
 
 @interface YDChatBaseViewController : UIViewController
 {
@@ -26,19 +28,19 @@
 @property (nonatomic, strong) id<YDChatUserProtocol> partner;
 
 /// 消息展示页面
-//@property (nonatomic, strong) TLChatMessageDisplayView *messageDisplayView;
+@property (nonatomic, strong) YDChatMessageDisplayView *messageDisplayView;
 
 /// 聊天输入栏
 @property (nonatomic, strong) YDChatBar *chatBar;
 
 /// emoji展示view
-//@property (nonatomic, strong) TLEmojiDisplayView *emojiDisplayView;
+//@property (nonatomic, strong) YDEmojiDisplayView *emojiDisplayView;
 
 /// 图片表情展示view
-//@property (nonatomic, strong) TLImageExpressionDisplayView *imageExpressionDisplayView;
+//@property (nonatomic, strong) YDImageExpressionDisplayView *imageExpressionDisplayView;
 
 /// 录音展示view
-//@property (nonatomic, strong) TLRecorderIndicatorView *recorderIndicatorView;;
+//@property (nonatomic, strong) YDRecorderIndicatorView *recorderIndicatorView;;
 
 /**
  *  设置“更多”键盘元素

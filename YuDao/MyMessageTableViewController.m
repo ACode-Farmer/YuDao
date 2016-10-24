@@ -7,7 +7,7 @@
 //
 
 #import "MyMessageTableViewController.h"
-#import "ChatTableViewController.h"
+
 #import "MyMseeageModel.h"
 #import "UIImage+ChangeIt.h"
 @interface MyMessageTableViewController ()
@@ -88,7 +88,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController secondLevel_push_fromViewController:self toVC:[ChatTableViewController new]];
+    //[self.navigationController secondLevel_push_fromViewController:self toVC:[ChatTableViewController new]];
 }
 
 

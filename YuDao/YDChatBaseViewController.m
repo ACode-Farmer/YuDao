@@ -25,6 +25,7 @@
 {
     [super loadView];
     
+    [self.view addSubview:self.messageDisplayView];
     [self.view addSubview:self.chatBar];
     
     [self y_addMasonry];
@@ -152,20 +153,30 @@
 #pragma mark - # Private Methods
 - (void)y_addMasonry
 {
-//    [self.messageDisplayView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.and.left.and.right.mas_equalTo(self.view);
-//        make.bottom.mas_equalTo(self.chatBar.mas_top);
-//    }];
+
+    self.messageDisplayView.sd_layout
+    .topSpaceToView(self.view,0)
+    .leftEqualToView(self.view)
+    .rightEqualToView(self.view)
+    .bottomSpaceToView(self.chatBar,0);
     
     self.chatBar.sd_layout
     .leftSpaceToView(self.view,0)
     .rightSpaceToView(self.view,0)
     .bottomSpaceToView(self.view,0)
-    .heightIs(HEIGHT_TABBAR);
+    .heightIs(height_tabBar);
     [self.view layoutIfNeeded];
 }
 
 #pragma mark - # Getter
+- (YDChatMessageDisplayView *)messageDisplayView
+{
+    if (_messageDisplayView == nil) {
+        _messageDisplayView = [[YDChatMessageDisplayView alloc] init];
+        [_messageDisplayView setDelegate:self];
+    }
+    return _messageDisplayView;
+}
 - (YDChatBar *)chatBar
 {
     if (_chatBar == nil) {

@@ -62,6 +62,7 @@
 #pragma mark -
 - (YDMessageFrame *)messageFrame
 {
+    
     if (kMessageFrame == nil) {
         kMessageFrame = [[YDMessageFrame alloc] init];
         kMessageFrame.height = 20 + (self.showTime ? 30 : 0) + (self.showName ? 15 : 0);

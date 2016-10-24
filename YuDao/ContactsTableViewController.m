@@ -9,7 +9,6 @@
 #import "ContactsTableViewController.h"
 #import "GroupController.h"
 #import "PhoneContactsTableViewController.h"
-#import "ChatTableViewController.h"
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
 #import "YDContactsModel.h"
@@ -168,10 +167,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    ChatTableViewController *chatVC = [ChatTableViewController new];
-    chatVC.variableTitle = model.name;
-    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
+    //YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    //ChatTableViewController *chatVC = [ChatTableViewController new];
+    //chatVC.variableTitle = model.name;
+    //[self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
 }
 
 #pragma mark - private

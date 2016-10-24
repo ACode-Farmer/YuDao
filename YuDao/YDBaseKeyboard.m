@@ -46,6 +46,7 @@
             if (self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(chatKeyboardDidShow:animated:)]) {
                 [self.keyboardDelegate chatKeyboardDidShow:self animated:animation];
                 NSLog(@"x=%f,y=%f,w=%f,h=%f",self.origin.x,self.origin.y,self.size.width,self.size.height);
+                [view setNeedsLayout];
             }
         }];
     }
@@ -76,7 +77,7 @@
             self.sd_layout.bottomSpaceToView(self.superview,-keyboardHeight);
             [self.superview layoutIfNeeded];
             if (self.keyboardDelegate && [self.keyboardDelegate respondsToSelector:@selector(chatKeyboard:didChangeHeight:)]) {
-                [self.keyboardDelegate chatKeyboard:self didChangeHeight:self.superview.height - self.y];
+                [self.keyboardDelegate chatKeyboard:self didChangeHeight:0];
             }
         } completion:^(BOOL finished) {
             [self removeFromSuperview];

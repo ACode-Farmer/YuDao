@@ -52,10 +52,11 @@ static UILabel *textLabel = nil;
 {
     if (kMessageFrame == nil) {
         kMessageFrame = [[YDMessageFrame alloc] init];
-        kMessageFrame.height = 20 + (self.showTime ? 30 : 0) + (self.showName ? 15 : 0) + 20;
-        [textLabel setAttributedText:self.attrText];
+        kMessageFrame.height = 30;
+        textLabel.text = self.text;
         kMessageFrame.contentSize = [textLabel sizeThatFits:CGSizeMake(MAX_MESSAGE_WIDTH, MAXFLOAT)];
         kMessageFrame.height += kMessageFrame.contentSize.height;
+        NSLog(@"wid = %f, hei = %f",kMessageFrame.contentSize.width,kMessageFrame.contentSize.height);
     }
     return kMessageFrame;
 }

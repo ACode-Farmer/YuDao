@@ -42,6 +42,22 @@ static YDChatViewController *chatVC;
 //    }];
 }
 
+#pragma mark - # Event Response
+- (void)rightBarButtonDown:(UINavigationBar *)sender
+{
+//    if ([self.partner chat_userType] == TLChatUserTypeUser) {
+//        TLChatDetailViewController *chatDetailVC = [[TLChatDetailViewController alloc] init];
+//        [chatDetailVC setUser:(TLUser *)self.partner];
+//        [self setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:chatDetailVC animated:YES];
+//    }
+//    else if ([self.partner chat_userType] == TLChatUserTypeGroup) {
+//        TLChatGroupDetailViewController *chatGroupDetailVC = [[TLChatGroupDetailViewController alloc] init];
+//        [chatGroupDetailVC setGroup:(TLGroup *)self.partner];
+//        [self setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:chatGroupDetailVC animated:YES];
+//    }
+}
 #pragma mark - # Getter
 - (UIBarButtonItem *)rightBarButton
 {

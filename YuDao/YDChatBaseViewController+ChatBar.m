@@ -7,6 +7,7 @@
 //
 
 #import "YDChatBaseViewController+ChatBar.h"
+#import "YDMoreKeyboardItem.h"
 
 @implementation YDChatBaseViewController (ChatBar)
 #pragma mark - # Public Methods
@@ -16,8 +17,47 @@
     //[self.emojiKeyboard setDelegate:self];
     [self.moreKeyboard setKeyboardDelegate:self];
     [self.moreKeyboard setDelegate:self];
+    [self.moreKeyboard setChatMoreKeyboardData:[self p_initTestData]];
 }
-
+- (NSMutableArray *) p_initTestData
+{
+    NSMutableArray *moreKeyboardItems = [NSMutableArray arrayWithCapacity:20];
+    YDMoreKeyboardItem *imageItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeImage
+                                                               title:@"照片"
+                                                           imagePath:@"moreKB_image"];
+    YDMoreKeyboardItem *cameraItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeCamera
+                                                                title:@"拍摄"
+                                                            imagePath:@"moreKB_video"];
+    YDMoreKeyboardItem *videoItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeVideo
+                                                               title:@"小视频"
+                                                           imagePath:@"moreKB_sight"];
+    YDMoreKeyboardItem *videoCallItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeVideoCall
+                                                                   title:@"视频聊天"
+                                                               imagePath:@"moreKB_video_call"];
+    YDMoreKeyboardItem *walletItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeWallet
+                                                                title:@"红包"
+                                                            imagePath:@"moreKB_wallet"];
+    YDMoreKeyboardItem *transferItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeTransfer
+                                                                  title:@"转账"
+                                                              imagePath:@"moreKB_pay"];
+    YDMoreKeyboardItem *positionItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypePosition
+                                                                  title:@"位置"
+                                                              imagePath:@"moreKB_location"];
+    YDMoreKeyboardItem *favoriteItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeFavorite
+                                                                  title:@"收藏"
+                                                              imagePath:@"moreKB_favorite"];
+    YDMoreKeyboardItem *businessCardItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeBusinessCard
+                                                                      title:@"个人名片"
+                                                                  imagePath:@"moreKB_friendcard" ];
+    YDMoreKeyboardItem *voiceItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeVoice
+                                                               title:@"语音输入"
+                                                           imagePath:@"moreKB_voice"];
+    YDMoreKeyboardItem *cardsItem = [YDMoreKeyboardItem createByType:YDMoreKeyboardItemTypeCards
+                                                               title:@"卡券"
+                                                           imagePath:@"moreKB_wallet"];
+    [moreKeyboardItems addObjectsFromArray:@[imageItem, cameraItem, videoItem, videoCallItem, walletItem, transferItem, positionItem, favoriteItem, businessCardItem, voiceItem, cardsItem]];
+    return moreKeyboardItems;
+}
 - (void)dismissKeyboard
 {
     if (curStatus == YDChatBarStatusMore) {
@@ -37,7 +77,7 @@
     if (curStatus != YDChatBarStatusKeyboard) {
         return;
     }
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification
@@ -51,12 +91,11 @@
     else if (lastStatus == YDChatBarStatusEmoji) {
         //[self.emojiKeyboard dismissWithAnimation:NO];
     }
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
 
 - (void)keyboardFrameWillChange:(NSNotification *)notification
 {
-    NSLog(@"keyboardFrameWillChange");
     if (curStatus != YDChatBarStatusKeyboard && lastStatus != YDChatBarStatusKeyboard) {
         return;
     }
@@ -70,21 +109,25 @@
         return;
     }
     self.chatBar.sd_layout.bottomSpaceToView(self.view,keyboardFrame.size.height);
-    [self.view layoutIfNeeded];
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+//    [self.view setNeedsLayout];
+//    [self.view layoutIfNeeded];
+    [self.chatBar updateLayout];
+    [self.messageDisplayView updateLayout];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
-    NSLog(@"keyboardWillHide");
+    
     if (curStatus != YDChatBarStatusKeyboard && lastStatus != YDChatBarStatusKeyboard) {
         return;
     }
     if (curStatus == YDChatBarStatusEmoji || curStatus == YDChatBarStatusMore) {
         return;
     }
-    self.chatBar.y = screen_height-self.chatBar.bounds.size.height;
-    [self.view layoutIfNeeded];
+    self.chatBar.sd_layout.bottomSpaceToView(self.view,0);
+    [self.chatBar updateLayout];
+    [self.messageDisplayView updateLayout];
 }
 
 #pragma mark - Delegate
@@ -229,20 +272,19 @@
         //[self.emojiKeyboard showInView:self.view withAnimation:YES];
     }
     else if (toStatus == YDChatBarStatusMore) {
-        
         [self.moreKeyboard showInView:self.view withAnimation:YES];
     }
 }
 
 - (void)chatBar:(YDChatBar *)chatBar didChangeTextViewHeight:(CGFloat)height
 {
-    //[self.messageDisplayView scrollToBottomWithAnimation:NO];
+    [self.messageDisplayView scrollToBottomWithAnimation:NO];
 }
 
 //MARK: YDKeyboardDelegate
 - (void)chatKeyboardWillShow:(id)keyboard animated:(BOOL)animated
 {
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
 
 - (void)chatKeyboardDidShow:(id)keyboard animated:(BOOL)animated
@@ -253,15 +295,22 @@
     else if (curStatus == YDChatBarStatusEmoji && lastStatus == YDChatBarStatusMore) {
         [self.moreKeyboard dismissWithAnimation:NO];
     }
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
 
 - (void)chatKeyboard:(id)keyboard didChangeHeight:(CGFloat)height
 {
-    NSLog(@"height = %f",height);
+    
     self.chatBar.sd_layout.bottomSpaceToView(self.view,height);
-    [self.view layoutIfNeeded];
-    //[self.messageDisplayView scrollToBottomWithAnimation:YES];
+    [self.chatBar updateLayout];
+    [self.messageDisplayView updateLayout];
+    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+}
+
+//MARK: YDKeyboardDelegate
+- (void) moreKeyboard:(id)keyboard didSelectedFunctionItem:(YDMoreKeyboardItem *)funcItem{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"功能暂未实现!" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 //MARK: TLEmojiKeyboardDelegate

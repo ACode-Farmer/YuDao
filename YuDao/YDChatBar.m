@@ -229,6 +229,8 @@ static NSString *textRec = @"";
         }
         else if (self.status == YDChatBarStatusMore) {
             [self.moreButton setImage:kMoreImage imageHL:kMoreImageHL];
+            self.sd_layout.bottomSpaceToView(self.superview,0);
+            [self.superview setNeedsLayout];
         }
         [self.talkButton setHidden:NO];
         [self.textView setHidden:YES];

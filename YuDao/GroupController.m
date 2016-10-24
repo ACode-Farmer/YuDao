@@ -11,7 +11,7 @@
 #import "CreateGroupController.h"
 #import "YDGroupModel.h"
 #import "UIImage+ChangeIt.h"
-#import "ChatTableViewController.h"
+
 #import "YDMGroupDetailViewController.h"
 #import "YDSearchController.h"
 #import "YDSearchResultsTableViewController.h"
@@ -103,10 +103,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YDGroupModel *model = [self.dataSource objectAtIndex:indexPath.row];
-    ChatTableViewController *chatVC = [ChatTableViewController new];
-    chatVC.variableTitle = model.groupName;
-    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
+//    YDGroupModel *model = [self.dataSource objectAtIndex:indexPath.row];
+//    ChatTableViewController *chatVC = [ChatTableViewController new];
+//    chatVC.variableTitle = model.groupName;
+//    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
 }
 
 
