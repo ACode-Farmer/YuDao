@@ -56,7 +56,6 @@ static UILabel *textLabel = nil;
         textLabel.text = self.text;
         kMessageFrame.contentSize = [textLabel sizeThatFits:CGSizeMake(MAX_MESSAGE_WIDTH, MAXFLOAT)];
         kMessageFrame.height += kMessageFrame.contentSize.height;
-        NSLog(@"wid = %f, hei = %f",kMessageFrame.contentSize.width,kMessageFrame.contentSize.height);
     }
     return kMessageFrame;
 }

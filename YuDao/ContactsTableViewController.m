@@ -12,7 +12,7 @@
 #import "HeaderTableView.h"
 #import "HeaderModel.h"
 #import "YDContactsModel.h"
-
+#import "YDChatViewController.h"
 #import "UIImage+ChangeIt.h"
 #import "YDPersonalDataController.h"
 #import "YDAddFriendViewController.h"
@@ -167,10 +167,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    //ChatTableViewController *chatVC = [ChatTableViewController new];
-    //chatVC.variableTitle = model.name;
-    //[self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
+    YDContactsModel *model = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    YDChatViewController *chatVC = [YDChatViewController sharedChatVC];
+    chatVC.title = model.name;
+    [self.navigationController secondLevel_push_fromViewController:self toVC:chatVC];
 }
 
 #pragma mark - private

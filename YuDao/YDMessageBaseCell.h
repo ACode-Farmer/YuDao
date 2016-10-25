@@ -13,12 +13,17 @@
 
 @interface YDMessageBaseCell : UITableViewCell
 
+/**
+ *  单元格的消息
+ */
+@property (nonatomic, strong) YDMessage *message;
+
 @property (nonatomic, weak) id<YDMessageCellDelegate> delegate;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UIButton *avatarButton;
 @property (nonatomic, strong) UILabel *usernameLabel;
 @property (nonatomic, strong) UIImageView *messageBackgroundView;
-@property (nonatomic, strong) YDMessage *message;
+
 
 /**
  *  更新消息，如果子类不重写，默认调用setMessage方法

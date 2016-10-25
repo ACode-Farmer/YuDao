@@ -12,4 +12,9 @@
 
 + (YDChatViewController *)sharedChatVC;
 
+/**
+ *  用于测试图片的点击所写的临时数组
+ */
+@property (nonatomic, strong) NSMutableArray *textImageArray;
+
 @end

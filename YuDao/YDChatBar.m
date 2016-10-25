@@ -454,7 +454,6 @@ static NSString *textRec = @"";
 {
     if (_talkButton == nil) {
         _talkButton = [[YDTalkButton alloc] init];
-        //_talkButton.titleLabel.text = @"按住 说话";
         [_talkButton setHidden:YES];
         __weak typeof(self) weakSelf = self;
         [_talkButton setTouchBeginAction:^{

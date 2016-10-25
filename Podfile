@@ -7,5 +7,7 @@ pod 'PNChart'
 pod 'MJExtension', '~> 3.0.13'
 pod 'MJRefresh', '~> 3.1.12'
 pod 'MWPhotoBrowser', '~> 2.1.2'
+pod 'BlocksKit', '~> 2.2.5'
+pod 'FMDB', '~> 2.6.2'
 
 end

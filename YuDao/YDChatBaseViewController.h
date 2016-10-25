@@ -14,7 +14,8 @@
 #import "YDUserHelper.h"
 #import "YDChatMessageViewDelegate.h"
 #import "YDChatMessageDisplayView.h"
-
+#import "YDRecoderIndicatorView.h"
+#import "YDChatViewControllerProxy.h"
 @interface YDChatBaseViewController : UIViewController
 {
     YDChatBarStatus lastStatus;
@@ -40,7 +41,7 @@
 //@property (nonatomic, strong) YDImageExpressionDisplayView *imageExpressionDisplayView;
 
 /// 录音展示view
-//@property (nonatomic, strong) YDRecorderIndicatorView *recorderIndicatorView;;
+@property (nonatomic, strong) YDRecoderIndicatorView *recorderIndicatorView;;
 
 /**
  *  设置“更多”键盘元素

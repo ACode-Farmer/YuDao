@@ -41,7 +41,7 @@
     self.touchBegin = touchBegin;
     self.touchMove = willTouchCancel;
     self.touchCancel = touchCancel;
-    self.touchEnd = self.touchEnd;
+    self.touchEnd = touchEnd;
 }
 
 #pragma mark - Event Response

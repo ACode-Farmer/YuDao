@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self loadKeyboard];
 }
 
@@ -185,7 +185,13 @@
     }
     return _chatBar;
 }
-
+- (YDRecoderIndicatorView *)recorderIndicatorView
+{
+    if (_recorderIndicatorView == nil) {
+        _recorderIndicatorView = [[YDRecoderIndicatorView alloc] init];
+    }
+    return _recorderIndicatorView;
+}
 
 
 

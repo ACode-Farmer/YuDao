@@ -9,6 +9,9 @@
 #import "YDChatViewController+Delegate.h"
 #import <MWPhotoBrowser.h>
 #import "YDMoreKeyboardItem.h"
+#import "YDImageMessage.h"
+#import "YDNavigationController.h"
+
 
 @implementation YDChatViewController (Delegate)
 
@@ -25,7 +28,7 @@
                 [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
             }
             else {
-                //[UIAlertView bk_alertViewWithTitle:@"错误" message:@"相机初始化失败"];
+                [UIAlertView bk_alertViewWithTitle:@"错误" message:@"相机初始化失败"];
                 return;
             }
         }
@@ -53,6 +56,7 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.textImageArray addObject:image];
     [self sendImageMessage:image];
 }
 
@@ -84,28 +88,36 @@
 //    [self setHidesBottomBarWhenPushed:YES];
 //    [self.navigationController pushViewController:detailVC animated:YES];
 //}
-//
-//- (void)didClickedImageMessages:(NSArray *)imageMessages atIndex:(NSInteger)index
-//{
-//    NSMutableArray *data = [[NSMutableArray alloc] init];
-//    for (TLMessage *message in imageMessages) {
-//        NSURL *url;
-//        if ([(TLImageMessage *)message imagePath]) {
-//            NSString *imagePath = [NSFileManager pathUserChatImage:[(TLImageMessage *)message imagePath]];
-//            url = [NSURL fileURLWithPath:imagePath];
-//        }
-//        else {
-//            url = TLURL([(TLImageMessage *)message imageURL]);
-//        }
-//        
-//        MWPhoto *photo = [MWPhoto photoWithURL:url];
-//        [data addObject:photo];
-//    }
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:data];
-//    [browser setDisplayNavArrows:YES];
-//    [browser setCurrentPhotoIndex:index];
-//    TLNavigationController *broserNavC = [[TLNavigationController alloc] initWithRootViewController:browser];
-//    [self presentViewController:broserNavC animated:NO completion:nil];
-//}
+
+- (void)didClickedImageMessages:(NSArray *)imageMessages atIndex:(NSInteger)index
+{
+    NSMutableArray *data = [[NSMutableArray alloc] init];
+    if (imageMessages) {
+        for (YDMessage *message in imageMessages) {
+            NSURL *url;
+            if ([(YDImageMessage *)message imagePath]) {
+                NSString *imagePath = [NSFileManager pathUserChatImage:[(YDImageMessage *)message imagePath]];
+                url = [NSURL fileURLWithPath:imagePath];
+            }
+            else {
+                url = YDURL([(YDImageMessage *)message imageURL]);
+            }
+            
+            MWPhoto *photo = [MWPhoto photoWithURL:url];
+            [data addObject:photo];
+        }
+    }else{
+        for (UIImage *image in self.textImageArray) {
+            MWPhoto *photo = [MWPhoto photoWithImage:image];
+            [data addObject:photo];
+        }
+    }
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithPhotos:data];
+    [browser setDisplayNavArrows:YES];
+    [browser setCurrentPhotoIndex:index];
+    YDNavigationController *broserNavC = [[YDNavigationController alloc] initWithRootViewController:browser];
+    [self presentViewController:broserNavC animated:YES completion:nil];
+}
 
 @end

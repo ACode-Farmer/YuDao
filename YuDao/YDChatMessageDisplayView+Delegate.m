@@ -15,7 +15,7 @@
     [tableView registerClass:[YDTextMessageCell class] forCellReuseIdentifier:@"YDTextMessageCell"];
     [tableView registerClass:[YDImageMessageCell class] forCellReuseIdentifier:@"YDImageMessageCell"];
     [tableView registerClass:[YDExpressionMessageCell class] forCellReuseIdentifier:@"YDExpressionMessageCell"];
-    //[tableView registerClass:[TLVoiceMessageCell class] forCellReuseIdentifier:@"TLVoiceMessageCell"];
+    [tableView registerClass:[YDVoiceMessageCell class] forCellReuseIdentifier:@"YDVoiceMessageCell"];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"EmptyCell"];
 }
 
@@ -56,10 +56,10 @@
     }
     
     else if (message.messageType == YDMessageTypeVoice) {
-//        TLVoiceMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TLVoiceMessageCell"];
-//        [cell setMessage:message];
-//        [cell setDelegate:self];
-//        return cell;
+        YDVoiceMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YDVoiceMessageCell"];
+        [cell setMessage:message];
+        [cell setDelegate:self];
+        return cell;
     }
     
     return [tableView dequeueReusableCellWithIdentifier:@"EmptyCell"];
@@ -73,6 +73,7 @@
     }
     
     YDMessage * message = self.data[indexPath.row];
+    NSLog(@"cell_height ==== %f",message.messageFrame.height);
     return message.messageFrame.height;
     
 }

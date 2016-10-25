@@ -11,6 +11,9 @@
 #import "YDTextDisplayView.h"
 #import "YDChatMessageDisplayView.h"
 #import "YDChatViewControllerProxy.h"
+#import "YDMessageManager.h"
+#import "YDMessageManager+MessageRecord.h"
+
 
 @implementation YDChatBaseViewController (MessageDisplayView)
 
@@ -101,35 +104,39 @@
 
 - (void)chatMessageDisplayView:(YDChatMessageDisplayView *)chatTVC didClickMessage:(YDMessage *)message
 {
+    
     if (message.messageType == YDMessageTypeImage && [self respondsToSelector:@selector(didClickedImageMessages:atIndex:)]) {
-        // 展示聊天图片
-//        [[YDMessageManager sharedInstance] chatImagesAndVideosForPartnerID:[self.partner chat_userID] completed:^(NSArray *imagesData) {
-//            NSInteger index = -1;
-//            for (int i = 0; i < imagesData.count; i ++) {
-//                if ([message.messageID isEqualToString:[imagesData[i] messageID]]) {
-//                    index = i;
-//                    break;
-//                }
-//            }
-//            if (index >= 0) {
-//                [self didClickedImageMessages:imagesData atIndex:index];
-//            }
-//        }];
+         //展示聊天图片
+        [[YDMessageManager sharedInstance] chatImagesAndVideosForPartnerID:[self.partner chat_userID] completed:^(NSArray *imagesData) {
+            NSInteger index = -1;
+            for (int i = 0; i < imagesData.count; i ++) {
+                if ([message.messageID isEqualToString:[imagesData[i] messageID]]) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index >= 0) {
+                [self didClickedImageMessages:imagesData atIndex:index];
+            }else{
+                [self didClickedImageMessages:nil atIndex:index];
+            }
+        }];
+        
     }
     else if (message.messageType == YDMessageTypeVoice) {
-//        if ([(TLVoiceMessage *)message msgStatus] == TLVoiceMessageStatusNormal) {
-//            // 播放语音消息
-//            [(TLVoiceMessage *)message setMsgStatus:TLVoiceMessageStatusPlaying];
-//            
-//            [[TLAudioPlayer sharedAudioPlayer] playAudioAtPath:[(TLVoiceMessage *)message path] complete:^(BOOL finished) {
-//                [(TLVoiceMessage *)message setMsgStatus:TLVoiceMessageStatusNormal];
-//                [self.messageDisplayView updateMessage:message];
-//            }];
-//        }
-//        else {
-//            // 停止播放语音消息
-//            [[TLAudioPlayer sharedAudioPlayer] stopPlayingAudio];
-//        }
+        if ([(YDVoiceMessage *)message msgStatus] == YDVoiceMessageStatusNormal) {
+            // 播放语音消息
+            [(YDVoiceMessage *)message setMsgStatus:YDVoiceMessageStatusPlaying];
+            
+            [[YDAudioPlayer sharedAudioPlayer] playAudioAtPath:[(YDVoiceMessage *)message path] complete:^(BOOL finished) {
+                [(YDVoiceMessage *)message setMsgStatus:YDVoiceMessageStatusNormal];
+                [self.messageDisplayView updateMessage:message];
+            }];
+        }
+        else {
+            // 停止播放语音消息
+            [[YDAudioPlayer sharedAudioPlayer] stopPlayingAudio];
+        }
     }
 }
 

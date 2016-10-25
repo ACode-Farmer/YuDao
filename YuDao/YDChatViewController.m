@@ -29,6 +29,7 @@ static YDChatViewController *chatVC;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"High起来";
     self.tabBarController.tabBar.hidden = YES;
     [self.navigationItem setRightBarButtonItem:self.rightBarButton];
     
@@ -65,6 +66,13 @@ static YDChatViewController *chatVC;
         _rightBarButton = [[UIBarButtonItem alloc] initWithImage:nil style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonDown:)];
     }
     return _rightBarButton;
+}
+
+- (NSMutableArray *)textImageArray{
+    if (!_textImageArray) {
+        _textImageArray = [NSMutableArray arrayWithCapacity:100];
+    }
+    return _textImageArray;
 }
 
 @end

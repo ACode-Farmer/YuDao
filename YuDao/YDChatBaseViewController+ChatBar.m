@@ -7,7 +7,12 @@
 //
 
 #import "YDChatBaseViewController+ChatBar.h"
+#import "YDChatBaseViewController+MessageDisplayView.h"
 #import "YDMoreKeyboardItem.h"
+#import "YDAudiorecorder.h"
+#import "YDAudioPlayer.h"
+#import "YDVoiceMessage.h"
+#import "NSFileManager+YDChat.h"
 
 @implementation YDChatBaseViewController (ChatBar)
 #pragma mark - # Public Methods
@@ -156,92 +161,96 @@
 }
 
 ////MARK: - 录音相关
-//- (void)chatBarStartRecording:(YDChatBar *)chatBar
-//{
-//    // 先停止播放
-//    if ([TLAudioPlayer sharedAudioPlayer].isPlaying) {
-//        [[TLAudioPlayer sharedAudioPlayer] stopPlayingAudio];
-//    }
-//    
-//    [self.recorderIndicatorView setStatus:TLRecorderStatusRecording];
-//    [self.messageDisplayView addSubview:self.recorderIndicatorView];
-//    [self.recorderIndicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.center.mas_equalTo(self.view);
-//        make.size.mas_equalTo(CGSizeMake(150, 150));
-//    }];
-//    
-//    __block NSInteger time_count = 0;
-//    TLVoiceMessage *message = [[TLVoiceMessage alloc] init];
-//    message.ownerTyper = TLMessageOwnerTypeSelf;
-//    message.userID = [TLUserHelper sharedHelper].userID;
-//    message.fromUser = (id<TLChatUserProtocol>)[TLUserHelper sharedHelper].user;
-//    message.msgStatus = TLVoiceMessageStatusRecording;
-//    message.date = [NSDate date];
-//    [[TLAudioRecorder sharedRecorder] startRecordingWithVolumeChangedBlock:^(CGFloat volume) {
-//        time_count ++;
-//        if (time_count == 2) {
-//            [self addToShowMessage:message];
-//        }
-//        [self.recorderIndicatorView setVolume:volume];
-//    } completeBlock:^(NSString *filePath, CGFloat time) {
-//        if (time < 1.0) {
-//            [self.recorderIndicatorView setStatus:TLRecorderStatusTooShort];
-//            return;
-//        }
-//        [self.recorderIndicatorView removeFromSuperview];
-//        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-//            NSString *fileName = [NSString stringWithFormat:@"%.0lf.caf", [NSDate date].timeIntervalSince1970 * 1000];
-//            NSString *path = [NSFileManager pathUserChatVoice:fileName];
-//            NSError *error;
-//            [[NSFileManager defaultManager] moveItemAtPath:filePath toPath:path error:&error];
-//            if (error) {
-//                DDLogError(@"录音文件出错: %@", error);
-//                return;
-//            }
-//            
-//            message.recFileName = fileName;
-//            message.time = time;
-//            message.msgStatus = TLVoiceMessageStatusNormal;
-//            [message resetMessageFrame];
-//            [self sendMessage:message];
-//            if ([self.partner chat_userType] == TLChatUserTypeUser) {
-//                TLVoiceMessage *message1 = [[TLVoiceMessage alloc] init];
-//                message1.fromUser = self.partner;
-//                message1.recFileName = fileName;
-//                message1.time = time;
-//                [self receivedMessage:message1];
-//            }
-//            else {
-//                for (id<TLChatUserProtocol> user in [self.partner groupMembers]) {
-//                    TLVoiceMessage *message1 = [[TLVoiceMessage alloc] init];
-//                    message1.friendID = [user chat_userID];
-//                    message1.fromUser = user;
-//                    message1.recFileName = fileName;
-//                    message1.time = time;
-//                    [self receivedMessage:message1];
-//                }
-//            }
-//        }
-//    } cancelBlock:^{
-//        [self.messageDisplayView deleteMessage:message];
-//        [self.recorderIndicatorView removeFromSuperview];
-//    }];
-//}
-//
-//- (void)chatBarWillCancelRecording:(TLChatBar *)chatBar cancel:(BOOL)cancel
-//{
-//    [self.recorderIndicatorView setStatus:cancel ? TLRecorderStatusWillCancel : TLRecorderStatusRecording];
-//}
-//
-//- (void)chatBarFinishedRecoding:(TLChatBar *)chatBar
-//{
-//    [[TLAudioRecorder sharedRecorder] stopRecording];
-//}
-//
-//- (void)chatBarDidCancelRecording:(TLChatBar *)chatBar
-//{
-//    [[TLAudioRecorder sharedRecorder] cancelRecording];
-//}
+- (void)chatBarStartRecording:(YDChatBar *)chatBar
+{
+    NSLog(@"chatBarStartRecording");
+    // 先停止播放
+    if ([YDAudioPlayer sharedAudioPlayer].isPlaying) {
+        [[YDAudioPlayer sharedAudioPlayer] stopPlayingAudio];
+    }
+    
+    [self.recorderIndicatorView setStatus:YDRecorderStatusRecording];
+    [self.messageDisplayView addSubview:self.recorderIndicatorView];
+    
+    self.recorderIndicatorView.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.view)
+    .widthIs(150)
+    .heightIs(150);
+    __block NSInteger time_count = 0;
+    YDVoiceMessage *message = [[YDVoiceMessage alloc] init];
+    message.ownerTyper = YDMessageOwnerTypeSelf;
+    message.userID = [YDUserHelper sharedHelper].userID;
+    message.fromUser = (id<YDChatUserProtocol>)[YDUserHelper sharedHelper].user;
+    message.msgStatus = YDVoiceMessageStatusRecording;
+    message.date = [NSDate date];
+    [[YDAudiorecorder sharedRecorder] startRecordingWithVolumeChangedBlock:^(CGFloat volume) {
+        time_count ++;
+        if (time_count == 2) {
+            [self addToShowMessage:message];
+        }
+        [self.recorderIndicatorView setVolume:volume];
+    } completeBlock:^(NSString *filePath, CGFloat time) {
+        if (time < 1.0) {
+            [self.recorderIndicatorView setStatus:YDRecorderStatusTooShort];
+            return;
+        }
+        [self.recorderIndicatorView removeFromSuperview];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            NSString *fileName = [NSString stringWithFormat:@"%.0lf.caf", [NSDate date].timeIntervalSince1970 * 1000];
+            NSString *path = [NSFileManager pathUserChatVoice:fileName];
+            NSError *error;
+            [[NSFileManager defaultManager] moveItemAtPath:filePath toPath:path error:&error];
+            if (error) {
+                NSLog(@"录音文件出错: %@", error);
+                return;
+            }
+            
+            message.recFileName = fileName;
+            message.time = time;
+            message.msgStatus = YDVoiceMessageStatusNormal;
+            [message resetMessageFrame];
+            [self sendMessage:message];
+            if ([self.partner chat_userType] == YDChatUserTypeUser) {
+                YDVoiceMessage *message1 = [[YDVoiceMessage alloc] init];
+                message1.fromUser = self.partner;
+                message1.recFileName = fileName;
+                message1.time = time;
+                [self receivedMessage:message1];
+            }
+            else {
+                for (id<YDChatUserProtocol> user in [self.partner groupMembers]) {
+                    YDVoiceMessage *message1 = [[YDVoiceMessage alloc] init];
+                    message1.friendID = [user chat_userID];
+                    message1.fromUser = user;
+                    message1.recFileName = fileName;
+                    message1.time = time;
+                    [self receivedMessage:message1];
+                }
+            }
+        }
+    } cancelBlock:^{
+        [self.messageDisplayView deleteMessage:message];
+        [self.recorderIndicatorView removeFromSuperview];
+    }];
+}
+
+- (void)chatBarWillCancelRecording:(YDChatBar *)chatBar cancel:(BOOL)cancel
+{
+    [self.recorderIndicatorView setStatus:cancel ? YDRecorderStatusWillCancel : YDRecorderStatusRecording];
+}
+
+- (void)chatBarFinishedRecoding:(YDChatBar *)chatBar
+{
+    NSLog(@"chatBarFinishedRecoding");
+    [[YDAudiorecorder sharedRecorder] stopRecording];
+}
+
+- (void)chatBarDidCancelRecording:(YDChatBar *)chatBar
+{
+    NSLog(@"chatBarDidCancelRecording");
+    [[YDAudiorecorder sharedRecorder] cancelRecording];
+}
 
 //MARK: - chatBar状态切换
 - (void)chatBar:(YDChatBar *)chatBar changeStatusFrom:(YDChatBarStatus)fromStatus to:(YDChatBarStatus)toStatus

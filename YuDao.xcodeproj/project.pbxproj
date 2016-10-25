@@ -226,6 +226,19 @@
 		A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247FF1D8014BE00DC58C2 /* ContactsTableViewController.m */; };
 		A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248051D8018E100DC58C2 /* HeaderTableView.m */; };
 		A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A08248081D8019BF00DC58C2 /* HeaderModel.m */; };
+		A0865DB81DBEFF24003BD5ED /* YDVoiceMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DB71DBEFF24003BD5ED /* YDVoiceMessage.m */; };
+		A0865DBB1DBF022F003BD5ED /* YDVoiceImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DBA1DBF022F003BD5ED /* YDVoiceImageView.m */; };
+		A0865DC11DBF0554003BD5ED /* YDVoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DC01DBF0554003BD5ED /* YDVoiceMessageCell.m */; };
+		A0865DC51DBF1DF0003BD5ED /* YDAudiorecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DC41DBF1DF0003BD5ED /* YDAudiorecorder.m */; };
+		A0865DC81DBF1E05003BD5ED /* YDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DC71DBF1E05003BD5ED /* YDAudioPlayer.m */; };
+		A0865DCB1DBF2A20003BD5ED /* YDMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DCA1DBF2A20003BD5ED /* YDMessageManager.m */; };
+		A0865DD01DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DCF1DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.m */; };
+		A0865DD31DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DD21DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m */; };
+		A0865DD71DBF3A02003BD5ED /* YDDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DD61DBF3A02003BD5ED /* YDDBManager.m */; };
+		A0865DDC1DBF3BBC003BD5ED /* YDDBBaseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DDB1DBF3BBC003BD5ED /* YDDBBaseStore.m */; };
+		A0865DDF1DBF3C38003BD5ED /* YDDBMessageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A0865DDE1DBF3C38003BD5ED /* YDDBMessageStore.m */; };
+		A0865DE21DBF608D003BD5ED /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0865DE11DBF608D003BD5ED /* libxml2.tbd */; };
+		A0865DE41DBF6099003BD5ED /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0865DE31DBF6099003BD5ED /* libresolv.tbd */; };
 		A08805711DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08805701DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m */; };
 		A08805741DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A08805731DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.m */; };
 		A093B8F41DADCEA9009D568A /* YDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B8F31DADCEA9009D568A /* YDNavigationController.m */; };
@@ -663,6 +676,31 @@
 		A08248051D8018E100DC58C2 /* HeaderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderTableView.m; sourceTree = "<group>"; };
 		A08248071D8019BF00DC58C2 /* HeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderModel.h; sourceTree = "<group>"; };
 		A08248081D8019BF00DC58C2 /* HeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderModel.m; sourceTree = "<group>"; };
+		A0865DB61DBEFF24003BD5ED /* YDVoiceMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDVoiceMessage.h; sourceTree = "<group>"; };
+		A0865DB71DBEFF24003BD5ED /* YDVoiceMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDVoiceMessage.m; sourceTree = "<group>"; };
+		A0865DB91DBF022F003BD5ED /* YDVoiceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDVoiceImageView.h; sourceTree = "<group>"; };
+		A0865DBA1DBF022F003BD5ED /* YDVoiceImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDVoiceImageView.m; sourceTree = "<group>"; };
+		A0865DBF1DBF0554003BD5ED /* YDVoiceMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDVoiceMessageCell.h; sourceTree = "<group>"; };
+		A0865DC01DBF0554003BD5ED /* YDVoiceMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDVoiceMessageCell.m; sourceTree = "<group>"; };
+		A0865DC31DBF1DF0003BD5ED /* YDAudiorecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDAudiorecorder.h; sourceTree = "<group>"; };
+		A0865DC41DBF1DF0003BD5ED /* YDAudiorecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDAudiorecorder.m; sourceTree = "<group>"; };
+		A0865DC61DBF1E05003BD5ED /* YDAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDAudioPlayer.h; sourceTree = "<group>"; };
+		A0865DC71DBF1E05003BD5ED /* YDAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDAudioPlayer.m; sourceTree = "<group>"; };
+		A0865DC91DBF2A20003BD5ED /* YDMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageManager.h; sourceTree = "<group>"; };
+		A0865DCA1DBF2A20003BD5ED /* YDMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessageManager.m; sourceTree = "<group>"; };
+		A0865DCE1DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDMessageManager+ConversationRecord.h"; sourceTree = "<group>"; };
+		A0865DCF1DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDMessageManager+ConversationRecord.m"; sourceTree = "<group>"; };
+		A0865DD11DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDMessageManager+MessageRecord.h"; sourceTree = "<group>"; };
+		A0865DD21DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDMessageManager+MessageRecord.m"; sourceTree = "<group>"; };
+		A0865DD51DBF3A02003BD5ED /* YDDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDBManager.h; sourceTree = "<group>"; };
+		A0865DD61DBF3A02003BD5ED /* YDDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDBManager.m; sourceTree = "<group>"; };
+		A0865DDA1DBF3BBC003BD5ED /* YDDBBaseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDBBaseStore.h; sourceTree = "<group>"; };
+		A0865DDB1DBF3BBC003BD5ED /* YDDBBaseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDBBaseStore.m; sourceTree = "<group>"; };
+		A0865DDD1DBF3C38003BD5ED /* YDDBMessageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDBMessageStore.h; sourceTree = "<group>"; };
+		A0865DDE1DBF3C38003BD5ED /* YDDBMessageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDBMessageStore.m; sourceTree = "<group>"; };
+		A0865DE01DBF3C7D003BD5ED /* YDDBMessageStoreSQL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDDBMessageStoreSQL.h; sourceTree = "<group>"; };
+		A0865DE11DBF608D003BD5ED /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		A0865DE31DBF6099003BD5ED /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A088056B1DB9BE7C003DBFE2 /* YDChatMessageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatMessageViewDelegate.h; sourceTree = "<group>"; };
 		A088056F1DB9BEF5003DBFE2 /* YDChatMessageDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDChatMessageDisplayView.h; sourceTree = "<group>"; };
 		A08805701DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDChatMessageDisplayView.m; sourceTree = "<group>"; };
@@ -716,6 +754,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0865DE41DBF6099003BD5ED /* libresolv.tbd in Frameworks */,
+				A0865DE21DBF608D003BD5ED /* libxml2.tbd in Frameworks */,
 				A02CD5751DBDB22100A04B6B /* libPods-YuDao.a in Frameworks */,
 				A02CD5731DBDB17A00A04B6B /* libUICountingLabel.a in Frameworks */,
 				A02CD56F1DBDB17300A04B6B /* libSDAutoLayout.a in Frameworks */,
@@ -1394,6 +1434,8 @@
 				A068F4111DB866080005765C /* YDImageMessage.m */,
 				A068F4131DB8673D0005765C /* YDExpressionMessage.h */,
 				A068F4141DB8673D0005765C /* YDExpressionMessage.m */,
+				A0865DB61DBEFF24003BD5ED /* YDVoiceMessage.h */,
+				A0865DB71DBEFF24003BD5ED /* YDVoiceMessage.m */,
 				A068F40A1DB862050005765C /* YDMessageFrame.h */,
 				A068F40B1DB862050005765C /* YDMessageFrame.m */,
 			);
@@ -1784,6 +1826,7 @@
 				A093B8F51DADCF4B009D568A /* Utilities */,
 				A093B90C1DADD561009D568A /* Extensions */,
 				A093B9161DADD7B7009D568A /* Resources */,
+				A0865DD41DBF385D003BD5ED /* Store */,
 				A068F44B1DB896BD0005765C /* Business */,
 			);
 			path = YuDao;
@@ -1929,6 +1972,61 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		A0865DC21DBF1DC2003BD5ED /* MediaUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A0865DC31DBF1DF0003BD5ED /* YDAudiorecorder.h */,
+				A0865DC41DBF1DF0003BD5ED /* YDAudiorecorder.m */,
+				A0865DC61DBF1E05003BD5ED /* YDAudioPlayer.h */,
+				A0865DC71DBF1E05003BD5ED /* YDAudioPlayer.m */,
+			);
+			name = MediaUtilities;
+			sourceTree = "<group>";
+		};
+		A0865DCD1DBF2A3C003BD5ED /* YDMessageManager */ = {
+			isa = PBXGroup;
+			children = (
+				A0865DC91DBF2A20003BD5ED /* YDMessageManager.h */,
+				A0865DCA1DBF2A20003BD5ED /* YDMessageManager.m */,
+				A0865DCE1DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.h */,
+				A0865DCF1DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.m */,
+				A0865DD11DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.h */,
+				A0865DD21DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m */,
+			);
+			name = YDMessageManager;
+			sourceTree = "<group>";
+		};
+		A0865DD41DBF385D003BD5ED /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A0865DD51DBF3A02003BD5ED /* YDDBManager.h */,
+				A0865DD61DBF3A02003BD5ED /* YDDBManager.m */,
+				A0865DD91DBF3B89003BD5ED /* Base */,
+				A0865DD81DBF3B79003BD5ED /* Chat */,
+				A0865DCD1DBF2A3C003BD5ED /* YDMessageManager */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		A0865DD81DBF3B79003BD5ED /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A0865DE01DBF3C7D003BD5ED /* YDDBMessageStoreSQL.h */,
+				A0865DDD1DBF3C38003BD5ED /* YDDBMessageStore.h */,
+				A0865DDE1DBF3C38003BD5ED /* YDDBMessageStore.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		A0865DD91DBF3B89003BD5ED /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A0865DDA1DBF3BBC003BD5ED /* YDDBBaseStore.h */,
+				A0865DDB1DBF3BBC003BD5ED /* YDDBBaseStore.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		A088056A1DB9BE4B003DBFE2 /* ChatMessageCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1943,6 +2041,10 @@
 				A04D808F1DB9E8AE00B7F4A4 /* YDImageMessageCell.m */,
 				A04D80911DB9E8CE00B7F4A4 /* YDExpressionMessageCell.h */,
 				A04D80921DB9E8CE00B7F4A4 /* YDExpressionMessageCell.m */,
+				A0865DB91DBF022F003BD5ED /* YDVoiceImageView.h */,
+				A0865DBA1DBF022F003BD5ED /* YDVoiceImageView.m */,
+				A0865DBF1DBF0554003BD5ED /* YDVoiceMessageCell.h */,
+				A0865DC01DBF0554003BD5ED /* YDVoiceMessageCell.m */,
 			);
 			name = ChatMessageCells;
 			sourceTree = "<group>";
@@ -1999,6 +2101,7 @@
 		A093B8F51DADCF4B009D568A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A0865DC21DBF1DC2003BD5ED /* MediaUtilities */,
 				A068F4191DB8691B0005765C /* DataUtilities */,
 				A06DA2EB1DB07D31004362BA /* Navigation_push */,
 				A093B9141DADD767009D568A /* UIUtilities */,
@@ -2170,6 +2273,8 @@
 		E33F62B85920FD7E841038FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0865DE31DBF6099003BD5ED /* libresolv.tbd */,
+				A0865DE11DBF608D003BD5ED /* libxml2.tbd */,
 				A02CD5741DBDB22100A04B6B /* libPods-YuDao.a */,
 				A02CD5721DBDB17A00A04B6B /* libUICountingLabel.a */,
 				A02CD5701DBDB17600A04B6B /* libSDWebImage.a */,
@@ -2349,6 +2454,7 @@
 			files = (
 				A03BEC281DB4940B006CFE43 /* YDPersonalHeaderView.m in Sources */,
 				A01A34481D869DF400852D16 /* TableHeaderView.m in Sources */,
+				A0865DBB1DBF022F003BD5ED /* YDVoiceImageView.m in Sources */,
 				A042BE0C1DBDD09F001CE58D /* YDChatCellMenuView.m in Sources */,
 				A05D73EE1D9A605E00E5E3A2 /* XRCollectionViewCell.m in Sources */,
 				A093B9331DAE04A9009D568A /* YDAllListItem.m in Sources */,
@@ -2363,6 +2469,7 @@
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
 				A0743E581DAB641D00545125 /* YDListTableView.m in Sources */,
 				A079CE251DB6172C00EB113F /* YDDrivingDetailViewController.m in Sources */,
+				A0865DD31DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m in Sources */,
 				A034C9EE1D93CA36006D38A4 /* PlaceController.m in Sources */,
 				A093B92C1DAE02AA009D568A /* YDAllListViewController.m in Sources */,
 				A08247FB1D80148D00DC58C2 /* pinyin.m in Sources */,
@@ -2385,6 +2492,7 @@
 				A01A33CF1D868EDC00852D16 /* DynamicCell.m in Sources */,
 				A034C9E61D93BFAD006D38A4 /* AWActionSheet.m in Sources */,
 				A0493B191D812DC4006FCD50 /* PhoneContactsTableViewController.m in Sources */,
+				A0865DCB1DBF2A20003BD5ED /* YDMessageManager.m in Sources */,
 				A093B9051DADD3E2009D568A /* YDTableViewController.m in Sources */,
 				A08248001D8014BE00DC58C2 /* ContactsTableViewController.m in Sources */,
 				A0669F581DB73662008F8BB3 /* YDChatBar.m in Sources */,
@@ -2414,6 +2522,7 @@
 				A07B8C3B1D9BB2D80040DD8B /* GarageViewController.m in Sources */,
 				A08247C41D7FF49900DC58C2 /* TaskModel.m in Sources */,
 				A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */,
+				A0865DB81DBEFF24003BD5ED /* YDVoiceMessage.m in Sources */,
 				A093B8F81DADCFCC009D568A /* UIColor+YuDao.m in Sources */,
 				A05CD1271DAA1CC5008E01D1 /* YDLTopThreeView.m in Sources */,
 				A01A33D21D868EFA00852D16 /* DynamicCellModel.m in Sources */,
@@ -2463,10 +2572,13 @@
 				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
 				A04D808D1DB9E87500B7F4A4 /* YDTextMessageCell.m in Sources */,
 				A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */,
+				A0865DC81DBF1E05003BD5ED /* YDAudioPlayer.m in Sources */,
 				A07641DE1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m in Sources */,
 				A06F08471D9E629A00D4E829 /* MyQRCodeViewController.m in Sources */,
 				A07641D61DB1DAB8009664D1 /* YDGroupDetailViewController.m in Sources */,
+				A0865DDF1DBF3C38003BD5ED /* YDDBMessageStore.m in Sources */,
 				A04D80931DB9E8CE00B7F4A4 /* YDExpressionMessageCell.m in Sources */,
+				A0865DD01DBF2A96003BD5ED /* YDMessageManager+ConversationRecord.m in Sources */,
 				A042BDF71DBDB923001CE58D /* YDGroup+ChatModel.m in Sources */,
 				A01A33F71D86941500852D16 /* NSAttributedString+MLLabel.m in Sources */,
 				A068F4181DB868CC0005765C /* YDEmoji.m in Sources */,
@@ -2482,6 +2594,7 @@
 				A08247751D7FC4BC00DC58C2 /* main.m in Sources */,
 				A068F4511DB897500005765C /* YDUserHelper.m in Sources */,
 				A08248091D8019BF00DC58C2 /* HeaderModel.m in Sources */,
+				A0865DC11DBF0554003BD5ED /* YDVoiceMessageCell.m in Sources */,
 				A05D73E91D9A5F7B00E5E3A2 /* XRWaterfallLayout.m in Sources */,
 				A01A33FC1D86941500852D16 /* NSAttributedString+MLExpression.m in Sources */,
 				A079CE211DB6061100EB113F /* YDIllegalViewController.m in Sources */,
@@ -2498,14 +2611,17 @@
 				A013A6791D8EA16300A9080A /* PersonalHeadController.m in Sources */,
 				A068F4051DB85FD10005765C /* YDMessage.m in Sources */,
 				A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */,
+				A0865DD71DBF3A02003BD5ED /* YDDBManager.m in Sources */,
 				A068F40C1DB862050005765C /* YDMessageFrame.m in Sources */,
 				A068F44A1DB896540005765C /* NSFileManager+YDChat.m in Sources */,
+				A0865DDC1DBF3BBC003BD5ED /* YDDBBaseStore.m in Sources */,
 				A0669F761DB76DB1008F8BB3 /* YDMoreKeyboardCell.m in Sources */,
 				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A042BE031DBDBB1F001CE58D /* YDTextDisplayView.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A04D80961DB9E8EE00B7F4A4 /* YDMessageImageView.m in Sources */,
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
+				A0865DC51DBF1DF0003BD5ED /* YDAudiorecorder.m in Sources */,
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
 				A068F43A1DB88B8A0005765C /* NSString+PinYin.m in Sources */,
 				A093B9101DADD5E2009D568A /* UIImage+Color.m in Sources */,
@@ -2675,7 +2791,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2716,7 +2832,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -27,7 +27,11 @@
 
 #import "YDChatMacros.h"
 #import <SDAutoLayout.h>        //自动布局第三方框架
+#import <BlocksKit.h>
+#import <BlocksKit+UIKit.h>
 
+#import "YDUserHelper.h"
+#import "NSFileManager+YDChat.h"
 
 #define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )568) < DBL_EPSILON )
 #define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )667) < DBL_EPSILON )

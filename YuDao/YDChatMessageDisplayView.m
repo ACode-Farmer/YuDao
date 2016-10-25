@@ -98,6 +98,7 @@
 
 - (void)deleteMessage:(YDMessage *)message
 {
+    
     [self deleteMessage:message withAnimation:YES];
 }
 

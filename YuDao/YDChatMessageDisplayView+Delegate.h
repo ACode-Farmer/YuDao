@@ -10,6 +10,7 @@
 #import "YDTextMessageCell.h"
 #import "YDImageMessageCell.h"
 #import "YDExpressionMessageCell.h"
+#import "YDVoiceMessageCell.h"
 #import "YDMessageCellDelegate.h"
 
 @interface YDChatMessageDisplayView (Delegate)<UITableViewDelegate, UITableViewDataSource, YDMessageCellDelegate>
