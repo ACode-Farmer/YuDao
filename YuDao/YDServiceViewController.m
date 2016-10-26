@@ -19,18 +19,22 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     [self.view addSubview:self.webView];
     NSURL* url = [NSURL URLWithString:@"http://www.baidu.com"];//创建URL
     
     NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
     
     [self.webView loadRequest:request];//加载
+    
+}
+
+- (void)dealloc{
+    NSLog(@"serviceVC");
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -40,7 +44,7 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    [self.webView removeFromSuperview];
+    //[self.webView removeFromSuperview];
 }
 #pragma mark - Getters
 - (UIWebView *)webView{

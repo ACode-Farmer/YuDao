@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking.h>
+#import "YDRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +18,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self y_initUI];//初始化界面
+    
+    // 网络环境监测
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     return YES;
+}
+
+#pragma mark - Private Methods
+- (void)y_initUI{
+    NSLog(@"y_initUI");
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    YDRootViewController *rootVC = [YDRootViewController sharedRootViewController];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = rootVC;
+    //[self.window addSubview:rootVC.view];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

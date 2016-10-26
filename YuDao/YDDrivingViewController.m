@@ -16,6 +16,9 @@
 #import "YDMainViewConfigure.h"
 #import "YDDrivingDetailViewController.h"
 
+#import "YDNetworking.h"
+#import <MJExtension.h>
+
 @interface YDDrivingViewController ()
 
 @property (nonatomic, strong) YDMainTitleView *titleView;
@@ -42,6 +45,48 @@
     self.backgroundView.backgroundColor = [UIColor whiteColor];
     self.dataview.backgroundColor = [UIColor clearColor];
     self.dataTypeView.backgroundColor = [UIColor whiteColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    
+    [self getData];
+}
+
+- (void)getData{
+    
+    [YDNetworking getUrl:weatherUrl parameters:@{@"cityname":@"普陀"} progress:^(NSProgress *progress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *originalDic = [responseObject mj_JSONObject];
+        
+        NSDictionary *dataDic = [originalDic objectForKey:@"data"];
+        NSLog(@"data = %@",dataDic);
+//        NSDictionary *mphDic = [dataDic valueForKey:@"mph"];
+//        NSLog(@"content = %@",[mphDic valueForKey:@"content"]);
+//        NSLog(@"data = %@",[mphDic valueForKey:@"data"]);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"failure");
+    }];
+}
+
+// 网络情况改变
+- (void)networkStatusChange:(NSNotification *)noti
+{
+    AFNetworkReachabilityStatus status = [noti.userInfo[@"AFNetworkingReachabilityNotificationStatusItem"] longValue];
+    switch (status) {
+        case AFNetworkReachabilityStatusReachableViaWiFi:
+            NSLog(@"WiFi");
+        case AFNetworkReachabilityStatusReachableViaWWAN:
+            NSLog(@"WWAN");
+        case AFNetworkReachabilityStatusUnknown:
+            NSLog(@"Unknown");
+            break;
+        case AFNetworkReachabilityStatusNotReachable:
+            NSLog(@"NotReachable");
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

@@ -10,6 +10,29 @@
 #define YDEnumerate_h
 
 /**
+ *  网络状态
+ */
+typedef NS_ENUM(NSInteger, YDReachabilityStatus) {
+    /**
+     *  未知网络状态
+     */
+    YDReachabilityStatusUnknown = 1,
+    /**
+     *  无网络
+     */
+    YDReachabilityStatusNotReachable,
+    /**
+     *  蜂窝数据网
+     */
+    YDReachabilityStatusWWAN,
+    /**
+     *  WiFi网络
+     */
+    YDReachabilityStatusWiFi,
+};
+
+
+/**
  *  群组详情类型
  */
 typedef NS_ENUM(NSInteger, YDGroupDetailType) {

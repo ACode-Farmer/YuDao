@@ -22,10 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.estimatedRowHeight = 45.f;
-    
+    self.tableView.tableFooterView = [UITableViewHeaderFooterView new];
 }
 
-
+- (void)dealloc{
+    NSLog(@"discoverVC");
+}
 
 #pragma mark - UITableViewDateSource
 

@@ -17,6 +17,7 @@
 #import "UIFont+YuDao.h"        //字体
 #import "YDMacros.h"            //宏
 #import "YDEnumerate.h"            //枚举
+#import "YDURLConfig.h"
 
 #import "UIButton+TLChat.h"
 #import "UITableView+YDChat.h"

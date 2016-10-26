@@ -41,6 +41,10 @@
     self.navigationItem.rightBarButtonItem = rightBarButton;
 }
 
+- (void)dealloc{
+    NSLog(@"myselfVC");
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     

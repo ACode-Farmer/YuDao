@@ -206,7 +206,6 @@
 		A07F829C1D828FD900F9EA6B /* MyMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F829B1D828FD900F9EA6B /* MyMessageTableViewController.m */; };
 		A07F829F1D82909400F9EA6B /* MyMseeageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F829E1D82909400F9EA6B /* MyMseeageModel.m */; };
 		A07F82A41D82A34300F9EA6B /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82A31D82A34300F9EA6B /* DiscoverTableViewController.m */; };
-		A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82A61D82A3EE00F9EA6B /* RootViewController.m */; };
 		A07F82AC1D82A4B300F9EA6B /* DiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82AB1D82A4B300F9EA6B /* DiscoverModel.m */; };
 		A07F82B11D82AA9700F9EA6B /* MyselfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F82B01D82AA9700F9EA6B /* MyselfModel.m */; };
 		A08247751D7FC4BC00DC58C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A08247741D7FC4BC00DC58C2 /* main.m */; };
@@ -241,6 +240,8 @@
 		A0865DE41DBF6099003BD5ED /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0865DE31DBF6099003BD5ED /* libresolv.tbd */; };
 		A08805711DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08805701DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m */; };
 		A08805741DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A08805731DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.m */; };
+		A08F13251DC0AA9C0023E694 /* YDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A08F13241DC0AA9C0023E694 /* YDNetworking.m */; };
+		A08F13281DC0C5D30023E694 /* YDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08F13271DC0C5D30023E694 /* YDRootViewController.m */; };
 		A093B8F41DADCEA9009D568A /* YDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B8F31DADCEA9009D568A /* YDNavigationController.m */; };
 		A093B8F81DADCFCC009D568A /* UIColor+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B8F71DADCFCC009D568A /* UIColor+YuDao.m */; };
 		A093B8FB1DADD040009D568A /* UIFont+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B8FA1DADD040009D568A /* UIFont+YuDao.m */; };
@@ -640,8 +641,6 @@
 		A07F829E1D82909400F9EA6B /* MyMseeageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMseeageModel.m; sourceTree = "<group>"; };
 		A07F82A21D82A34300F9EA6B /* DiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewController.h; sourceTree = "<group>"; };
 		A07F82A31D82A34300F9EA6B /* DiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewController.m; sourceTree = "<group>"; };
-		A07F82A51D82A3EE00F9EA6B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		A07F82A61D82A3EE00F9EA6B /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		A07F82AA1D82A4B300F9EA6B /* DiscoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverModel.h; sourceTree = "<group>"; };
 		A07F82AB1D82A4B300F9EA6B /* DiscoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverModel.m; sourceTree = "<group>"; };
 		A07F82AF1D82AA9700F9EA6B /* MyselfModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfModel.h; sourceTree = "<group>"; };
@@ -706,6 +705,11 @@
 		A08805701DB9BEF5003DBFE2 /* YDChatMessageDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDChatMessageDisplayView.m; sourceTree = "<group>"; };
 		A08805721DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDChatMessageDisplayView+Delegate.h"; sourceTree = "<group>"; };
 		A08805731DB9BFD3003DBFE2 /* YDChatMessageDisplayView+Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDChatMessageDisplayView+Delegate.m"; sourceTree = "<group>"; };
+		A08F13221DC08CCF0023E694 /* YDURLConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDURLConfig.h; sourceTree = "<group>"; };
+		A08F13231DC0AA9C0023E694 /* YDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDNetworking.h; sourceTree = "<group>"; };
+		A08F13241DC0AA9C0023E694 /* YDNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDNetworking.m; sourceTree = "<group>"; };
+		A08F13261DC0C5D30023E694 /* YDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDRootViewController.h; sourceTree = "<group>"; };
+		A08F13271DC0C5D30023E694 /* YDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDRootViewController.m; sourceTree = "<group>"; };
 		A093B8F21DADCEA9009D568A /* YDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDNavigationController.h; sourceTree = "<group>"; };
 		A093B8F31DADCEA9009D568A /* YDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDNavigationController.m; sourceTree = "<group>"; };
 		A093B8F61DADCFCC009D568A /* UIColor+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YuDao.h"; sourceTree = "<group>"; };
@@ -2113,6 +2117,7 @@
 		A093B8FC1DADD128009D568A /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				A08F13221DC08CCF0023E694 /* YDURLConfig.h */,
 				A093B8FD1DADD169009D568A /* YDMacros.h */,
 				A093B8FE1DADD278009D568A /* YDEnumerate.h */,
 				A068F42E1DB86F500005765C /* YDHost.h */,
@@ -2124,6 +2129,8 @@
 		A093B8FF1DADD2F7009D568A /* 界面 */ = {
 			isa = PBXGroup;
 			children = (
+				A093B9201DADD8C6009D568A /* RegisterViewContoller */,
+				A093B91F1DADD8A9009D568A /* LoginViewController */,
 				A093B91E1DADD861009D568A /* Root */,
 				A082478A1D7FC53900DC58C2 /* 首页 */,
 				A07F82A01D82A2ED00F9EA6B /* 发现 */,
@@ -2166,6 +2173,8 @@
 		A093B9151DADD778009D568A /* NetworkUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				A08F13231DC0AA9C0023E694 /* YDNetworking.h */,
+				A08F13241DC0AA9C0023E694 /* YDNetworking.m */,
 			);
 			name = NetworkUtilities;
 			sourceTree = "<group>";
@@ -2193,10 +2202,8 @@
 		A093B91E1DADD861009D568A /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				A093B9201DADD8C6009D568A /* RegisterViewContoller */,
-				A093B91F1DADD8A9009D568A /* LoginViewController */,
-				A07F82A51D82A3EE00F9EA6B /* RootViewController.h */,
-				A07F82A61D82A3EE00F9EA6B /* RootViewController.m */,
+				A08F13261DC0C5D30023E694 /* YDRootViewController.h */,
+				A08F13271DC0C5D30023E694 /* YDRootViewController.m */,
 				A082477C1D7FC4BC00DC58C2 /* Main.storyboard */,
 			);
 			name = Root;
@@ -2461,6 +2468,7 @@
 				A068F3FD1DB85D3D0005765C /* YDChatBaseViewController.m in Sources */,
 				A07B8C361D9BAEFB0040DD8B /* ProtocolViewController.m in Sources */,
 				A023EE261D951B6000581EB1 /* LikedListController.m in Sources */,
+				A08F13251DC0AA9C0023E694 /* YDNetworking.m in Sources */,
 				A067C69D1D98EB95000E4146 /* YDMainViewController.m in Sources */,
 				A08247781D7FC4BC00DC58C2 /* AppDelegate.m in Sources */,
 				A05D73E61D9A5EC400E5E3A2 /* DynamicViewController.m in Sources */,
@@ -2616,7 +2624,6 @@
 				A068F44A1DB896540005765C /* NSFileManager+YDChat.m in Sources */,
 				A0865DDC1DBF3BBC003BD5ED /* YDDBBaseStore.m in Sources */,
 				A0669F761DB76DB1008F8BB3 /* YDMoreKeyboardCell.m in Sources */,
-				A07F82A71D82A3EE00F9EA6B /* RootViewController.m in Sources */,
 				A042BE031DBDBB1F001CE58D /* YDTextDisplayView.m in Sources */,
 				A01A33F91D86941500852D16 /* NSString+MLLabel.m in Sources */,
 				A04D80961DB9E8EE00B7F4A4 /* YDMessageImageView.m in Sources */,
@@ -2624,6 +2631,7 @@
 				A0865DC51DBF1DF0003BD5ED /* YDAudiorecorder.m in Sources */,
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
 				A068F43A1DB88B8A0005765C /* NSString+PinYin.m in Sources */,
+				A08F13281DC0C5D30023E694 /* YDRootViewController.m in Sources */,
 				A093B9101DADD5E2009D568A /* UIImage+Color.m in Sources */,
 				A093B9131DADD609009D568A /* UIImage+Size.m in Sources */,
 				A03BEC2B1DB4A899006CFE43 /* YDPersonalBasicCell.m in Sources */,
@@ -2784,6 +2792,7 @@
 			baseConfigurationReference = C4D2BF99764BDF8833496D44 /* Pods-YuDao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
@@ -2826,6 +2835,7 @@
 			baseConfigurationReference = 5E5AF677D3DD81A60846A42D /* Pods-YuDao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;

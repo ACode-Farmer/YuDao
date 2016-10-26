@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.leftBarButtonItem = ({
         UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"二维码"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemAction:)];
         leftBarButton;
@@ -64,6 +63,10 @@
     [self layoutFourMainViews];
     
     [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:70];
+}
+
+- (void)dealloc{
+    NSLog(@"mainVC");
 }
 
 #pragma mark - Events
@@ -185,7 +188,7 @@
         _contentView.showsVerticalScrollIndicator = NO;
         [self.view addSubview:_contentView];
         _contentView.sd_layout
-        .topSpaceToView(self.view,64)
+        .topSpaceToView(self.view,0)
         .leftSpaceToView(self.view,0)
         .widthIs(screen_width)
         .heightIs(screen_height-48);
