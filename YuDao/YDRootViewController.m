@@ -118,7 +118,7 @@ static YDRootViewController *rootVC = nil;
 #pragma mark Getters
 - (NSArray *)childVCArray{
     if (_childVCArray == nil) {
-        YDNavigationController *mainNaVC = [[YDNavigationController alloc] initWithRootViewController:self.chatVC];
+        YDNavigationController *mainNaVC = [[YDNavigationController alloc] initWithRootViewController:self.mainVC];
         YDNavigationController *discoverNaVC = [[YDNavigationController alloc] initWithRootViewController:self.discoverVC];
         YDNavigationController *serviceNaVC = [[YDNavigationController alloc] initWithRootViewController:self.serviceVC];
         YDNavigationController *myselfNaVC = [[YDNavigationController alloc] initWithRootViewController:self.myselfVC];

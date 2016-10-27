@@ -61,7 +61,7 @@
 - (YDPersonalHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [YDPersonalHeaderView new];
-        _headerView.frame = CGRectMake(0, 64, screen_width, 200*widthHeight_ratio);
+        _headerView.frame = CGRectMake(0, 0, screen_width, 200*widthHeight_ratio);
     }
     return _headerView;
 }
@@ -104,9 +104,10 @@
     if (!_scrolleView) {
         _scrolleView = [UIScrollView new];
         _scrolleView.pagingEnabled = YES;
-        _scrolleView.frame = CGRectMake(0, CGRectGetMaxY(self.labelView.frame), screen_width, screen_height - CGRectGetMaxY(self.labelView.frame));
+        _scrolleView.frame = CGRectMake(0, CGRectGetMaxY(self.labelView.frame), screen_width,screen_height - CGRectGetMaxY(self.labelView.frame)-64);
         _scrolleView.contentSize = CGSizeMake(2*screen_width, _scrolleView.bounds.size.height);
         _scrolleView.delegate = self;
+        _scrolleView.showsHorizontalScrollIndicator = NO;
     }
     return _scrolleView;
 }
@@ -119,7 +120,7 @@
         _firstTable.tableFooterView = [UIView new];
         _firstTable.dataSource = self;
         _firstTable.delegate =  self;
-        
+        _firstTable.showsVerticalScrollIndicator = NO;
         [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPSecondSectionCell"];
         [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPThirdSectionCell"];
         [_firstTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YDPFourthSectionCell"];
@@ -132,7 +133,7 @@
     if (!_secondTable) {
         CGRect frame = CGRectMake(screen_width, 0, screen_width, self.scrolleView.bounds.size.height);
         _secondTable = [[YDPersonalTableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-        
+        _secondTable.showsVerticalScrollIndicator = NO;
         YDPTimeAxisModel *model1 = [YDPTimeAxisModel new];
         model1.time = @"1小时前";
         model1.name = @"Candy";

@@ -169,6 +169,13 @@
 		A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D201D928AA900DFAFC2 /* GroupController.m */; };
 		A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D261D929A6C00DFAFC2 /* PersonalController.m */; };
 		A06B73471DC19EED00EB9F43 /* UITextView+YDChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73461DC19EED00EB9F43 /* UITextView+YDChat.m */; };
+		A06B734E1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B734D1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.m */; };
+		A06B73521DC201F400EB9F43 /* YDDynamicDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73511DC201F400EB9F43 /* YDDynamicDetailController.m */; };
+		A06B73591DC20CF700EB9F43 /* YDDDHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73581DC20CF700EB9F43 /* YDDDHeaderView.m */; };
+		A06B735C1DC210C000EB9F43 /* YDDDContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B735B1DC210C000EB9F43 /* YDDDContentCell.m */; };
+		A06B73601DC2153200EB9F43 /* YDDDContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B735F1DC2153200EB9F43 /* YDDDContentModel.m */; };
+		A06B73631DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73621DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m */; };
+		A06B736C1DC22D3100EB9F43 /* YDDDBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */; };
 		A06DA2EA1DB07109004362BA /* speed_car.png in Resources */ = {isa = PBXBuildFile; fileRef = A06DA2E91DB07109004362BA /* speed_car.png */; };
 		A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */; };
 		A06DA2F21DB08AE5004362BA /* YDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */; };
@@ -573,6 +580,20 @@
 		A06A9D261D929A6C00DFAFC2 /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
 		A06B73451DC19EED00EB9F43 /* UITextView+YDChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YDChat.h"; sourceTree = "<group>"; };
 		A06B73461DC19EED00EB9F43 /* UITextView+YDChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YDChat.m"; sourceTree = "<group>"; };
+		A06B734C1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDTodayFirstLoginView.h; sourceTree = "<group>"; };
+		A06B734D1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDTodayFirstLoginView.m; sourceTree = "<group>"; };
+		A06B73501DC201F400EB9F43 /* YDDynamicDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDynamicDetailController.h; sourceTree = "<group>"; };
+		A06B73511DC201F400EB9F43 /* YDDynamicDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDynamicDetailController.m; sourceTree = "<group>"; };
+		A06B73571DC20CF700EB9F43 /* YDDDHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDHeaderView.h; sourceTree = "<group>"; };
+		A06B73581DC20CF700EB9F43 /* YDDDHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDHeaderView.m; sourceTree = "<group>"; };
+		A06B735A1DC210C000EB9F43 /* YDDDContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDContentCell.h; sourceTree = "<group>"; };
+		A06B735B1DC210C000EB9F43 /* YDDDContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDContentCell.m; sourceTree = "<group>"; };
+		A06B735E1DC2153200EB9F43 /* YDDDContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDContentModel.h; sourceTree = "<group>"; };
+		A06B735F1DC2153200EB9F43 /* YDDDContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDContentModel.m; sourceTree = "<group>"; };
+		A06B73611DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDDynamicDetailController+Delegate.h"; sourceTree = "<group>"; };
+		A06B73621DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDDynamicDetailController+Delegate.m"; sourceTree = "<group>"; };
+		A06B736A1DC22D3100EB9F43 /* YDDDBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDBottomView.h; sourceTree = "<group>"; };
+		A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDBottomView.m; sourceTree = "<group>"; };
 		A06DA2E91DB07109004362BA /* speed_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_car.png; sourceTree = "<group>"; };
 		A06DA2EC1DB07D56004362BA /* UINavigationController+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YuDao.h"; sourceTree = "<group>"; };
 		A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YuDao.m"; sourceTree = "<group>"; };
@@ -947,6 +968,10 @@
 				A023EE181D94F6D200581EB1 /* LikedPeopleController.m */,
 				A023EE241D951B6000581EB1 /* LikedListController.h */,
 				A023EE251D951B6000581EB1 /* LikedListController.m */,
+				A023EE1E1D9506D900581EB1 /* ContainerController.h */,
+				A023EE1F1D9506D900581EB1 /* ContainerController.m */,
+				A023EE211D950A0C00581EB1 /* YSLScrollMenuView.h */,
+				A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */,
 				A023EE271D9522B800581EB1 /* Cells */,
 			);
 			name = "喜欢的人";
@@ -957,10 +982,6 @@
 			children = (
 				A06A9D1C1D92805000DFAFC2 /* CommonController.h */,
 				A06A9D1D1D92805000DFAFC2 /* CommonController.m */,
-				A023EE1E1D9506D900581EB1 /* ContainerController.h */,
-				A023EE1F1D9506D900581EB1 /* ContainerController.m */,
-				A023EE211D950A0C00581EB1 /* YSLScrollMenuView.h */,
-				A023EE221D950A0C00581EB1 /* YSLScrollMenuView.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1250,6 +1271,7 @@
 		A05D73E31D9A5E8500E5E3A2 /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				A06B734F1DC201C200EB9F43 /* 动态详情 */,
 				A0743E611DABA87900545125 /* Controller */,
 				A0743E5D1DABA62A00545125 /* Model */,
 				A05D73EA1D9A605000E5E3A2 /* Views */,
@@ -1547,6 +1569,50 @@
 				A093B8ED1DADCD9D009D568A /* YDNavigationController */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		A06B734B1DC1EC7D00EB9F43 /* 每日登录视图 */ = {
+			isa = PBXGroup;
+			children = (
+				A06B734C1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.h */,
+				A06B734D1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.m */,
+			);
+			name = "每日登录视图";
+			sourceTree = "<group>";
+		};
+		A06B734F1DC201C200EB9F43 /* 动态详情 */ = {
+			isa = PBXGroup;
+			children = (
+				A06B735D1DC214FE00EB9F43 /* Models */,
+				A06B73501DC201F400EB9F43 /* YDDynamicDetailController.h */,
+				A06B73511DC201F400EB9F43 /* YDDynamicDetailController.m */,
+				A06B73611DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.h */,
+				A06B73621DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m */,
+				A06B73561DC20C8000EB9F43 /* Views */,
+			);
+			name = "动态详情";
+			sourceTree = "<group>";
+		};
+		A06B73561DC20C8000EB9F43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A06B73571DC20CF700EB9F43 /* YDDDHeaderView.h */,
+				A06B73581DC20CF700EB9F43 /* YDDDHeaderView.m */,
+				A06B736A1DC22D3100EB9F43 /* YDDDBottomView.h */,
+				A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */,
+				A06B735A1DC210C000EB9F43 /* YDDDContentCell.h */,
+				A06B735B1DC210C000EB9F43 /* YDDDContentCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A06B735D1DC214FE00EB9F43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A06B735E1DC2153200EB9F43 /* YDDDContentModel.h */,
+				A06B735F1DC2153200EB9F43 /* YDDDContentModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A06DA2EB1DB07D31004362BA /* Navigation_push */ = {
@@ -1871,6 +1937,7 @@
 		A082478A1D7FC53900DC58C2 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				A06B734B1DC1EC7D00EB9F43 /* 每日登录视图 */,
 				A067C69B1D98EB95000E4146 /* YDMainViewController.h */,
 				A067C69C1D98EB95000E4146 /* YDMainViewController.m */,
 				A0C08CF81DA8F95A0031977B /* YDMainViewConfigure.h */,
@@ -2567,6 +2634,7 @@
 				A0743E601DABA63F00545125 /* YDDModel.m in Sources */,
 				A0669F651DB74617008F8BB3 /* UIButton+TLChat.m in Sources */,
 				A01A340F1D8699DE00852D16 /* SDBrowserImageView.m in Sources */,
+				A06B73521DC201F400EB9F43 /* YDDynamicDetailController.m in Sources */,
 				A0669F731DB76C12008F8BB3 /* YDMoreKeyboardItem.m in Sources */,
 				A042BDF41DBDB862001CE58D /* YDGroup.m in Sources */,
 				A068F4361DB88AA50005765C /* YDUser.m in Sources */,
@@ -2586,6 +2654,7 @@
 				A068F4011DB85E7E0005765C /* YDMessageBaseCell.m in Sources */,
 				A01A33F81D86941500852D16 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				A01A34061D8699A600852D16 /* SDWeiXinPhotoContainerView.m in Sources */,
+				A06B73591DC20CF700EB9F43 /* YDDDHeaderView.m in Sources */,
 				A06DA2FD1DB0B37C004362BA /* YDSearchResultsTableViewController.m in Sources */,
 				A00CE67B1D90E23F00496A6F /* MCommonModel.m in Sources */,
 				A042BE0F1DBDD14C001CE58D /* YDChatViewController+Delegate.m in Sources */,
@@ -2593,6 +2662,7 @@
 				A093B9231DADDADA009D568A /* UIView+Gesture.m in Sources */,
 				A023EE2B1D9522DB00581EB1 /* LIkedListCell.m in Sources */,
 				A04D808D1DB9E87500B7F4A4 /* YDTextMessageCell.m in Sources */,
+				A06B736C1DC22D3100EB9F43 /* YDDDBottomView.m in Sources */,
 				A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */,
 				A0865DC81DBF1E05003BD5ED /* YDAudioPlayer.m in Sources */,
 				A07641DE1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m in Sources */,
@@ -2634,6 +2704,7 @@
 				A068F4051DB85FD10005765C /* YDMessage.m in Sources */,
 				A05D73DF1D9A111D00E5E3A2 /* TaskViewController.m in Sources */,
 				A0865DD71DBF3A02003BD5ED /* YDDBManager.m in Sources */,
+				A06B73631DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m in Sources */,
 				A068F40C1DB862050005765C /* YDMessageFrame.m in Sources */,
 				A068F44A1DB896540005765C /* NSFileManager+YDChat.m in Sources */,
 				A0865DDC1DBF3BBC003BD5ED /* YDDBBaseStore.m in Sources */,
@@ -2649,6 +2720,7 @@
 				A093B9101DADD5E2009D568A /* UIImage+Color.m in Sources */,
 				A093B9131DADD609009D568A /* UIImage+Size.m in Sources */,
 				A03BEC2B1DB4A899006CFE43 /* YDPersonalBasicCell.m in Sources */,
+				A06B734E1DC1EDAA00EB9F43 /* YDTodayFirstLoginView.m in Sources */,
 				A05CD11C1DA9D9C5008E01D1 /* YDListViewController.m in Sources */,
 				A093B8F41DADCEA9009D568A /* YDNavigationController.m in Sources */,
 				A07641E51DB20EF0009664D1 /* YDGroupModel.m in Sources */,
@@ -2662,6 +2734,8 @@
 				A03BEC3C1DB4C7FE006CFE43 /* YDPersonalTableView.m in Sources */,
 				A023EE1A1D94F6D200581EB1 /* LikedPeopleController.m in Sources */,
 				A067110E1D9CB034003EDA94 /* IDCardViewController.m in Sources */,
+				A06B73601DC2153200EB9F43 /* YDDDContentModel.m in Sources */,
+				A06B735C1DC210C000EB9F43 /* YDDDContentCell.m in Sources */,
 				A093B93E1DAE2FDA009D568A /* YDOrdinaryTableViewController.m in Sources */,
 				A068F40F1DB8642D0005765C /* YDTextMessage.m in Sources */,
 				A03BEC3F1DB4C944006CFE43 /* YDPTimeAxisCell.m in Sources */,

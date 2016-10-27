@@ -18,7 +18,9 @@
 #import "YDSearchViewController.h"
 #import "YDPersonalDataController.h"
 
-@interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate>
+#import "YDTodayFirstLoginView.h"
+
+@interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate,YDDynamicVCDelegate>
 
 @property (nonatomic, strong) UIScrollView *contentView;
 @property (nonatomic, strong) CornerButton *topBtn;
@@ -27,6 +29,8 @@
 @property (nonatomic, strong) YDListViewController *liVC;
 @property (nonatomic, strong) TaskViewController *tkVC;
 @property (nonatomic, strong) DynamicViewController *dyVC;
+
+@property (nonatomic, strong) YDTodayFirstLoginView *TFLView;
 
 @end
 
@@ -63,6 +67,27 @@
     [self layoutFourMainViews];
     
     [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:70];
+    [self todayFirstLoginAnimation];
+}
+
+- (void)todayFirstLoginAnimation{
+    [self.view addSubview:self.TFLView];
+    [UIView animateWithDuration:0.8 animations:^{
+        self.TFLView.y = 0;
+    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            self.TFLView.y = -50;
+        } completion:^(BOOL finished) {
+            [self.TFLView removeFromSuperview];
+        }];
+    });
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
 }
 
 - (void)dealloc{
@@ -89,11 +114,6 @@
 
 - (void)rightBarButtonItemAction:(id)sender{
     [self.navigationController firstLevel_push_fromViewController:self toVC:[YDSearchViewController new]];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
 }
 
 #pragma private Methods - 
@@ -132,7 +152,19 @@
     [self setHidesBottomBarWhenPushed:NO];
 }
 
+- (void)YDDynamicViewControllerPushToVC:(YDDynamicDetailController *)toVC index:(NSInteger )index{
+    [self.navigationController firstLevel_push_fromViewController:self toVC:(id)toVC];
+}
+
 #pragma mark Getters -
+
+- (YDTodayFirstLoginView *)TFLView{
+    if (_TFLView == nil) {
+        _TFLView = [[YDTodayFirstLoginView alloc] initWithFrame:CGRectMake(0, -50, screen_width, 50)];
+        [_TFLView updateTFLView:[UIImage imageNamed:@"carIcon"] title:@"每日登录获得10积分"];
+    }
+    return _TFLView;
+}
 
 - (YDDrivingViewController *)drVC{
     if (!_drVC) {
@@ -159,6 +191,7 @@
 - (DynamicViewController *)dyVC{
     if (!_dyVC) {
         _dyVC = [DynamicViewController new];
+        _dyVC.delegate = self;
     }
     return _dyVC;
 }

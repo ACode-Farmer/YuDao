@@ -11,6 +11,7 @@
 @implementation UINavigationController (YuDao)
 
 - (void)firstLevel_push_fromViewController:(UIViewController *)fromVC toVC:(UIViewController *)toVC{
+    
     [fromVC setHidesBottomBarWhenPushed:YES];
     [fromVC.navigationController pushViewController:toVC animated:YES];
     [fromVC setHidesBottomBarWhenPushed:NO];

@@ -8,8 +8,6 @@
 
 #import "SDWeiXinPhotoContainerView.h"
 
-#import "UIView+SDAutoLayout.h"
-
 #import "SDPhotoBrowser.h"
 
 @interface SDWeiXinPhotoContainerView () <SDPhotoBrowserDelegate>
