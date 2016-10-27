@@ -36,11 +36,7 @@
         [self registerCellClassForTableView:self.tableView];
         
         
-        self.tableView.sd_layout
-        .topSpaceToView(self,0)
-        .leftSpaceToView(self,0)
-        .rightSpaceToView(self,0)
-        .bottomSpaceToView(self,0);
+        self.tableView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouchTableView)];
         [self.tableView addGestureRecognizer:tap];
@@ -161,6 +157,7 @@
         CGRect oldBounds, newBounds;
         [change[@"old"] getValue:&oldBounds];
         [change[@"new"] getValue:&newBounds];
+        
         CGFloat t = oldBounds.size.height - newBounds.size.height;
         if (t > 0 && fabs(self.tableView.contentOffset.y + t + newBounds.size.height - self.tableView.contentSize.height) < 1.0) {
             [self scrollToBottomWithAnimation:NO];
@@ -206,7 +203,7 @@
         _tableView = [[UITableView alloc] init];
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView setBackgroundColor:[UIColor clearColor]];
-        [_tableView setTableFooterView:[UITableViewHeaderFooterView new]];
+        [_tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 10)]];
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
     }

@@ -168,6 +168,7 @@
 		A06A9D1E1D92805000DFAFC2 /* CommonController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D1D1D92805000DFAFC2 /* CommonController.m */; };
 		A06A9D211D928AA900DFAFC2 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D201D928AA900DFAFC2 /* GroupController.m */; };
 		A06A9D271D929A6C00DFAFC2 /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A9D261D929A6C00DFAFC2 /* PersonalController.m */; };
+		A06B73471DC19EED00EB9F43 /* UITextView+YDChat.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73461DC19EED00EB9F43 /* UITextView+YDChat.m */; };
 		A06DA2EA1DB07109004362BA /* speed_car.png in Resources */ = {isa = PBXBuildFile; fileRef = A06DA2E91DB07109004362BA /* speed_car.png */; };
 		A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */; };
 		A06DA2F21DB08AE5004362BA /* YDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */; };
@@ -570,6 +571,8 @@
 		A06A9D201D928AA900DFAFC2 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
 		A06A9D251D929A6C00DFAFC2 /* PersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalController.h; sourceTree = "<group>"; };
 		A06A9D261D929A6C00DFAFC2 /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
+		A06B73451DC19EED00EB9F43 /* UITextView+YDChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YDChat.h"; sourceTree = "<group>"; };
+		A06B73461DC19EED00EB9F43 /* UITextView+YDChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YDChat.m"; sourceTree = "<group>"; };
 		A06DA2E91DB07109004362BA /* speed_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_car.png; sourceTree = "<group>"; };
 		A06DA2EC1DB07D56004362BA /* UINavigationController+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YuDao.h"; sourceTree = "<group>"; };
 		A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YuDao.m"; sourceTree = "<group>"; };
@@ -1631,6 +1634,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		A074524F1DC19DB800A44832 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				A06B73451DC19EED00EB9F43 /* UITextView+YDChat.h */,
+				A06B73461DC19EED00EB9F43 /* UITextView+YDChat.m */,
+			);
+			name = UITextView;
+			sourceTree = "<group>";
+		};
 		A07641D71DB1DABD009664D1 /* YDGroupDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2144,6 +2156,7 @@
 		A093B90C1DADD561009D568A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A074524F1DC19DB800A44832 /* UITextView */,
 				A04D80971DBA1D3500B7F4A4 /* UITableView */,
 				A068F4371DB88B7E0005765C /* NSString */,
 				A068F42D1DB86B630005765C /* NSFileManager */,
@@ -2475,6 +2488,7 @@
 				A07641E21DB202D8009664D1 /* MembersListController.m in Sources */,
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
+				A06B73471DC19EED00EB9F43 /* UITextView+YDChat.m in Sources */,
 				A0743E581DAB641D00545125 /* YDListTableView.m in Sources */,
 				A079CE251DB6172C00EB113F /* YDDrivingDetailViewController.m in Sources */,
 				A0865DD31DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m in Sources */,

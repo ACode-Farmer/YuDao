@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"发现";
     self.tableView.estimatedRowHeight = 45.f;
     self.tableView.tableFooterView = [UITableViewHeaderFooterView new];
 }

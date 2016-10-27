@@ -13,6 +13,7 @@
 #import "DiscoverTableViewController.h"
 #import "YDServiceViewController.h"
 #import "MyselfController.h"
+#import "YDChatViewController.h"
 
 static YDRootViewController *rootVC = nil;
 
@@ -24,6 +25,7 @@ static YDRootViewController *rootVC = nil;
 @property (nonatomic, strong) DiscoverTableViewController *discoverVC;
 @property (nonatomic, strong) YDServiceViewController *serviceVC;
 @property (nonatomic, strong) MyselfController *myselfVC;
+@property (nonatomic, strong) YDChatViewController *chatVC;
 
 @property (nonatomic, weak) UIViewController *currentController;
 
@@ -116,13 +118,20 @@ static YDRootViewController *rootVC = nil;
 #pragma mark Getters
 - (NSArray *)childVCArray{
     if (_childVCArray == nil) {
-        YDNavigationController *mainNaVC = [[YDNavigationController alloc] initWithRootViewController:self.mainVC];
+        YDNavigationController *mainNaVC = [[YDNavigationController alloc] initWithRootViewController:self.chatVC];
         YDNavigationController *discoverNaVC = [[YDNavigationController alloc] initWithRootViewController:self.discoverVC];
         YDNavigationController *serviceNaVC = [[YDNavigationController alloc] initWithRootViewController:self.serviceVC];
         YDNavigationController *myselfNaVC = [[YDNavigationController alloc] initWithRootViewController:self.myselfVC];
         _childVCArray = @[mainNaVC,discoverNaVC,serviceNaVC,myselfNaVC];
     }
     return _childVCArray;
+}
+
+- (YDChatViewController *)chatVC{
+    if (_chatVC == nil) {
+        _chatVC = [YDChatViewController new];
+    }
+    return _chatVC;
 }
 
 - (YDMainViewController *)mainVC{

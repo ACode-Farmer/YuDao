@@ -33,11 +33,8 @@
     
     if (message.messageType == YDMessageTypeText) {
         YDTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YDTextMessageCell"];
-        
         [cell setMessage:message];
-        
         [cell setDelegate:self];
-        
         return cell;
     }
     
@@ -156,7 +153,7 @@
             //[MobClick event:EVENT_DELETE_MESSAGE];
         }
         else {
-            //[UIAlertView bk_alertViewWithTitle:@"错误" message:@"从数据库中删除消息失败。"];
+            [UIAlertView bk_alertViewWithTitle:@"错误" message:@"从数据库中删除消息失败。"];
         }
     }
 }

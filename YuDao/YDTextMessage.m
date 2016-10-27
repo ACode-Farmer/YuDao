@@ -8,6 +8,9 @@
 
 #import "YDTextMessage.h"
 
+#define     MSG_SPACE_TOP       14
+#define     MSG_SPACE_BTM       20
+
 static UILabel *textLabel = nil;
 @implementation YDTextMessage
 
@@ -52,9 +55,10 @@ static UILabel *textLabel = nil;
 {
     if (kMessageFrame == nil) {
         kMessageFrame = [[YDMessageFrame alloc] init];
-        kMessageFrame.height = 30;
+        kMessageFrame.height = 20 + (self.showTime ? 30 : 0) + (self.showName ? 15 : 0) + 20;
         textLabel.text = self.text;
         kMessageFrame.contentSize = [textLabel sizeThatFits:CGSizeMake(MAX_MESSAGE_WIDTH, MAXFLOAT)];
+        NSLog(@"wwwww = %f",kMessageFrame.contentSize.width);
         kMessageFrame.height += kMessageFrame.contentSize.height;
     }
     return kMessageFrame;

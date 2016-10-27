@@ -20,7 +20,7 @@
 
 #define     AVATAR_WIDTH        40.0f
 #define     AVATAR_SPACE_X      8.0f
-#define     AVATAR_SPACE_Y      12.0f
+#define     AVATAR_SPACE_Y      10.0f
 
 #define     MSGBG_SPACE_X       5.0f
 #define     MSGBG_SPACE_Y       1.0f
@@ -61,28 +61,21 @@
     // 时间
     if (!_message || _message.showTime != message.showTime) {
         self.timeLabel.sd_layout
-        .heightIs(message.showTime?TIMELABEL_HEIGHT:0)
-        .topSpaceToView(self.contentView,message.showTime?TIMELABEL_SPACE_Y:TIMELABEL_SPACE_Y+TIMELABEL_HEIGHT);
+        .heightIs(message.showTime?TIMELABEL_HEIGHT:0);
     }
     
     if (!message || _message.ownerTyper != message.ownerTyper) {
         // 头像
-        self.avatarButton.sd_layout
-        .widthIs(AVATAR_WIDTH)
-        .heightEqualToWidth()
-        .topSpaceToView(self.timeLabel,AVATAR_SPACE_Y);
         if (message.ownerTyper == YDMessageOwnerTypeSelf) {
             self.avatarButton.sd_layout.rightSpaceToView(self.contentView,AVATAR_SPACE_X);
         }else{
-            self.avatarButton.sd_layout.rightSpaceToView(self.contentView,-AVATAR_SPACE_X);
+            self.avatarButton.sd_layout.leftSpaceToView(self.contentView,AVATAR_SPACE_X);
         }
-        // 用户名
-        self.usernameLabel.sd_layout
-        .topSpaceToView(self.avatarButton,-NAMELABEL_SPACE_Y);
+        
         if (message.ownerTyper == YDMessageOwnerTypeSelf) {
             self.usernameLabel.sd_layout.rightSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
         }else{
-            self.usernameLabel.sd_layout.rightSpaceToView(self.avatarButton,-NAMELABEL_SPACE_X);
+            self.usernameLabel.sd_layout.leftSpaceToView(self.avatarButton,-NAMELABEL_SPACE_X);
         }
         // 背景
         if (message.ownerTyper == YDMessageOwnerTypeSelf) {
@@ -113,19 +106,19 @@
     .widthRatioToView(view,0.8);
     
     self.usernameLabel.sd_layout
-    .topSpaceToView(self.avatarButton,-NAMELABEL_SPACE_Y)
-    .rightSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
+    .topEqualToView(self.avatarButton)
+    .leftSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
     
     // Default - self
     self.avatarButton.sd_layout
     .rightSpaceToView(view,AVATAR_SPACE_X)
     .widthIs(AVATAR_WIDTH)
     .heightEqualToWidth()
-    .topSpaceToView(view,AVATAR_SPACE_Y);
-
+    .topSpaceToView(self.timeLabel,AVATAR_SPACE_Y);
+    
     self.messageBackgroundView.sd_layout
     .rightSpaceToView(self.avatarButton,MSGBG_SPACE_X)
-    .topEqualToView(self.avatarButton);
+    .topSpaceToView(self.usernameLabel,0);
 }
 
 #pragma mark - Event Response -

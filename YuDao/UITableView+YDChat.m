@@ -12,9 +12,15 @@
 
 - (void)scrollToBottomWithAnimation:(BOOL)animation
 {
-    //NSLog(@"scrollToBottomWithAnimation");
-    CGFloat offsetY = self.contentSize.height > self.height ? self.contentSize.height - self.height : -(height_navBar + height_statusBar);
-    [self setContentOffset:CGPointMake(0, offsetY) animated:animation];
+//    NSLog(@"self.contentSize.height = %f  self.height = %f",self.contentSize.height,self.height);
+//    CGFloat offsetY = self.contentSize.height > self.height ? self.contentSize.height - self.height : -(height_navBar + height_statusBar);
+    
+    if (self.contentSize.height < self.height) {
+        return;
+    }else{
+        [self setContentOffset:CGPointMake(0,self.contentSize.height - self.height) animated:animation];
+    }
+    
 }
 
 @end

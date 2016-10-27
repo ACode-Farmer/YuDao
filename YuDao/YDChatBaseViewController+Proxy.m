@@ -14,7 +14,6 @@
 
 - (void)sendMessage:(YDMessage *)message
 {
-    
     message.ownerTyper = YDMessageOwnerTypeSelf;
     message.userID = [YDUserHelper sharedHelper].userID;
     message.fromUser = (id<YDChatUserProtocol>)[YDUserHelper sharedHelper].user;
@@ -30,10 +29,11 @@
     }
     
     if (message.messageType != YDMessageTypeVoice) {
+        
         [self addToShowMessage:message];    // 添加到列表
     }
     else {
-        NSLog(@"sendMessage");
+        
         [self.messageDisplayView updateMessage:message];
     }
     
