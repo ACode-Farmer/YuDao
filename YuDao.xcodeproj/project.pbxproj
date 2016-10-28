@@ -176,7 +176,6 @@
 		A06B73601DC2153200EB9F43 /* YDDDContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B735F1DC2153200EB9F43 /* YDDDContentModel.m */; };
 		A06B73631DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B73621DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m */; };
 		A06B736C1DC22D3100EB9F43 /* YDDDBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */; };
-		A06DA2EA1DB07109004362BA /* speed_car.png in Resources */ = {isa = PBXBuildFile; fileRef = A06DA2E91DB07109004362BA /* speed_car.png */; };
 		A06DA2EE1DB07D56004362BA /* UINavigationController+YuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */; };
 		A06DA2F21DB08AE5004362BA /* YDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F11DB08AE5004362BA /* YDSearchViewController.m */; };
 		A06DA2F71DB0ABCB004362BA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A06DA2F41DB0ABCB004362BA /* UIView+Frame.m */; };
@@ -269,6 +268,9 @@
 		A093B9361DAE0DD0009D568A /* YDRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B9351DAE0DD0009D568A /* YDRankingViewController.m */; };
 		A093B93B1DAE173D009D568A /* YDRTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B93A1DAE173D009D568A /* YDRTypeView.m */; };
 		A093B93E1DAE2FDA009D568A /* YDOrdinaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A093B93D1DAE2FDA009D568A /* YDOrdinaryTableViewController.m */; };
+		A0A401DA1DC2F14900277E53 /* YDDDCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A401D91DC2F14900277E53 /* YDDDCommentCell.m */; };
+		A0A401DD1DC2FAD100277E53 /* YDDDBottomView+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A401DC1DC2FAD100277E53 /* YDDDBottomView+Delegate.m */; };
+		A0A401E01DC3410A00277E53 /* YDDDLikedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A401DF1DC3410A00277E53 /* YDDDLikedCell.m */; };
 		A0C08CFB1DA901C60031977B /* YDMainTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C08CFA1DA901C60031977B /* YDMainTitleView.m */; };
 		B13D07F0BA21BE349EE483E8 /* libPods-YuDao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B41562B8238B5C8CF23BE35 /* libPods-YuDao.a */; };
 /* End PBXBuildFile section */
@@ -594,7 +596,6 @@
 		A06B73621DC21CB900EB9F43 /* YDDynamicDetailController+Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDDynamicDetailController+Delegate.m"; sourceTree = "<group>"; };
 		A06B736A1DC22D3100EB9F43 /* YDDDBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDBottomView.h; sourceTree = "<group>"; };
 		A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDBottomView.m; sourceTree = "<group>"; };
-		A06DA2E91DB07109004362BA /* speed_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speed_car.png; sourceTree = "<group>"; };
 		A06DA2EC1DB07D56004362BA /* UINavigationController+YuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+YuDao.h"; sourceTree = "<group>"; };
 		A06DA2ED1DB07D56004362BA /* UINavigationController+YuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+YuDao.m"; sourceTree = "<group>"; };
 		A06DA2F01DB08AE5004362BA /* YDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSearchViewController.h; sourceTree = "<group>"; };
@@ -771,6 +772,12 @@
 		A093B93A1DAE173D009D568A /* YDRTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDRTypeView.m; sourceTree = "<group>"; };
 		A093B93C1DAE2FDA009D568A /* YDOrdinaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDOrdinaryTableViewController.h; sourceTree = "<group>"; };
 		A093B93D1DAE2FDA009D568A /* YDOrdinaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDOrdinaryTableViewController.m; sourceTree = "<group>"; };
+		A0A401D81DC2F14900277E53 /* YDDDCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDCommentCell.h; sourceTree = "<group>"; };
+		A0A401D91DC2F14900277E53 /* YDDDCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDCommentCell.m; sourceTree = "<group>"; };
+		A0A401DB1DC2FAD100277E53 /* YDDDBottomView+Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDDDBottomView+Delegate.h"; sourceTree = "<group>"; };
+		A0A401DC1DC2FAD100277E53 /* YDDDBottomView+Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDDDBottomView+Delegate.m"; sourceTree = "<group>"; };
+		A0A401DE1DC3410A00277E53 /* YDDDLikedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDDDLikedCell.h; sourceTree = "<group>"; };
+		A0A401DF1DC3410A00277E53 /* YDDDLikedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDDDLikedCell.m; sourceTree = "<group>"; };
 		A0C08CF81DA8F95A0031977B /* YDMainViewConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDMainViewConfigure.h; sourceTree = "<group>"; };
 		A0C08CF91DA901C60031977B /* YDMainTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMainTitleView.h; sourceTree = "<group>"; };
 		A0C08CFA1DA901C60031977B /* YDMainTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMainTitleView.m; sourceTree = "<group>"; };
@@ -1600,8 +1607,14 @@
 				A06B73581DC20CF700EB9F43 /* YDDDHeaderView.m */,
 				A06B736A1DC22D3100EB9F43 /* YDDDBottomView.h */,
 				A06B736B1DC22D3100EB9F43 /* YDDDBottomView.m */,
+				A0A401DB1DC2FAD100277E53 /* YDDDBottomView+Delegate.h */,
+				A0A401DC1DC2FAD100277E53 /* YDDDBottomView+Delegate.m */,
 				A06B735A1DC210C000EB9F43 /* YDDDContentCell.h */,
 				A06B735B1DC210C000EB9F43 /* YDDDContentCell.m */,
+				A0A401DE1DC3410A00277E53 /* YDDDLikedCell.h */,
+				A0A401DF1DC3410A00277E53 /* YDDDLikedCell.m */,
+				A0A401D81DC2F14900277E53 /* YDDDCommentCell.h */,
+				A0A401D91DC2F14900277E53 /* YDDDCommentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1954,7 +1967,6 @@
 		A08247CB1D7FF67000DC58C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A06DA2E91DB07109004362BA /* speed_car.png */,
 				A06F08491D9E634100D4E829 /* QRCode.jpg */,
 				A067C6B51D992C01000E4146 /* 回到顶部.png */,
 				A067C6AD1D991CEE000E4146 /* 010.jpg */,
@@ -2461,7 +2473,6 @@
 				A06227201DAF5804006ADC50 /* TabBar.xcassets in Resources */,
 				A08247EA1D7FF97600DC58C2 /* icon1.jpg in Resources */,
 				A093B91D1DADD819009D568A /* ShouYe.xcassets in Resources */,
-				A06DA2EA1DB07109004362BA /* speed_car.png in Resources */,
 				A067C6AE1D991CEE000E4146 /* 010.jpg in Resources */,
 				A03BEC301DB4AA74006CFE43 /* Localizable.strings in Resources */,
 				A07B8C371D9BAEFB0040DD8B /* ProtocolViewController.xib in Resources */,
@@ -2556,6 +2567,7 @@
 				A01A34001D86941500852D16 /* MLLinkLabel.m in Sources */,
 				A01A33FB1D86941500852D16 /* MLTextAttachment.m in Sources */,
 				A06B73471DC19EED00EB9F43 /* UITextView+YDChat.m in Sources */,
+				A0A401DD1DC2FAD100277E53 /* YDDDBottomView+Delegate.m in Sources */,
 				A0743E581DAB641D00545125 /* YDListTableView.m in Sources */,
 				A079CE251DB6172C00EB113F /* YDDrivingDetailViewController.m in Sources */,
 				A0865DD31DBF2ABD003BD5ED /* YDMessageManager+MessageRecord.m in Sources */,
@@ -2576,6 +2588,7 @@
 				A07F82951D828CA200F9EA6B /* UIImage+ChangeIt.m in Sources */,
 				A068F4121DB866080005765C /* YDImageMessage.m in Sources */,
 				A06DA3001DB0D8A4004362BA /* YDGarageViewController.m in Sources */,
+				A0A401E01DC3410A00277E53 /* YDDDLikedCell.m in Sources */,
 				A067C6AC1D98F83C000E4146 /* DataView.m in Sources */,
 				A08247DF1D7FF71400DC58C2 /* MyselfController.m in Sources */,
 				A01A33CF1D868EDC00852D16 /* DynamicCell.m in Sources */,
@@ -2627,6 +2640,7 @@
 				A034C9EA1D93C44D006D38A4 /* CreateGroupController.m in Sources */,
 				A0743E521DAB5C9F00545125 /* YDBaseCell.m in Sources */,
 				A057AB821D8F7A2500F8817E /* RealOrNickNameController.m in Sources */,
+				A0A401DA1DC2F14900277E53 /* YDDDCommentCell.m in Sources */,
 				A057ABA31D8FCF6400F8817E /* InterestController.m in Sources */,
 				A057ABAF1D8FEA2900F8817E /* UIView+Extnesion.m in Sources */,
 				A068F4201DB869350005765C /* NSDate+YDChat.m in Sources */,

@@ -116,7 +116,7 @@ static NSString *const APCellIdentifier = @"APCell";
     if (month>=0) {
         year+=1;
     }
-    NSString *age = [NSString stringWithFormat:@"%ld",year];
+    NSString *age = [NSString stringWithFormat:@"%ld",(long)year];
     APModel *model = self.dataSource[0];
     model.subTitle = age;
     [self.tableView reloadData];

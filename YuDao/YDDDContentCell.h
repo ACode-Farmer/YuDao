@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDPhotoBrowser.h"
 
 @class YDDDContentModel;
-@interface YDDDContentCell : UITableViewCell
+@interface YDDDContentCell : UITableViewCell<SDPhotoBrowserDelegate>
 
 @property (nonatomic, strong) UIImageView *firstImageView;
 @property (nonatomic, strong) UILabel *locateLabel;

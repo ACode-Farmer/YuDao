@@ -193,7 +193,7 @@
     if (!_members) {
         _members = [NSMutableArray arrayWithCapacity:5];
         for (NSInteger i = 0; i<5; i++) {
-            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",i];
+            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",(long)i];
             [_members addObject:string];
         }
     }

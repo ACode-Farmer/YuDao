@@ -66,7 +66,7 @@ NSString *const YDMFourthCell = @"YDMFourthCell";
 
 #pragma mark - AWActionSheetDelegate
 - (int)numberOfItemsInActionSheet{
-    return 4;
+    return 8;
 }
 
 - (AWActionSheetCell*)cellForActionAtIndex:(NSInteger)index{

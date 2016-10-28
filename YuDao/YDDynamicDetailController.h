@@ -8,18 +8,26 @@
 
 #import "YDTableViewController.h"
 #import "YDDDHeaderView.h"
-#import "YDDDContentCell.h"
-#import "YDDDContentModel.h"
+#import "YDDDBottomView.h"
 
-#define YDDNormalCellID @"YDDNormalCellID"
+#import "YDDDContentCell.h"
+#import "YDDDCommentCell.h"
+
+#import "YDDDContentModel.h"
+#import "AWActionSheet.h"
 
 #define YDDDContentCellID @"YDDDContentCellID"
+#define YDDDCommentCellID @"YDDDCommentCellID"
 
-static CGFloat textFieldH = 40;
 
 @interface YDDynamicDetailController : YDTableViewController
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) YDDDHeaderView *headerView;
+@property (nonatomic, strong) YDDDBottomView *bottomView;
 
+@property (nonatomic, strong) NSArray *shareArray;
+
+@property (nonatomic, assign) CGFloat kKeybordHeight;
 
 @end

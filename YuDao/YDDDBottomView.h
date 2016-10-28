@@ -8,9 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class YDDDBottomView;
+@protocol YDDDBottomViewDelegate <NSObject>
+
+- (void)ddBottomView:(YDDDBottomView *)bottomView commentContent:(NSString *)content;
+
+- (void)ddBottomView:(YDDDBottomView *)bottomView didChangeTextViewHeight:(CGFloat )height;
+
+@end
+
 @interface YDDDBottomView : UIView
 
-@property (nonatomic, strong) UITextField *textF;
+@property (nonatomic, weak) id<YDDDBottomViewDelegate> delegate;
+
+@property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *commentBtn;
+
+- (void)sendCurrentText;
 
 @end

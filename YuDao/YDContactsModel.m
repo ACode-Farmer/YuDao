@@ -30,7 +30,7 @@
     model.imageName = imageName;
     
     model.groupType = groupType;
-    NSLog(@"type = %ld",model.groupType);
+    NSLog(@"type = %ld",(long)model.groupType);
     return model;
 }
 

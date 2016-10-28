@@ -8,12 +8,11 @@
 
 #import "YDDynamicDetailController.h"
 #import "YDDynamicDetailController+Delegate.h"
-#import "YDDDBottomView.h"
+
 
 @interface YDDynamicDetailController ()
 
-@property (nonatomic, strong) YDDDHeaderView *headerView;
-@property (nonatomic, strong) YDDDBottomView *bottomView;
+
 
 @end
 
@@ -24,20 +23,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"动态";
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.bottomView;
     
     [self.tableView registerClass:[YDDDContentCell class] forCellReuseIdentifier:YDDDContentCellID];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:YDDNormalCellID];
+    [self.tableView registerClass:[YDDDCommentCell class] forCellReuseIdentifier:YDDDCommentCellID];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTableViewAction:)];
+    [self.tableView addGestureRecognizer:tap];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
 }
 
-#pragma mark Private Methods
+
+#pragma mark - Events
+
+- (void)rightBarButtonItemAction:(id)sender{
+    AWActionSheet *sheet = [[AWActionSheet alloc] initWithIconSheetDelegate:self ItemCount:4];
+    [sheet show];
+}
+
+- (void)tapTableViewAction:(UIGestureRecognizer *)tap{
+    [self.bottomView.textView resignFirstResponder];
+    self.kKeybordHeight = 0;
+}
+
+- (void)keyboardNotification:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    CGRect rect = [dict[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    self.kKeybordHeight = rect.size.height;
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count-1 inSection:0]];
+    CGRect cellRect = [cell.superview convertRect:cell.frame toView:window];
+    CGFloat delta = CGRectGetMaxY(cellRect) - (window.bounds.size.height - rect.size.height)+60;
+    
+    CGPoint offset = self.tableView.contentOffset;
+    offset.y += delta;
+    if (offset.y < 0) {
+        offset.y = 0;
+    }
+    
+    [self.tableView setContentOffset:offset animated:YES];
+}
+
+
+#pragma mark - Private Methods
 
 
 
 #pragma mark - Getter
-- (NSArray *)dataArray{
+- (NSMutableArray *)dataArray{
     if (_dataArray == nil) {
 
         YDDDContentModel *model = [YDDDContentModel new];
@@ -67,9 +109,23 @@
 - (YDDDBottomView *)bottomView{
     if (_bottomView == nil) {
         _bottomView = [[YDDDBottomView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 60)];
+        _bottomView.delegate = self;
     }
     return _bottomView;
 }
 
+- (NSArray *)shareArray{
+    if (_shareArray == nil) {
+        _shareArray = @[@{@"imageName":@"head0.jpg", @"title":@"好友"},
+                        @{@"imageName":@"head0.jpg", @"title":@"群组"},
+                        @{@"imageName":@"head0.jpg", @"title":@"动态"},
+                        @{@"imageName":@"head0.jpg", @"title":@"微博"},
+                        @{@"imageName":@"head0.jpg", @"title":@"微信"},
+                        @{@"imageName":@"head0.jpg", @"title":@"微信朋友圈"},
+                        @{@"imageName":@"head0.jpg", @"title":@"QQ"},
+                        @{@"imageName":@"head0.jpg", @"title":@"QQ空间"}];
+    }
+    return _shareArray;
+}
 
 @end

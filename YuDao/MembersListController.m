@@ -54,7 +54,7 @@
         _dataSource = [NSMutableArray array];
         for (NSInteger i = 0; i<5; i++) {
             
-            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",i];
+            NSString *string = [NSString stringWithFormat:@"head%ld.jpg",(long)i];
             YDContactsModel *model = [YDContactsModel modelWith:@"来啊来啊！！！" imageName:string];
             [_dataSource addObject:model];
         }

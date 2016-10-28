@@ -90,7 +90,7 @@
 - (void)tapCellGuestureAction:(UIGestureRecognizer *)tap{
     id selectedCell = [[tap.view superview] superview];
     NSIndexPath *selectedIndex = [self.tableView indexPathForCell:selectedCell];
-    NSLog(@"section = %ld  row = %ld",selectedIndex.section,selectedIndex.row);
+    NSLog(@"section = %ld  row = %ld",(long)selectedIndex.section,selectedIndex.row);
     [self.navigationController secondLevel_push_fromViewController:self toVC:[YDPersonalDataController new]];
 }
 

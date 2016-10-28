@@ -8,6 +8,6 @@
 
 #import "YDDynamicDetailController.h"
 
-@interface YDDynamicDetailController (Delegate)
+@interface YDDynamicDetailController (Delegate)<YDDDBottomViewDelegate,AWActionSheetDelegate>
 
 @end

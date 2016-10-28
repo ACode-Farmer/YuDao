@@ -24,8 +24,36 @@
     return self;
 }
 
+#pragma Event
+- (void)tapFirstImageView:(UIGestureRecognizer *)tap{
+    
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    browser.currentImageIndex = 0;
+    browser.sourceImagesContainerView = self.firstImageView;
+    browser.imageCount = _model.imageArray.count;
+    browser.delegate = self;
+    
+    [browser show];
+}
+
+#pragma mark - SDPhotoBrowserDelegate
+
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    NSString *imageName = _model.imageArray[index];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:imageName withExtension:nil];
+    return url;
+}
+
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    UIImageView *imageView = self.firstImageView;
+    return imageView.image;
+}
+
 
 - (void)setModel:(YDDDContentModel *)model{
+    _model = model;
     self.firstImageView.image = [UIImage imageNamed:[model.imageArray firstObject]];
     self.locateLabel.text = model.location;
     self.titleLabel.text = model.title;
@@ -77,6 +105,9 @@
 - (UIImageView *)firstImageView{
     if (_firstImageView == nil) {
         _firstImageView = [UIImageView new];
+        _firstImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFirstImageView:)];
+        [_firstImageView addGestureRecognizer:tap];
     }
     return _firstImageView;
 }
