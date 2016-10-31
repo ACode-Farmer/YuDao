@@ -7,10 +7,13 @@
 //
 
 #import "YDChatViewController.h"
+#import "YDXMPPManager.h"
 
 static YDChatViewController *chatVC;
 
 @interface YDChatViewController ()
+
+;
 
 @property (nonatomic, strong) UIBarButtonItem *rightBarButton;
 
@@ -42,6 +45,8 @@ static YDChatViewController *chatVC;
 //        [weakself setChatEmojiKeyboardData:emojiGroups];
 //    }];
 }
+
+
 
 #pragma mark - # Event Response
 - (void)rightBarButtonDown:(UINavigationBar *)sender

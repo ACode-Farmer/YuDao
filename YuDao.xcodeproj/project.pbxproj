@@ -195,6 +195,9 @@
 		A0743E601DABA63F00545125 /* YDDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0743E5F1DABA63F00545125 /* YDDModel.m */; };
 		A074B4011DACC58E00F6821D /* YDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4001DACC58E00F6821D /* YDLoginViewController.m */; };
 		A074B4071DACDA9700F6821D /* YDSpotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A074B4061DACDA9700F6821D /* YDSpotView.m */; };
+		A074BC551DC6D9320030BD35 /* YDXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A074BC541DC6D9320030BD35 /* YDXMPPManager.m */; };
+		A074BC5B1DC70EBC0030BD35 /* YDFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A074BC5A1DC70EBC0030BD35 /* YDFriendsViewController.m */; };
+		A074BC5E1DC761B30030BD35 /* YDUserFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = A074BC5D1DC761B30030BD35 /* YDUserFriend.m */; };
 		A07641D61DB1DAB8009664D1 /* YDGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641D51DB1DAB8009664D1 /* YDGroupDetailViewController.m */; };
 		A07641DB1DB1EF3E009664D1 /* YDMGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641DA1DB1EF3E009664D1 /* YDMGroupDetailViewController.m */; };
 		A07641DE1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07641DD1DB1F1EE009664D1 /* YDMGroupDetailViewController+Delegate.m */; };
@@ -632,6 +635,12 @@
 		A074B4001DACC58E00F6821D /* YDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDLoginViewController.m; sourceTree = "<group>"; };
 		A074B4051DACDA9700F6821D /* YDSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSpotView.h; sourceTree = "<group>"; };
 		A074B4061DACDA9700F6821D /* YDSpotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSpotView.m; sourceTree = "<group>"; };
+		A074BC531DC6D9320030BD35 /* YDXMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDXMPPManager.h; sourceTree = "<group>"; };
+		A074BC541DC6D9320030BD35 /* YDXMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDXMPPManager.m; sourceTree = "<group>"; };
+		A074BC591DC70EBC0030BD35 /* YDFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDFriendsViewController.h; sourceTree = "<group>"; };
+		A074BC5A1DC70EBC0030BD35 /* YDFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDFriendsViewController.m; sourceTree = "<group>"; };
+		A074BC5C1DC761B30030BD35 /* YDUserFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDUserFriend.h; sourceTree = "<group>"; };
+		A074BC5D1DC761B30030BD35 /* YDUserFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDUserFriend.m; sourceTree = "<group>"; };
 		A07641D41DB1DAB8009664D1 /* YDGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDGroupDetailViewController.h; sourceTree = "<group>"; };
 		A07641D51DB1DAB8009664D1 /* YDGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDGroupDetailViewController.m; sourceTree = "<group>"; };
 		A07641D91DB1EF3E009664D1 /* YDMGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMGroupDetailViewController.h; sourceTree = "<group>"; };
@@ -1051,8 +1060,10 @@
 		A042BDEF1DBDB7BC001CE58D /* Proxys */ = {
 			isa = PBXGroup;
 			children = (
-				A042BDF11DBDB841001CE58D /* Groups */,
-				A068F4331DB88A710005765C /* Users */,
+				A074BC531DC6D9320030BD35 /* YDXMPPManager.h */,
+				A074BC541DC6D9320030BD35 /* YDXMPPManager.m */,
+				A074BC591DC70EBC0030BD35 /* YDFriendsViewController.h */,
+				A074BC5A1DC70EBC0030BD35 /* YDFriendsViewController.m */,
 			);
 			name = Proxys;
 			sourceTree = "<group>";
@@ -1210,11 +1221,11 @@
 		A05886FD1D858A6900F488BE /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				A068F3FA1DB85D050005765C /* ChatBaseViewController */,
 				A068F4581DB8B05D0005765C /* YDChatViewController */,
 				A068F4311DB875DC0005765C /* ChatModels */,
 				A068F4061DB85FD60005765C /* MessageModels */,
 				A068F3FE1DB85E3B0005765C /* ChatMessageDisplayView */,
-				A068F3FA1DB85D050005765C /* ChatBaseViewController */,
 				A0669F671DB76418008F8BB3 /* Keyboards */,
 				A0669F591DB7366D008F8BB3 /* ChatBar */,
 			);
@@ -1527,6 +1538,8 @@
 			children = (
 				A068F4341DB88AA50005765C /* YDUser.h */,
 				A068F4351DB88AA50005765C /* YDUser.m */,
+				A074BC5C1DC761B30030BD35 /* YDUserFriend.h */,
+				A074BC5D1DC761B30030BD35 /* YDUserFriend.m */,
 				A068F43B1DB88C3E0005765C /* YDUserGroup.h */,
 				A068F43C1DB88C3E0005765C /* YDUserGroup.m */,
 			);
@@ -1545,6 +1558,8 @@
 		A068F44B1DB896BD0005765C /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				A068F4331DB88A710005765C /* Users */,
+				A042BDF11DBDB841001CE58D /* Groups */,
 				A068F44F1DB897500005765C /* YDUserHelper.h */,
 				A068F4501DB897500005765C /* YDUserHelper.m */,
 			);
@@ -1913,6 +1928,7 @@
 		A08247721D7FC4BC00DC58C2 /* YuDao */ = {
 			isa = PBXGroup;
 			children = (
+				A068F44B1DB896BD0005765C /* Business */,
 				A042BDEF1DBDB7BC001CE58D /* Proxys */,
 				A093B8FF1DADD2F7009D568A /* 界面 */,
 				A023EE1C1D95069F00581EB1 /* Controllers */,
@@ -1922,7 +1938,6 @@
 				A093B90C1DADD561009D568A /* Extensions */,
 				A093B9161DADD7B7009D568A /* Resources */,
 				A0865DD41DBF385D003BD5ED /* Store */,
-				A068F44B1DB896BD0005765C /* Business */,
 			);
 			path = YuDao;
 			sourceTree = "<group>";
@@ -2633,6 +2648,7 @@
 				A037BC6C1D9105EC00D8D12F /* DistrictController.m in Sources */,
 				A057AB8C1D8FB5EC00F8817E /* AgeOrPlaceController.m in Sources */,
 				A06227291DAF971A006ADC50 /* UIImageView+YuDao.m in Sources */,
+				A074BC5B1DC70EBC0030BD35 /* YDFriendsViewController.m in Sources */,
 				A042BDFB1DBDB9EA001CE58D /* YDRecoderIndicatorView.m in Sources */,
 				A0669F6C1DB764AA008F8BB3 /* YDBaseKeyboard.m in Sources */,
 				A068F45B1DB8B07D0005765C /* YDChatViewController.m in Sources */,
@@ -2729,6 +2745,7 @@
 				A08248061D8018E100DC58C2 /* HeaderTableView.m in Sources */,
 				A0865DC51DBF1DF0003BD5ED /* YDAudiorecorder.m in Sources */,
 				A057AB9F1D8FC30E00F8817E /* IQActionSheetViewController.m in Sources */,
+				A074BC551DC6D9320030BD35 /* YDXMPPManager.m in Sources */,
 				A068F43A1DB88B8A0005765C /* NSString+PinYin.m in Sources */,
 				A08F13281DC0C5D30023E694 /* YDRootViewController.m in Sources */,
 				A093B9101DADD5E2009D568A /* UIImage+Color.m in Sources */,
@@ -2751,6 +2768,7 @@
 				A06B73601DC2153200EB9F43 /* YDDDContentModel.m in Sources */,
 				A06B735C1DC210C000EB9F43 /* YDDDContentCell.m in Sources */,
 				A093B93E1DAE2FDA009D568A /* YDOrdinaryTableViewController.m in Sources */,
+				A074BC5E1DC761B30030BD35 /* YDUserFriend.m in Sources */,
 				A068F40F1DB8642D0005765C /* YDTextMessage.m in Sources */,
 				A03BEC3F1DB4C944006CFE43 /* YDPTimeAxisCell.m in Sources */,
 				A06227261DAF9158006ADC50 /* UIImage+YuDao.m in Sources */,
@@ -2897,12 +2915,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2940,11 +2958,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YuDao/PrefixHeader.pch";
 				INFOPLIST_FILE = YuDao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

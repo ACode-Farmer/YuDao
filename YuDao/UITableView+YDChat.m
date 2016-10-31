@@ -18,7 +18,7 @@
     if (self.contentSize.height < self.height) {
         return;
     }else{
-        [self setContentOffset:CGPointMake(0,self.contentSize.height - self.height) animated:animation];
+        [self setContentOffset:CGPointMake(0,self.contentSize.height + height_navBar - self.height) animated:animation];
     }
     
 }

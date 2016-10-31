@@ -39,7 +39,7 @@ static UILabel *textLabel = nil;
 - (void)setText:(NSString *)text
 {
     _text = text;
-    [self.content setObject:text forKey:@"text"];
+    //[self.content setObject:text forKey:@"text"];
 }
 
 - (NSAttributedString *)attrText
@@ -58,7 +58,6 @@ static UILabel *textLabel = nil;
         kMessageFrame.height = 20 + (self.showTime ? 30 : 0) + (self.showName ? 15 : 0) + 20;
         textLabel.text = self.text;
         kMessageFrame.contentSize = [textLabel sizeThatFits:CGSizeMake(MAX_MESSAGE_WIDTH, MAXFLOAT)];
-        NSLog(@"wwwww = %f",kMessageFrame.contentSize.width);
         kMessageFrame.height += kMessageFrame.contentSize.height;
     }
     return kMessageFrame;

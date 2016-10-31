@@ -82,8 +82,8 @@
     
     [self.data addObject:message];
     
-//    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.data.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-    [self.tableView reloadData];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.data.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    //[self.tableView reloadData];
 }
 
 - (void)setData:(NSMutableArray *)data

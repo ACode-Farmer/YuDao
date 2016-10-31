@@ -70,7 +70,6 @@
     }
     
     YDMessage * message = self.data[indexPath.row];
-    NSLog(@"cell_height ==== %f",message.messageFrame.height);
     return message.messageFrame.height;
     
 }

@@ -92,8 +92,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "XMPPFramework/Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld/XMPPMessageArchiving.xcdatamodel"
-  install_resource "XMPPFramework/Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLight.xcdatamodel"
-  install_resource "XMPPFramework/Xcode/Examples/ServerlessDemo/ServerlessDemo.xcdatamodel"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
@@ -108,8 +106,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "XMPPFramework/Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld/XMPPMessageArchiving.xcdatamodel"
-  install_resource "XMPPFramework/Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLight.xcdatamodel"
-  install_resource "XMPPFramework/Xcode/Examples/ServerlessDemo/ServerlessDemo.xcdatamodel"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

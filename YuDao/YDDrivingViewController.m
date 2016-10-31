@@ -53,20 +53,20 @@
 
 - (void)getData{
     
-    [YDNetworking getUrl:weatherUrl parameters:@{@"cityname":@"普陀"} progress:^(NSProgress *progress) {
-        
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *originalDic = [responseObject mj_JSONObject];
-        
-        NSDictionary *dataDic = [originalDic objectForKey:@"data"];
-        NSLog(@"data = %@",dataDic);
-//        NSDictionary *mphDic = [dataDic valueForKey:@"mph"];
-//        NSLog(@"content = %@",[mphDic valueForKey:@"content"]);
-//        NSLog(@"data = %@",[mphDic valueForKey:@"data"]);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"failure");
-    }];
+//    [YDNetworking getUrl:weatherUrl parameters:@{@"cityname":@"普陀"} progress:^(NSProgress *progress) {
+//        
+//    } success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSDictionary *originalDic = [responseObject mj_JSONObject];
+//        
+//        NSDictionary *dataDic = [originalDic objectForKey:@"data"];
+//        NSLog(@"data = %@",dataDic);
+////        NSDictionary *mphDic = [dataDic valueForKey:@"mph"];
+////        NSLog(@"content = %@",[mphDic valueForKey:@"content"]);
+////        NSLog(@"data = %@",[mphDic valueForKey:@"data"]);
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"failure");
+//    }];
 }
 
 // 网络情况改变

@@ -8,12 +8,16 @@
 
 #import "YDChatBaseViewController.h"
 
-@interface YDChatBaseViewController (Proxy)
+@interface YDChatBaseViewController (Proxy)<XMPPStreamDelegate>
 
 /**
  *  发送消息
  */
 - (void)sendMessage:(YDMessage *)message;
+
+- (void)sendTextMassageTo:(XMPPJID *)toJid message:(NSString *)textMessage;
+
+- (void)sendImageMessageTo:(XMPPJID *)toJid message:(UIImage *)image;
 
 
 /**

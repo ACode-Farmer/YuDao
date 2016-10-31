@@ -20,6 +20,8 @@
 
 #import "YDTodayFirstLoginView.h"
 
+#import "YDXMPPManager.h"
+
 @interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate,YDDynamicVCDelegate>
 
 @property (nonatomic, strong) UIScrollView *contentView;
@@ -68,6 +70,11 @@
     
     [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:70];
     [self todayFirstLoginAnimation];
+    [self login];
+}
+
+- (void)login{
+    [[YDXMPPManager defaultManager] loginwithName:@"wangjie" andPassword:@"yulian"];
 }
 
 - (void)todayFirstLoginAnimation{

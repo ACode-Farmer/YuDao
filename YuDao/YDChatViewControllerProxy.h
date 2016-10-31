@@ -12,6 +12,7 @@
 @protocol YDChatViewControllerProxy <NSObject>
 
 @optional;
+
 - (void)didClickedUserAvatar:(YDUser *)user;
 
 - (void)didClickedImageMessages:(NSArray *)imageMessages atIndex:(NSInteger)index;

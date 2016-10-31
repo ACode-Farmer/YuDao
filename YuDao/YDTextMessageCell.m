@@ -46,27 +46,18 @@
     [self.messageBackgroundView setContentCompressionResistancePriority:100 forAxis:UILayoutConstraintAxisHorizontal];
     if (lastOwnType != message.ownerTyper) {
         if (message.ownerTyper == YDMessageOwnerTypeSelf) {
-            [self.messageBackgroundView setImage:[UIImage imageNamed:@"message_sender_bg"]];
-            [self.messageBackgroundView setHighlightedImage:[UIImage imageNamed:@"message_sender_bgHL"]];
+            
             self.messageLabel.sd_layout
             .rightSpaceToView(self.messageBackgroundView,MSG_SPACE_RIGHT)
             .topSpaceToView(self.messageBackgroundView,MSG_SPACE_TOP);
-            self.messageBackgroundView.sd_layout
-            .topEqualToView(self.avatarButton)
-            .rightSpaceToView(self.avatarButton,5);
             
         }
         else if (message.ownerTyper == YDMessageOwnerTypeFriend){
-            [self.messageBackgroundView setImage:[UIImage imageNamed:@"message_receiver_bg"]];
-            [self.messageBackgroundView setHighlightedImage:[UIImage imageNamed:@"message_receiver_bgHL"]];
+            
             
             self.messageLabel.sd_layout
             .leftSpaceToView(self.messageBackgroundView,MSG_SPACE_RIGHT)
             .topSpaceToView(self.messageBackgroundView,MSG_SPACE_TOP);
-            
-            self.messageBackgroundView.sd_layout
-            .topEqualToView(self.avatarButton)
-            .leftSpaceToView(self.avatarButton,5);
         }
     }
     CGSize contentSize = message.messageFrame.contentSize;

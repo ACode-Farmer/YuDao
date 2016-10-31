@@ -16,11 +16,19 @@
 #import "YDChatMessageDisplayView.h"
 #import "YDRecoderIndicatorView.h"
 #import "YDChatViewControllerProxy.h"
+
+#import "XMPP.h"
+#import "XMPPRoster.h"
+
 @interface YDChatBaseViewController : UIViewController
 {
     YDChatBarStatus lastStatus;
     YDChatBarStatus curStatus;
 }
+
+@property (nonatomic, strong) XMPPJID *chatToJid;
+
+
 
 /// 用户信息
 @property (nonatomic, strong) id<YDChatUserProtocol> user;

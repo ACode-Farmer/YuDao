@@ -45,19 +45,27 @@
 }
 
 - (void)setMessage:(YDMessage *)message{
-    if (_message && [_message.messageID isEqualToString:message.messageID]) {
-        return;
-    }
+    
+//    if (_message && [_message.messageID isEqualToString:message.messageID]) {
+//        return;
+//    }
     [self.timeLabel setText:[NSString stringWithFormat:@"  %@  ", message.date.chatTimeInfo]];
     [self.usernameLabel setText:[message.fromUser chat_username]];
-    if ([message.fromUser chat_avatarPath].length > 0) {
-        NSString *path = [NSFileManager pathUserAvatar:[message.fromUser chat_avatarPath]];
-        [self.avatarButton setImage:[UIImage imageNamed:path] forState:UIControlStateNormal];
-    }
-    else {
-        [self.avatarButton sd_setImageWithURL:YDURL([message.fromUser chat_avatarURL]) forState:UIControlStateNormal];
-    }
     
+    //暂时留着，这里是判断对方的头像本地是否已经有了
+//    if ([message.fromUser chat_avatarPath].length > 0) {
+//        NSString *path = [NSFileManager pathUserAvatar:[message.fromUser chat_avatarPath]];
+//        [self.avatarButton setImage:[UIImage imageNamed:path] forState:UIControlStateNormal];
+//    }
+//    else {
+////        [self.avatarButton sd_setImageWithURL:YDURL([message.fromUser chat_avatarURL]) forState:UIControlStateNormal];
+//        [self.avatarButton setImage:[UIImage imageNamed:@"head1.jpg"] imageHL:[UIImage imageNamed:@"head1.jpg"]];
+//    }
+    if (message.ownerTyper == YDMessageOwnerTypeSelf) {
+        [self.avatarButton setImage:[UIImage imageNamed:@"head0.jpg"] imageHL:[UIImage imageNamed:@"head0.jpg"]];
+    }else{
+        [self.avatarButton setImage:[UIImage imageNamed:@"head1.jpg"] imageHL:[UIImage imageNamed:@"head1.jpg"]];
+    }
     // 时间
     if (!_message || _message.showTime != message.showTime) {
         self.timeLabel.sd_layout
@@ -67,27 +75,24 @@
     if (!message || _message.ownerTyper != message.ownerTyper) {
         // 头像
         if (message.ownerTyper == YDMessageOwnerTypeSelf) {
+            NSLog(@"self.................");
             self.avatarButton.sd_layout.rightSpaceToView(self.contentView,AVATAR_SPACE_X);
+            self.usernameLabel.sd_layout.rightSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
+            self.messageBackgroundView.sd_layout.rightSpaceToView(self.avatarButton,MSGBG_SPACE_X);
+            [self.messageBackgroundView setImage:[UIImage imageNamed:@"message_sender_bg"]];
+            [self.messageBackgroundView setHighlightedImage:[UIImage imageNamed:@"message_sender_bgHL"]];
+            
         }else{
             self.avatarButton.sd_layout.leftSpaceToView(self.contentView,AVATAR_SPACE_X);
+            self.usernameLabel.sd_layout.leftSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
+            self.messageBackgroundView.sd_layout.leftSpaceToView(self.avatarButton,MSGBG_SPACE_X);
+            [self.messageBackgroundView setImage:[UIImage imageNamed:@"message_receiver_bg"]];
+            [self.messageBackgroundView setHighlightedImage:[UIImage imageNamed:@"message_receiver_bgHL"]];
         }
-        
-        if (message.ownerTyper == YDMessageOwnerTypeSelf) {
-            self.usernameLabel.sd_layout.rightSpaceToView(self.avatarButton,NAMELABEL_SPACE_X);
-        }else{
-            self.usernameLabel.sd_layout.leftSpaceToView(self.avatarButton,-NAMELABEL_SPACE_X);
-        }
-        // 背景
-        if (message.ownerTyper == YDMessageOwnerTypeSelf) {
-            self.messageBackgroundView.sd_layout
-            .rightSpaceToView(self.avatarButton,MSGBG_SPACE_X);
-        }else{
-            self.messageBackgroundView.sd_layout
-            .leftSpaceToView(self.avatarButton,MSGBG_SPACE_X);
-        }
+        [self.contentView setNeedsLayout];
+        [self.contentView layoutIfNeeded];
+
     }
-    
-    [self.usernameLabel setHidden:!message.showName];
     self.usernameLabel.sd_layout.heightIs(message.showName? NAMELABEL_HEIGHT:0);
     _message = message;
 }
@@ -111,14 +116,11 @@
     
     // Default - self
     self.avatarButton.sd_layout
-    .rightSpaceToView(view,AVATAR_SPACE_X)
     .widthIs(AVATAR_WIDTH)
-    .heightEqualToWidth()
-    .topSpaceToView(self.timeLabel,AVATAR_SPACE_Y);
+    .heightEqualToWidth();
     
     self.messageBackgroundView.sd_layout
-    .rightSpaceToView(self.avatarButton,MSGBG_SPACE_X)
-    .topSpaceToView(self.usernameLabel,0);
+    .topEqualToView(self.avatarButton);
 }
 
 #pragma mark - Event Response -

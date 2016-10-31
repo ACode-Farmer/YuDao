@@ -14,6 +14,7 @@
 
 #import "UIImage+Size.h"
 #import "NSFileManager+YDChat.h"
+#import "YDXMPPManager.h"
 
 @interface YDChatBaseViewController ()
 
@@ -37,6 +38,8 @@
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
     [self loadKeyboard];
+    
+    [[YDXMPPManager defaultManager].stream addDelegate:self delegateQueue:dispatch_get_main_queue()];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -65,6 +68,7 @@
 }
 
 #pragma mark - # Public Methods
+
 - (void)setPartner:(id<YDChatUserProtocol>)partner
 {
     if (_partner && [[_partner chat_userID] isEqualToString:[partner chat_userID]]) {

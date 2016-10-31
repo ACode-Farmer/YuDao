@@ -143,27 +143,26 @@
     YDTextMessage *message = [[YDTextMessage alloc] init];
     message.text = text;
     [self sendMessage:message];
-    if ([self.partner chat_userType] == YDChatUserTypeUser) {
-        YDTextMessage *message1 = [[YDTextMessage alloc] init];
-        message1.fromUser = self.partner;
-        message1.text = text;
-        [self receivedMessage:message1];
-    }
-    else {
-        for (id<YDChatUserProtocol> user in [self.partner groupMembers]) {
-            YDTextMessage *message1 = [[YDTextMessage alloc] init];
-            message1.friendID = [user chat_userID];
-            message1.fromUser = user;
-            message1.text = text;
-            [self receivedMessage:message1];
-        }
-    }
+//    if ([self.partner chat_userType] == YDChatUserTypeUser) {
+//        YDTextMessage *message1 = [[YDTextMessage alloc] init];
+//        message1.fromUser = self.partner;
+//        message1.text = text;
+//        [self receivedMessage:message1];
+//    }
+//    else {
+//        for (id<YDChatUserProtocol> user in [self.partner groupMembers]) {
+//            YDTextMessage *message1 = [[YDTextMessage alloc] init];
+//            message1.friendID = [user chat_userID];
+//            message1.fromUser = user;
+//            message1.text = text;
+//            [self receivedMessage:message1];
+//        }
+//    }
 }
 
 ////MARK: - 录音相关
 - (void)chatBarStartRecording:(YDChatBar *)chatBar
 {
-    NSLog(@"chatBarStartRecording");
     // 先停止播放
     if ([YDAudioPlayer sharedAudioPlayer].isPlaying) {
         [[YDAudioPlayer sharedAudioPlayer] stopPlayingAudio];
