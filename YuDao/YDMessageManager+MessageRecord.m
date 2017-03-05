@@ -1,15 +1,15 @@
 //
-//  YDMessageManager+MessageRecord.m
+//  YDMessageManager+test.m
 //  YuDao
 //
-//  Created by 汪杰 on 16/10/25.
+//  Created by 汪杰 on 16/11/22.
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDMessageManager+MessageRecord.h"
+#import "YDMessageManager+test.h"
 #import "YDChatViewController.h"
 
-@implementation YDMessageManager (MessageRecord)
+@implementation YDMessageManager (test)
 - (void)messageRecordForPartner:(NSString *)partnerID
                        fromDate:(NSDate *)date
                           count:(NSUInteger)count

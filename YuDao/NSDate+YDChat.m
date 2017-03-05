@@ -6,9 +6,9 @@
 //  Copyright © 2016年 李伯坤. All rights reserved.
 //
 
-#import "NSDate+YDChat.h"
+#import "NSDate+TLChat.h"
 
-@implementation NSDate (YDChat)
+@implementation NSDate (TLChat)
 
 - (NSString *)chatTimeInfo
 {

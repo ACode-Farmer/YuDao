@@ -10,7 +10,7 @@
 #import "NSDate+Extension.h"
 #import "NSDate+Utilities.h"
 
-@interface NSDate (YDChat)
+@interface NSDate (TLChat)
 
 - (NSString *)chatTimeInfo;
 

@@ -1,14 +1,15 @@
 //
-//  YDMessageManager+MessageRecord.h
+//  YDMessageManager+test.h
 //  YuDao
 //
-//  Created by 汪杰 on 16/10/25.
+//  Created by 汪杰 on 16/11/22.
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
 #import "YDMessageManager.h"
 
-@interface YDMessageManager (MessageRecord)
+@interface YDMessageManager (test)
+
 #pragma mark - 查询
 /**
  *  查询聊天记录
@@ -46,5 +47,7 @@
  *  删除所有聊天记录
  */
 - (BOOL)deleteAllMessages;
+
+
 
 @end
