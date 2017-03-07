@@ -10,4 +10,6 @@
 
 @interface YDGarageViewController : YDTableViewController
 
+@property (nonatomic, copy  ) void(^didSelectedCarBlock)(YDCarDetailModel *car);
+
 @end

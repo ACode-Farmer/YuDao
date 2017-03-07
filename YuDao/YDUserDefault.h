@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YDUser.h"
 
 @interface YDUserDefault : NSObject
+
+
++ (YDUserDefault *)defaultUser;
+
+@property (nonatomic, strong, getter=getUser,setter=setUser:) YDUser  *user;
 
 @end

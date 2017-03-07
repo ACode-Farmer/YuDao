@@ -7,6 +7,7 @@
 //
 
 #import "YDImageUtility.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation YDImageUtility
 

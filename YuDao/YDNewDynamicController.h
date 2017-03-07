@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YDNewDynamicController : UITableViewController
+@interface YDNewDynamicController : UITableViewController<UINavigationControllerDelegate>
+
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, copy  ) void(^publishCompleteBlock)();
+
 
 @end

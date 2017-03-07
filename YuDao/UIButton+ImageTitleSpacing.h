@@ -26,4 +26,6 @@ typedef NS_ENUM(NSUInteger, MKButtonEdgeInsetsStyle) {
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style
                         imageTitleSpace:(CGFloat)space;
 
+- (void)setHighlightColor:(UIColor *)color;
+
 @end

@@ -8,8 +8,13 @@
 
 #import "YDTableViewController.h"
 
-@interface YDIllegalViewController : YDTableViewController
+@interface YDIllegalViewController : UIViewController
+
+@property (nonatomic, strong) NSNumber *ug_id;
 
 @property (nonatomic, strong) NSMutableArray *data;
 
 @end
+
+
+

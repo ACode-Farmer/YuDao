@@ -1,9 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "XMPPModule.h"
 
-#if TARGET_OS_IPHONE
-  #import "DDXML.h"
-#endif
+#import"DDXML.h"
 
 #define _XMPP_PRIVACY_H
 

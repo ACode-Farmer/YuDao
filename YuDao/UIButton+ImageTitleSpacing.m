@@ -76,4 +76,22 @@
     self.imageEdgeInsets = imageEdgeInsets;
 }
 
+//根据颜色创建一个图片
+- (UIImage *)createImageWithColor:(UIColor *)color rect:(CGRect)rect
+{
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
+- (void)setHighlightColor:(UIColor *)color{
+    [self setBackgroundImage:[self createImageWithColor:color rect:CGRectMake(0,0,100,100)] forState:UIControlStateHighlighted];
+}
+
+
 @end

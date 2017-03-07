@@ -6,9 +6,9 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDRingListModel.h"
+#import "YDListModel.h"
 
-@implementation YDRingListModel
+@implementation YDListModel
 
 - (NSString *)sex{
     if ([self.ud_sex isEqual:@1]) {

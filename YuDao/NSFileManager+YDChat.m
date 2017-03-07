@@ -7,12 +7,25 @@
 //
 
 #import "NSFileManager+YDChat.h"
-#import "YDUserHelper.h"
+
 @implementation NSFileManager (YDChat)
+
++ (NSString *)pathUserAuthenticateImage:(NSString *)imageName
+{
+    NSString *path = [NSString stringWithFormat:@"%@/User/Authenticate/Images/", [NSFileManager documentsPath]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSError *error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"File Create Failed: %@", path);
+        }
+    }
+    return [path stringByAppendingString:imageName];
+}
 
 + (NSString *)pathUserSettingImage:(NSString *)imageName
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Setting/Images/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Setting/Images/", [NSFileManager documentsPath], [YDUserDefault defaultUser].user.ub_id];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -25,7 +38,7 @@
 
 + (NSString *)pathUserChatImage:(NSString*)imageName
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Images/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Images/", [NSFileManager documentsPath], [YDUserDefault defaultUser].user.ub_id];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -38,7 +51,7 @@
 
 + (NSString *)pathUserChatBackgroundImage:(NSString *)imageName
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Background/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Background/", [NSFileManager documentsPath], [YDUserDefault defaultUser].user.ub_id];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -51,7 +64,7 @@
 
 + (NSString *)pathUserAvatar:(NSString *)imageName
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Avatar/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Avatar/", [NSFileManager documentsPath], [YDUserDefault defaultUser].user.ub_id];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -77,7 +90,7 @@
 
 + (NSString *)pathUserChatVoice:(NSString *)voiceName
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Voices/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/Voices/", [NSFileManager documentsPath], [YDUserDefault defaultUser].user.ub_id];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -130,7 +143,7 @@
 
 + (NSString *)pathDBCommon
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Setting/DB/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/DB/", [NSFileManager documentsPath]];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
@@ -138,12 +151,13 @@
             NSLog(@"File Create Failed: %@", path);
         }
     }
+    
     return [path stringByAppendingString:@"common.sqlite3"];
 }
 
 + (NSString *)pathDBMessage
 {
-    NSString *path = [NSString stringWithFormat:@"%@/User/%@/Chat/DB/", [NSFileManager documentsPath], [YDUserHelper sharedHelper].userID];
+    NSString *path = [NSString stringWithFormat:@"%@/User/Chat/DB/", [NSFileManager documentsPath]];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSError *error;
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];

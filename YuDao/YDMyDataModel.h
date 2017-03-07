@@ -10,4 +10,10 @@
 
 @interface YDMyDataModel : NSObject
 
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subTitle;
+@property (nonatomic, copy) NSString *subImageName;
+
++ (YDMyDataModel *)modelWithTitle:(NSString *)title subTitle:(NSString *)subTitle subImageName:(NSString *)subImageName;
+
 @end

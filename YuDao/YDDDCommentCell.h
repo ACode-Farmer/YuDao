@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDDynamicDetailModel.h"
 
-@class YDDDNormalModel;
 @interface YDDDCommentCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *userImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
 
-@property (nonatomic, strong) YDDDNormalModel *model;
+@property (nonatomic, strong) UILabel *timeLabel;
+
+@property (nonatomic, strong) YDDynamicCommentModel *model;
 
 @end

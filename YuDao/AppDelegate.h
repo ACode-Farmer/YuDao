@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDRootViewController.h"
+static NSString *kJPushAppKey = @"f90176495f64d3e639903474";
+static NSString *kJPushChannel = @"App Store";
+
+static BOOL     kJPushIsProduction = FALSE;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) YDRootViewController *rootVC;
 
 @end
 

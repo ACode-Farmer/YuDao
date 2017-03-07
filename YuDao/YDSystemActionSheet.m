@@ -6,17 +6,35 @@
 //  Copyright (c) 2015年 yixiang. All rights reserved.
 //
 
-#import "SystemActionSheet.h"
+#import "YDSystemActionSheet.h"
 
-@interface SystemActionSheet()<UIActionSheetDelegate>
+@interface YDSystemActionSheet()<UIActionSheetDelegate>
 
 @property (nonatomic , strong) UIActionSheet *actionSheet;
 
 @end
 
-@implementation SystemActionSheet
+@implementation YDSystemActionSheet
+-(id) initViewWithTitle: (NSString *) phone title : (NSString *) title clickedBlock:(void (^)(NSInteger index))clickedBlock{
+    if (self = [self init]) {
+        _actionSheet.title = title;
+        [_actionSheet addButtonWithTitle:phone];
+        _clickBlock = clickedBlock;
+    }
+    return self;
+}
 
--(id)initViewWithPhone:(NSString *)phone title:(NSString *)title{
+-(id) initViewWithMultiTitles:(NSArray *) array title :(NSString *)title clickedBlock:(void (^)(NSInteger index))clickedBlock{
+    if (self = [self init]) {
+        _actionSheet.title = title;
+        _clickBlock = clickedBlock;
+        for (NSString *phone in array) {
+            [_actionSheet addButtonWithTitle:phone];
+        }
+    }
+    return self;
+}
+-(id) initViewWithTitle: (NSString *) phone title : (NSString *) title{
     if (self = [self init]) {
         _actionSheet.title = title;
         [_actionSheet addButtonWithTitle:phone];
@@ -24,7 +42,7 @@
     return self;
 }
 
--(id)initViewWithMultiPhone:(NSArray *)array title:(NSString *)title{
+-(id) initViewWithMultiTitles:(NSArray *) array title :(NSString *)title{
     
     if (self = [self init]) {
         _actionSheet.title = title;
@@ -55,7 +73,16 @@
     if (buttonIndex == actionSheet.cancelButtonIndex) {
         [self close];
     }else{
-        [self onPhoneButtonClick:[_actionSheet buttonTitleAtIndex:buttonIndex]];
+        if (self.clickBlock) {
+            self.clickBlock(buttonIndex);
+            [self close];
+            return;
+        }
+        if (self.systemDelegate && [self.systemDelegate respondsToSelector:@selector(systemActionSheetDidTouchedIndex:)]) {
+            [self.systemDelegate systemActionSheetDidTouchedIndex:buttonIndex];
+            [self close];
+        }
+        
     }
 }
 

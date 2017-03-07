@@ -11,7 +11,10 @@
 #import "AdviseController.h"
 #import "AboutUsController.h"
 #import "ProtocolViewController.h"
-#import "YDLoginViewController.h"
+
+#import "YDNetworking.h"
+
+#define kLogoutURL @"http://www.ve-link.com/yulian/api/logout"
 
 @interface SetupTableViewController ()
 
@@ -64,14 +67,31 @@
 #pragma mark - Events
 - (void)sinoutBtnAction:(UIButton *)sender{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确认退出登录?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *changeUser = [UIAlertAction actionWithTitle:@"切换帐号" style:0 handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
+    YDWeakSelf(self);
     UIAlertAction *sinOut = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController secondLevel_push_fromViewController:self toVC:[YDLoginViewController new]];
+        [YDNetworking postUrl:kLogoutURL parameters:@{@"access_token":[YDUserDefault defaultUser].user.access_token} success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSDictionary *originalDic = [responseObject mj_JSONObject];
+            
+            NSLog(@"status = %@",[originalDic valueForKey:@"status"]);
+            NSLog(@"status_code = %@",[originalDic valueForKey:@"status_code"]);
+            [self presentViewController:[YDLoginViewController new] animated:YES completion:^{
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults removeObjectForKey:@"currentUser"];
+                [[YDCarHelper sharedHelper].carArray removeAllObjects];
+                [[YDCarHelper sharedHelper] deleteAllCars];
+                [YDAppConfigure defaultAppConfigure].userStatus = YDUserStatusLogout;
+                
+                //回到首页
+                [[YDRootViewController sharedRootViewController] setSelectedIndex:0];
+                //释放掉navigationVC的controllers
+                [weakself.navigationController popViewControllerAnimated:NO];
+            }];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"error = %@",error);
+        }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:changeUser];
     [alert addAction:sinOut];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
@@ -95,51 +115,41 @@
     NSString *text = self.dataSource[indexPath.row];
     cell.textLabel.text = text;
     if ([text isEqualToString:@"版本更新"]) {
-        cell.detailTextLabel.text = @"1.01";
+        cell.detailTextLabel.text = @"暂无新版本";
     }
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
+            [self.navigationController pushViewController:vc animated:YES];
             break;}
         case 1:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
+            [self.navigationController pushViewController:vc animated:YES];
             break;}
         case 2:
         {
             UniversalViewController *vc = [[UniversalViewController alloc] initWithControllerType:indexPath.row title:self.dataSource[indexPath.row]];
-            [self.navigationController secondLevel_push_fromViewController:self toVC:vc];
+            [self.navigationController pushViewController:vc animated:YES];
             break;}
         case 3:
         {
-            [self.navigationController secondLevel_push_fromViewController:self toVC:[AdviseController new]];
+            [self.navigationController pushViewController:[AdviseController new] animated:YES];
             break;}
         case 4:
         {
-            [self.navigationController secondLevel_push_fromViewController:self toVC:[AboutUsController new]];
+            [self.navigationController pushViewController:[AboutUsController new] animated:YES];
             break;}
         case 5:
         {
-            UIAlertController *alert = [UIAlertController  alertControllerWithTitle:@"遇道" message:@"发现新的版本1.11，是否立即更新？" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-            [alert addAction:cancel];
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-            break;}
-        case 6:
-        {
-            [self.navigationController secondLevel_push_fromViewController:self toVC:[ProtocolViewController new]];
+            [self.navigationController pushViewController:[ProtocolViewController new] animated:YES];
             break;}
         default:
             break;
@@ -149,7 +159,7 @@
 #pragma mark - Getters
 - (NSArray *)dataSource{
     if (!_dataSource) {
-        _dataSource = @[@"消息通知",@"隐私设置",@"功能设置",@"意见反馈",@"关于我们",@"版本更新",@"用户使用协议"];
+        _dataSource = @[@"消息通知",@"隐私设置",@"功能设置",@"意见反馈",@"关于我们",@"用户使用协议"];
     }
     return _dataSource;
 }

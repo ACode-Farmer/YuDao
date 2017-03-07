@@ -4,6 +4,8 @@
 #import "NSXMLElement+XEP_0203.h"
 #import "XMPPMessage+XEP_0085.h"
 
+
+
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
@@ -439,50 +441,115 @@ static XMPPMessageArchivingCoreDataStorage *sharedInstance;
 			}
 			
 			// Create or update contact (if message with actual content)
-			
-			if ([messageBody length] > 0)
-			{
-				BOOL didCreateNewContact = NO;
-				
-				XMPPMessageArchiving_Contact_CoreDataObject *contact = [self contactForMessage:archivedMessage];
-				XMPPLogVerbose(@"Previous contact: %@", contact);
-				
-				if (contact == nil)
-				{
-					contact = (XMPPMessageArchiving_Contact_CoreDataObject *)
-					    [[NSManagedObject alloc] initWithEntity:[self contactEntity:moc]
-					             insertIntoManagedObjectContext:nil];
-					
-					didCreateNewContact = YES;
-				}
-				
-				contact.streamBareJidStr = archivedMessage.streamBareJidStr;
-				contact.bareJid = archivedMessage.bareJid;
-					
-				contact.mostRecentMessageTimestamp = archivedMessage.timestamp;
-				contact.mostRecentMessageBody = archivedMessage.body;
-				contact.mostRecentMessageOutgoing = @(isOutgoing);
-				
-				XMPPLogVerbose(@"New contact: %@", contact);
-				
-				if (didCreateNewContact) // [contact isInserted] doesn't seem to work
-				{
-					XMPPLogVerbose(@"Inserting contact...");
-					
-					[contact willInsertObject];       // Override hook
-					[self willInsertContact:contact]; // Override hook
-					[moc insertObject:contact];
-				}
-				else
-				{
-					XMPPLogVerbose(@"Updating contact...");
-					
-					[contact didUpdateObject];       // Override hook
-					[self didUpdateContact:contact]; // Override hook
-				}
-			}
+            if ([messageBody length] > 0)
+            {
+                BOOL didCreateNewContact = NO;
+                
+                XMPPMessageArchiving_Contact_CoreDataObject *contact = [self contactForMessage:archivedMessage];
+                XMPPLogVerbose(@"Previous contact: %@", contact);
+                
+                if (contact == nil)
+                {
+                    contact = (XMPPMessageArchiving_Contact_CoreDataObject *)
+                    [[NSManagedObject alloc] initWithEntity:[self contactEntity:moc]
+                             insertIntoManagedObjectContext:nil];
+                    
+                    didCreateNewContact = YES;
+                }
+                
+                contact.streamBareJidStr = archivedMessage.streamBareJidStr;
+                contact.bareJid = archivedMessage.bareJid;
+                
+                contact.mostRecentMessageTimestamp = archivedMessage.timestamp;
+                contact.mostRecentMessageBody = archivedMessage.body;
+                contact.mostRecentMessageOutgoing = @(isOutgoing);
+                
+                XMPPLogVerbose(@"New contact: %@", contact);
+                
+                if (didCreateNewContact) // [contact isInserted] doesn't seem to work
+                {
+                    XMPPLogVerbose(@"Inserting contact...");
+                    
+                    [contact willInsertObject];       // Override hook
+                    [self willInsertContact:contact]; // Override hook
+                    [moc insertObject:contact];
+                }
+                else
+                {
+                    XMPPLogVerbose(@"Updating contact...");
+                    
+                    [contact didUpdateObject];       // Override hook
+                    [self didUpdateContact:contact]; // Override hook
+                }
+            }
 		}
+        /*
+        - (BOOL)isChatMessage;
+        - (BOOL)isChatMessageWithBody;
+        - (BOOL)isErrorMessage;
+        - (BOOL)isMessageWithBody;
+         */
+        if ([message isChatMessage]) {       //正在输入
+            //NSLog(@"isChatMessage");
+        }
+#pragma mark 离线消息也会走这里
+        if ([message isChatMessageWithBody]) {//收到消息
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kXMPP_MESSAGE_CHANGE" object:archivedMessage];
+            });
+        }
+        if ([message isErrorMessage]) {
+            NSLog(@"isErrorMessage");
+        }
+        
+        
+
+        
 	}];
+}
+
+- (NSString *)getCurrentViewControllerClassString{
+    
+    UIViewController *result = nil;
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    //app默认windowLevel是UIWindowLevelNormal，如果不是，找到UIWindowLevelNormal的
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    id  nextResponder = nil;
+    UIViewController *appRootVC=window.rootViewController;
+    //    如果是present上来的appRootVC.presentedViewController 不为nil
+    if (appRootVC.presentedViewController) {
+        nextResponder = appRootVC.presentedViewController;
+    }else{
+        UIView *frontView = [[window subviews] objectAtIndex:0];
+        nextResponder = [frontView nextResponder];
+    }
+    
+    if ([nextResponder isKindOfClass:[UITabBarController class]]){
+        UITabBarController * tabbar = (UITabBarController *)nextResponder;
+        UINavigationController * nav = (UINavigationController *)tabbar.viewControllers[tabbar.selectedIndex];
+        //        UINavigationController * nav = tabbar.selectedViewController ; 上下两种写法都行
+        result=nav.childViewControllers.lastObject;
+        
+    }else if ([nextResponder isKindOfClass:[UINavigationController class]]){
+        UIViewController * nav = (UIViewController *)nextResponder;
+        result = nav.childViewControllers.lastObject;
+    }else{
+        result = nextResponder;
+    }
+    
+    return NSStringFromClass([result class]);
 }
 
 @end

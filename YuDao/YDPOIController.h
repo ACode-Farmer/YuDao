@@ -7,7 +7,10 @@
 //
 
 #import "YDViewController.h"
+#import "YDPoiModel.h"
 
 @interface YDPOIController : YDViewController
+
+@property (nonatomic, copy  ) void(^poiSearchCompeleteBlock)(YDPoiModel *poiModel);
 
 @end

@@ -8,6 +8,10 @@
 
 #import "YDTableViewController.h"
 
-@interface YDFriendSearchController : YDTableViewController
+#define     HEIGHT_FRIEND_CELL      54.0f
+
+@interface YDFriendSearchController : YDTableViewController<UISearchResultsUpdating>
+
+@property (nonatomic, strong) NSMutableArray *friendsData;
 
 @end

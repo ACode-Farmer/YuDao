@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDDynamicDetailModel.h"
 
 @interface YDDDHeaderView : UIView
 
@@ -16,6 +17,9 @@
 @property (nonatomic, strong) UILabel *levelLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 
-- (void)updateHeaderView:(NSString *)userImage userName:(NSString *)name genderImage:(NSString *)genderImage level:(NSString *)level time:(NSString *)time;
+@property (nonatomic, strong) UILabel *lookTimesLabel;
+@property (nonatomic, strong) UILabel *lookLabel;
+
+- (void)updateWithHeaderUrl:(NSString *)headerUrl name:(NSString *)name gender:(NSString *)gender level:(NSString *)level time:(NSString *)time looktimes:(NSNumber *)lookTimes;
 
 @end

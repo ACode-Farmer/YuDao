@@ -17,7 +17,11 @@
 
 @end
 
+
+#pragma mark 底部弹出的分享视图
 @interface AWActionSheet : UIWindow
+
+@property (nonatomic, copy  ) void (^didTouchItemBlock)(NSInteger index);
 
 @property (nonatomic, assign)id<AWActionSheetDelegate> IconDelegate;
 

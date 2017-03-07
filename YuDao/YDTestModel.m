@@ -11,3 +11,19 @@
 @implementation YDTestModel
 
 @end
+
+
+@implementation YDTestDetailModel
+
++ (YDTestDetailModel *)modelWithTitle:(NSString *)title subTitle:(NSString *)subTitle backgImageString:(NSString *)backgImageString data:(NSString *)data oilMessage:(NSString *)oilMessage{
+    YDTestDetailModel *model = [YDTestDetailModel new];
+    model.titile = title;
+    model.subTitle = subTitle;
+    model.backgImageString = backgImageString;
+    model.data = data;
+    model.oilMessage = oilMessage;
+    
+    return model;
+}
+
+@end

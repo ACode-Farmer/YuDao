@@ -8,6 +8,8 @@
 
 #import "YDLikePersonController.h"
 
-@interface YDLikePersonController (Delegate)
+@interface YDLikePersonController (Delegate)<UITableViewDataSource,UITableViewDelegate>
+
+- (void)registerCellClass;
 
 @end

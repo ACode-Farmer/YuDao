@@ -13,7 +13,7 @@
 #define kTitleViewHeight      48 * widthHeight_ratio
 #define kBackgroundViewHeight 302 * widthHeight_ratio
 #define kDataTypeViewHeight 76 * widthHeight_ratio
-#define kDrivingViewHeight 426 * widthHeight_ratio
+#define kDrivingViewHeight 378 * widthHeight_ratio
 
 
 

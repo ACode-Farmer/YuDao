@@ -2,8 +2,8 @@
 //  YDSystemMessageController.h
 //  YuDao
 //
-//  Created by 汪杰 on 2016/12/4.
-//  Copyright © 2016年 汪杰. All rights reserved.
+//  Created by 汪杰 on 17/2/24.
+//  Copyright © 2017年 汪杰. All rights reserved.
 //
 
 #import "YDTableViewController.h"

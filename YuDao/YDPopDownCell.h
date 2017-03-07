@@ -10,4 +10,6 @@
 
 @interface YDPopDownCell : UITableViewCell
 
+@property (nonatomic, strong) YDCarDetailModel *model;
+
 @end

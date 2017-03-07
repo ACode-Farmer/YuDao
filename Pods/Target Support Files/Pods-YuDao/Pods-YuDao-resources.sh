@@ -80,6 +80,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "XMPPFramework/Extensions/Roster/CoreDataStorage/XMPPRoster.xcdatamodel"
@@ -92,8 +93,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "XMPPFramework/Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld/XMPPMessageArchiving.xcdatamodel"
+  install_resource "XMPPFramework/Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLight.xcdatamodel"
+  install_resource "XMPPFramework/Xcode/Examples/ServerlessDemo/ServerlessDemo.xcdatamodel"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "XMPPFramework/Extensions/Roster/CoreDataStorage/XMPPRoster.xcdatamodel"
@@ -106,6 +110,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "XMPPFramework/Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld"
   install_resource "XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld/XMPPMessageArchiving.xcdatamodel"
+  install_resource "XMPPFramework/Extensions/XMPPMUCLight/CoreDataStorage/XMPPRoomLight.xcdatamodel"
+  install_resource "XMPPFramework/Xcode/Examples/ServerlessDemo/ServerlessDemo.xcdatamodel"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

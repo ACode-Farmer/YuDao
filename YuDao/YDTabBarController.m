@@ -17,9 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
-    //[self.tabBar setTintColor:[UIColor colorGreenDefault]];
+    [self.tabBar setTintColor:[UIColor colorWithString:@"#2B3552"]];
+    self.tabBar.barTintColor = [UIColor whiteColor];
 }
+-(UIStatusBarStyle)preferredStatusBarStyle
 
+{
+    
+    return UIStatusBarStyleLightContent;  //默认的值是黑色的
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

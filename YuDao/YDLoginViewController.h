@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "YDViewController.h"
 
+
+#define kLoginURL @"http://www.ve-link.com/yulian/api/login"
+
 #define kAcountsPasswordWidth  38 * widthHeight_ratio
 #define kAcountsPasswordHeight 18 * widthHeight_ratio
 
 @interface YDLoginViewController : YDViewController
+
+@property (nonatomic, strong) NSString *account;
 
 @end

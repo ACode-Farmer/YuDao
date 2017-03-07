@@ -10,4 +10,14 @@
 
 @interface YDInterestModel : NSObject
 
+@property (nonatomic, assign) NSNumber *t_id;   //当前id
+@property (nonatomic, copy  ) NSString *t_name; //父级id
+@property (nonatomic, assign) NSNumber *t_pid;
+@property (nonatomic, assign) NSNumber *t_time;
+
+@property (nonatomic, strong) NSMutableArray *tags;
+@property (nonatomic, strong) NSMutableArray *items;
+
++ (YDInterestModel *)shareInterests;
+
 @end

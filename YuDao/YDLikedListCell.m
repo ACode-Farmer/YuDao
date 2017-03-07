@@ -6,95 +6,113 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "LIkedListCell.h"
-#import <SDAutoLayout/UIView+SDAutoLayout.h>
+#import "YDLikedListCell.h"
 
-@implementation LIkedListCell
-{
-    UIImageView *_headImageView;
-    UILabel     *_nameLabel;
-    UILabel     *_gradeLebel;
-    UIButton    *_talkBtn;
-    UIButton    *_addBtn;
-    
-}
+
+@implementation YDLikedListCell
+
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        _headImageView = [UIImageView new];
-        _nameLabel = [UILabel new];
-        _nameLabel.font = [UIFont font_16];
-        
-        _gradeLebel = [UILabel new];
-        _gradeLebel.textColor = [UIColor orangeColor];
-        _gradeLebel.font = [UIFont font_13];
-        
-        _talkBtn = [UIButton new];
-        _talkBtn.tag = 1000;
-        [_talkBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_talkBtn setImage:[UIImage imageNamed:@"mine_chat"] forState:0];
-        _addBtn = [UIButton new];
-        _addBtn.tag = 10001;
-        [_addBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_addBtn setImage:[UIImage imageNamed:@"add"] forState:0];
-        [self.contentView sd_addSubviews:@[_headImageView,_nameLabel,_gradeLebel,_talkBtn,_addBtn]];
-        
-        _headImageView.image = [UIImage imageNamed:@"head0.jpg"];
-        _nameLabel.text = @"都是我的";
-        _gradeLebel.text = @"V5";
-        
-        [self setupSubviewsLayout];
+        [self y_layoutSubviews];
     }
     return self;
 }
 
-- (void)setupSubviewsLayout{
-    UIView *view = self.contentView;
-    _headImageView.sd_layout
-    .topSpaceToView(view,5)
-    .leftSpaceToView(view,10)
-    .bottomSpaceToView(view,5)
-    .widthEqualToHeight();
-    _headImageView.sd_cornerRadiusFromWidthRatio = @0.1;
+- (void)setDataType:(YDLikedPeopleType)dataType{
+    _dataType = dataType;
     
-    _nameLabel.sd_layout
-    .topEqualToView(_headImageView)
-    .leftSpaceToView(_headImageView,10)
-    .bottomEqualToView(_headImageView);
-    [_nameLabel setSingleLineAutoResizeWithMaxWidth:200];
-    
-    _gradeLebel.sd_layout
-    .topEqualToView(_headImageView)
-    .leftSpaceToView(_nameLabel,10)
-    .bottomEqualToView(_headImageView);
-    [_gradeLebel setSingleLineAutoResizeWithMaxWidth:100];
-    
-    _addBtn.sd_layout
-    .centerYEqualToView(view)
-    .rightSpaceToView(view,10)
-    .widthIs(30)
-    .heightEqualToWidth();
-    
-    _talkBtn.sd_layout
-    .centerYEqualToView(view)
-    .rightSpaceToView(_addBtn,5)
-    .widthIs(30)
-    .heightEqualToWidth();
 }
 
-- (void)buttonAction:(UIButton *)sender{
+//MARK:Publick Method
+- (void)setModel:(YDLikePersonModel *)model{
+    _model = model;
+    
+    [_headerImageV sd_setImageWithURL:[NSURL URLWithString:model.ud_face] placeholderImage:[UIImage imageNamed:@"default_user_image"]];
+    
+    _nameLabel.text = model.ub_nickname;
+}
+
+//MARK:Private Method
+- (void)y_layoutSubviews{
+    [self.contentView sd_addSubviews:@[self.headerImageV,self.nameLabel,self.addButton]];
+    
+    _headerImageV.frame = CGRectMake(10, (52-36)/2, 36, 36);
+    _headerImageV.layer.cornerRadius = 18.0f;
+    _headerImageV.layer.masksToBounds = YES;
+    
+    _nameLabel.frame = CGRectMake(CGRectGetMaxX(_headerImageV.frame)+14, (52-22)/2, 200, 22);
+    
+    _addButton.frame = CGRectMake(screen_width-32-23, (52-32)/2, 32, 32);
+    
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor colorWithString:@"#B6C5DC"];
+    lineView.alpha = 0.5f;
+    [self.contentView addSubview:lineView];
+    
+    lineView.sd_layout
+    .leftEqualToView(_nameLabel)
+    .rightSpaceToView(self.contentView,15)
+    .bottomEqualToView(self.contentView)
+    .heightIs(1);
+    
+}
+
+- (void)addButtonAction:(UIButton *)sender{
     NSString *title = nil;
-    if (sender.tag == 1000) {
-        title = @"非好友，暂时不可会话!";
+    
+    NSString *url = nil;
+    NSDictionary *parameters = nil;
+    if (self.dataType == 2) {
+        title = @"礼物已发送!";
+        url = kSendGiftURL;
+        parameters = @{@"access_token":[YDUserDefault defaultUser].user.access_token};
     }else{
         title = @"好友请求已发送，等待对方回复!";
+        url = kAddFriendURL;
+        parameters = @{@"access_token":[YDUserDefault defaultUser].user.access_token,
+                       @"f_ub_id":self.model.ub_id};
     }
+    
+    [YDNetworking getUrl:url parameters:parameters progress:^(NSProgress *progress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"添加好友或赠送礼物%@",[responseObject mj_JSONObject]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                     message:title
                                                    delegate:nil
                                           cancelButtonTitle:@"确认" otherButtonTitles:nil];
     [alert show];
+    
+    
+    
+}
+
+
+- (UIImageView *)headerImageV{
+    if (!_headerImageV) {
+        _headerImageV = [[UIImageView alloc] init];
+    }
+    return _headerImageV;
+}
+
+- (UILabel *)nameLabel{
+    if (!_nameLabel) {
+        _nameLabel = [YDUIKit labelTextColor:[UIColor colorWithString:@"#2B3552"] fontSize:16];
+    }
+    return _nameLabel;
+}
+
+- (UIButton *)addButton{
+    if (!_addButton) {
+        _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addButton addTarget:self action:@selector(addButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addButton;
 }
 
 @end

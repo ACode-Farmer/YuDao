@@ -6,22 +6,20 @@
 //  Copyright © 2016年 李伯坤. All rights reserved.
 //
 
-#import "TLAddMenuView.h"
+#import "YDAddMenuView.h"
 #import "YDPopDownCell.h"
 
 #define     WIDTH_TABLEVIEW             140.0f
 #define     HEIGHT_TABLEVIEW_CELL       45.0f
 
 
-@interface TLAddMenuView () <UITableViewDataSource, UITableViewDelegate>
+@interface YDAddMenuView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *data;
 
 @end
 
-@implementation TLAddMenuView
+@implementation YDAddMenuView
 
 - (id)init
 {
@@ -74,14 +72,14 @@
 //MARK: UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    return self.data ? self.data.count : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YDCarDetailModel *item = [self.data objectAtIndex:indexPath.row];
     YDPopDownCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YDPopDownCell"];
-    //[cell setItem:item];
+    [cell setModel:item];
     return cell;
 }
 

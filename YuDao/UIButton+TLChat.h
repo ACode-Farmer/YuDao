@@ -11,5 +11,6 @@
 @interface UIButton (TLChat)
 
 - (void) setImage:(UIImage *)image imageHL:(UIImage *)imageHL;
-
+- (void) setImage:(UIImage *)image imageSelected:(UIImage *)imageSelected;
+- (void) setBackgorudImage:(UIImage *)image imageSelected:(UIImage *)imageSelected;
 @end

@@ -10,4 +10,17 @@
 
 @interface NSNumber (Extension)
 
+/**
+ *  返回时间字符串
+ *
+ *  @return 返回时间字符串
+ */
+- (NSString *)timeString;
+
+/**
+ *  将NSNumber转成一位小数字符串
+ *
+ *  @return 一位小数字符串
+ */
+- (NSString *)getOneDecimalString;
 @end

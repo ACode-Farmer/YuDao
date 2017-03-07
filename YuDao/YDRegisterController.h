@@ -10,4 +10,8 @@
 
 @interface YDRegisterController : YDViewController
 
+@property (nonatomic, strong)  NSString *account;
+
+@property (copy,nonatomic,readwrite) void(^RegisterBlock)(NSString * acount);
+
 @end

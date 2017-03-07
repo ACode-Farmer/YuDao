@@ -7,32 +7,27 @@
 //
 
 #import "YDMainViewController.h"
-#import "YDDrivingViewController.h"
-#import "YDListViewController.h"
-#import "CornerButton.h"
-#import "TaskViewController.h"
-#import "DynamicViewController.h"
-#import "YDMainViewConfigure.h"
-#import "YDRankingViewController.h"
+#import "YDTrafficInfoController.h"
+#import "YDTaskController.h"
+#import "YDDynamicController.h"
+#import "YDRankingListController.h"
 #import "CaptureViewController.h"
 #import "YDSearchViewController.h"
-#import "YDPersonalDataController.h"
+#import "YDBindOBDController.h"
+#import "JPUSHService.h"
+#import "YDNavigationController.h"
+#import "YDAllDynamicController.h"
+@import Photos;
 
-#import "YDTodayFirstLoginView.h"
+@interface YDMainViewController ()<UIScrollViewDelegate>
 
-#import "YDXMPPManager.h"
+@property (nonatomic, strong) UIScrollView            *contentView;
 
-@interface YDMainViewController ()<UIScrollViewDelegate,YDListViewControllerDelegate,YDDynamicVCDelegate>
+@property (nonatomic, strong) YDTrafficInfoController *drVC;
+@property (nonatomic, strong) YDTaskController    *liVC;
+@property (nonatomic, strong) YDRankingListController      *tkVC;
+@property (nonatomic, strong) YDDynamicController *dyVC;
 
-@property (nonatomic, strong) UIScrollView *contentView;
-@property (nonatomic, strong) CornerButton *topBtn;
-
-@property (nonatomic, strong) YDDrivingViewController *drVC;
-@property (nonatomic, strong) YDListViewController *liVC;
-@property (nonatomic, strong) TaskViewController *tkVC;
-@property (nonatomic, strong) DynamicViewController *dyVC;
-
-@property (nonatomic, strong) YDTodayFirstLoginView *TFLView;
 
 @end
 
@@ -40,199 +35,210 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //测试
+    [YDConversationHelper shareInstance];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = ({
-        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"二维码"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemAction:)];
-        leftBarButton;
+        //UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"扫一扫"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemAction:)];
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setImage:[UIImage imageNamed:@"扫一扫"] forState:UIControlStateNormal];
+        [backBtn setImage:[UIImage imageNamed:@"扫一扫"] forState:UIControlStateHighlighted];
+        [backBtn addTarget:self action:@selector(leftBarButtonItemAction:) forControlEvents:UIControlEventTouchUpInside];
+        [backBtn sizeToFit];
+        backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, kWidth(-25), 0, 0);
+        backBtn.frame = CGRectMake(0, 0, 32, 32);
+        [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     });
     self.navigationItem.rightBarButtonItem = ({
-        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
-        rightBarButton;
+        //UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setImage:[UIImage imageNamed:@"搜索"] forState:UIControlStateNormal];
+        [backBtn setImage:[UIImage imageNamed:@"搜索"] forState:UIControlStateHighlighted];
+        [backBtn addTarget:self action:@selector(rightBarButtonItemAction:) forControlEvents:UIControlEventTouchUpInside];
+        [backBtn sizeToFit];
+        backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, kWidth(-25));
+        backBtn.frame = CGRectMake(0, 0, 32, 32);
+        [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     });
-    self.navigationItem.titleView = ({
-        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_width/2, 40)];
-        titleLable.text = @"奔驰AMG－C63";
-        titleLable.textAlignment = NSTextAlignmentCenter;
-        titleLable.textColor = [UIColor blackColor];
-        titleLable.font = [UIFont systemFontOfSize:16];
-        UIView *coverView = [UIView new];
-        [self.view addSubview:coverView];
-        titleLable;
-    });
+    [self.navigationItem setTitle:@"遇道"];
     
-    NSArray *controllers = @[self.drVC,self.liVC,self.tkVC,self.dyVC];
-    [controllers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIViewController *vc = (UIViewController *)obj;
-        [self.contentView addSubview:vc.view];
-        [self addChildViewController:vc];
-        [vc didMoveToParentViewController:self];
-    }];
-    [self layoutFourMainViews];
+    [self addFourRootViewController];
     
-    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:70];
-    [self todayFirstLoginAnimation];
-    [self login];
+    
+    [self getPermission];
+    
 }
-
-- (void)login{
-    [[YDXMPPManager defaultManager] loginwithName:@"wangjie" andPassword:@"yulian"];
-}
-
-- (void)todayFirstLoginAnimation{
-    [self.view addSubview:self.TFLView];
-    [UIView animateWithDuration:0.8 animations:^{
-        self.TFLView.y = 0;
-    }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.TFLView.y = -50;
-        } completion:^(BOOL finished) {
-            [self.TFLView removeFromSuperview];
-        }];
-    });
-}
-
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [self refreshFourChildView];
+//    if ([YDCarHelper s   haredHelper].carArray.count != 0) {
+//        YDCarDetailModel *car = [[YDCarHelper sharedHelper] defaultOrBindObdCar];
+//        if (car) {
+//            [[YDCarHelper sharedHelper] setCurrentCarid:car.ug_id];
+//            [_titleBtn setTitle:car.ug_brand_name forState:0];
+//            [_titleBtn setImage:[UIImage imageNamed:@"ranking_arrow_normal"] forState:0];
+//            _titleBtn.enabled = YES;
+//        }
+//    }else{
+//       [_titleBtn setTitle:@"遇道" forState:0];
+//        _titleBtn.imageView.image = nil;
+//    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     
 }
 
-- (void)dealloc{
-    NSLog(@"mainVC");
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
 }
+
+#pragma mark - Event Response
+
+/**
+ *  获取权限
+ */
+- (void)getPermission{
+        //相机权限
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+//            if (granted) {
+//                //NSLog(@"Authorized");
+//            }else{
+//                //NSLog(@"Denied or Restricted");
+//            }
+        }];
+    
+}
+
 
 #pragma mark - Events
 - (void)leftBarButtonItemAction:(id)sender{
-    
-     CaptureViewController *capture = [CaptureViewController new];
-     capture.CaptureSuccessBlock = ^(CaptureViewController *captureVC,NSString *s){
-     [captureVC dismissViewControllerAnimated:NO completion:nil];
-     };
-     capture.CaptureFailBlock = ^(CaptureViewController *captureVC){
-     [captureVC dismissViewControllerAnimated:NO completion:nil];
-     };
-     capture.CaptureCancelBlock = ^(CaptureViewController *captureVC){
-     [captureVC dismissViewControllerAnimated:NO completion:nil];
-     };
-     
-     [self presentViewController:capture animated:YES completion:nil];
+
+    [self.navigationController pushViewController:[YDBindOBDController new] animated:YES];
     
 }
 
 - (void)rightBarButtonItemAction:(id)sender{
-    [self.navigationController firstLevel_push_fromViewController:self toVC:[YDSearchViewController new]];
+    [self.navigationController pushViewController:[YDSearchViewController new] animated:YES];
 }
 
 #pragma private Methods - 
-- (void)layoutFourMainViews{
-    CGRect drframe = CGRectMake(0, 0, screen_width, kDrivingViewHeight);
-    _drVC.view.frame = drframe;
+//MARK:添加四个子控制器及其视图
+- (void)addFourRootViewController{
     
-    _liVC.view.sd_layout
-    .topSpaceToView(_drVC.view,kMainViewMargin)
-    .centerXEqualToView(_contentView)
-    .widthIs(screen_width);
-    
-    _tkVC.view.sd_layout
-    .topSpaceToView(_liVC.view,kMainViewMargin)
-    .centerXEqualToView(_contentView)
-    .widthIs(screen_width);
-    
-    _dyVC.view.sd_layout
-    .topSpaceToView(_tkVC.view,kMainViewMargin)
-    .centerXEqualToView(_contentView)
-    .widthIs(screen_width);
+    NSArray<UIViewController *> *controllers = @[self.drVC,self.liVC,self.tkVC,self.dyVC];
+    [controllers enumerateObjectsUsingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [self.contentView addSubview:obj.view];
+        [self addChildViewController:obj];
+        [obj didMoveToParentViewController:self];
+    }];
 }
-
-#pragma mark Custom Delegate - 
-- (void)listViewControllerWith:(NSString *)title{
-    UIViewController *vc = nil;
-    if (title) {
-        vc = [YDPersonalDataController new];
-        vc.title = title;
+//MARK:根据等级或是否登录来判定车辆信息是否显示
+- (void)refreshFourChildView{
+    if (!YDHadLogin || [YDUserDefault defaultUser].user.ub_auth_grade.integerValue < 5) {
+        self.drVC.view.y = -255.f;
+        self.drVC.view.hidden = YES;
+        self.liVC.view.y = 0.f,
+        self.tkVC.view.y = 200.f,
+        self.dyVC.view.y = 425.f;
     }else{
-        vc = [YDRankingViewController new];
+        self.drVC.view.y = 0.f;
+        self.drVC.view.hidden = NO;
+        self.liVC.view.y = 255.f,
+        self.tkVC.view.y = 455.f,
+        self.dyVC.view.y = 680.f;
     }
     
-    [self setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:vc animated:YES];
-    [self setHidesBottomBarWhenPushed:NO];
-}
-
-- (void)YDDynamicViewControllerPushToVC:(YDDynamicDetailController *)toVC index:(NSInteger )index{
-    [self.navigationController firstLevel_push_fromViewController:self toVC:(id)toVC];
+    [_contentView setupAutoContentSizeWithBottomView:_dyVC.view bottomMargin:0];
 }
 
 #pragma mark Getters -
-
-- (YDTodayFirstLoginView *)TFLView{
-    if (_TFLView == nil) {
-        _TFLView = [[YDTodayFirstLoginView alloc] initWithFrame:CGRectMake(0, -50, screen_width, 50)];
-        [_TFLView updateTFLView:[UIImage imageNamed:@"carIcon"] title:@"每日登录获得10积分"];
-    }
-    return _TFLView;
-}
-
-- (YDDrivingViewController *)drVC{
+- (YDTrafficInfoController *)drVC{
     if (!_drVC) {
-        _drVC = [YDDrivingViewController new];
+        _drVC = [YDTrafficInfoController new];
     }
     return _drVC;
 }
 
-- (YDListViewController *)liVC{
+- (YDTaskController *)liVC{
     if (!_liVC) {
-        _liVC = [YDListViewController new];
-        _liVC.delegate = self;
+        _liVC = [YDTaskController new];
     }
     return _liVC;
 }
 
-- (TaskViewController *)tkVC{
+- (YDRankingListController *)tkVC{
     if (!_tkVC) {
-        _tkVC = [TaskViewController new];
+        _tkVC = [YDRankingListController new];
     }
     return _tkVC;
 }
 
-- (DynamicViewController *)dyVC{
+- (YDDynamicController *)dyVC{
     if (!_dyVC) {
-        _dyVC = [DynamicViewController new];
-        _dyVC.delegate = self;
+        _dyVC = [YDDynamicController new];
     }
     return _dyVC;
-}
-
-- (CornerButton *)topBtn{
-    if (!_topBtn) {
-        _topBtn = [CornerButton circularButtonWithImageName:@"回到顶部.png"];
-        _topBtn.hidden = YES;
-        [_topBtn addTarget:self action:@selector(topBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_topBtn];
-        
-        _topBtn.sd_layout
-        .bottomSpaceToView(self.view,100)
-        .rightSpaceToView(self.view,50)
-        .heightIs(50)
-        .widthEqualToHeight();
-    }
-    return _topBtn;
 }
 
 - (UIScrollView *)contentView{
     if (!_contentView) {
         _contentView = [UIScrollView new];
         _contentView.contentSize = CGSizeMake(screen_width, 6*screen_height);
-        _contentView.backgroundColor = [UIColor colorWithString:@"#dcdcdc"];
+        _contentView.backgroundColor = [UIColor whiteColor];
         _contentView.delegate = self;
         _contentView.showsVerticalScrollIndicator = NO;
+        _contentView.frame = CGRectMake(0, 0, screen_width, screen_height-64);
         [self.view addSubview:_contentView];
-        _contentView.sd_layout
-        .topSpaceToView(self.view,0)
-        .leftSpaceToView(self.view,0)
-        .widthIs(screen_width)
-        .heightIs(screen_height-48);
+        __weak YDDynamicController *weakDyVC = self.dyVC;
         
+        MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            [[BaiduMobStat defaultStat] logEvent:@"UserClick" eventLabel:@"首页上拉-进入逛一逛"];
+            YDAllDynamicController *allVC = [YDAllDynamicController new];
+            allVC.fromFlag = 1;
+            YDNavigationController *naVC = [[YDNavigationController alloc] initWithRootViewController:allVC];
+            
+            [weakDyVC presentViewController:naVC animated:YES completion:nil];
+            [_contentView.mj_footer endRefreshing];
+            
+        }];
+        
+        [refreshFooter setTitle:@"上拉去往所有动态" forState:MJRefreshStateIdle];
+        [refreshFooter setTitle:@"释放到达所有动态" forState:MJRefreshStatePulling];
+        [refreshFooter setTitle:@"释放到达所有动态" forState:MJRefreshStateRefreshing];
+        [refreshFooter setTitle:@"释放到达所有动态" forState:MJRefreshStateWillRefresh];
+        [refreshFooter setTitle:@"上拉去往所有动态" forState:MJRefreshStateNoMoreData];
+        [refreshFooter.stateLabel setFont:[UIFont font_12]];
+        [refreshFooter.stateLabel setTextColor:[UIColor colorWithString:@"#FF9B9B9B"]];
+        refreshFooter.arrowView.image = [UIImage imageNamed:@"load_bottom_arrow"];
+        _contentView.mj_footer = refreshFooter;
+        
+        YDWeakSelf(self);
+        MJRefreshNormalHeader *refresghHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            NSLog(@"刷新首页所有数据!");
+            [[BaiduMobStat defaultStat] logEvent:@"UserClick" eventLabel:@"首页下拉-刷新数据"];
+            [weakself.drVC reloadTrafficInfomation];
+            [weakself.drVC downloadWeatherAndTestData];
+            NSNumber *selectedIndex = [[NSUserDefaults standardUserDefaults] valueForKey:@"rankListType"];
+            [weakself.liVC downloadTaskData];
+            [weakself.tkVC downloadRankingListData:selectedIndex.integerValue];
+            [weakself.dyVC downloadDynamicData:1 refreshView:_contentView];
+            [weakself.contentView.mj_header endRefreshing];
+        }];
+        [refresghHeader.stateLabel setFont:[UIFont font_12]];
+        [refresghHeader.stateLabel setTextColor:[UIColor colorWithString:@"#FF9B9B9B"]];
+        [refresghHeader.lastUpdatedTimeLabel setFont:[UIFont font_12]];
+        [refresghHeader.lastUpdatedTimeLabel setTextColor:[UIColor colorWithString:@"#FF9B9B9B"]];
+        refresghHeader.arrowView.image = [UIImage imageNamed:@"load_bottom_arrow"];
+        refresghHeader.ignoredScrollViewContentInsetTop = 15.0f;
+        _contentView.mj_header = refresghHeader;
     }
     return _contentView;
 }
@@ -245,12 +251,42 @@
 }
 
 #pragma mark contentView delegate
+#define ANGLE(angle) ((M_PI*angle)/180)
+static CAShapeLayer * pullLayer;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (scrollView.contentOffset.y > 0.55*screen_height) {
-//        self.topBtn.hidden = NO;
-//    }else{
-//        self.topBtn.hidden = YES;
-//    }
+    if (scrollView.contentOffset.y > 0.0f) {
+        return;
+    }
+    /*
+    pullLayer.path = nil;
+    [pullLayer removeFromSuperlayer];
+    if (scrollView.mj_header.pullingPercent > 1.6f) {
+        scrollView.mj_header.pullingPercent = 1.6f;
+    }
+    MJRefreshNormalHeader *header = (MJRefreshNormalHeader *)scrollView.mj_header;
+    if (scrollView.mj_header.pullingPercent == 1.f || header.state == MJRefreshStateRefreshing ) {
+        return;
+    }
+    CGPoint centerPoint = header.arrowView.center;
+    
+    CGFloat radius = 15.0f;
+    UIBezierPath *roundPath = [UIBezierPath bezierPath];
+    [roundPath moveToPoint:CGPointMake(centerPoint.x+radius, centerPoint.y)];
+    [roundPath addArcWithCenter:centerPoint radius:radius startAngle:0 endAngle:scrollView.mj_header.pullingPercent*M_PI clockwise:YES];
+    [roundPath stroke];
+    // 渲染
+    pullLayer = [CAShapeLayer layer];
+    pullLayer.path = roundPath.CGPath;
+    pullLayer.strokeColor = [UIColor colorWithString:@"#B6C5DC"].CGColor;
+    pullLayer.fillColor = [UIColor clearColor].CGColor;
+    pullLayer.lineJoin = kCALineJoinRound;
+    pullLayer.lineCap = kCALineCapRound;
+    pullLayer.strokeStart = 0;
+    pullLayer.strokeEnd = 1;
+    pullLayer.lineWidth = 1.5;
+    
+    [header.layer addSublayer:pullLayer];
+     */
     
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -263,7 +299,5 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
 }
-
-
 
 @end

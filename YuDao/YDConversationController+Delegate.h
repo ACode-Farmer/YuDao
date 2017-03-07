@@ -2,12 +2,14 @@
 //  YDConversationController+Delegate.h
 //  YuDao
 //
-//  Created by 汪杰 on 16/11/23.
-//  Copyright © 2016年 汪杰. All rights reserved.
+//  Created by 汪杰 on 17/2/13.
+//  Copyright © 2017年 汪杰. All rights reserved.
 //
 
 #import "YDConversationController.h"
 
 @interface YDConversationController (Delegate)
+
+- (void)registerConversationCell;
 
 @end

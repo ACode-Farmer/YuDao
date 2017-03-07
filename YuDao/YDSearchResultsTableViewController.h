@@ -7,9 +7,11 @@
 //
 
 #import "YDTableViewController.h"
+#import "YDSearchCell.h"
 
 @interface YDSearchResultsTableViewController : YDTableViewController<UISearchResultsUpdating>
 
 @property (nonatomic, strong) NSMutableArray *originalData;
+@property (nonatomic, strong) NSArray *data;
 
 @end

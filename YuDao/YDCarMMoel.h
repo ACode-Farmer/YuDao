@@ -10,4 +10,11 @@
 
 @interface YDCarMMoel : NSObject
 
+@property (nonatomic, assign) NSNumber *vm_id;
+@property (nonatomic, copy  ) NSString *vm_name;
+
+@property (nonatomic, assign) NSNumber *vm_state;
+@property (nonatomic, assign) NSNumber *vs_id;
+@property (nonatomic, assign) NSNumber *vb_id;
+
 @end

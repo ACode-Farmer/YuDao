@@ -7,17 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ChatModel : NSObject
+#import "UUMessage.h"
+#import "UUMessageFrame.h"
+@interface YDChatModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
+@property (nonatomic, strong) FMDatabase *dataBase;
+
 @property (nonatomic) BOOL isGroupChat;
 
-- (void)populateRandomDataSource;
+@property (nonatomic) NSNumber *userId;
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *headerUrl;
 
++ (YDChatModel *)chatModelWithUserId:(NSNumber *)userId name:(NSString *)name headerUrl:(NSString *)headerUrl;
+
+//获取对应用户id的聊天记录
+- (void)getHistoryChatRecordWith:(NSNumber *)userId;
+
+//************** 测试 数据 ******************************
+- (void)populateRandomDataSource;
 - (void)addRandomItemsToDataSource:(NSInteger)number;
 
-- (void)addSpecifiedItem:(NSDictionary *)dic;
+// 添加别人的item
+- (UUMessageFrame *)addOthersItemWithContent:(NSDictionary *)dic;
+
+// 添加自己的item
+- (UUMessageFrame *)addSpecifiedItem:(NSDictionary *)dic;
 
 @end

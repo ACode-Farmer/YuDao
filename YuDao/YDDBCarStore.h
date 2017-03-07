@@ -7,7 +7,44 @@
 //
 
 #import "YDDBBaseStore.h"
+#import "YDCarDetailModel.h"
 
 @interface YDDBCarStore : YDDBBaseStore
+
+/**
+ *  新的车
+ */
+- (BOOL)insertOrUpdateCar:(YDCarDetailModel *)car;
+
+/**
+ *  获取所有的车
+ *
+ */
+- (NSMutableArray *)getAllCars;
+
+/**
+ *  删除所有车
+ *
+ *  @return YES 删除成功  NO 删除失败
+ */
+- (BOOL)deleteAllCars;
+
+/**
+ *  删除一辆车
+ *
+ *  @return YES 删除成功  NO 删除失败
+ */
+- (BOOL)deleteOneCar:(NSNumber *)ug_id;
+
+/**
+ *  获取一辆车
+ *
+ */
+- (YDCarDetailModel *)getOneCarWithCarid:(NSNumber *)carid;
+
+/**
+ *  修改车辆的绑定OBD状态
+ */
+- (BOOL)updateCarOBDStatus:(NSNumber *)uid ug_id:(NSNumber *)ug_id;
 
 @end

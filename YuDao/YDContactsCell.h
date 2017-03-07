@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDFriendModel.h"
 
 @interface YDContactsCell : UITableViewCell
+
+@property (nonatomic, strong) UIImageView *headerImageView;
+@property (nonatomic, strong) UILabel    *usernameLabel;
+
+@property (nonatomic, strong) UIView *redPointView;
+
+@property (nonatomic, strong) UILabel *remindLabel;
+
+@property (nonatomic, strong) UIView *lineView;
+
+@property (nonatomic, strong) YDFriendModel *model;
+
+/**
+ *  标记为未读
+ */
+- (void) markAsUnreadCount:(NSInteger )count;
+
 
 @end

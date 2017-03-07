@@ -8,17 +8,34 @@
 
 #import "YDPopDownCell.h"
 
+@interface YDPopDownCell()
+
+@property (nonatomic, strong) UILabel *label;
+
+@end
+
 @implementation YDPopDownCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self.contentView addSubview:self.label];
+        
+        self.label.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setModel:(YDCarDetailModel *)model{
+    _model = model;
+    self.label.text = model.ug_brand_name;
+}
 
-    // Configure the view for the selected state
+- (UILabel *)label{
+    if (!_label) {
+        _label = [UILabel new];
+        _label.textAlignment = NSTextAlignmentCenter;
+    }
+    return _label;
 }
 
 @end

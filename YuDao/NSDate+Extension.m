@@ -10,6 +10,13 @@
 
 @implementation NSDate (Extension)
 
++ (NSDate *)dateFromTimeStamp:(NSString *)timeString{
+    return [NSDate dateWithTimeIntervalSince1970:[timeString integerValue]];
+}
+- (NSString *)timeStampFromDate{
+    return [NSString stringWithFormat:@"%ld",(long)[self timeIntervalSince1970]];
+}
+
 - (NSUInteger)day {
     return [NSDate day:self];
 }

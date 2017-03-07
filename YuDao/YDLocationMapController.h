@@ -10,4 +10,6 @@
 
 @interface YDLocationMapController : YDViewController
 
+@property (nonatomic, strong) NSNumber *currentCarId;
+
 @end

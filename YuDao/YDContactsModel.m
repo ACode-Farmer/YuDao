@@ -51,12 +51,14 @@
             tempString = pinyin;
         }
     }
+    
     return A_Result;
 }
 
 #pragma mark - 返回联系人
 +(NSMutableArray*)LetterSortArray:(NSArray*)stringArr
 {
+    
     NSMutableArray *tempArray = [self ReturnSortChineseArrar:stringArr];
     NSMutableArray *LetterResult = [NSMutableArray array];
     NSMutableArray *item = [NSMutableArray array];
@@ -79,6 +81,7 @@
             [item  addObject:model];
         }
     }
+    
     return LetterResult;
 }
 
@@ -95,8 +98,8 @@
     for(int i=0;i<[stringArr count];i++)
     {
         YDContactsModel *model = [stringArr objectAtIndex:i];
-        if(model.name == nil){
-            model.name = @"";
+        if(model.name.length == 0 || model.name == nil){
+            model.name = @"无名字";
         }
         //去除两端空格和回车
         model.name  = [model.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

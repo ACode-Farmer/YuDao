@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalHeadController : UIViewController
+@interface YDPersonalHeaderController : UIViewController
 
 @property (nonatomic, strong) UIImageView *headImageView;;
 

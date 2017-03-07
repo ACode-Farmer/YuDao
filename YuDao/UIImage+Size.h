@@ -10,6 +10,12 @@
 
 @interface UIImage (Size)
 
+-(UIImage*)getSubImage:(CGRect)rect;
+-(UIImage*)scaleToSize:(CGSize)size;
+
 - (UIImage *)scalingToSize:(CGSize)size;
+
+//将UIImage转换为NSData
++(NSData*)getDataFromImage:(UIImage*)image;
 
 @end

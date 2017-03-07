@@ -16,4 +16,14 @@
     [self setImage:imageHL forState:UIControlStateHighlighted];
 }
 
+- (void) setImage:(UIImage *)image imageSelected:(UIImage *)imageSelected{
+    [self setImage:image forState:UIControlStateNormal];
+    [self setImage:imageSelected forState:UIControlStateSelected];
+}
+
+- (void) setBackgorudImage:(UIImage *)image imageSelected:(UIImage *)imageSelected{
+    
+    [self setBackgroundImage:image forState:UIControlStateNormal];
+    [self setBackgroundImage:imageSelected forState:UIControlStateSelected];
+}
 @end

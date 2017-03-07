@@ -7,7 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YDBindOBDModel.h"
 
-@interface YDBindOBDCell : UITableViewCell
+@class YDBindOBDCell;
+@protocol YDBindOBDCellDelegate <NSObject>
+
+- (void)bindOBDCell:(YDBindOBDCell *)cell didTouchChooseButton:(UIButton *)btn;
+
+@end
+
+@interface YDBindOBDCell : UITableViewCell<UITextFieldDelegate>
+
+
+
+@property (nonatomic, weak  ) id<YDBindOBDCellDelegate> delegate;
+
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) UITextField *textF;
+
+@property (nonatomic, strong) UIButton *chooseBtn;
+
+@property (nonatomic, strong) UIView   *lineView;
+
+@property (nonatomic, strong) YDBindOBDModel *model;
 
 @end

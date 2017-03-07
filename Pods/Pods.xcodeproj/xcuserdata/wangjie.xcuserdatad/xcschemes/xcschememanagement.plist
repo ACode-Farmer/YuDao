@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JRDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KissXML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -55,6 +65,11 @@
 			<false/>
 		</dict>
 		<key>MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -92,27 +107,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0C86A2CAD4FB7FD5C716B35026356C03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>11929A53A8AD141288485C2968E5803E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2F382E491D2B289695C94822CE0F9C6E</key>
+		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48F687CDE9990BD471D7883061F7E5D4</key>
+		<key>137EE8A16255236415B650068002298D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D6BE57842472088F4E7539E146CCC91</key>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5813251FEA21E4AEE97385709F1912DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>59D07CDEB502F184FDC4324E87DE40FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D1A287683DEDCA6700C095027F1FFBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,6 +162,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>936E081C95A2CCA7B6427C98D87FFFBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9775596B3CA16905FC8F66DA8E2A3C67</key>
 		<dict>
 			<key>primary</key>
@@ -147,7 +182,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE2FB8B9135BFA672E9C5B81DA4240E0</key>
+		<key>B32BCE8088319B63DCD6BA8488784966</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -163,11 +198,6 @@
 			<true/>
 		</dict>
 		<key>E2FE87384A67337831E53490EEA8BF11</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F928D12750B10D193721044B108A452C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

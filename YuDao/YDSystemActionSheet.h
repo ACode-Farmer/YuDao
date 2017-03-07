@@ -8,11 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SystemActionSheet : UIView
+@protocol systemActionSheetDelegate <NSObject>
 
--(id) initViewWithPhone : (NSString *) phone title : (NSString *) title;
+@optional
+- (void)systemActionSheetDidTouchedIndex:(NSInteger )index;
 
--(id) initViewWithMultiPhone:(NSArray *) array title :(NSString *)title;
+@end
+
+@interface YDSystemActionSheet : UIView
+
+@property (nonatomic, weak) id<systemActionSheetDelegate> systemDelegate;
+
+@property (nonatomic, copy) void (^clickBlock)(NSInteger index);
+
+-(id) initViewWithTitle: (NSString *) phone title : (NSString *) title clickedBlock:(void (^)(NSInteger index))clickedBlock;
+
+-(id) initViewWithMultiTitles:(NSArray *) array title :(NSString *)title clickedBlock:(void (^)(NSInteger index))clickedBlock;
+
+-(id) initViewWithTitle: (NSString *) phone title : (NSString *) title;
+
+-(id) initViewWithMultiTitles:(NSArray *) array title :(NSString *)title;
 
 -(void) show;
 

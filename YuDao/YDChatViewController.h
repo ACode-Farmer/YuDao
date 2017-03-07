@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UIViewController
+@interface YDChatViewController : UIViewController
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *headerUrl;
+@property (nonatomic, strong) NSNumber *chatToUserId;
 
 @end

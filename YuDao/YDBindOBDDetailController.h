@@ -10,4 +10,6 @@
 
 @interface YDBindOBDDetailController : YDTableViewController
 
+@property (nonatomic, strong) NSNumber *ug_id;
+
 @end

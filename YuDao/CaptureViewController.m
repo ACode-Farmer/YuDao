@@ -38,8 +38,6 @@ static const float kReaderViewHeight = 200;
     [self initUI];
     [self setOverlayPickerView];
     [self startSYQRCodeReading];
-    [self initTitleView];
-    [self createBackBtn];
 }
 
 - (void)dealloc
@@ -64,38 +62,11 @@ static const float kReaderViewHeight = 200;
     }
 }
 
-- (void)initTitleView
-{
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0,0,screen_width, 64)];
-    bgView.backgroundColor = [UIColor colorWithRed:62.0/255 green:199.0/255 blue:153.0/255 alpha:1.0];
-    [self.view addSubview:bgView];
-    
-    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(screen_width/2-50, 28, 100, 20)];
-    //scanCropView.image=[UIImage imageNamed:@""];
-    //titleLab.layer.borderColor = [UIColor greenColor].CGColor;
-    //titleLab.layer.borderWidth = 2.0;
-    //titleLab.backgroundColor = [UIColor colorWithRed:62.0/255 green:199.0/255 blue:153.0/255 alpha:1.0];
-    titleLab.text = @"二维码";
-    titleLab.shadowColor = [UIColor lightGrayColor];
-    titleLab.shadowOffset = CGSizeMake(0, - 1);
-    titleLab.font = [UIFont boldSystemFontOfSize:18.0];
-    titleLab.textColor = [UIColor whiteColor];
-    titleLab.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:titleLab];
-}
-
-- (void)createBackBtn
-{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:CGRectMake(10, 28, 60, 24)];
-    [btn setTitle:@"取消" forState:0];
-    [btn setTitleColor:[UIColor whiteColor] forState:0];
-    [btn addTarget:self action:@selector(cancleSYQRCodeReading) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-}
-
 - (void)initUI
 {
+    [self.navigationItem setTitle:@"扫一扫"];
+    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem itemWithImage:@"navigation_back_image" highImage:@"navigation_back_image" target:self action:@selector(cancleSYQRCodeReading)]];
+    
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     //摄像头判断
@@ -198,7 +169,7 @@ static const float kReaderViewHeight = 200;
     rightView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:rightView];
     
-    CGFloat space_h = screen_width - kLineMaxY;
+    CGFloat space_h = screen_height - kLineMaxY;
     
     //底部view
     UIView *downView = [[UIView alloc] initWithFrame:CGRectMake(0, kLineMaxY, screen_width, space_h)];
@@ -224,14 +195,14 @@ static const float kReaderViewHeight = 200;
     cornerImage = [UIImage imageNamed:@"QRCodebottomLeft"];
     
     //底部view
-    UIImageView *downView_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(leftView.frame) - cornerImage.size.width / 2.0, CGRectGetMaxY(downView.frame) - cornerImage.size.height / 2.0, cornerImage.size.width, cornerImage.size.height)];
+    UIImageView *downView_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(leftView.frame) - cornerImage.size.width / 2.0, CGRectGetMinY(downView.frame)+1 - cornerImage.size.height / 2.0, cornerImage.size.width, cornerImage.size.height)];
     downView_image.image = cornerImage;
     //downView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:downView_image];
     
     cornerImage = [UIImage imageNamed:@"QRCodebottomRight"];
     
-    UIImageView *downViewRight_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(rightView.frame) - cornerImage.size.width / 2.0, CGRectGetMaxY(downView.frame) - cornerImage.size.height / 2.0, cornerImage.size.width, cornerImage.size.height)];
+    UIImageView *downViewRight_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(rightView.frame) - cornerImage.size.width / 2.0, CGRectGetMinY(downView.frame)+1 - cornerImage.size.height / 2.0, cornerImage.size.width, cornerImage.size.height)];
     downViewRight_image.image = cornerImage;
     //downView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:downViewRight_image];
@@ -250,8 +221,25 @@ static const float kReaderViewHeight = 200;
     scanCropView.layer.borderColor = [UIColor greenColor].CGColor;
     scanCropView.layer.borderWidth = 2.0;
     [self.view addSubview:scanCropView];
+    
+    UIImageView *lightImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"灯泡"]];
+    lightImageV.frame = CGRectMake((screen_width-26)/2, CGRectGetMaxY(leftView.frame)+100, 26, 30);
+    lightImageV.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapLight = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLightImageV:)];
+    [lightImageV addGestureRecognizer:tapLight];
+    [self.view addSubview:lightImageV];
 }
 
+- (void)tapLightImageV:(UIGestureRecognizer *)tap{
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    [device lockForConfiguration:nil];
+    if (device.torchMode == AVCaptureTorchModeOff) {
+        [device setTorchMode: AVCaptureTorchModeOn];
+    }else{
+        [device setTorchMode: AVCaptureTorchModeOff];
+    }
+    [device unlockForConfiguration];
+}
 
 #pragma mark -
 #pragma mark 输出代理方法
@@ -269,7 +257,6 @@ static const float kReaderViewHeight = 200;
         
         if (obj.stringValue && ![obj.stringValue isEqualToString:@""] && obj.stringValue.length > 0)
         {
-            NSLog(@"---------%@",obj.stringValue);
             
             if ([obj.stringValue containsString:@"http"])
             {

@@ -14,6 +14,8 @@
 #define D_YEAR	31556926
 @interface NSDate (Utilities)
 
+- (NSString *)dateToString_yyyy_MM_dd_HH_mm;
+
 + (NSCalendar *) currentCalendar; // avoid bottlenecks
 
 // Relative dates from the current date

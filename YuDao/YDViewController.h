@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) NSString *analyzeTitle;
 
+//获取当前视图控制器 ClassString
++ (UIViewController *)getCurrentViewController;
+
 @end

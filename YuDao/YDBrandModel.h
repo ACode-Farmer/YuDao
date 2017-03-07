@@ -10,4 +10,8 @@
 
 @interface YDBrandModel : NSObject
 
+@property (nonatomic, assign)   NSNumber  *vb_id;
+@property (nonatomic, copy  )   NSString  *vb_firstletter;
+@property (nonatomic, copy  )   NSString  *vb_name;
+
 @end

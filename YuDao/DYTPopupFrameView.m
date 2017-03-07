@@ -17,7 +17,7 @@
 
 
 //遮罩层模糊系数
-static const CGFloat p_bgImageBlurRadius = 0.3;
+static const CGFloat p_bgImageBlurRadius = 0.5;
 //左右间距
 static const CGFloat p_margin = 10;
 //contentView间距

@@ -18,6 +18,9 @@
 - (instancetype)initWithObject:(UIView *)object key:(NSString *)key from:(CGFloat)fromValue to:(CGFloat)toValue duration:(NSTimeInterval)duration;
 
 - (void)start;
+//隐藏label
+- (void)setHidden:(BOOL)hidden;
+
 @end
 
 @interface KNPercentLayer : CALayer
@@ -28,7 +31,11 @@
 @property (nonatomic) NSTimeInterval tweenDuration;
 
 - (instancetype)initWithFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue duration:(CGFloat)duration;
+
 - (void)startAnimation;
+
+
+
 @end
 
 @protocol KNPercentDelegate <NSObject>

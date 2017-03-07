@@ -7,6 +7,7 @@
 //
 
 #import "YDDBBaseStore.h"
+#import "FMDatabaseAdditions.h"
 
 @implementation YDDBBaseStore
 
@@ -78,5 +79,23 @@
         }];
     }
 }
+
+/**
+ *  统计
+ */
+- (NSUInteger )excuteCountSql:(NSString *)sqlStr{
+    if (self.dbQueue) {
+        __block NSUInteger count = 0;
+        [_dbQueue inDatabase:^(FMDatabase *db) {
+            FMResultSet * retSet = [db executeQuery:sqlStr];
+            while ([retSet next]) {
+                count = [retSet intForColumnIndex:0];
+            }
+        }];
+        return count;
+    }
+    return 0;
+}
+
 
 @end

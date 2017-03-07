@@ -17,8 +17,7 @@
 @property (nonatomic) CGPoint centerPoint;
 @property (nonatomic) CGFloat duration;
 @property (nonatomic) CGFloat percent;
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGFloat lineWidth;
+
 @property (nonatomic) NSString *lineCap; // kCALineCapButt, kCALineCapRound, kCALineCapSquare
 @property (nonatomic) BOOL clockwise;
 @property (nonatomic, strong) NSMutableArray *colors;
@@ -37,15 +36,26 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self commonInit];
 }
 
 - (void)commonInit {
+    
+    
     self.backgroundLayer = [CAShapeLayer layer];
     [self.layer addSublayer:self.backgroundLayer];
     
     self.circle = [CAShapeLayer layer];
     [self.layer addSublayer:self.circle];
+    
+    //背景图片
+    
+//    UIImageView *backgroundImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discover_test_backgroundImage"]];
+//    [self addSubview:backgroundImageV];
+//    backgroundImageV.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
+    
+    
     
     self.percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height / 2)];
     [self addSubview:self.percentLabel];
@@ -75,8 +85,8 @@
         [self.colors addObject:(id)strokeColor.CGColor];
     }
     
-    CGFloat min = MIN(self.frame.size.width, self.frame.size.height);
-    self.radius = (min - lineWidth)  / 2;
+    //CGFloat min = MIN(self.frame.size.width, self.frame.size.height);
+    self.radius = 78;
     self.centerPoint = CGPointMake(self.frame.size.width / 2 - self.radius, self.frame.size.height / 2 - self.radius);
     self.lineCap = lineCap;
     
@@ -125,7 +135,7 @@
     
     // Configure the apperence of the circle
     self.backgroundLayer.fillColor = fillColor.CGColor;
-    self.backgroundLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+    self.backgroundLayer.strokeColor = [UIColor clearColor].CGColor;
     self.backgroundLayer.lineWidth = self.lineWidth;
     self.backgroundLayer.lineCap = self.lineCap;
     self.backgroundLayer.rasterizationScale = 2 * [UIScreen mainScreen].scale;
@@ -152,7 +162,13 @@
     self.circle.lineCap = self.lineCap;
     self.circle.shouldRasterize = YES;
     self.circle.rasterizationScale = 2 * [UIScreen mainScreen].scale;
-
+    /*backV.layer.shadowOpacity = 0.5f;
+     backV.layer.shadowRadius = 8.0f;
+     backV.layer.shadowOffset = CGSizeMake(0.01,0.01);*/
+    //self.circle.shadowOpacity = 0.5;                   //透明度
+    //self.circle.shadowColor = [UIColor grayColor].CGColor;//颜色
+    //self.circle.shadowRadius = 3;                     //扩散范围
+    //self.circle.shadowOffset = CGSizeMake(1, 1);        //阴影范围
 }
 
 - (void)setupPercentLabel {
@@ -163,13 +179,17 @@
     self.percentLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraints:@[centerHor, centerVer]];
     [self layoutIfNeeded];
-    self.percentLabel.text = [NSString stringWithFormat:@"%d%%", (int)self.percent];
+    
+    NSString *originStr = [NSString stringWithFormat:@"%d分", (int)self.percent];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:originStr];
+    [attributeString addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Cochin-Bold" size:48]} range:NSMakeRange(0, originStr.length-1)];
+    self.percentLabel.attributedText = attributeString;
 }
 
 - (void)startAnimation {
     [self drawBackgroundCircle];
     [self drawCircle];
-    KNPercentLabel *tween = [[KNPercentLabel alloc] initWithObject:self.percentLabel key:@"text" from:0 to:self.percent duration:self.duration];
+    KNPercentLabel *tween = [[KNPercentLabel alloc] initWithObject:self.percentLabel key:@"attributedText" from:0 to:self.percent duration:self.duration];
     tween.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [tween start];
 }

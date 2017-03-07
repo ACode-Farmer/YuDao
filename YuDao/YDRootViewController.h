@@ -9,7 +9,11 @@
 #import "YDTabBarController.h"
 
 @interface YDRootViewController : YDTabBarController
-
+{
+    NSMutableArray *_messageContents;
+    int _messageCount;
+    int _notificationCount;
+}
 + (YDRootViewController *)sharedRootViewController;
 
 /**
@@ -20,5 +24,6 @@
  *  @return 控制器
  */
 - (id)childViewControllerAtIndex:(NSUInteger)index;
+
 
 @end

@@ -13,6 +13,7 @@
 #import "SDImageCache.h"
 #import "UIImage+MWPhotoBrowser.h"
 
+
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
@@ -49,7 +50,20 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	return self;
 }
 
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    NSLog(@"完成");
+    self.clickedCompelte = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)_initialisation {
+    
+    UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemAction:)];
+    [self.navigationItem setRightBarButtonItem:bar];
+    
+    self.clickedCompelte = NO;
+    
     
     // Defaults
     NSNumber *isVCBasedStatusBarAppearanceNum = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIViewControllerBasedStatusBarAppearance"];
@@ -334,6 +348,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
 	[super viewWillAppear:animated];
     
+    if (self.compelteBtnHidden) {
+        [self.navigationItem setRightBarButtonItem:nil];
+    }
+    
     // Status bar
     if (!_viewHasAppearedInitially) {
         _leaveStatusBarAlone = [self presentingViewControllerPrefersStatusBarHidden];
@@ -372,9 +390,31 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
     // Layout
     [self.view setNeedsLayout];
+    
+    [self.navigationController.navigationBar setBarTintColor:[self colorWithString:@"#FF7B90D2"]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
 }
-
+- (UIColor *)colorWithString:(NSString *)colorString{
+    
+    NSMutableString *color = [NSMutableString stringWithString:colorString];
+    
+    if ([colorString containsString:@"#"]) {
+        // 转换成标准16进制数
+        [color replaceCharactersInRange:[color rangeOfString:@"#"] withString:@"0x"];
+    }
+    
+    // 十六进制字符串转成整形。
+    long colorLong = strtoul([color cStringUsingEncoding:NSUTF8StringEncoding], 0, 16);
+    // 通过位与方法获取三色值
+    int R = (colorLong & 0xFF0000 )>>16;
+    int G = (colorLong & 0x00FF00 )>>8;
+    int B =  colorLong & 0x0000FF;
+    
+    //string转color
+    UIColor *wordColor = [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0];
+    return wordColor;
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _viewIsActive = YES;

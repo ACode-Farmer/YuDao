@@ -9,11 +9,13 @@
 #import "AWActionSheet.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AWActionSheet()<UIScrollViewDelegate>
+@interface AWActionSheet()<UIScrollViewDelegate,AWActionSheetDelegate>
 @property (nonatomic, retain)UIScrollView* scrollView;
 @property (nonatomic, retain)UIPageControl* pageControl;
 @property (nonatomic, retain)NSMutableArray* items;
 @property (nonatomic, assign) NSInteger itemCountforOneLine;
+
+@property (nonatomic, strong) NSArray *shareArray;
 
 @property (nonatomic, strong) UIView *backgroundMask;
 @property (nonatomic, strong) UIView *contentView;
@@ -34,6 +36,9 @@
     self = [self initWithFrame:[UIScreen mainScreen].bounds];
     
     if (self) {
+        if (!delegate) {
+            delegate = self;
+        }
         self.backgroundColor = [UIColor clearColor];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
@@ -75,6 +80,39 @@
     }
     
     return self;
+}
+
+- (int)numberOfItemsInActionSheet{
+    return (int)self.shareArray.count;
+}
+- (AWActionSheetCell*)cellForActionAtIndex:(NSInteger)index{
+    AWActionSheetCell* cell = [[AWActionSheetCell alloc] init];
+    NSDictionary *dic = self.shareArray[index];
+    cell.iconView.image = [UIImage imageNamed:[dic valueForKey:@"imageName"]];
+    
+    [[cell titleLabel] setText:[dic valueForKey:@"title"]];
+    cell.index = (int)index;
+    return cell;
+}
+- (void)DidTapOnItemAtIndex:(NSInteger)index title:(NSString*)name{
+    if (self.didTouchItemBlock) {
+        self.didTouchItemBlock(index);
+    }
+}
+
+
+- (NSArray *)shareArray{
+    if (_shareArray == nil) {
+        _shareArray = @[@{@"imageName":@"dynamic_share_1", @"title":@"微信好友"},
+                        @{@"imageName":@"dynamic_share_2", @"title":@"朋友圈"},
+                        @{@"imageName":@"dynamic_share_3", @"title":@"QQ好友"},
+                        @{@"imageName":@"dynamic_share_4", @"title":@"QQ空间"},
+                        @{@"imageName":@"dynamic_share_5", @"title":@"新浪微博"},
+                        @{@"imageName":@"dynamic_share_6", @"title":@"好友"},
+                        @{@"imageName":@"dynamic_share_7", @"title":@"群组"},
+                        @{@"imageName":@"dynamic_share_8", @"title":@"动态"}];
+    }
+    return _shareArray;
 }
 
 static AWActionSheet *sheet = nil;
@@ -248,7 +286,7 @@ static AWActionSheet *sheet = nil;
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(6.5, 0, 57, 57)];
+        self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 50, 50)];
         [iconView setBackgroundColor:[UIColor clearColor]];
         [[iconView layer] setCornerRadius:10.5f];
         [[iconView layer] setMasksToBounds:YES];

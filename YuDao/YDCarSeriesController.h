@@ -10,4 +10,8 @@
 
 @interface YDCarSeriesController : YDTableViewController
 
+@property (nonatomic, copy) NSString *carBrandId;
+
+@property (nonatomic, strong) NSMutableDictionary *carDic;
+
 @end

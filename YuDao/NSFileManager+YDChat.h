@@ -11,6 +11,11 @@
 
 @interface NSFileManager (YDChat)
 /**
+ *  图片 — 认证图片
+ */
++ (NSString *)pathUserAuthenticateImage:(NSString *)imageName;
+
+/**
  *  图片 — 设置
  */
 + (NSString *)pathUserSettingImage:(NSString *)imageName;

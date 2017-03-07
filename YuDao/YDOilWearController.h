@@ -1,13 +1,16 @@
 //
-//  YDOilWearController.h
+//  YDOilwearController.h
 //  YuDao
 //
-//  Created by 汪杰 on 16/11/14.
-//  Copyright © 2016年 汪杰. All rights reserved.
+//  Created by 汪杰 on 17/1/3.
+//  Copyright © 2017年 汪杰. All rights reserved.
 //
 
 #import "YDViewController.h"
 
-@interface YDOilWearController : YDViewController
+@interface YDOilwearController : YDViewController
+
+@property (nonatomic, copy  ) NSString *accsess_token;
+@property (nonatomic, strong) NSNumber *ug_id;
 
 @end

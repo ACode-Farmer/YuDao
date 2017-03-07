@@ -6,9 +6,9 @@
 //  Copyright © 2016年 李伯坤. All rights reserved.
 //
 
-#import "NSDate+TLChat.h"
+#import "NSDate+YDChat.h"
 
-@implementation NSDate (TLChat)
+@implementation NSDate (YDChat)
 
 - (NSString *)chatTimeInfo
 {
@@ -28,16 +28,20 @@
 
 - (NSString *)conversaionTimeInfo
 {
-    if ([self isToday]) {       // 今天
+    if ([self isToday]) {
+        NSLog(@"今天");// 今天
         return self.formatHM;
     }
-    else if ([self isYesterday]) {      // 昨天
+    else if ([self isYesterday]) {
+        NSLog(@"昨天");// 昨天
         return @"昨天";
     }
-    else if ([self isThisWeek]){        // 本周
+    else if ([self isThisWeek]){
+        NSLog(@"本周");// 本周
         return self.dayFromWeekday;
     }
     else {
+        NSLog(@"其他的日期");
         return [self formatYMDWith:@"/"];
     }
 }

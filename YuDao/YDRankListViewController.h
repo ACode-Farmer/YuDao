@@ -9,5 +9,7 @@
 #import "YDViewController.h"
 
 @interface YDRankListViewController : YDViewController
-
+{
+    NSArray *_titles;
+}
 @end

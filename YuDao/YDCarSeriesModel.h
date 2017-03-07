@@ -10,4 +10,9 @@
 
 @interface YDCarSeriesModel : NSObject
 
+@property (nonatomic, assign) NSNumber *vs_id;
+@property (nonatomic, copy  ) NSString *vs_firstletter;
+@property (nonatomic, copy  ) NSString *vs_name;
+@property (nonatomic, assign) NSNumber *vb_id;
+
 @end

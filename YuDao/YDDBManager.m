@@ -16,8 +16,7 @@ static YDDBManager *manager;
 {
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        NSString *userID = [YDUserHelper sharedHelper].userID;
-        manager = [[YDDBManager alloc] initWithUserID:userID];
+        manager = [[YDDBManager alloc] init];
     });
     return manager;
 }
@@ -26,8 +25,10 @@ static YDDBManager *manager;
 {
     if (self = [super init]) {
         NSString *commonQueuePath = [NSFileManager pathDBCommon];
+        NSLog(@"commonQueuePath = %@",commonQueuePath);
         self.commonQueue = [FMDatabaseQueue databaseQueueWithPath:commonQueuePath];
         NSString *messageQueuePath = [NSFileManager pathDBMessage];
+        NSLog(@"messageQueuePath = %@",messageQueuePath);
         self.messageQueue = [FMDatabaseQueue databaseQueueWithPath:messageQueuePath];
     }
     return self;
@@ -35,8 +36,15 @@ static YDDBManager *manager;
 
 - (id)init
 {
-    NSLog(@"TLDBManager：请使用 initWithUserID: 方法初始化");
-    return nil;
+    if (self = [super init]) {
+        NSString *commonQueuePath = [NSFileManager pathDBCommon];
+        NSLog(@"commonQueuePath = %@",commonQueuePath);
+        self.commonQueue = [FMDatabaseQueue databaseQueueWithPath:commonQueuePath];
+        NSString *messageQueuePath = [NSFileManager pathDBMessage];
+        NSLog(@"messageQueuePath = %@",messageQueuePath);
+        self.messageQueue = [FMDatabaseQueue databaseQueueWithPath:messageQueuePath];
+    }
+    return self;
 }
 
 @end

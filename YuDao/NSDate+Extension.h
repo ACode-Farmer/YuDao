@@ -10,6 +10,9 @@
 
 @interface NSDate (Extension)
 
++ (NSDate *)dateFromTimeStamp:(NSString *)timeString;
+- (NSString *)timeStampFromDate;
+
 /**
  * 获取日、月、年、小时、分钟、秒
  */

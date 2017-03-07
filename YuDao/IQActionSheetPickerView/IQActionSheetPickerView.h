@@ -77,12 +77,14 @@ extern NSString * const kIQActionSheetAttributesForHighlightedStateKey;
 /*!
  Initialization method with a title for toolbar and a callback delegate
  */
-- (instancetype)initWithTitle:(NSString *)title delegate:(id<IQActionSheetPickerViewDelegate>)delegate;
+- (instancetype)initWithTitle:(NSString *)title delegate:(id<IQActionSheetPickerViewDelegate>)delegate initDate:(NSDate *)date;
 
 /*!
  delegate(weak reference) object to inform about the selected values in pickerView. Delegate method will be called on Done click.
  */
 @property(nonatomic, weak) id<IQActionSheetPickerViewDelegate> delegate;
+
+@property (nonatomic, copy) void (^didSelectDateBlock)(NSDate *date);
 
 /*!
  actionSheetPickerStyle to show in picker. Default is IQActionSheetPickerStyleTextPicker.

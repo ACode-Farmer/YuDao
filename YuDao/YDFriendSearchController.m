@@ -7,31 +7,79 @@
 //
 
 #import "YDFriendSearchController.h"
+#import "YDContactsCell.h"
+#import "YDFriendModel.h"
+
+#define     HEIGHT_NAVBAR               44.0f
+#define     HEIGHT_STATUSBAR            20.0f
 
 @interface YDFriendSearchController ()
+
+@property (nonatomic, strong) NSMutableArray *data;
 
 @end
 
 @implementation YDFriendSearchController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.data = [[NSMutableArray alloc] init];;
+    [self.tableView registerClass:[YDContactsCell class] forCellReuseIdentifier:@"FriendCell"];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tableView.y = HEIGHT_NAVBAR + HEIGHT_STATUSBAR;
+    self.tableView.height = screen_height - self.tableView.y;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.data.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"联系人";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YDContactsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendCell"];
+    
+    YDFriendModel *model = [self.data objectAtIndex:indexPath.row];
+    cell.model = model;
+    
+    return cell;
+}
+
+#pragma mark - Delegate -
+//MARK: UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return HEIGHT_FRIEND_CELL;
+}
+
+//MARK: UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchText = [searchController.searchBar.text lowercaseString];
+    [self.data removeAllObjects];
+    for (YDFriendModel *model in self.friendsData) {
+        if ([model.friendName containsString:searchText]) {
+            [self.data addObject:model];
+        }
+    }
+    [self.tableView reloadData];
+}
 
 @end

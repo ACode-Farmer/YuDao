@@ -7,10 +7,11 @@
 //
 
 #import "YDDDCommentCell.h"
-#import "YDDDContentModel.h"
 
 @implementation YDDDCommentCell
-
+{
+    UIView *_lineView;
+}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self.contentView sd_addSubviews:@[self.userImageView,self.titleLabel,self.subTitleLabel]];
@@ -19,25 +20,32 @@
     return self;
 }
 
-- (void)setModel:(YDDDNormalModel *)model{
+- (void)setModel:(YDDynamicCommentModel *)model{
     _model = model;
-    self.userImageView.image = [UIImage imageNamed:model.imageName];
-    self.titleLabel.text = model.title;
-    self.subTitleLabel.text = model.subTitle;
+    [self.userImageView sd_setImageWithURL:[NSURL URLWithString:model.ud_face] placeholderImage:[UIImage imageNamed:@"mine_user_placeholder"]];
+    self.titleLabel.text = model.ub_nickname;
+    self.subTitleLabel.text = model.cd_details;
     
-    [self setupAutoHeightWithBottomViewsArray:@[self.userImageView,self.titleLabel,self.subTitleLabel] bottomMargin:5];
+    if (model.cd_details.length == 0 || model.ub_nickname.length == 0) {
+        _lineView.sd_layout
+        .leftSpaceToView(self.contentView,19)
+        .rightSpaceToView(self.contentView,19)
+        .heightIs(1)
+        .topSpaceToView(self.userImageView,10);
+    }
+    
+    [self setupAutoHeightWithBottomViewsArray:@[self.userImageView,self.titleLabel,self.subTitleLabel,_lineView] bottomMargin:2];
 }
 
 
 - (void)y_layoutSubviews{
     UIView *view = self.contentView;
-    CGFloat kUserImage_left_space = screen_width*0.15/2;
+    //CGFloat kUserImage_left_space = screen_width*0.15/2;
     self.userImageView.sd_layout
-    .topSpaceToView(view,5)
-    .leftSpaceToView(view,kUserImage_left_space)
+    .topSpaceToView(view,10)
+    .leftSpaceToView(view,19)
     .heightIs(40)
     .widthIs(40);
-    self.userImageView.sd_cornerRadius = @5;
     
     self.titleLabel.sd_layout
     .topEqualToView(self.userImageView)
@@ -51,12 +59,25 @@
     .rightSpaceToView(view,20)
     .autoHeightRatio(0);
 
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor colorWithString:@"#B6C5DC"];
+    lineView.alpha = 0.7;
+    [self.contentView addSubview:lineView];
+    
+    lineView.sd_layout
+    .leftSpaceToView(self.contentView,19)
+    .rightSpaceToView(self.contentView,19)
+    .heightIs(1)
+    .topSpaceToView(self.subTitleLabel,10);
+    _lineView = lineView;
+    
 }
 
 #pragma mark - Getter
 - (UIImageView *)userImageView{
     if (_userImageView == nil) {
         _userImageView = [UIImageView new];
+        _userImageView.sd_cornerRadiusFromWidthRatio = @0.5;
     }
     return _userImageView;
 }
@@ -64,7 +85,7 @@
 - (UILabel *)titleLabel{
     if (_titleLabel == nil) {
         _titleLabel = [UILabel new];
-        _titleLabel.font = [UIFont font_14];
+        _titleLabel.font = [UIFont font_12];
         _titleLabel.textColor = [UIColor colorTextGray];
     }
     return _titleLabel;

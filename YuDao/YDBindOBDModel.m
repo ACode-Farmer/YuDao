@@ -10,4 +10,12 @@
 
 @implementation YDBindOBDModel
 
++ (YDBindOBDModel *)modelWithTitle:(NSString *)title placeholder:(NSString *)placeholder imageString:(NSString *)imageString;{
+    YDBindOBDModel *model = [YDBindOBDModel new];
+    model.title = title;
+    model.placeholder = placeholder;
+    model.imageString = imageString;
+    return model;
+}
+
 @end

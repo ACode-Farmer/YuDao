@@ -8,6 +8,8 @@
 
 #import "YDMyDataViewController.h"
 
-@interface YDMyDataViewController (Delegate)
+@interface YDMyDataViewController (Delegate)<UITableViewDataSource,UITableViewDelegate,YDMyInfoBaseCellDelegate>
+
+- (void)registerCell;
 
 @end

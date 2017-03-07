@@ -6,8 +6,13 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDViewController.h"
+#import "YDTableViewController.h"
+#import "YDLikePersonModel.h"
 
-@interface YDLikePersonController : YDViewController
+@interface YDLikePersonController : YDTableViewController
+
+@property (nonatomic, strong) NSMutableArray<YDLikePersonModel *> *data;
+
+@property (nonatomic, assign) YDLikedPeopleType likedType;
 
 @end

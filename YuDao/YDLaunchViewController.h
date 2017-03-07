@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSLaunchViewController : UIViewController
+@interface YDLaunchViewController : UIViewController
 
 @end

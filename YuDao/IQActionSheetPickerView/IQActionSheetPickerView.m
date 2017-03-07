@@ -56,7 +56,7 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (instancetype)initWithTitle:(NSString *)title delegate:(id<IQActionSheetPickerViewDelegate>)delegate
+- (instancetype)initWithTitle:(NSString *)title delegate:(id<IQActionSheetPickerViewDelegate>)delegate initDate:(NSDate *)date
 {
     CGRect rect = [[UIScreen mainScreen] bounds];
     rect.size.height = 216+44;
@@ -93,13 +93,21 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
             [_datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
             _datePicker.frame = _pickerView.frame;
             [_datePicker setDatePickerMode:UIDatePickerModeDate];
+            
             NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDate *currentDate = [NSDate date];
+            /*
+             NSUserDefaults *defa = [NSUserDefaults standardUserDefaults];
+             NSString *timeStamp = [defa valueForKey:@"UserAgeTimeStamp"];
+             NSDate *currentDate = [NSDate date];
+             if (timeStamp) {
+                currentDate = [currentDate dateFromTimeStamp:timeStamp];
+             }
+             */
+            [_datePicker setDate:date];
             NSDateComponents *comps = [[NSDateComponents alloc] init];
-            [comps setYear:0];//设置最大时间为：当前时间推后十年
-            NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
-            [comps setYear:-100];//设置最小时间为：当前时间前推十年
-            NSDate *minDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+            NSDate *maxDate = [NSDate date];
+            [comps setYear:-100];//设置最小时间为：当前时间前推一百年
+            NSDate *minDate = [calendar dateByAddingComponents:comps toDate:maxDate options:0];
             [_datePicker setMaximumDate:maxDate];
             [_datePicker setMinimumDate:minDate];
             [self addSubview:_datePicker];
@@ -107,7 +115,7 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
         
         //Initial settings
         {
-            self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+            self.backgroundColor = [UIColor whiteColor];
             [self setFrame:CGRectMake(0, 0, CGRectGetWidth(_pickerView.frame), CGRectGetMaxY(_pickerView.frame))];
             [self setActionSheetPickerStyle:IQActionSheetPickerStyleTextPicker];
             
@@ -293,10 +301,15 @@ NSString * const kIQActionSheetAttributesForHighlightedStateKey = @"kIQActionShe
             [self setDate:_datePicker.date];
             [self setSelectedTitles:@[_datePicker.date]];
             
-            if ([self.delegate respondsToSelector:@selector(actionSheetPickerView:didSelectDate:)])
+            if (self.didSelectDateBlock) {
+                self.didSelectDateBlock(_datePicker.date);
+            }else{
+                if ([self.delegate respondsToSelector:@selector(actionSheetPickerView:didSelectDate:)])
             {
                 [self.delegate actionSheetPickerView:self didSelectDate:_datePicker.date];
             }
+            }
+            
         }
             
         default:

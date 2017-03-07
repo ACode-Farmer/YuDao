@@ -13,6 +13,9 @@
 #pragma mark - 色值
 + (UIColor *)colorWithString:(NSString *)colorString;
 
+#define YellowColor [UIColor colorWithString:@"#F8E71E"];
+#define PurpleColor [UIColor colorWithString:@"#70449F"];
+
 #pragma mark - # 字体
 + (UIColor *)colorTextBlack;
 + (UIColor *)colorTextGray;

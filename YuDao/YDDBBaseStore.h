@@ -11,7 +11,7 @@
 
 @interface YDDBBaseStore : NSObject
 
-/// 数据库操作队列(从TLDBManager中获取，默认使用commonQueue)
+/// 数据库操作队列(从YDDBManager中获取，默认使用commonQueue)
 @property (nonatomic, weak) FMDatabaseQueue *dbQueue;
 
 /**
@@ -38,5 +38,10 @@
  *  执行查询指令
  */
 - (void)excuteQuerySQL:(NSString*)sqlStr resultBlock:(void(^)(FMResultSet * rsSet))resultBlock;
+
+/**
+ *  统计
+ */
+- (NSUInteger )excuteCountSql:(NSString *)sqlStr;
 
 @end

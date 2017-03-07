@@ -7,16 +7,35 @@
 //
 
 #import "YDDBBaseStore.h"
+#import "YDFriendModel.h"
 
-@interface YDFriendStore : YDDBBaseStore
+@interface YDDBFriendStore : YDDBBaseStore
 
-- (BOOL)updateFriendsData:(NSArray *)friendData
-                   forUid:(NSString *)uid;
 
-- (BOOL)addFriend:(YDUser *)user forUid:(NSString *)uid;
 
-- (NSMutableArray *)friendsDataByUid:(NSString *)uid;
+/**
+ *  添加好友
+ *
+ */
+- (BOOL)addFriend:(YDFriendModel *)user;
 
-- (BOOL)deleteFriendByFid:(NSString *)fid forUid:(NSString *)uid;
+/**
+ *  获得所有好友
+ *
+ */
+- (NSMutableArray *)friendsDataByUid:(NSNumber *)uid;
+
+/**
+ *  查询是否存在此好友
+ *
+ */
+- (BOOL )friendIsInExistenceByUid:(NSNumber *)uid;
+
+/**
+ *  删除好友
+ *
+ */
+- (BOOL)deleteFriendByFid:(NSNumber *)fid forUid:(NSNumber *)uid;
+
 
 @end

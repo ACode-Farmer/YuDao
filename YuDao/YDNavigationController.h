@@ -10,4 +10,13 @@
 
 @interface YDNavigationController : UINavigationController
 
+//隐藏导航栏底部黑线
+- (void)hiddenBottomImageView:(BOOL )hidden;
+- (void)completelyTransparentNavigationBar;
+- (void)defaultNavigationBar;
+
+//设备型号
++ (NSString *)platform;
+
+
 @end

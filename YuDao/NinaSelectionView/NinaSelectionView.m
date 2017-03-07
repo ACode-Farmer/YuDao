@@ -382,9 +382,14 @@
 #pragma mark - NinaButtonAction
 - (void)ninaButtonAciton:(UIButton *)button {
     [self ninaSelectChangeColor:button];
+    if (self.didSelectedButtonBlock) {
+        self.didSelectedButtonBlock(button);
+    }
     if ([self.ninaSelectionDelegate respondsToSelector:@selector(selectNinaAction:)]) {
         [self.ninaSelectionDelegate selectNinaAction:button];
     }
+    
+    [self showOrDismissNinaViewWithDuration:0.3];
 }
 
 #pragma mark - SelectColorChangeAction

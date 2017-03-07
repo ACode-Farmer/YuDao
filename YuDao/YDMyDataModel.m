@@ -10,4 +10,12 @@
 
 @implementation YDMyDataModel
 
++ (YDMyDataModel *)modelWithTitle:(NSString *)title subTitle:(NSString *)subTitle subImageName:(NSString *)subImageName{
+    YDMyDataModel *model = [YDMyDataModel new];
+    model.title = title;
+    model.subTitle = subTitle;
+    model.subImageName = subImageName;
+    return model;
+}
+
 @end

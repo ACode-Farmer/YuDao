@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class TLAddMenuView;
-@protocol TLAddMenuViewDelegate <NSObject>
+@class YDAddMenuView;
+@protocol YDAddMenuViewDelegate <NSObject>
 
-- (void)addMenuView:(TLAddMenuView *)addMenuView didSelectedItem:(YDCarDetailModel *)item;
+- (void)addMenuView:(YDAddMenuView *)addMenuView didSelectedItem:(YDCarDetailModel *)item;
 
 @end
 
-@interface TLAddMenuView : UIView
+@interface YDAddMenuView : UIView
 
-@property (nonatomic, assign) id<TLAddMenuViewDelegate>delegate;
+@property (nonatomic, assign) id<YDAddMenuViewDelegate>delegate;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *data;
 
 /**
  *  显示AddMenu

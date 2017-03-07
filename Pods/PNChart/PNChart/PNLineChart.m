@@ -196,7 +196,7 @@
             NSInteger x = (index * _xLabelWidth + _chartMarginLeft + _xLabelWidth / 2.0);
             NSInteger y = _chartMarginBottom + _chartCavanHeight;
 
-            PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(x, y, (NSInteger) _xLabelWidth, (NSInteger) _chartMarginBottom)];
+            PNChartLabel *label = [[PNChartLabel alloc] initWithFrame:CGRectMake(x-25, y, (NSInteger) _xLabelWidth, (NSInteger) _chartMarginBottom)];
             [label setTextAlignment:NSTextAlignmentCenter];
             label.text = labelText;
             [self setCustomStyleForXLabel:label];
@@ -556,7 +556,7 @@
             pointLayer.strokeColor = [[chartData.color colorWithAlphaComponent:chartData.alpha] CGColor];
             pointLayer.lineCap = kCALineCapRound;
             pointLayer.lineJoin = kCALineJoinBevel;
-            pointLayer.fillColor = nil;
+            pointLayer.fillColor = [UIColor clearColor].CGColor;
             pointLayer.lineWidth = chartData.lineWidth;
             [self.layer addSublayer:pointLayer];
             [self.chartPointArray addObject:pointLayer];

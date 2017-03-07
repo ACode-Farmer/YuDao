@@ -210,11 +210,11 @@
     NSString *str;
     NSInteger chaDay = [self daysBetweenCurrentDateAndDate];
     if (chaDay == 0) {
-        str = @"Today";
+        str = @"今天";
     }else if (chaDay == 1){
-        str = @"Tomorrow";
+        str = @"明天";
     }else if (chaDay == -1){
-        str = @"Yesterday";
+        str = @"昨天";
     }else{
         str = [self stringYearMonthDay];
     }
@@ -279,6 +279,8 @@
     return @"yyyy-MM-dd HH:mm";
 }
 
+
+
 #pragma mark - Date adjust
 - (NSDate *) dateByAddingDays: (NSInteger) dDays
 {
@@ -342,6 +344,7 @@
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     return newDate;
 }
+
 
 
 - (BOOL) isEqualToDateIgnoringTime: (NSDate *) aDate

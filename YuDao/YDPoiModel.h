@@ -10,4 +10,9 @@
 
 @interface YDPoiModel : NSObject
 
+@property (nonatomic, copy  ) NSString *name;
+@property (nonatomic, copy  ) NSString *address;
+@property (nonatomic, assign) CGFloat lat;
+@property (nonatomic, assign) CGFloat lon;
+
 @end

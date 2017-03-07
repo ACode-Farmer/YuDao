@@ -10,4 +10,14 @@
 
 @implementation YDDynamicModel
 
+- (CGFloat )width{
+    NSString *width = [[self.d_image componentsSeparatedByString:@","] objectAtIndex:1];
+    return [width floatValue];
+}
+
+- (CGFloat )height{
+    NSString *height = [[self.d_image componentsSeparatedByString:@","] lastObject];
+    return [height floatValue];
+}
+
 @end

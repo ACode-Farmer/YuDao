@@ -61,13 +61,13 @@
             edgeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Chat_record_circle"]];
         
         self.subTitleLabel.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2,[[UIScreen mainScreen] bounds].size.height/2 + 30);
-        self.subTitleLabel.text = @"Slide up to cancel";
+        self.subTitleLabel.text = @"手指上滑，取消发送";
         self.subTitleLabel.textAlignment = NSTextAlignmentCenter;
         self.subTitleLabel.font = [UIFont boldSystemFontOfSize:14];
         self.subTitleLabel.textColor = [UIColor whiteColor];
         
         self.titleLabel.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2,[[UIScreen mainScreen] bounds].size.height/2 - 30);
-        self.titleLabel.text = @"Time Limit";
+        self.titleLabel.text = @"时间 限制";
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         self.titleLabel.textColor = [UIColor whiteColor];
@@ -152,7 +152,7 @@
         centerLabel.textColor = [UIColor whiteColor];
         
         CGFloat timeLonger;
-        if ([state isEqualToString:@"TooShort"]) {
+        if ([state isEqualToString:@"太短"]) {
             timeLonger = 1;
         }else{
             timeLonger = 0.6;

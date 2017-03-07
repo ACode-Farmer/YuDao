@@ -6,16 +6,21 @@
 //  Copyright © 2016年 topsports2. All rights reserved.
 //
 
-#import "TSLaunchViewController.h"
-#import "YDMainViewController.h"
+#import "YDLaunchViewController.h"
+#import "YDRootViewController.h"
+#import <AddressBook/AddressBook.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
-#define kWidth self.view.bounds.size.width
-#define kHeight self.view.bounds.size.height
+#import "YDCurrentLocation.h"
 
-@interface TSLaunchViewController ()<UIScrollViewDelegate>
+@import CoreTelephony;
+@import Photos;
+
+@interface YDLaunchViewController ()<UIScrollViewDelegate>
 
 {
-    NSArray *imgArr;//存放滚动图片的数组
+    NSArray *_imgArr;//存放滚动图片的数组
 }
 
 @property (nonatomic, strong) UIScrollView *scrollView;//滚动视图
@@ -23,7 +28,7 @@
 
 @end
 
-@implementation TSLaunchViewController
+@implementation YDLaunchViewController
 
 #pragma mark - 控制器周期方法
 
@@ -33,15 +38,24 @@
     /**
      *引动页中图片的设置
      */
-    imgArr = @[@"launchImage_00", @"launchImage_01", @"launchImage_02", @"launchImage_03"];
+    _imgArr = @[@"first_launchImage_1", @"first_launchImage_2", @"first_launchImage_3", @"first_launchImage_4"];
     
     [self.view addSubview:self.scrollView];
     [self.view addSubview:self.pageControl];
+    
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+    
+    [YDCurrentLocation shareCurrentLocation];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+   
 }
 
 #pragma mark - 懒加载
@@ -56,7 +70,7 @@
         _scrollView.bounces = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;
-        _scrollView.contentSize = CGSizeMake(kWidth * imgArr.count, kHeight);
+        _scrollView.contentSize = CGSizeMake(screen_width * _imgArr.count, screen_height);
         
         [self addImageViewONScrollView];
     }
@@ -67,9 +81,9 @@
     
     if (!_pageControl) {
         
-        _pageControl = [[UIPageControl alloc] initWithFrame:(CGRectMake(kWidth/3, kHeight*15/16, kWidth/3, kHeight/16))];
+        _pageControl = [[UIPageControl alloc] initWithFrame:(CGRectMake(screen_width/3, screen_height*15/16, screen_width/3, screen_height/16))];
         
-        _pageControl.numberOfPages = imgArr.count;
+        _pageControl.numberOfPages = _imgArr.count;
         _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
     }
@@ -85,27 +99,25 @@
 
 - (void)addImageViewONScrollView {
     
-    for (int i = 0; i < imgArr.count; i++) {
+    for (int i = 0; i < _imgArr.count; i++) {
         
-        UIImage *img = [UIImage imageNamed:imgArr[i]];
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kWidth * i, 0, kWidth, kHeight)];
+        UIImage *img = [UIImage imageNamed:_imgArr[i]];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(screen_width * i, 0, screen_width, screen_height)];
         
         //在滚动页最后一页添加按钮
-        if (i  == imgArr.count - 1) {
+        if (i  == _imgArr.count - 1) {
             
             imgView.userInteractionEnabled = YES;
             
             UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
             
-            button.frame = CGRectMake(kWidth/3, kHeight * 7/8, kWidth/3, kHeight/16);
-            button.layer.borderWidth = 2;
-            button.layer.cornerRadius = 5;
-            //button.layer.borderColor = [UIColor whiteColor].CGColor;
-            button.layer.borderColor = [UIColor lightGrayColor].CGColor;
-            button.clipsToBounds = YES;
+            button.frame = CGRectMake(0, screen_height - 150, screen_width, screen_height);
+//            button.layer.borderWidth = 2;
+//            button.layer.cornerRadius = 5;
+//            //button.layer.borderColor = [UIColor whiteColor].CGColor;
+//            button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//            button.clipsToBounds = YES;
             
-            [button setTitle:@"点击进入" forState:(UIControlStateNormal)];
-            [button setTitleColor:[UIColor lightGrayColor] forState:(UIControlStateNormal)];
             [button addTarget:self action:@selector(go:) forControlEvents:(UIControlEventTouchUpInside)];
             
             [imgView addSubview:button];
@@ -119,7 +131,48 @@
 //代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    self.pageControl.currentPage = scrollView.contentOffset.x/kWidth;
+    self.pageControl.currentPage = scrollView.contentOffset.x/screen_width;
+    switch (self.pageControl.currentPage) {
+        case 1:
+        {
+            //通讯录权限
+            ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+                if (granted) {
+                    //NSLog(@"Authorized");
+                    CFRelease(addressBook);
+                }else{
+                    //NSLog(@"Denied or Restricted");
+                }
+            });
+            break;}
+        case 2:
+        {
+            //麦克风权限
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+                if (granted) {
+                    //NSLog(@"Authorized");
+                }else{
+                    //NSLog(@"Denied or Restricted");
+                }
+            }];
+            
+            break;}
+        case 3:
+        {
+            //相册
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    //NSLog(@"Authorized");
+                }else{
+                    //NSLog(@"Denied or Restricted");
+                }
+            }];
+            
+            break;}
+        default:
+            break;
+    }
 }
 
 /**
@@ -132,17 +185,8 @@
     [user setBool:YES forKey:@"isFirst"];
     [user synchronize];
     
-    [UIApplication sharedApplication].keyWindow.rootViewController = [[YDMainViewController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[YDRootViewController alloc] init];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

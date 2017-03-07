@@ -8,7 +8,7 @@
 
 #import "KNPercentLabel.h"
 
-@interface KNPercentLabel() <KNPercentDelegate>
+@interface KNPercentLabel() <KNPercentDelegate,CAAnimationDelegate>
 
 @property (strong, nonatomic) KNPercentLayer *layer;
 @property (strong, nonatomic) UIView *object;
@@ -32,21 +32,31 @@
     }
     return self;
 }
-
+- (void)setHidden:(BOOL)hidden{
+    
+    self.object.hidden = hidden;
+}
 - (void)start {
     [self.layer startAnimation];
 }
 
 - (void)layer:(KNPercentLayer *)layer didSetAnimationPropertyTo:(CGFloat)toValue {
     int percent = (int)toValue;
+    
     NSString *text = [NSString stringWithFormat:@"%2d分", percent];
-    [self.object setValue:text forKey:self.key];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributeString addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Cochin-Bold" size:48]} range:NSMakeRange(0, text.length-1)];
+    
+    [self.object setValue:attributeString forKey:self.key];
+    
 }
 
 - (void)layerDidStopAnimation {
     int percent = (int)self.layer.toValue;
     NSString *text = [NSString stringWithFormat:@"%2d分", percent];
-    [self.object setValue:text forKey:self.key];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributeString addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Cochin-Bold" size:48]} range:NSMakeRange(0, text.length-1)];
+    [self.object setValue:attributeString forKey:self.key];
     [self.layer removeFromSuperlayer];
 }
 @end
@@ -97,7 +107,7 @@
     animation.toValue = [NSNumber numberWithFloat:self.toValue];
     animation.duration = self.tweenDuration;
     animation.beginTime = CACurrentMediaTime() + self.delay;
-    animation.delegate = self;
+    animation.delegate = (id)self;
     
     return animation;
 }

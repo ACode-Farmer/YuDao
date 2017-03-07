@@ -16,10 +16,11 @@
 - (instancetype)initWithTitle:(NSString *)title{
     if (self = [super init]) {
         _leftView = [UIView new];
-        _leftView.backgroundColor = [UIColor blueColor];
+        _leftView.backgroundColor = [UIColor clearColor];
         _rightBtn = [UIButton new];
         [_rightBtn setTitle:title forState:0];
-        [_rightBtn setTitleColor:[UIColor blackColor] forState:0];
+        [_rightBtn setTitleColor:[UIColor whiteColor] forState:0];
+        [_rightBtn.titleLabel setFont:[UIFont font_13]];
         [_rightBtn addTarget:self action:@selector(rightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         [_rightBtn.titleLabel setAdjustsFontSizeToFitWidth:YES];
         [self sd_addSubviews:@[_leftView,_rightBtn]];

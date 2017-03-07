@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "UIParameter.h"
 
 typedef NS_ENUM(NSInteger, NinaPopDirection) {
     /**<  Pop from above   **/
@@ -97,5 +98,7 @@ typedef NS_ENUM(NSInteger, NinaPopDirection) {
  *  NinaSelectionDelegate
  */
 @property (nonatomic, weak)id<NinaSelectionDelegate>ninaSelectionDelegate;
+
+@property (nonatomic, copy) void (^didSelectedButtonBlock)(UIButton *selectedBtn);
 
 @end

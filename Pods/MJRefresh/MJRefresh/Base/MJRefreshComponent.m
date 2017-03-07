@@ -221,6 +221,7 @@
     if (self.isAutomaticallyChangeAlpha) {
         self.alpha = pullingPercent;
     }
+    
 }
 
 #pragma mark - 内部方法

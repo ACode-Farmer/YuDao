@@ -6,8 +6,13 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import "YDTableViewController.h"
+#import "YDViewController.h"
+#import "KNCirclePercentView.h"
 
-@interface YDTestViewController : YDTableViewController
+@interface YDTestViewController : YDViewController
+
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) YDCarDetailModel *car;
 
 @end

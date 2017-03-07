@@ -8,6 +8,8 @@
 
 #import "YDContactsViewController.h"
 
-@interface YDContactsViewController (Delegate)
+@interface YDContactsViewController (Delegate)<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,YDContactsTableViewDelegate>
+
+- (void)registerCellClass;
 
 @end

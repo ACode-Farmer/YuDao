@@ -6,8 +6,11 @@
 //  Copyright © 2016年 汪杰. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YDViewController.h"
 
-@interface MyselfController : CommonController
+@interface YDMyselfController :YDViewController
+
+//更新消息或联系人提醒
+- (void)updateMessageOrContactsRemindWith:(YDNotificationType )type count:(NSInteger )count;
 
 @end

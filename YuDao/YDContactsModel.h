@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "pinyin.h"
 
+
 @interface YDContactsModel : NSObject
 
 @property (nonatomic, assign) YDGroupDetailType groupType;
@@ -17,10 +18,13 @@
 @property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, copy) NSString *phoneNumber;
 
+@property (nonatomic, strong) NSNumber *ub_id;
+@property (nonatomic, assign) BOOL isJoined;
+
+@property (nonatomic, strong) XMPPJID *jid;
+
 //1.已经是好友了  2.已注册但不是好友  3.未注册(邀请注册)
 @property (nonatomic, assign) NSInteger type;
-
-
 
 
 + (instancetype)modelWith:(NSString *)name;

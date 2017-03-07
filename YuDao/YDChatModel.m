@@ -6,16 +6,31 @@
 //  Copyright (c) 2015年 uyiuyao. All rights reserved.
 //
 
-#import "ChatModel.h"
+#import "YDChatModel.h"
 
-#import "UUMessage.h"
-#import "UUMessageFrame.h"
-
-@implementation ChatModel
+@implementation YDChatModel
+{
+    NSString *_name;
+    NSString *_headerUrl;
+}
++ (YDChatModel *)chatModelWithUserId:(NSNumber *)userId name:(NSString *)name headerUrl:(NSString *)headerUrl{
+    YDChatModel *model = [YDChatModel new];
+    model.userId = userId;
+    model.name = name ? name : @"未知";
+    model.headerUrl = headerUrl ? headerUrl : @"";
+    
+    
+    
+    return model;
+}
 
 - (void)populateRandomDataSource {
     self.dataSource = [NSMutableArray array];
-    [self.dataSource addObjectsFromArray:[self additems:5]];
+    
+}
+
+- (void)getHistoryChatRecordWith:(NSNumber *)userId{
+    self.dataSource = [NSMutableArray array];
 }
 
 - (void)addRandomItemsToDataSource:(NSInteger)number{
@@ -25,17 +40,38 @@
     }
 }
 
+// 添加别人的item
+- (UUMessageFrame *)addOthersItemWithContent:(NSDictionary *)dic{
+    UUMessageFrame *messageFrame = [[UUMessageFrame alloc]init];
+    UUMessage *message = [[UUMessage alloc] init];
+    NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+    
+    [dataDic setObject:@(UUMessageFromOther) forKey:@"from"];
+    [dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
+    [dataDic setObject:_name forKey:@"strName"];
+    [dataDic setObject:_headerUrl forKey:@"strIcon"];
+    
+    [message setWithDict:dataDic];
+    [message minuteOffSetStart:previousTime end:dataDic[@"strTime"]];
+    messageFrame.showTime = message.showDateLabel;
+    [messageFrame setMessage:message];
+    
+    if (message.showDateLabel) {
+        previousTime = dataDic[@"strTime"];
+    }
+    return messageFrame;
+}
 // 添加自己的item
-- (void)addSpecifiedItem:(NSDictionary *)dic
+- (UUMessageFrame *)addSpecifiedItem:(NSDictionary *)dic
 {
     UUMessageFrame *messageFrame = [[UUMessageFrame alloc]init];
     UUMessage *message = [[UUMessage alloc] init];
     NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:dic];
     
-    NSString *URLStr = @"http://img0.bdstatic.com/img/image/shouye/xinshouye/mingxing16.jpg";
+    NSString *URLStr = [YDUserDefault defaultUser].user.ud_face;
     [dataDic setObject:@(UUMessageFromMe) forKey:@"from"];
     [dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
-    [dataDic setObject:@"Hello,Sister" forKey:@"strName"];
+    [dataDic setObject:[YDUserDefault defaultUser].user.ub_nickname forKey:@"strName"];
     [dataDic setObject:URLStr forKey:@"strIcon"];
     
     [message setWithDict:dataDic];
@@ -46,7 +82,7 @@
     if (message.showDateLabel) {
         previousTime = dataDic[@"strTime"];
     }
-    [self.dataSource addObject:messageFrame];
+    return messageFrame;
 }
 
 // 添加聊天item（一个cell内容）
@@ -86,14 +122,15 @@ static int dateNum = 10;
         randomNum = UUMessageTypeText;
         [dictionary setObject:[self getRandomString] forKey:@"strContent"];
     }
+    randomNum = UUMessageTypeText;
     NSDate *date = [[NSDate date]dateByAddingTimeInterval:arc4random()%1000*(dateNum++) ];
     [dictionary setObject:@(UUMessageFromOther) forKey:@"from"];
     [dictionary setObject:@(randomNum) forKey:@"type"];
     [dictionary setObject:[date description] forKey:@"strTime"];
     // 这里判断是否是私人会话、群会话
-    int index = _isGroupChat ? arc4random()%6 : 0;
-    [dictionary setObject:[self getName:index] forKey:@"strName"];
-    [dictionary setObject:[self getImageStr:index] forKey:@"strIcon"];
+    //int index = _isGroupChat ? arc4random()%6 : 0;
+    [dictionary setObject:self.name forKey:@"strName"];
+    [dictionary setObject:self.headerUrl forKey:@"strIcon"];
     
     return dictionary;
 }
@@ -125,4 +162,6 @@ static int dateNum = 10;
     NSArray *array = @[@"Hi,Daniel",@"Hi,Juey",@"Hey,Jobs",@"Hey,Bob",@"Hah,Dane",@"Wow,Boss"];
     return array[index];
 }
+
+
 @end
